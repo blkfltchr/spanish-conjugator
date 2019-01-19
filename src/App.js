@@ -5,7 +5,7 @@ class App extends Component {
     return (
       <div>
         <h1>Spanish Conjugator</h1>
-        <p>Hello world. Vamos!</p>
+        <p>Hello world. Vamos! Ondulé!</p>
       </div>
     );
   }
