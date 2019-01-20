@@ -15,10 +15,12 @@ const Text = props => {
   return (
     <div>
       <div>
-        <h3>Verb: {randomVerb.infinitive}</h3>
-        <h3>Translation: {randomVerb.infinitive_english}</h3>
-        <h3>Tense: {randomVerb.tense}</h3>
-        <h3>Person: {Object.values(person)[number]}</h3>
+        <p>Verb: {randomVerb.infinitive}</p>
+        <p>Translation: {randomVerb.infinitive_english}</p>
+        <p>
+          Tense: {randomVerb.tense} ({randomVerb.tense_english})
+        </p>
+        <p>Person: {Object.values(person)[number]}</p>
       </div>
     </div>
   );
