@@ -18,7 +18,7 @@ const Text = props => {
         <h3>Verb: {randomVerb.infinitive}</h3>
         <h3>Translation: {randomVerb.infinitive_english}</h3>
         <h3>Tense: {randomVerb.tense}</h3>
-        <h3>{Object.values(person)[number]}</h3>
+        <h3>Person: {Object.values(person)[number]}</h3>
       </div>
     </div>
   );
