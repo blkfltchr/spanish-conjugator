@@ -17,9 +17,28 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: miniData
+      data: miniData,
+      verbTenses: []
     };
   }
+
+  filterData = event => {
+    event.preventDefault();
+    const test = Object.values(miniData).filter(
+      verb => verb.infinitive === 'hablar'
+    );
+    this.setState({
+      data: test
+    });
+  };
+
+  setTenses = event => {
+    this.setState({
+      verbTenses: event.target.value
+    });
+    console.log('Clicked!');
+  };
+
   render() {
     return (
       <div>
@@ -29,14 +48,20 @@ class App extends Component {
             exact
             path="/"
             render={props => (
-              <ConjugatorContainer {...props} data={this.state.data} />
+              <ConjugatorContainer
+                {...props}
+                setTenses={this.setTenses}
+                data={this.state.data}
+              />
             )}
           />
         </div>
         <div>
           <Route
             path="/options"
-            render={props => <OptionsContainer {...props} />}
+            render={props => (
+              <OptionsContainer {...props} filterData={this.filterData} />
+            )}
           />
         </div>
       </div>
