@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import miniData from './miniData';
 import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import OptionsContainer from './components/optionsPage/OptionsContainer';
+import styled from 'styled-components';
+
+const StyledLink = styled(Link)`
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  }
+`;
 
 class App extends Component {
   constructor() {
@@ -14,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Spanish Conjugator</h1>
+        <StyledLink to="/">Spanish Conjugator</StyledLink>
         <div>
           <Route
             exact

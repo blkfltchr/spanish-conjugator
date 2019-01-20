@@ -18,6 +18,7 @@ const OptionsContainer = () => {
         <h3>Number and Person</h3>
         <NumberPerson />
       </div>
+      <input type="submit" />
     </div>
   );
 };
