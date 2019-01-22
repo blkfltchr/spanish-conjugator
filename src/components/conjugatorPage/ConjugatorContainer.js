@@ -17,7 +17,7 @@ const ConjugatorContainer = props => {
     <div>
       <StyledLink to="/options">Options</StyledLink>
       <Text data={props.data} />
-      <Input />
+      <Input data={props.data} />
     </div>
   );
 };
