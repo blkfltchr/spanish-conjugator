@@ -1,5 +1,6 @@
 import React from 'react';
 import Text from './Text';
+import Input from './Input';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -16,6 +17,7 @@ const ConjugatorContainer = props => {
     <div>
       <StyledLink to="/options">Options</StyledLink>
       <Text data={props.data} />
+      <Input />
     </div>
   );
 };
