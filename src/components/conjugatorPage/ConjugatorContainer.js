@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Text from './Text';
 import Input from './Input';
 import { Link } from 'react-router-dom';
@@ -12,14 +12,20 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const ConjugatorContainer = props => {
-  return (
-    <div>
-      <StyledLink to="/options">Options</StyledLink>
-      <Text data={props.data} />
-      <Input data={props.data} />
-    </div>
-  );
-};
-
+class ConjugatorContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {  }
+  }
+  render() { 
+    return ( 
+      <div>
+        <StyledLink to="/options">Options</StyledLink>
+        <Text data={this.props.data} />
+        <Input data={this.props.data} />
+      </div>
+     );
+  }
+}
+ 
 export default ConjugatorContainer;

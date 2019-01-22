@@ -55,9 +55,9 @@ class Input extends Component {
                 </p>
                 <input type="text" value={this.state.value} onChange={this.handleChange} />
                 <button onClick={this.handleSubmit}>Check</button>
-                { this.state.answer &&
-                 <p>False, the correct answer is <i>{this.state.answer}</i>.</p>
-                }
+                    { this.state.answer &&
+                        <p>False, the correct answer is <i>{this.state.answer}</i>.</p>
+                    }
                 <p><button onClick={() => window.location.reload()}>Next verb</button></p>
             </div>
          );
