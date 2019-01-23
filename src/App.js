@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import miniData from './miniData';
-import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import OptionsContainer from './components/optionsPage/OptionsContainer';
-import styled from 'styled-components';
-
-const StyledLink = styled(Link)`
-  font-size: 2rem;
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-  }
-`;
+import Home from './components/home/Home';
+import Header from './components/Header';
+import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer'
 
 class App extends Component {
   constructor() {
@@ -41,12 +34,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <StyledLink to="/">Spanish Conjugator</StyledLink>
-        <div>
-          <Route
-            exact
-            path="/"
+      <div style={{width: '420px', margin: '0 auto'}}>
+        <Route path="/" component={Header} />
+        <Route exact path="/" component={Home} />
+        <Route
+            exact path="/random"
             render={props => (
               <ConjugatorContainer
                 {...props}
@@ -55,10 +47,9 @@ class App extends Component {
               />
             )}
           />
-        </div>
         <div>
           <Route
-            path="/options"
+            exact path="/options"
             render={props => (
               <OptionsContainer {...props} filterData={this.filterData} />
             )}

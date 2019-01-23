@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
-import Text from './Text';
-import Input from './Input';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const StyledLink = styled(Link)`
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-  }
-`;
+import OptionsButton from '../home/OptionsButton';
+import Random from './Random';
 
 class ConjugatorContainer extends Component {
   constructor(props) {
@@ -20,9 +10,9 @@ class ConjugatorContainer extends Component {
   render() { 
     return ( 
       <div>
-        <StyledLink to="/options">Options</StyledLink>
-        <Text data={this.props.data} />
-        <Input data={this.props.data} />
+        <h3>Based on the verb, tense, and person...<br /> submit your answer below.</h3>
+        <Random data={this.props.data} />
+        <OptionsButton />
       </div>
      );
   }

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import '../../app.css'
 
-class Input extends Component {
+class Random extends Component {
     constructor(props) {
         super(props);
         this.state = { 
             value: '',
-            answer: ''
+            answer: false,
+            hint: false,
+            helperText: ''
          }
     }
 
@@ -20,7 +23,12 @@ class Input extends Component {
         event.preventDefault();
         if (this.randomPerson[1] === this.state.value) {
             alert("Correct!")
-        } this.setState({answer: this.randomPerson[1]}) 
+        } this.setState({answer: true, helperText: `False, the correct answer is ${this.randomPerson[1]}.`}) 
+    }
+
+    handleHint = (event) => {
+        event.preventDefault();
+        this.setState({hint: true, helperText: `The answer starts with ${this.randomPerson[1].substring(0, 3)}...`}) 
     }
     
     render() { 
@@ -53,15 +61,26 @@ class Input extends Component {
                         <span> Gerund</span>
                     }
                 </p>
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
-                <button onClick={this.handleSubmit}>Check</button>
-                    { this.state.answer &&
-                        <p>False, the correct answer is <i>{this.state.answer}</i>.</p>
-                    }
-                <p><button onClick={() => window.location.reload()}>Next verb</button></p>
+                <label>
+                    <input 
+                        type="text"
+                        value={this.state.value} 
+                        onChange={this.handleChange}
+                        className='input'
+                    />
+                    <span style={{fontSize: '12px'}}>En Español</span>
+                </label>
+                { (this.state.hint || this.state.answer) &&
+                    <p>{this.state.helperText}</p>
+                }
+                <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'space-between'}}>
+                    <button className='button' onClick={this.handleSubmit}>Check</button>
+                    <button className='button' onClick={this.handleHint}>Hint</button>
+                    <button className='button' onClick={() => window.location.reload()}>Next verb</button>
+                </div>
             </div>
          );
     }
 }
  
-export default Input;
+export default Random;
