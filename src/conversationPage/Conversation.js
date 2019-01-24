@@ -28,7 +28,7 @@ const Conversation = () => {
                         steps={[
                             {
                                 id: '1',
-                                message: '¿Cómo te llamas?',
+                                message: 'Hola! ¿Cómo estás?',
                                 trigger: '2',
                             },
                             {
@@ -38,7 +38,7 @@ const Conversation = () => {
                             },
                             {
                                 id: '3',
-                                message: '¿De dónde eres?',
+                                message: '¿Cómo te llamas?',
                                 trigger: '4',
                             },
                             {
@@ -48,8 +48,8 @@ const Conversation = () => {
                             },
                             {
                                 id: '5',
-                                message: '¿En qué trabajas?',
-                                trigger: '6'
+                                message: '¿De dónde eres?',
+                                trigger: '6',
                             },
                             {
                                 id: '6',
@@ -58,8 +58,8 @@ const Conversation = () => {
                             },
                             {
                                 id: '7',
-                                message: '¿Cuánto tiempo llevas aquí?',
-                                trigger: '8',
+                                message: '¿En qué trabajas?',
+                                trigger: '8'
                             },
                             {
                                 id: '8',
@@ -68,7 +68,7 @@ const Conversation = () => {
                             },
                             {
                                 id: '9',
-                                message: '¿Qué música prefieres?',
+                                message: '¿Cuánto tiempo llevas aquí?',
                                 trigger: '10',
                             },
                             {
@@ -78,7 +78,7 @@ const Conversation = () => {
                             },
                             {
                                 id: '11',
-                                message: '¿Qué deportes te gusta ver?',
+                                message: '¿Dónde vives?',
                                 trigger: '12',
                             },
                             {
@@ -88,6 +88,51 @@ const Conversation = () => {
                             },
                             {
                                 id: '13',
+                                message: '¿Te gusta la comida colombiana?',
+                                trigger: '14',
+                            },
+                            {
+                                id: '14',
+                                user: true,
+                                trigger: '15',
+                            },
+                            // {
+                            //     id: '15',
+                            //     message: '',
+                            //     trigger: '',
+                            // },
+                            // {
+                            //     id: '',
+                            //     user: true,
+                            //     trigger: '',
+                            // },
+                            {
+                                id: '15',
+                                user: true,
+                                trigger: '16',
+                            },
+                            {
+                                id: '16',
+                                message: '¿Qué música prefieres?',
+                                trigger: '17',
+                            },
+                            {
+                                id: '17',
+                                user: true,
+                                trigger: '18',
+                            },
+                            {
+                                id: '18',
+                                message: '¿Qué deportes te gusta ver?',
+                                trigger: '19',
+                            },
+                            {
+                                id: '19',
+                                user: true,
+                                trigger: '20',
+                            },
+                            {
+                                id: '20',
                                 message: 'Yo soy muy interesante! Hasta luego!',
                                 end: true,
                             },
