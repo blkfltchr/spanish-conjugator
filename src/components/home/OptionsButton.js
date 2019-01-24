@@ -6,7 +6,7 @@ const RandomButton = () => {
         <div>
             <Link to='/options' style={{color: 'grey', textDecoration: 'none'}}>
                 <div className='box'>
-                    <b style={{textDecoration: 'underline'}}>Choose the verbs you want</b>
+                    <b style={{color: 'blue', textDecoration: 'underline'}}>Choose the verbs you want</b>
                     <p>Select your verbs, tenses, and forms</p>
                 </div>
             </Link>

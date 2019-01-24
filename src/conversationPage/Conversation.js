@@ -58,7 +58,37 @@ const Conversation = () => {
                             },
                             {
                                 id: '7',
-                                message: 'OK! Hasta luego!',
+                                message: '¿Cuánto tiempo llevas aquí?',
+                                trigger: '8',
+                            },
+                            {
+                                id: '8',
+                                user: true,
+                                trigger: '9',
+                            },
+                            {
+                                id: '9',
+                                message: '¿Qué música prefieres?',
+                                trigger: '10',
+                            },
+                            {
+                                id: '10',
+                                user: true,
+                                trigger: '11',
+                            },
+                            {
+                                id: '11',
+                                message: '¿Qué deportes te gusta ver?',
+                                trigger: '12',
+                            },
+                            {
+                                id: '12',
+                                user: true,
+                                trigger: '13',
+                            },
+                            {
+                                id: '13',
+                                message: 'Yo soy muy interesante! Hasta luego!',
                                 end: true,
                             },
                             
