@@ -22,8 +22,13 @@ class Random extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         if (this.randomPerson[1] === this.state.value) {
-            alert("Correct!")
+            alert("Correct!");
+            this.handleRefresh()
         } this.setState({answer: true, helperText: `False, the correct answer is ${this.randomPerson[1]}.`}) 
+    }
+
+    handleRefresh = () => {
+        window.location.reload()
     }
 
     handleHint = (event) => {
@@ -61,7 +66,7 @@ class Random extends Component {
                 <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'space-between'}}>
                     <button className='button' onClick={this.handleSubmit}>Check</button>
                     <button className='button' onClick={this.handleHint}>Hint</button>
-                    <button className='button' onClick={() => window.location.reload()}>Next verb</button>
+                    <button className='button' onClick={this.handleRefresh}>Next verb</button>
                 </div>
             </div>
          );
