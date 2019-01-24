@@ -38,7 +38,7 @@ class Random extends Component {
                 <p><b>Verb: </b>{infinitive}</p>
                 <p><b>Translation: </b>{infinitive_english}</p>
                 <p><b>Tense: </b>{tense_english}</p>
-                <p><b>Person:</b>
+                <p><b>Form:</b>
                     { this.randomPerson[0] === 'form_1s' &&
                         <span> Singular, 1st person</span>
                     }

@@ -1,6 +1,8 @@
 import React from 'react';
 import RandomButton from './RandomButton'
 import OptionsButton from './OptionsButton'
+import ConversationButton from './ConversationButton'
+
 
 const Home = () => {
     return ( 
@@ -8,6 +10,7 @@ const Home = () => {
             <p><b>What would you like to do?</b></p>
             <RandomButton />
             <OptionsButton />
+            <ConversationButton />
         </div>
      );
 }
