@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
-import RandomButton from '../home/Options/RandomButton';
-import OptionsButton from '../home/Options/OptionsButton';
+import RandomButton from '../../home/Options/RandomButton';
+import OptionsButton from '../../home/Options/OptionsButton';
 
 // all available props
 const theme = {
@@ -19,7 +19,7 @@ const theme = {
 };
 
 
-const Conversation = () => {
+const ConversationTwo = () => {
     return ( 
         <div>
             <div style={{marginLeft: '30px'}}>
@@ -39,7 +39,7 @@ const Conversation = () => {
                             },
                             {
                                 id: '3',
-                                message: '¿Cómo te llamas?',
+                                message: '¿Cuánto tiempo se quedará aquí?',
                                 trigger: '4',
                             },
                             {
@@ -49,7 +49,7 @@ const Conversation = () => {
                             },
                             {
                                 id: '5',
-                                message: '¿De dónde eres?',
+                                message: '¿Te gusta la comida colombiana?',
                                 trigger: '6',
                             },
                             {
@@ -59,8 +59,8 @@ const Conversation = () => {
                             },
                             {
                                 id: '7',
-                                message: '¿En qué trabajas?',
-                                trigger: '8'
+                                message: '¿Cuál es tu comida favorita?',
+                                trigger: '8',
                             },
                             {
                                 id: '8',
@@ -69,8 +69,8 @@ const Conversation = () => {
                             },
                             {
                                 id: '9',
-                                message: '¿Cuánto tiempo llevas aquí?',
-                                trigger: '10',
+                                message: '¿Qué música prefieres?',
+                                trigger: '10'
                             },
                             {
                                 id: '10',
@@ -79,7 +79,7 @@ const Conversation = () => {
                             },
                             {
                                 id: '11',
-                                message: '¿Dónde vives?',
+                                message: '¿Qué deportes te gusta ver?',
                                 trigger: '12',
                             },
                             {
@@ -97,8 +97,8 @@ const Conversation = () => {
                     />
                 </ThemeProvider> 
             </div>
-            <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'flex-end'}}>
-                <Link to='/conversation/two'><button className='button' style={{width: '180px'}}>Next conversation</button></Link>
+            <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'flex-start'}}>
+                <Link to='/conversation'><button className='button' style={{width: '180px'}}>Prev conversation</button></Link>
             </div>
             <RandomButton />
             <OptionsButton />
@@ -106,4 +106,4 @@ const Conversation = () => {
     );
 }
  
-export default Conversation;
+export default ConversationTwo;

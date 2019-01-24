@@ -8,6 +8,7 @@ import Header from './components/Header';
 import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer'
 import Conversation from './components/conversationPage/Conversation';
 import BeginnerPage from './components/home/Levels/BeginnerPage';
+import ConversationTwo from './components/conversationPage/ChatbotConversation/ConversationTwo'
 
 class App extends Component {
   constructor() {
@@ -42,6 +43,7 @@ class App extends Component {
         <Route path="/" component={Header} />
         <Route exact path="/" component={Home} />
         <Route exact path="/conversation" component={Conversation} />
+        <Route exact path="/conversation/two" component={ConversationTwo} />
         <Route exact path="/beginner" component={BeginnerPage} />
         <Route
             exact path="/random"
