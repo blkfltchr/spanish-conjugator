@@ -53,6 +53,11 @@ const Conversation = () => {
                             },
                             {
                                 id: '6',
+                                user: true,
+                                trigger: '7',
+                            },
+                            {
+                                id: '7',
                                 message: 'OK! Hasta luego!',
                                 end: true,
                             },
