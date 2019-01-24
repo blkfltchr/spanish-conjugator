@@ -6,7 +6,7 @@ import OptionsContainer from './components/optionsPage/OptionsContainer';
 import Home from './components/home/Home';
 import Header from './components/Header';
 import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer'
-import Conversation from './conversationPage/Conversation';
+import Conversation from './components/conversationPage/Conversation';
 import BeginnerPage from './components/home/Levels/BeginnerPage';
 
 class App extends Component {

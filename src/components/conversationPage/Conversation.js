@@ -1,8 +1,8 @@
 import React from 'react'
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
-import RandomButton from '../components/home/Options/RandomButton';
-import OptionsButton from '../components/home/Options/OptionsButton';
+import RandomButton from '../home/Options/RandomButton';
+import OptionsButton from '../home/Options/OptionsButton';
 
 // all available props
 const theme = {
