@@ -7,6 +7,7 @@ import Home from './components/home/Home';
 import Header from './components/Header';
 import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer'
 import Conversation from './conversationPage/Conversation';
+import BeginnerPage from './components/home/Levels/BeginnerPage';
 
 class App extends Component {
   constructor() {
@@ -41,6 +42,7 @@ class App extends Component {
         <Route path="/" component={Header} />
         <Route exact path="/" component={Home} />
         <Route exact path="/conversation" component={Conversation} />
+        <Route exact path="/beginner" component={BeginnerPage} />
         <Route
             exact path="/random"
             render={props => (

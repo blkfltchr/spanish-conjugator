@@ -2,8 +2,8 @@ import React from 'react';
 import VerbFrequency from './VerbFrequency';
 import VerbTenses from './VerbTenses';
 import NumberPerson from './NumberPerson';
-import RandomButton from '../home/RandomButton'
-import ConversationButton from '../home/ConversationButton'
+import RandomButton from '../home/Options/RandomButton'
+import ConversationButton from '../home/Options/ConversationButton'
 
 const OptionsContainer = props => {
   return (

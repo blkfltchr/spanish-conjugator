@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import OptionsButton from '../home/OptionsButton';
+import OptionsButton from '../home/Options/OptionsButton';
 import Random from './Random';
-import ConversationButton from '../home/ConversationButton';
+import ConversationButton from '../home/Options/ConversationButton';
 
 class ConjugatorContainer extends Component {
   constructor(props) {
