@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import miniData from './miniData';
+import presentData from './presentData';
 import { Route } from 'react-router-dom';
 import OptionsContainer from './components/optionsPage/OptionsContainer';
 import Home from './components/home/Home';
@@ -12,6 +13,7 @@ class App extends Component {
     super();
     this.state = {
       data: miniData,
+      present: presentData,
       verbTenses: []
     };
   }
@@ -45,7 +47,7 @@ class App extends Component {
               <ConjugatorContainer
                 {...props}
                 setTenses={this.setTenses}
-                data={this.state.data}
+                data={this.state.present}
               />
             )}
           />
