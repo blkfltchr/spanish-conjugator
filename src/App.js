@@ -12,7 +12,7 @@ import ConversationOne from './components/Conversation/ConversationOne';
 import ConversationTwo from './components/Conversation/ConversationTwo'
 
 import OptionsContainer from './components/optionsPage/OptionsContainer';
-import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer'
+import Random from './components/Random/Random'
 
 class App extends Component {
   constructor() {
@@ -49,12 +49,10 @@ class App extends Component {
         <Route exact path="/conversation" component={ConversationOne} />
         <Route exact path="/conversation/two" component={ConversationTwo} />
         <Route exact path="/beginner" component={BeginnerPage} />
-        <Route
-            exact path="/random"
+        <Route exact path="/random"
             render={props => (
-              <ConjugatorContainer
+              <Random
                 {...props}
-                setTenses={this.setTenses}
                 data={this.state.present}
               />
             )}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../app.css'
 
-class Random extends Component {
+class BeginnerRandom extends Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -73,4 +73,4 @@ class Random extends Component {
     }
 }
  
-export default Random;
+export default BeginnerRandom;
