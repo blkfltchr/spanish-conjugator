@@ -7,6 +7,45 @@ import Header from './components/Header';
 import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer';
 import Conversation from './conversationPage/Conversation';
 
+const spainSpanish = miniData.map(verb => [
+  { form_1s: verb.form_1s },
+  { form_2s: verb.form_2s },
+  { form_3s: verb.form_3s },
+  { form_1p: verb.form_1p },
+  { form_2p: verb.form_2p },
+  { form_3p: verb.form_3p },
+  { gerund: verb.gerund },
+  { pastparticiple: verb.pastparticiple }
+]);
+
+const latamSpanish = miniData.map(verb => [
+  { form_1s: verb.form_1s },
+  { form_2s: verb.form_2s },
+  { form_3s: verb.form_3s },
+  { form_1p: verb.form_1p },
+  { form_3p: verb.form_3p },
+  { gerund: verb.gerund },
+  { pastparticiple: verb.pastparticiple }
+]);
+
+const beginner = miniData.filter(
+  verb =>
+    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
+    (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative')
+);
+
+const intermediate = miniData.filter(
+  verb =>
+    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
+    (verb.tense_english === 'Preterite' &&
+      verb.mood_english === 'Indicative') ||
+    (verb.tense_english === 'Conditional' &&
+      verb.mood_english === 'Indicative') ||
+    ((verb.tense_english === 'Future' && verb.mood_english === 'Indicative') ||
+      (verb.tense_english === 'Present Perfect' &&
+        verb.mood_english === 'Indicative'))
+);
+
 class App extends Component {
   constructor() {
     super();
@@ -20,26 +59,39 @@ class App extends Component {
 
   filterData = event => {
     event.preventDefault();
-    console.log('Clicked!');
-    const spainSpanish = miniData.map(verb => [
-      { form_1s: verb.form_1s },
-      { form_2s: verb.form_2s },
-      { form_3s: verb.form_3s },
-      { form_1p: verb.form_1p },
-      { form_3p: verb.form_3p },
-      { gerund: verb.gerund },
-      { pastparticiple: verb.pastparticiple }
-    ]);
-    this.setState({
-      tempData: spainSpanish
-    });
+
+    // if (this.state.NumberPerson === 'Spain') {
+    //   this.setState({
+    //     tempData: spainSpanish
+    //   });
+    // }
+    // if (this.state.NumberPerson === 'Latam') {
+    //   this.setState({
+    //     tempData: latamSpanish
+    //   });
+    // }
+
+    if (this.state.VerbTenses === 'Beginner') {
+      this.setState({
+        tempData: beginner
+      });
+    }
+    if (this.state.VerbTenses === 'Intermediate') {
+      this.setState({
+        tempData: intermediate
+      });
+    }
+    if (this.state.verbTenses === 'Advanced') {
+      this.setState({
+        tempData: miniData
+      });
+    }
   };
 
   setTenses = event => {
     this.setState({
       verbTenses: event.target.value
     });
-    console.log('Clicked!');
   };
 
   updateNumPerson = event => {
@@ -55,8 +107,7 @@ class App extends Component {
   };
 
   render() {
-    console.log('Dataaaa =', this.state.data);
-    console.log('TEMP', this.state.tempData);
+    console.log('Temp data =', this.state.tempData);
     return (
       <div style={{ width: '420px', margin: '0 auto' }}>
         <Route path="/" component={Header} />

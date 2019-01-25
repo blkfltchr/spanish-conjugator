@@ -5,7 +5,7 @@ const NumberPerson = props => {
     <div>
       <select onChange={props.updateNumPerson}>
         <option selected="Latam">Latin America</option>
-        <option value="Spanish">Spanish</option>
+        <option value="Spain">Spain</option>
       </select>
     </div>
   );
