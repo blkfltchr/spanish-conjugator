@@ -1,16 +1,16 @@
 import React from 'react';
-import RandomButton from './RandomButton'
-import OptionsButton from './OptionsButton'
-import ConversationButton from './ConversationButton'
+import BeginnerButton from './Levels/BeginnerButton'
+import IntermediateButton from './Levels/IntermediateButton'
+import AdvancedButton from './Levels/AdvancedButton'
 
 
 const Home = () => {
     return ( 
         <div>
-            <p><b>What would you like to do?</b></p>
-            <RandomButton />
-            <OptionsButton />
-            <ConversationButton />
+            <p><b>What level of Spanish speaker are you?</b></p>
+            <BeginnerButton />
+            <IntermediateButton />
+            <AdvancedButton />
         </div>
      );
 }

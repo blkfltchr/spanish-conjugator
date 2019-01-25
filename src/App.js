@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import miniData from './miniData';
+import presentData from './presentData';
 import { Route } from 'react-router-dom';
 import OptionsContainer from './components/optionsPage/OptionsContainer';
 import Home from './components/home/Home';
 import Header from './components/Header';
 import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer'
-import Conversation from './conversationPage/Conversation';
+import Conversation from './components/conversationPage/Conversation';
+import BeginnerPage from './components/home/Levels/BeginnerPage';
+import ConversationTwo from './components/conversationPage/ChatbotConversation/ConversationTwo'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       data: miniData,
+      present: presentData,
       verbTenses: []
     };
   }
@@ -39,13 +43,15 @@ class App extends Component {
         <Route path="/" component={Header} />
         <Route exact path="/" component={Home} />
         <Route exact path="/conversation" component={Conversation} />
+        <Route exact path="/conversation/two" component={ConversationTwo} />
+        <Route exact path="/beginner" component={BeginnerPage} />
         <Route
             exact path="/random"
             render={props => (
               <ConjugatorContainer
                 {...props}
                 setTenses={this.setTenses}
-                data={this.state.data}
+                data={this.state.present}
               />
             )}
           />

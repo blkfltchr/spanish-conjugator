@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
-import RandomButton from '../components/home/RandomButton';
-import OptionsButton from '../components/home/OptionsButton';
+import RandomButton from '../home/Options/RandomButton';
+import OptionsButton from '../home/Options/OptionsButton';
 
 // all available props
 const theme = {
@@ -88,51 +89,6 @@ const Conversation = () => {
                             },
                             {
                                 id: '13',
-                                message: '¿Te gusta la comida colombiana?',
-                                trigger: '14',
-                            },
-                            {
-                                id: '14',
-                                user: true,
-                                trigger: '15',
-                            },
-                            // {
-                            //     id: '15',
-                            //     message: '',
-                            //     trigger: '',
-                            // },
-                            // {
-                            //     id: '',
-                            //     user: true,
-                            //     trigger: '',
-                            // },
-                            {
-                                id: '15',
-                                user: true,
-                                trigger: '16',
-                            },
-                            {
-                                id: '16',
-                                message: '¿Qué música prefieres?',
-                                trigger: '17',
-                            },
-                            {
-                                id: '17',
-                                user: true,
-                                trigger: '18',
-                            },
-                            {
-                                id: '18',
-                                message: '¿Qué deportes te gusta ver?',
-                                trigger: '19',
-                            },
-                            {
-                                id: '19',
-                                user: true,
-                                trigger: '20',
-                            },
-                            {
-                                id: '20',
                                 message: 'Yo soy muy interesante! Hasta luego!',
                                 end: true,
                             },
@@ -140,6 +96,9 @@ const Conversation = () => {
                         ]}
                     />
                 </ThemeProvider> 
+            </div>
+            <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'flex-end'}}>
+                <Link to='/conversation/two'><button className='button' style={{width: '180px'}}>Next conversation</button></Link>
             </div>
             <RandomButton />
             <OptionsButton />

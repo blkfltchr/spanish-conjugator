@@ -13,7 +13,7 @@ class Random extends Component {
     }
 
     randomVerb = this.props.data[Math.floor(Math.random() * this.props.data.length)];
-    randomPerson = Object.entries(this.randomVerb)[ Math.floor(Math.random() * 7) + 7 ]
+    randomPerson = Object.entries(this.randomVerb)[ Math.floor(Math.random() * 2) + 7 ]
 
     handleChange = (event) => {
         this.setState({value: event.target.value});
@@ -22,8 +22,13 @@ class Random extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         if (this.randomPerson[1] === this.state.value) {
-            alert("Correct!")
+            alert("Correct!");
+            this.handleRefresh()
         } this.setState({answer: true, helperText: `False, the correct answer is ${this.randomPerson[1]}.`}) 
+    }
+
+    handleRefresh = () => {
+        window.location.reload()
     }
 
     handleHint = (event) => {
@@ -38,27 +43,12 @@ class Random extends Component {
                 <p><b>Verb: </b>{infinitive}</p>
                 <p><b>Translation: </b>{infinitive_english}</p>
                 <p><b>Tense: </b>{tense_english}</p>
-                <p><b>Form:</b>
+                <p><b>Pronoun:</b>
                     { this.randomPerson[0] === 'form_1s' &&
-                        <span> Singular, 1st person</span>
+                        <span> Yo (Singular, 1st person)</span>
                     }
                     { this.randomPerson[0] === 'form_2s' &&
-                        <span> Singular, 2nd person</span>
-                    }
-                    { this.randomPerson[0] === 'form_3s' &&
-                        <span> Singular, 3rd person</span>
-                    }
-                    { this.randomPerson[0] === 'form_1p' &&
-                        <span> Plural, 1st person</span>
-                    }
-                    { this.randomPerson[0] === 'form_2p' &&
-                        <span> Plural, 2nd person</span>
-                    }
-                    { this.randomPerson[0] === 'form_3p' &&
-                        <span> Plural, 3rd person</span>
-                    }
-                    { this.randomPerson[0] === 'gerund' &&
-                        <span> Gerund</span>
+                        <span> Tu (Singular, 2nd person)</span>
                     }
                 </p>
                 <label>
@@ -76,7 +66,7 @@ class Random extends Component {
                 <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'space-between'}}>
                     <button className='button' onClick={this.handleSubmit}>Check</button>
                     <button className='button' onClick={this.handleHint}>Hint</button>
-                    <button className='button' onClick={() => window.location.reload()}>Next verb</button>
+                    <button className='button' onClick={this.handleRefresh}>Next verb</button>
                 </div>
             </div>
          );
