@@ -8,7 +8,8 @@ class BeginnerRandom extends Component {
             value: '',
             answer: false,
             hint: false,
-            helperText: ''
+            helperText: '',
+            correct: false
          }
     }
     
@@ -19,10 +20,11 @@ class BeginnerRandom extends Component {
         this.setState({value: event.target.value});
       }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    handleSubmit = () => {
+        // event.preventDefault();
         if (this.randomPerson[1] === this.state.value) {
             alert("Correct!");
+            this.setState({correct: true})
             this.handleRefresh()
         } this.setState({answer: true, helperText: `False, the correct answer is ${this.randomPerson[1]}.`}) 
     }
@@ -37,9 +39,7 @@ class BeginnerRandom extends Component {
     }
     
     render() { 
-        console.log(this.props.data)
-        console.log(this.props.data.map(item => item.infinitive))
-        console.log(this.props.data.filter(item => item.tense_english === 'Present'))
+        console.log(this.state)
         const { infinitive, infinitive_english, tense_english } = this.randomVerb
         return ( 
             <div>
@@ -63,7 +63,7 @@ class BeginnerRandom extends Component {
                     />
                     <span style={{fontSize: '12px'}}>En Español</span>
                 </label>
-                { (this.state.hint || this.state.answer) &&
+                { ((this.state.hint || this.state.answer) && !this.state.correct ) &&
                     <p>{this.state.helperText}</p>
                 }
                 <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'space-between'}}>
