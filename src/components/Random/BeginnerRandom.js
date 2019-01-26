@@ -11,7 +11,7 @@ class BeginnerRandom extends Component {
             helperText: ''
          }
     }
-
+    
     randomVerb = this.props.data[Math.floor(Math.random() * this.props.data.length)];
     randomPerson = Object.entries(this.randomVerb)[ Math.floor(Math.random() * 2) + 7 ]
 
@@ -37,6 +37,9 @@ class BeginnerRandom extends Component {
     }
     
     render() { 
+        console.log(this.props.data)
+        console.log(this.props.data.map(item => item.infinitive))
+        console.log(this.props.data.filter(item => item.tense_english === 'Present'))
         const { infinitive, infinitive_english, tense_english } = this.randomVerb
         return ( 
             <div>
