@@ -6,67 +6,8 @@ import Home from './components/home/Home';
 import Header from './components/Header';
 import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer';
 import Conversation from './conversationPage/Conversation';
-
-function spainSpanish(data) {
-  return data.map(verb => [
-    { infinitive: verb.infinitive },
-    { infinitive_english: verb.infinitive_english },
-    { mood: verb.mood },
-    { mood_english: verb.mood_english },
-    { tense: verb.tense },
-    { tense_english: verb.tense_english },
-    { verb_english: verb.verb_english },
-    { form_1s: verb.form_1s },
-    { form_2s: verb.form_2s },
-    { form_3s: verb.form_3s },
-    { form_1p: verb.form_1p },
-    { form_2p: verb.form_2p },
-    { form_3p: verb.form_3p },
-    { gerund: verb.gerund },
-    { gerund_english: verb.gerund_english },
-    { pastparticiple: verb.pastparticiple },
-    { pastparticiple_english: verb.pastparticiple_english }
-  ]);
-}
-
-function latamSpanish(data) {
-  return data.map(verb => [
-    { infinitive: verb.infinitive },
-    { infinitive_english: verb.infinitive_english },
-    { mood: verb.mood },
-    { mood_english: verb.mood_english },
-    { tense: verb.tense },
-    { tense_english: verb.tense_english },
-    { verb_english: verb.verb_english },
-    { form_1s: verb.form_1s },
-    { form_2s: verb.form_2s },
-    { form_3s: verb.form_3s },
-    { form_1p: verb.form_1p },
-    { form_3p: verb.form_3p },
-    { gerund: verb.gerund },
-    { gerund_english: verb.gerund_english },
-    { pastparticiple: verb.pastparticiple },
-    { pastparticiple_english: verb.pastparticiple_english }
-  ]);
-}
-
-const beginner = miniData.filter(
-  verb =>
-    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
-    (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative')
-);
-
-const intermediate = miniData.filter(
-  verb =>
-    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
-    (verb.tense_english === 'Preterite' &&
-      verb.mood_english === 'Indicative') ||
-    (verb.tense_english === 'Conditional' &&
-      verb.mood_english === 'Indicative') ||
-    ((verb.tense_english === 'Future' && verb.mood_english === 'Indicative') ||
-      (verb.tense_english === 'Present Perfect' &&
-        verb.mood_english === 'Indicative'))
-);
+import { spainSpanish, latamSpanish } from './components/NumPersonFilters';
+import { beginner, intermediate } from './components/VerbTensesFilters';
 
 class App extends Component {
   constructor() {
