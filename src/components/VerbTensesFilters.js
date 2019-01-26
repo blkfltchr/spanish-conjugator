@@ -1,12 +1,12 @@
 import miniData from '../miniData';
 
-const beginner = miniData.filter(
+const Beginner = miniData.filter(
   verb =>
     (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
     (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative')
 );
 
-const intermediate = miniData.filter(
+const Intermediate = miniData.filter(
   verb =>
     (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
     (verb.tense_english === 'Preterite' &&
@@ -18,4 +18,4 @@ const intermediate = miniData.filter(
         verb.mood_english === 'Indicative'))
 );
 
-export { beginner, intermediate };
+export { Beginner, Intermediate };

@@ -6,7 +6,7 @@ import NumberPerson from './NumberPerson';
 import RandomButton from '../home/RandomButton';
 import ConversationButton from '../home/ConversationButton';
 import { spainSpanish, latamSpanish } from '../../components/NumPersonFilters';
-import { beginner, intermediate } from '../../components/VerbTensesFilters';
+import { Beginner, Intermediate } from '../../components/VerbTensesFilters';
 import { Link } from 'react-router-dom';
 
 class OptionsContainer extends Component {
@@ -20,16 +20,28 @@ class OptionsContainer extends Component {
     };
   }
 
+  updateNumPerson = event => {
+    this.setState({
+      NumberPerson: event.target.value
+    });
+  };
+
+  updateVerbTenses = event => {
+    this.setState({
+      VerbTenses: event.target.value
+    });
+  };
+
   filterData = event => {
     event.preventDefault();
 
     if (this.state.VerbTenses === 'Beginner') {
       this.setState({
-        data: beginner
+        data: Beginner
       });
     } else if (this.state.VerbTenses === 'Intermediate') {
       this.setState({
-        data: intermediate
+        data: Intermediate
       });
     } else if (this.state.VerbTenses === 'Advanced') {
       this.setState({
@@ -51,40 +63,30 @@ class OptionsContainer extends Component {
     }
   };
 
-  updateNumPerson = event => {
-    this.setState({
-      NumberPerson: event.target.value
-    });
-  };
-
-  updateVerbTenses = event => {
-    this.setState({
-      VerbTenses: event.target.value
-    });
-  };
-
   render() {
-    console.log('Data =', this.state.data);
-    console.log('Temp data =', this.state.tempData);
     return (
       <div>
+        <Link to="/random">
+          <h4 type="submit">Return to Verb Pratice</h4>
+        </Link>
         <form onSubmit={this.filterData}>
-          <Link to="/random">
-            <button type="submit">Start</button>
-          </Link>
+          <div>
+            <h3>Verb Frequency</h3>
+            <VerbFrequency />
+          </div>
+          <div>
+            <h3>Verb Tenses</h3>
+            <VerbTenses updateVerbTenses={this.updateVerbTenses} />
+          </div>
+          <div>
+            <h3>Number and Person</h3>
+            <NumberPerson updateNumPerson={this.updateNumPerson} />
+          </div>
+          <button type="submit">Update Settings</button>
         </form>
-        <div>
-          <h3>Verb Frequency</h3>
-          <VerbFrequency />
-        </div>
-        <div>
-          <h3>Verb Tenses</h3>
-          <VerbTenses updateVerbTenses={this.updateVerbTenses} />
-        </div>
-        <div>
-          <h3>Number and Person</h3>
-          <NumberPerson updateNumPerson={this.updateNumPerson} />
-        </div>
+        <Link to="/AdvancedOptions">
+          <h4 type="submit">Advanced Settings</h4>
+        </Link>
         <RandomButton />
         <ConversationButton />
       </div>
