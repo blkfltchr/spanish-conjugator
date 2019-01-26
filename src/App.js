@@ -7,26 +7,48 @@ import Header from './components/Header';
 import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer';
 import Conversation from './conversationPage/Conversation';
 
-const spainSpanish = miniData.map(verb => [
-  { form_1s: verb.form_1s },
-  { form_2s: verb.form_2s },
-  { form_3s: verb.form_3s },
-  { form_1p: verb.form_1p },
-  { form_2p: verb.form_2p },
-  { form_3p: verb.form_3p },
-  { gerund: verb.gerund },
-  { pastparticiple: verb.pastparticiple }
-]);
+function spainSpanish(data) {
+  return data.map(verb => [
+    { infinitive: verb.infinitive },
+    { infinitive_english: verb.infinitive_english },
+    { mood: verb.mood },
+    { mood_english: verb.mood_english },
+    { tense: verb.tense },
+    { tense_english: verb.tense_english },
+    { verb_english: verb.verb_english },
+    { form_1s: verb.form_1s },
+    { form_2s: verb.form_2s },
+    { form_3s: verb.form_3s },
+    { form_1p: verb.form_1p },
+    { form_2p: verb.form_2p },
+    { form_3p: verb.form_3p },
+    { gerund: verb.gerund },
+    { gerund_english: verb.gerund_english },
+    { pastparticiple: verb.pastparticiple },
+    { pastparticiple_english: verb.pastparticiple_english }
+  ]);
+}
 
-const latamSpanish = miniData.map(verb => [
-  { form_1s: verb.form_1s },
-  { form_2s: verb.form_2s },
-  { form_3s: verb.form_3s },
-  { form_1p: verb.form_1p },
-  { form_3p: verb.form_3p },
-  { gerund: verb.gerund },
-  { pastparticiple: verb.pastparticiple }
-]);
+function latamSpanish(data) {
+  return data.map(verb => [
+    { infinitive: verb.infinitive },
+    { infinitive_english: verb.infinitive_english },
+    { mood: verb.mood },
+    { mood_english: verb.mood_english },
+    { tense: verb.tense },
+    { tense_english: verb.tense_english },
+    { verb_english: verb.verb_english },
+    { form_1s: verb.form_1s },
+    { form_2s: verb.form_2s },
+    { form_3s: verb.form_3s },
+    { form_1p: verb.form_1p },
+    { form_3p: verb.form_3p },
+    { gerund: verb.gerund },
+    { gerund_english: verb.gerund_english },
+    { pastparticiple: verb.pastparticiple },
+    { pastparticiple_english: verb.pastparticiple_english }
+  ]);
+}
 
 const beginner = miniData.filter(
   verb =>
@@ -60,38 +82,36 @@ class App extends Component {
   filterData = event => {
     event.preventDefault();
 
-    // if (this.state.NumberPerson === 'Spain') {
-    //   this.setState({
-    //     tempData: spainSpanish
-    //   });
-    // }
-    // if (this.state.NumberPerson === 'Latam') {
-    //   this.setState({
-    //     tempData: latamSpanish
-    //   });
-    // }
-
     if (this.state.VerbTenses === 'Beginner') {
       this.setState({
-        tempData: beginner
+        data: beginner
       });
     }
+
     if (this.state.VerbTenses === 'Intermediate') {
       this.setState({
-        tempData: intermediate
+        data: intermediate
       });
     }
-    if (this.state.verbTenses === 'Advanced') {
-      this.setState({
-        tempData: miniData
-      });
-    }
-  };
 
-  setTenses = event => {
-    this.setState({
-      verbTenses: event.target.value
-    });
+    if (this.state.VerbTenses === 'Advanced') {
+      this.setState({
+        data: miniData
+      });
+    }
+
+    const spainSpanishFiltered = spainSpanish(this.state.data);
+    if (this.state.NumberPerson === 'Spain') {
+      this.setState({
+        tempData: spainSpanishFiltered
+      });
+    }
+    const latamFiltered = latamSpanish(this.state.data);
+    if (this.state.NumberPerson === 'Latam') {
+      this.setState({
+        tempData: latamFiltered
+      });
+    }
   };
 
   updateNumPerson = event => {
@@ -107,6 +127,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('Data =', this.state.data);
     console.log('Temp data =', this.state.tempData);
     return (
       <div style={{ width: '420px', margin: '0 auto' }}>
@@ -119,7 +140,7 @@ class App extends Component {
           render={props => (
             <ConjugatorContainer
               {...props}
-              setTenses={this.setTenses}
+              setTenses={this.updateVerbTenses}
               data={this.state.data}
             />
           )}
