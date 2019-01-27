@@ -65,31 +65,31 @@ class OptionsContainer extends Component {
 
   render() {
     return (
-      <div>
-        <Link to="/random">
-          <h4 type="submit">Return to Verb Pratice</h4>
-        </Link>
-        <form onSubmit={this.filterData}>
-          <div>
-            <h3>Verb Frequency</h3>
-            <VerbFrequency />
-          </div>
-          <div>
-            <h3>Verb Tenses</h3>
-            <VerbTenses updateVerbTenses={this.updateVerbTenses} />
-          </div>
-          <div>
-            <h3>Number and Person</h3>
-            <NumberPerson updateNumPerson={this.updateNumPerson} />
-          </div>
-          <button type="submit">Update Settings</button>
-        </form>
-        <Link to="/AdvancedOptions">
-          <h4 type="submit">Advanced Settings</h4>
-        </Link>
-        <RandomButton />
-        <ConversationButton />
-      </div>
+        <div>
+            <Link to="/random">
+                <h4 type="submit">Return to Verb Pratice</h4>
+            </Link>
+            <form onSubmit={ this.filterData }>
+                <div>
+                    <h3>Verb Frequency</h3>
+                    <VerbFrequency />
+                </div>
+                <div>
+                    <h3>Verb Tenses</h3>
+                    <VerbTenses updateVerbTenses={ this.updateVerbTenses } />
+                </div>
+                <div>
+                    <h3>Number and Person</h3>
+                    <NumberPerson updateNumPerson={ this.updateNumPerson } />
+                </div>
+                <button type="submit">Update Settings</button>
+            </form>
+            <Link to="/AdvancedOptions">
+                <h4 type="submit">Advanced Settings</h4>
+            </Link>
+            <RandomButton />
+            <ConversationButton />
+        </div>
     );
   }
 }

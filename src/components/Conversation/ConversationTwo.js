@@ -18,15 +18,14 @@ const theme = {
   userFontColor: '#4a4a4a',
 };
 
-
 const ConversationTwo = () => {
     return ( 
         <div>
-            <div style={{marginLeft: '30px'}}>
-                <ThemeProvider theme={theme}>
+            <div style={ { marginLeft: '30px' } }>
+                <ThemeProvider theme={ theme }>
                     <ChatBot
-                        speechSynthesis={{ enable: true, lang: 'es' }}
-                        steps={[
+                        speechSynthesis={ { enable: true, lang: 'es' } }
+                        steps={ [
                             {
                                 id: '1',
                                 message: 'Hola! ¿Cómo estás?',
@@ -93,12 +92,12 @@ const ConversationTwo = () => {
                                 end: true,
                             },
                             
-                        ]}
+                        ] }
                     />
                 </ThemeProvider> 
             </div>
-            <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'flex-start'}}>
-                <Link to='/conversation'><button className='button' style={{width: '180px'}}>Prev conversation</button></Link>
+            <div style={ { marginTop: '1rem', display: 'flex', justifyContent: 'flex-start' } }>
+                <Link to='/conversation'><button className='button' style={ { width: '180px' } }>Prev conversation</button></Link>
             </div>
             <RandomButton />
             <OptionsButton />

@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 const ConversationButton = () => {
     return ( 
         <div>
-            <Link to='/conversation' style={{color: 'grey', textDecoration: 'none'}}>
+            <Link to='/conversation' style={ { color: 'grey', textDecoration: 'none' } }>
                 <div className='box'>
-                    <b style={{color: 'blue', textDecoration: 'underline'}}>Start a simple conversation</b>
+                    <b style={ { color: 'blue', textDecoration: 'underline' } }>Start a simple conversation</b>
                     <p>What's your name? Where are you from?</p>
                 </div>
             </Link>

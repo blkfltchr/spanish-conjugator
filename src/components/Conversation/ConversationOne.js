@@ -91,16 +91,16 @@ const firstSteps = [
 const ConversationOne = () => {
     return ( 
         <div>
-            <div style={{marginLeft: '30px'}}>
-                <ThemeProvider theme={theme}>
+            <div style={ { marginLeft: '30px' } }>
+                <ThemeProvider theme={ theme }>
                     <ChatBot
-                        speechSynthesis={{ enable: true, lang: 'es' }}
-                        steps={firstSteps}
+                        speechSynthesis={ { enable: true, lang: 'es' } }
+                        steps={ firstSteps }
                     />
                 </ThemeProvider> 
             </div>
-            <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'flex-end'}}>
-                <Link to='/conversation/two'><button className='button' style={{width: '180px'}}>Next conversation</button></Link>
+            <div style={ { marginTop: '1rem', display: 'flex', justifyContent: 'flex-end' } }>
+                <Link to='/conversation/two'><button className='button' style={ { width: '180px' } }>Next conversation</button></Link>
             </div>
             <RandomButton />
             <OptionsButton />
