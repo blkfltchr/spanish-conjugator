@@ -14,6 +14,7 @@ const AdvancedOptions = props => {
           <h3>Number and Person</h3>
           <AdvancedNumberPerson />
         </div>
+        <button>Update Settings</button>
       </form>
     </div>
   );
