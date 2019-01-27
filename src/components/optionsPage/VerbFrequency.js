@@ -3,7 +3,6 @@ import React from 'react';
 const VerbFrequency = () => {
   return (
     <div>
-      <h4>Choose verbs by frequency</h4>
       <select>
         <option value="20">20 most popular</option>
         <option value="50">50 most popular</option>
