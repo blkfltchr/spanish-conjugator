@@ -1,40 +1,43 @@
 import React, { Component } from 'react';
-import miniData from './miniData';
-import presentData from './presentData';
 import { Route } from 'react-router-dom';
-import OptionsContainer from './components/optionsPage/OptionsContainer';
-import AdvancedOptions from './components/optionsPage/AdvancedOptions';
-import Home from './components/home/Home';
+
+import presentData from './presentData';
+
 import Header from './components/Header';
-import ConjugatorContainer from './components/conjugatorPage/ConjugatorContainer';
-import Conversation from './components/conversationPage/Conversation';
+import Home from './components/home/Home';
 import BeginnerPage from './components/home/Levels/BeginnerPage';
-import ConversationTwo from './components/conversationPage/ChatbotConversation/ConversationTwo';
+
+import ConversationOne from './components/Conversation/ConversationOne';
+import ConversationTwo from './components/Conversation/ConversationTwo'
+
+import AdvancedOptions from './components/optionsPage/AdvancedOptions'
+import OptionsContainer from './components/optionsPage/OptionsContainer';
+import Random from './components/Random/Random'
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      present: presentData,
+    };
   }
   render() {
     return (
       <div style={{ width: '420px', margin: '0 auto' }}>
         <Route path="/" component={Header} />
         <Route exact path="/" component={Home} />
-        <Route path="/conversation" component={Conversation} />
-        <Route path="/options" component={OptionsContainer} />
+        <Route exact path="/beginner" component={BeginnerPage} />
+        <Route exact path="/conversation/one" component={ConversationOne} />
+        <Route exact path="/conversation/two" component={ConversationTwo} />        <Route path="/options" component={OptionsContainer} />
         <Route path="/advancedOptions" component={AdvancedOptions} />
-        <Route
-          exact
-          path="/random"
-          render={props => (
-            <ConjugatorContainer
-              {...props}
-              setTenses={this.updateVerbTenses}
-              data={this.state.data}
-            />
-          )}
-        />
+        <Route exact path="/random"
+            render={props => (
+              <Random
+                {...props}
+                data={this.state.present}
+              />
+            )}
+          />
       </div>
     );
   }
