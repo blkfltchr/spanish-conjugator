@@ -13,20 +13,20 @@ class BeginnerRandom extends Component {
          }
     }
     
-    randomVerb = this.props.data[Math.floor(Math.random() * this.props.data.length)];
+    randomVerb = this.props.data[ Math.floor(Math.random() * this.props.data.length) ];
     randomPerson = Object.entries(this.randomVerb)[ Math.floor(Math.random() * 2) + 7 ]
 
     handleChange = (event) => {
-        this.setState({value: event.target.value});
+        this.setState({ value: event.target.value });
       }
 
     handleSubmit = () => {
         // event.preventDefault();
-        if (this.randomPerson[1] === this.state.value) {
-            alert("Correct!");
-            this.setState({correct: true})
+        if (this.randomPerson[ 1 ] === this.state.value) {
+            alert('Correct!');
+            this.setState({ correct: true })
             this.handleRefresh()
-        } this.setState({answer: true, helperText: `False, the correct answer is ${this.randomPerson[1]}.`}) 
+        } this.setState({ answer: true, helperText: `False, the correct answer is ${ this.randomPerson[ 1 ] }.` }) 
     }
 
     handleRefresh = () => {
@@ -35,7 +35,7 @@ class BeginnerRandom extends Component {
 
     handleHint = (event) => {
         event.preventDefault();
-        this.setState({hint: true, helperText: `The answer starts with ${this.randomPerson[1].substring(0, 3)}...`}) 
+        this.setState({ hint: true, helperText: `The answer starts with ${ this.randomPerson[ 1 ].substring(0, 3) }...` }) 
     }
     
     render() { 
@@ -47,29 +47,29 @@ class BeginnerRandom extends Component {
                 <p><b>Translation: </b>{infinitive_english}</p>
                 <p><b>Tense: </b>{tense_english}</p>
                 <p><b>Pronoun:</b>
-                    { this.randomPerson[0] === 'form_1s' &&
+                    { this.randomPerson[ 0 ] === 'form_1s' &&
                         <span> Yo (Singular, 1st person)</span>
                     }
-                    { this.randomPerson[0] === 'form_2s' &&
+                    { this.randomPerson[ 0 ] === 'form_2s' &&
                         <span> Tu (Singular, 2nd person)</span>
                     }
                 </p>
                 <label>
                     <input 
                         type="text"
-                        value={this.state.value} 
-                        onChange={this.handleChange}
+                        value={ this.state.value } 
+                        onChange={ this.handleChange }
                         className='input'
                     />
-                    <span style={{fontSize: '12px'}}>En Español</span>
+                    <span style={ { fontSize: '12px' } }>En Español</span>
                 </label>
                 { ((this.state.hint || this.state.answer) && !this.state.correct ) &&
                     <p>{this.state.helperText}</p>
                 }
-                <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'space-between'}}>
-                    <button className='button' onClick={this.handleSubmit}>Check</button>
-                    <button className='button' onClick={this.handleHint}>Hint</button>
-                    <button className='button' onClick={this.handleRefresh}>Next verb</button>
+                <div style={ { marginTop: '1rem', display: 'flex', justifyContent: 'space-between' } }>
+                    <button className='button' onClick={ this.handleSubmit }>Check</button>
+                    <button className='button' onClick={ this.handleHint }>Hint</button>
+                    <button className='button' onClick={ this.handleRefresh }>Next verb</button>
                 </div>
             </div>
          );

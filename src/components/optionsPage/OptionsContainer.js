@@ -7,7 +7,8 @@ import RandomButton from '../home/Options/RandomButton';
 import ConversationButton from '../home/Options/ConversationButton';
 import { spainSpanish, latamSpanish } from '../../components/NumPersonFilters';
 import { Beginner, Intermediate } from '../../components/VerbTensesFilters';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import RandomFiltered from './RandomFiltered/RandomFiltered'
 
 class OptionsContainer extends Component {
   constructor(props) {
@@ -64,11 +65,11 @@ class OptionsContainer extends Component {
   };
 
   render() {
+    console.log('Data', this.state.data)
+    console.log('Temp', this.state.tempData)
+
     return (
         <div>
-            <Link to="/random">
-                <h4 type="submit">Return to Verb Pratice</h4>
-            </Link>
             <form onSubmit={ this.filterData }>
                 <div>
                     <h3>Verb Frequency</h3>
@@ -84,6 +85,10 @@ class OptionsContainer extends Component {
                 </div>
                 <button type="submit">Update Settings</button>
             </form>
+            <Link to={ { pathname: '/randomFiltered', state: { data: this.state.data } } }>
+                <h4 type="submit">Begin Verb Pratice</h4>
+            </Link>
+            {/* <Link to={{ pathname: '/route', state: { foo: 'bar'} }}>My route</Link> */}
             <Link to="/AdvancedOptions">
                 <h4 type="submit">Advanced Settings</h4>
             </Link>

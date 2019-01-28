@@ -10,9 +10,10 @@ import BeginnerPage from './components/home/Levels/BeginnerPage';
 import ConversationOne from './components/Conversation/ConversationOne';
 import ConversationTwo from './components/Conversation/ConversationTwo';
 
-import AdvancedOptions from './components/optionsPage/AdvancedOptions';
-import OptionsContainer from './components/optionsPage/OptionsContainer';
+import AdvancedOptions from './components/OptionsPage/AdvancedOptions';
+import OptionsContainer from './components/OptionsPage/OptionsContainer';
 import Random from './components/Random/Random';
+import RandomFiltered from './components/OptionsPage/RandomFiltered/RandomFiltered'
 
 class App extends Component {
   constructor() {
@@ -40,6 +41,7 @@ class App extends Component {
                 path="/random"
                 render={ props => <Random { ...props } data={ this.state.present } /> }
             />
+            <Route path="/randomFiltered" component={ RandomFiltered } />
         </div>
     );
   }
