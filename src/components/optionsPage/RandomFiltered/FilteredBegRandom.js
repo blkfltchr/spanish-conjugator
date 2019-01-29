@@ -50,16 +50,19 @@ class FilteredBegRandom extends Component {
                 tense_english = this.randomVerb[i].tense_english
             }
         }
+        console.log('Random person =', Object.values(this.randomPerson))
+        const randomPersonValues = Object.values(this.randomPerson)[1];
+        const pronoun = Object.keys(randomPersonValues)[0]
         return ( 
             <div>
                 <p><b>Verb: </b>{infinitive}</p>
                 <p><b>Translation: </b>{infinitive_english}</p>
                 <p><b>Tense: </b>{tense_english}</p>
                 <p><b>Pronoun:</b>
-                    { this.randomPerson[ 0 ] === 'form_1s' &&
+                    { pronoun === 'form_1s' &&
                         <span> Yo (Singular, 1st person)</span>
                     }
-                    { this.randomPerson[ 0 ] === 'form_2s' &&
+                    { pronoun === 'form_2s' &&
                         <span> Tu (Singular, 2nd person)</span>
                     }
                 </p>
