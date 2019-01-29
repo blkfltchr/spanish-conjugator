@@ -85,10 +85,9 @@ class OptionsContainer extends Component {
                 </div>
                 <button type="submit">Update Settings</button>
             </form>
-            <Link to={ { pathname: '/randomFiltered', state: { data: this.state.data } } }>
+            <Link to={ { pathname: '/randomFiltered', state: { data: this.state.tempData } } }>
                 <h4 type="submit">Begin Verb Pratice</h4>
             </Link>
-            {/* <Link to={{ pathname: '/route', state: { foo: 'bar'} }}>My route</Link> */}
             <Link to="/AdvancedOptions">
                 <h4 type="submit">Advanced Settings</h4>
             </Link>

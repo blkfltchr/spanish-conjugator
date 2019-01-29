@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../../app.css'
+import '../../../app.css'
 
-class BeginnerRandom extends Component {
+class FilteredBegRandom extends Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -21,7 +21,6 @@ class BeginnerRandom extends Component {
       }
 
     handleSubmit = () => {
-        // event.preventDefault();
         if (this.randomPerson[ 1 ] === this.state.value) {
             alert('Correct!');
             this.setState({ correct: true })
@@ -39,10 +38,18 @@ class BeginnerRandom extends Component {
     }
     
     render() { 
-        console.log(this.state)
-        const { infinitive, infinitive_english, tense_english } = this.randomVerb
-        console.log("Random verb =", this.randomVerb)
-        console.log("infinitive =", infinitive)
+        let infinitive = '';
+        let infinitive_english = '';
+        let tense_english = '';
+        for (let i = 0; i < this.randomVerb.length; i++) {
+            if (this.randomVerb[i].infinitive !== undefined) {
+                infinitive = this.randomVerb[i].infinitive;
+            } else if (this.randomVerb[i].infinitive_english !== undefined) {
+                infinitive_english = this.randomVerb[i].infinitive_english
+            } else if (this.randomVerb[i].tense_english !== undefined) {
+                tense_english = this.randomVerb[i].tense_english
+            }
+        }
         return ( 
             <div>
                 <p><b>Verb: </b>{infinitive}</p>
@@ -78,4 +85,4 @@ class BeginnerRandom extends Component {
     }
 }
  
-export default BeginnerRandom;
+export default FilteredBegRandom;
