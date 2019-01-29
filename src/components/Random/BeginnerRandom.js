@@ -40,8 +40,8 @@ class BeginnerRandom extends Component {
         // event.preventDefault();
         if (this.state.randomPerson[1] === this.state.value) {
             alert("Correct!");
-            this.setState({correct: true})
             this.handleRefresh()
+            this.setState({correct: true})
         } this.setState({hint: true, helperText: `False, the correct answer is ${this.state.randomPerson[1]}.`}) 
     }
 
