@@ -3,8 +3,7 @@ import '../../app.css'
 
 const initialState = {
     value: '',
-    hint: false,
-    helperText: '',
+    helperText: null,
     correct: false,
     randomVerb: {},
     randomPerson: [],
@@ -51,7 +50,7 @@ class BeginnerRandom extends Component {
             alert("Correct!");
             this.handleRefresh()
             this.setState({correct: true})
-        } this.setState({hint: true, helperText: `False, the correct answer is ${this.state.randomPerson[1]}.`}) 
+        } this.setState({helperText: `False, the correct answer is ${this.state.randomPerson[1]}.`}) 
     }
 
     handleRefresh = () => {
@@ -70,7 +69,7 @@ class BeginnerRandom extends Component {
                 <h1>Loading....</h1>
             )
         } else { 
-            const { randomVerb, randomPerson, hint, correct, helperText, value } = this.state
+            const { randomVerb, randomPerson, correct, helperText, value } = this.state
             const { infinitive, infinitive_english, tense_english, mood_english } = randomVerb
             return ( 
                 <div>
@@ -103,7 +102,7 @@ class BeginnerRandom extends Component {
                         />
                         <span style={{fontSize: '12px'}}>En Español</span>
                     </label>
-                    { ( hint && !correct ) &&
+                    { ( helperText && !correct ) &&
                         <p>{helperText}</p>
                     }
                     <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'space-between'}}>
