@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
-import presentData from './presentData';
+import beginnerData from './beginnerData';
 
 import Header from './components/Header';
 import Home from './components/home/Home';
@@ -18,7 +18,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      present: presentData,
+      beginnerData: beginnerData,
     };
   }
   render() {
@@ -34,7 +34,7 @@ class App extends Component {
             render={props => (
               <Random
                 {...props}
-                data={this.state.present}
+                data={this.state.beginnerData}
               />
             )}
           />

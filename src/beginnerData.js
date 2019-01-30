@@ -12,8 +12,6 @@ const presentData = [
         form_3s: 'corre',
         form_1p: 'corremos',
         form_3p: 'corren',
-        gerund: 'corriendo',
-        gerund_english: 'running',
         pastparticiple: 'corrido',
         pastparticiple_english: 'run'
     },
@@ -34,6 +32,22 @@ const presentData = [
         pastparticiple_english: 'run'
     },
     {
+        infinitive: "correr",
+        infinitive_english: "to run",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I ran",
+        form_1s: "corrí",
+        form_2s: "corriste",
+        form_3s: "corrió",
+        form_1p: "corrimos",
+        form_3p: "corrieron",
+        pastparticiple: "corrido",
+        pastparticiple_english: "run"
+    },
+    {
         infinitive: 'venir',
         infinitive_english: 'to come',
         mood: 'Indicativo',
@@ -46,8 +60,6 @@ const presentData = [
         form_3s: 'viene',
         form_1p: 'venimos',
         form_3p: 'vienen',
-        gerund: 'viniendo',
-        gerund_english: 'coming',
         pastparticiple: 'venido',
         pastparticiple_english: 'come'
     },
@@ -68,6 +80,22 @@ const presentData = [
         pastparticiple_english: 'come'
     },
     {
+        infinitive: "venir",
+        infinitive_english: "to come",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I came",
+        form_1s: "vine",
+        form_2s: "viniste",
+        form_3s: "vino",
+        form_1p: "vinimos",
+        form_3p: "vinieron",
+        pastparticiple: "venido",
+        pastparticiple_english: "come"
+    },
+    {
         infinitive: 'decir',
         infinitive_english: 'to say',
         mood: 'Indicativo',
@@ -80,8 +108,6 @@ const presentData = [
         form_3s: 'dice',
         form_1p: 'decimos',
         form_3p: 'dicen',
-        gerund: 'diciendo',
-        gerund_english: 'saying',
         pastparticiple: 'dicho',
         pastparticiple_english: 'said'
     },
@@ -102,6 +128,22 @@ const presentData = [
         pastparticiple_english: 'said'
     },
     {
+        infinitive: "decir",
+        infinitive_english: "to say",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I said",
+        form_1s: "dije",
+        form_2s: "dijiste",
+        form_3s: "dijo",
+        form_1p: "dijimos",
+        form_3p: "dijeron",
+        pastparticiple: "dicho",
+        pastparticiple_english: "said"
+    },
+    {
         infinitive: 'poder',
         infinitive_english: 'to be able, can',
         mood: 'Indicativo',
@@ -114,8 +156,6 @@ const presentData = [
         form_3s: 'puede',
         form_1p: 'podemos',
         form_3p: 'pueden',
-        gerund: 'pudiendo',
-        gerund_english: 'being able',
         pastparticiple: 'podido',
         pastparticiple_english: 'been able'
     },
@@ -136,6 +176,22 @@ const presentData = [
         pastparticiple_english: 'been able'
     },
     {
+        infinitive: "poder",
+        infinitive_english: "to be able, can",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I was able, could",
+        form_1s: "pude",
+        form_2s: "pudiste",
+        form_3s: "pudo",
+        form_1p: "pudimos",
+        form_3p: "pudieron",
+        pastparticiple: "podido",
+        pastparticiple_english: "been able"
+    },
+    {
         infinitive: 'dar',
         infinitive_english: 'to give',
         mood: 'Indicativo',
@@ -148,8 +204,6 @@ const presentData = [
         form_3s: 'da',
         form_1p: 'damos',
         form_3p: 'dan',
-        gerund: 'dando',
-        gerund_english: 'giving',
         pastparticiple: 'dado',
         pastparticiple_english: 'given'
     },
@@ -170,6 +224,22 @@ const presentData = [
         pastparticiple_english: 'given'
     },
     {
+        infinitive: "dar",
+        infinitive_english: "to give",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I gave",
+        form_1s: "di",
+        form_2s: "diste",
+        form_3s: "dio",
+        form_1p: "dimos",
+        form_3p: "dieron",
+        pastparticiple: "dado",
+        pastparticiple_english: "given"
+    },
+    {
         infinitive: 'ver',
         infinitive_english: 'to see',
         mood: 'Indicativo',
@@ -182,8 +252,6 @@ const presentData = [
         form_3s: 've',
         form_1p: 'vemos',
         form_3p: 'ven',
-        gerund: 'viendo',
-        gerund_english: 'seeing',
         pastparticiple: 'visto',
         pastparticiple_english: 'seen'
     },
@@ -204,6 +272,22 @@ const presentData = [
         pastparticiple_english: 'see'
     },
     {
+        infinitive: "ver",
+        infinitive_english: "to see",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I saw",
+        form_1s: "vi",
+        form_2s: "viste",
+        form_3s: "vio",
+        form_1p: "vimos",
+        form_3p: "vieron",
+        pastparticiple: "visto",
+        pastparticiple_english: "seen"
+    },
+    {
         infinitive: 'saber',
         infinitive_english: 'to know',
         mood: 'Indicativo',
@@ -216,8 +300,6 @@ const presentData = [
         form_3s: 'sabe',
         form_1p: 'sabemos',
         form_3p: 'saben',
-        gerund: 'sabiendo',
-        gerund_english: 'knowing',
         pastparticiple: 'sabido',
         pastparticiple_english: 'known'
     },
@@ -238,6 +320,22 @@ const presentData = [
         pastparticiple_english: 'known'
     },
     {
+        infinitive: "saber",
+        infinitive_english: "to know",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I knew",
+        form_1s: "supe",
+        form_2s: "supiste",
+        form_3s: "supo",
+        form_1p: "supimos",
+        form_3p: "supieron",
+        pastparticiple: "sabido",
+        pastparticiple_english: "known"
+    },
+    {
         infinitive: 'hablar',
         infinitive_english: 'to speak',
         mood: 'Indicativo',
@@ -250,8 +348,6 @@ const presentData = [
         form_3s: 'habla',
         form_1p: 'hablamos',
         form_3p: 'hablan',
-        gerund: 'hablando',
-        gerund_english: 'speaking',
         pastparticiple: 'hablado',
         pastparticiple_english: 'spoken'
     },
@@ -272,6 +368,22 @@ const presentData = [
         pastparticiple_english: 'spoken'
     },
     {
+        infinitive: "hablar",
+        infinitive_english: "to speak",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I spoke",
+        form_1s: "hablé",
+        form_2s: "hablaste",
+        form_3s: "habló",
+        form_1p: "hablamos",
+        form_3p: "hablaron",
+        pastparticiple: "hablado",
+        pastparticiple_english: "spoken"
+    },
+    {
         infinitive: 'estar',
         infinitive_english: 'to be',
         mood: 'Indicativo',
@@ -284,8 +396,6 @@ const presentData = [
         form_3s: 'está',
         form_1p: 'estamos',
         form_3p: 'están',
-        gerund: 'estando',
-        gerund_english: 'being',
         pastparticiple: 'estado',
         pastparticiple_english: 'been'
     },
@@ -306,6 +416,22 @@ const presentData = [
         pastparticiple_english: 'been'
     },
     {
+        infinitive: "estar",
+        infinitive_english: "to be",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I was",
+        form_1s: "estuve",
+        form_2s: "estuviste",
+        form_3s: "estuvo",
+        form_1p: "estuvimos",
+        form_3p: "estuvieron",
+        pastparticiple: "estado",
+        pastparticiple_english: "been"
+    },
+    {
         infinitive: 'ser',
         infinitive_english: 'to be',
         mood: 'Indicativo',
@@ -318,14 +444,12 @@ const presentData = [
         form_3s: 'es',
         form_1p: 'somos',
         form_3p: 'son',
-        gerund: 'siendo',
-        gerund_english: 'being',
         pastparticiple: 'sido',
         pastparticiple_english: 'been'
     },
     {
         infinitive: 'ser',
-        infinitive_english: 'to am',
+        infinitive_english: 'to be',
         mood: 'Near',
         mood_english: 'Próximo',
         tense: 'Futuro',
@@ -340,6 +464,22 @@ const presentData = [
         pastparticiple_english: 'been'
     },
     {
+        infinitive: "ser",
+        infinitive_english: "to be",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I was",
+        form_1s: "fui",
+        form_2s: "fuiste",
+        form_3s: "fue",
+        form_1p: "fuimos",
+        form_3p: "fueron",
+        pastparticiple: "sido",
+        pastparticiple_english: "been"
+    },
+    {
         infinitive: 'tener',
         infinitive_english: 'to have',
         mood: 'Indicativo',
@@ -352,8 +492,6 @@ const presentData = [
         form_3s: 'tiene',
         form_1p: 'tenemos',
         form_3p: 'tienen',
-        gerund: 'teniendo',
-        gerund_english: 'having',
         pastparticiple: 'tenido',
         pastparticiple_english: 'had'
     },
@@ -374,6 +512,22 @@ const presentData = [
         pastparticiple_english: 'had'
     },
     {
+        infinitive: "tener",
+        infinitive_english: "to have",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I had",
+        form_1s: "tuve",
+        form_2s: "tuviste",
+        form_3s: "tuvo",
+        form_1p: "tuvimos",
+        form_3p: "tuvieron",
+        pastparticiple: "tenido",
+        pastparticiple_english: "had"
+    },
+    {
         infinitive: 'hacer',
         infinitive_english: 'to do, make',
         mood: 'Indicativo',
@@ -386,8 +540,6 @@ const presentData = [
         form_3s: 'hace',
         form_1p: 'hacemos',
         form_3p: 'hacen',
-        gerund: 'haciendo',
-        gerund_english: 'doing',
         pastparticiple: 'hecho',
         pastparticiple_english: 'done'
     },
@@ -408,6 +560,22 @@ const presentData = [
         pastparticiple_english: 'done'
     },
     {
+        infinitive: "hacer",
+        infinitive_english: "to do, make",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I did",
+        form_1s: "hice",
+        form_2s: "hiciste",
+        form_3s: "hizo",
+        form_1p: "hicimos",
+        form_3p: "hicieron",
+        pastparticiple: "hecho",
+        pastparticiple_english: "done"
+    },
+    {
         infinitive: 'ir',
         infinitive_english: 'to go',
         mood: 'Indicativo',
@@ -420,8 +588,6 @@ const presentData = [
         form_3s: 'va',
         form_1p: 'vamos',
         form_3p: 'van',
-        gerund: 'yendo',
-        gerund_english: 'going',
         pastparticiple: 'ido',
         pastparticiple_english: 'gone'
     },
@@ -442,6 +608,22 @@ const presentData = [
         pastparticiple_english: 'gone'
     },
     {
+        infinitive: "ir",
+        infinitive_english: "to go",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I went",
+        form_1s: "fui",
+        form_2s: "fuiste",
+        form_3s: "fue",
+        form_1p: "fuimos",
+        form_3p: "fueron",
+        pastparticiple: "ido",
+        pastparticiple_english: "gone"
+    },
+    {
         infinitive: "alquilar",
         infinitive_english: "to rent",
         mood: "Indicativo",
@@ -454,8 +636,6 @@ const presentData = [
         form_3s: "alquila",
         form_1p: "alquilamos",
         form_3p: "alquilan",
-        gerund: "alquilando",
-        gerund_english: "renting",
         pastparticiple: "alquilado",
         pastparticiple_english: "rented"
     },
@@ -476,6 +656,22 @@ const presentData = [
         pastparticiple_english: 'rented'
     },
     {
+        infinitive: "alquilar",
+        infinitive_english: "to rent",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I rented",
+        form_1s: "alquilé",
+        form_2s: "alquilaste",
+        form_3s: "alquiló",
+        form_1p: "alquilamos",
+        form_3p: "alquilaron",
+        pastparticiple: "alquilado",
+        pastparticiple_english: "rented"
+    },
+    {
         infinitive: "necesitar",
         infinitive_english: "to need, require",
         mood: "Indicativo",
@@ -488,8 +684,6 @@ const presentData = [
         form_3s: "necesita",
         form_1p: "necesitamos",
         form_3p: "necesitan",
-        gerund: "necesitando",
-        gerund_english: "needing",
         pastparticiple: "necesitado",
         pastparticiple_english: "needed"
     },
@@ -510,6 +704,22 @@ const presentData = [
         pastparticiple_english: 'needed'
     },
     {
+        infinitive: "necesitar",
+        infinitive_english: "to need, require",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I needed",
+        form_1s: "necesité",
+        form_2s: "necesitaste",
+        form_3s: "necesitó",
+        form_1p: "necesitamos",
+        form_3p: "necesitaron",
+        pastparticiple: "necesitado",
+        pastparticiple_english: "needed"
+    },
+    {
         infinitive: "amar",
         infinitive_english: "to love",
         mood: "Indicativo",
@@ -522,8 +732,6 @@ const presentData = [
         form_3s: "ama",
         form_1p: "amamos",
         form_3p: "aman",
-        gerund: "amando",
-        gerund_english: "loving",
         pastparticiple: "amado",
         pastparticiple_english: "loved"
     },
@@ -544,6 +752,22 @@ const presentData = [
         pastparticiple_english: 'loved'
     },
     {
+        infinitive: "amar",
+        infinitive_english: "to love",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I loved",
+        form_1s: "amé",
+        form_2s: "amaste",
+        form_3s: "amó",
+        form_1p: "amamos",
+        form_3p: "amaron",
+        pastparticiple: "amado",
+        pastparticiple_english: "loved"
+    },
+    {
         infinitive: "enviar",
         infinitive_english: "to send",
         mood: "Indicativo",
@@ -556,8 +780,6 @@ const presentData = [
         form_3s: "envía",
         form_1p: "enviamos",
         form_3p: "envían",
-        gerund: "enviando",
-        gerund_english: "sending",
         pastparticiple: "enviado",
         pastparticiple_english: "sent"
     },
@@ -578,6 +800,22 @@ const presentData = [
         pastparticiple_english: 'sent'
     },
     {
+        infinitive: "enviar",
+        infinitive_english: "to send",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I sent",
+        form_1s: "envié",
+        form_2s: "enviaste",
+        form_3s: "envió",
+        form_1p: "enviamos",
+        form_3p: "enviaron",
+        pastparticiple: "enviado",
+        pastparticiple_english: "sent"
+    },
+    {
         infinitive: "olvidar",
         infinitive_english: "to forget",
         mood: "Indicativo",
@@ -590,8 +828,6 @@ const presentData = [
         form_3s: "olvida",
         form_1p: "olvidamos",
         form_3p: "olvidan",
-        gerund: "olvidando",
-        gerund_english: "forgetting",
         pastparticiple: "olvidado",
         pastparticiple_english: "forgotten"
     },
@@ -612,6 +848,22 @@ const presentData = [
         pastparticiple_english: 'forgotten'
     },
     {
+        infinitive: "olvidar",
+        infinitive_english: "to forget",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I forgot",
+        form_1s: "olvidé",
+        form_2s: "olvidaste",
+        form_3s: "olvidó",
+        form_1p: "olvidamos",
+        form_3p: "olvidaron",
+        pastparticiple: "olvidado",
+        pastparticiple_english: "forgotten"
+    },
+    {
         infinitive: "escuchar",
         infinitive_english: "to listen to, hear",
         mood: "Indicativo",
@@ -624,8 +876,6 @@ const presentData = [
         form_3s: "escucha",
         form_1p: "escuchamos",
         form_3p: "escuchan",
-        gerund: "escuchando",
-        gerund_english: "listening to",
         pastparticiple: "escuchado",
         pastparticiple_english: "listened to"
     },
@@ -646,6 +896,22 @@ const presentData = [
         pastparticiple_english: 'listened to'
     },
     {
+        infinitive: "escuchar",
+        infinitive_english: "to listen to, hear",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I listened to",
+        form_1s: "escuché",
+        form_2s: "escuchaste",
+        form_3s: "escuchó",
+        form_1p: "escuchamos",
+        form_3p: "escucharon",
+        pastparticiple: "escuchado",
+        pastparticiple_english: "listened to"
+    },
+    {
         infinitive: "pagar",
         infinitive_english: "to pay, pay for",
         mood: "Indicativo",
@@ -658,8 +924,6 @@ const presentData = [
         form_3s: "paga",
         form_1p: "pagamos",
         form_3p: "pagan",
-        gerund: "pagando",
-        gerund_english: "paying",
         pastparticiple: "pagado",
         pastparticiple_english: "paid"
     },
@@ -680,6 +944,22 @@ const presentData = [
         pastparticiple_english: 'paid'
     },
     {
+        infinitive: "pagar",
+        infinitive_english: "to pay, pay for",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I paid",
+        form_1s: "pagué",
+        form_2s: "pagaste",
+        form_3s: "pagó",
+        form_1p: "pagamos",
+        form_3p: "pagaron",
+        pastparticiple: "pagado",
+        pastparticiple_english: "paid"
+    },
+    {
         infinitive: "ayudar",
         infinitive_english: "to help",
         mood: "Indicativo",
@@ -692,8 +972,6 @@ const presentData = [
         form_3s: "ayuda",
         form_1p: "ayudamos",
         form_3p: "ayudan",
-        gerund: "ayudando",
-        gerund_english: "helping",
         pastparticiple: "ayudado",
         pastparticiple_english: "helped"
     },
@@ -714,6 +992,22 @@ const presentData = [
         pastparticiple_english: 'help'
     },
     {
+        infinitive: "ayudar",
+        infinitive_english: "to help",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I helped",
+        form_1s: "ayudé",
+        form_2s: "ayudaste",
+        form_3s: "ayudó",
+        form_1p: "ayudamos",
+        form_3p: "ayudaron",
+        pastparticiple: "ayudado",
+        pastparticiple_english: "helped"
+    },
+    {
         infinitive: "esperar",
         infinitive_english: "to hope",
         mood: "Indicativo",
@@ -726,8 +1020,6 @@ const presentData = [
         form_3s: "espera",
         form_1p: "esperamos",
         form_3p: "esperan",
-        gerund: "esperando",
-        gerund_english: "hoping",
         pastparticiple: "esperado",
         pastparticiple_english: "hoped"
     },
@@ -748,6 +1040,22 @@ const presentData = [
         pastparticiple_english: 'hoped'
     },
     {
+        infinitive: "esperar",
+        infinitive_english: "to hope",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I hoped",
+        form_1s: "esperé",
+        form_2s: "esperaste",
+        form_3s: "esperó",
+        form_1p: "esperamos",
+        form_3p: "esperaron",
+        pastparticiple: "esperado",
+        pastparticiple_english: "hoped"
+    },
+    {
         infinitive: "practicar",
         infinitive_english: "to practice",
         mood: "Indicativo",
@@ -760,8 +1068,6 @@ const presentData = [
         form_3s: "practica",
         form_1p: "practicamos",
         form_3p: "practican",
-        gerund: "practicando",
-        gerund_english: "practicing",
         pastparticiple: "practicado",
         pastparticiple_english: "practiced"
     },
@@ -782,6 +1088,22 @@ const presentData = [
         pastparticiple_english: 'practiced'
     },
     {
+        infinitive: "practicar",
+        infinitive_english: "to practice",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I practiced",
+        form_1s: "practiqué",
+        form_2s: "practicaste",
+        form_3s: "practicó",
+        form_1p: "practicamos",
+        form_3p: "practicaron",
+        pastparticiple: "practicado",
+        pastparticiple_english: "practiced"
+    },
+    {
         infinitive: "bailar",
         infinitive_english: "dance",
         mood: "Indicativo",
@@ -794,8 +1116,6 @@ const presentData = [
         form_3s: "baila",
         form_1p: "bailamos",
         form_3p: "bailan",
-        gerund: "bailando",
-        gerund_english: "dancing",
         pastparticiple: "bailado",
         pastparticiple_english: "danced"
     },
@@ -816,6 +1136,22 @@ const presentData = [
         pastparticiple_english: 'danced'
     },
     {
+        infinitive: "bailar",
+        infinitive_english: "to dance",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I danced",
+        form_1s: "bailé",
+        form_2s: "bailaste",
+        form_3s: "bailó",
+        form_1p: "bailamos",
+        form_3p: "bailaron",
+        pastparticiple: "bailado",
+        pastparticiple_english: "danced"
+    },
+    {
         infinitive: "estudiar",
         infinitive_english: "to study",
         mood: "Indicativo",
@@ -828,26 +1164,40 @@ const presentData = [
         form_3s: "estudia",
         form_1p: "estudiamos",
         form_3p: "estudian",
-        gerund: "estudiando",
-        gerund_english: "studying",
         pastparticiple: "estudiado",
         pastparticiple_english: "studied"
     },
     {
-        infinitive: 'study',
+        infinitive: 'estudiar',
         infinitive_english: 'to study',
         mood: 'Near',
         mood_english: 'Próximo',
         tense: 'Futuro',
         tense_english: 'Futuro',
         verb_english: 'I study, am studying',
-        form_1s: 'voy a study',
-        form_2s: 'vas a study',
-        form_3s: 'va a study',
-        form_1p: 'vamos a study',
-        form_3p: 'van a study',
+        form_1s: 'voy a estudiar',
+        form_2s: 'vas a estudiar',
+        form_3s: 'va a estudiar',
+        form_1p: 'vamos a estudiar',
+        form_3p: 'van a estudiar',
         pastparticiple: 'estudiado',
         pastparticiple_english: 'studied'
+    },
+    {
+        infinitive: "estudiar",
+        infinitive_english: "to study",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I studied",
+        form_1s: "estudié",
+        form_2s: "estudiaste",
+        form_3s: "estudió",
+        form_1p: "estudiamos",
+        form_3p: "estudiaron",
+        pastparticiple: "estudiado",
+        pastparticiple_english: "studied"
     },
     {
         infinitive: "preguntar",
@@ -862,8 +1212,6 @@ const presentData = [
         form_3s: "pregunta",
         form_1p: "preguntamos",
         form_3p: "preguntan",
-        gerund: "preguntando",
-        gerund_english: "asking",
         pastparticiple: "preguntado",
         pastparticiple_english: "asked"
     },
@@ -884,6 +1232,22 @@ const presentData = [
         pastparticiple_english: 'asked'
     },
     {
+        infinitive: "preguntar",
+        infinitive_english: "to ask",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I asked",
+        form_1s: "pregunté",
+        form_2s: "preguntaste",
+        form_3s: "preguntó",
+        form_1p: "preguntamos",
+        form_3p: "preguntaron",
+        pastparticiple: "preguntado",
+        pastparticiple_english: "asked"
+    },
+    {
         infinitive: "buscar",
         infinitive_english: "to search for, look for",
         mood: "Indicativo",
@@ -896,8 +1260,6 @@ const presentData = [
         form_3s: "busca",
         form_1p: "buscamos",
         form_3p: "buscan",
-        gerund: "buscando",
-        gerund_english: "searching for",
         pastparticiple: "buscado",
         pastparticiple_english: "searched for"
     },
@@ -918,6 +1280,22 @@ const presentData = [
         pastparticiple_english: 'searched for'
     },
     {
+        infinitive: "buscar",
+        infinitive_english: "to search",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I searched for",
+        form_1s: "busqué",
+        form_2s: "buscaste",
+        form_3s: "buscó",
+        form_1p: "buscamos",
+        form_3p: "buscaron",
+        pastparticiple: "buscado",
+        pastparticiple_english: "searched for"
+    },
+    {
         infinitive: "firmar",
         infinitive_english: "to sign",
         mood: "Indicativo",
@@ -930,8 +1308,6 @@ const presentData = [
         form_3s: "firma",
         form_1p: "firmamos",
         form_3p: "firman",
-        gerund: "firmando",
-        gerund_english: "signing",
         pastparticiple: "firmado",
         pastparticiple_english: "signed"
     },
@@ -952,6 +1328,22 @@ const presentData = [
         pastparticiple_english: 'signed'
     },
     {
+        infinitive: "firmar",
+        infinitive_english: "to sign",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I signed",
+        form_1s: "firmé",
+        form_2s: "firmaste",
+        form_3s: "firmó",
+        form_1p: "firmamos",
+        form_3p: "firmaron",
+        pastparticiple: "firmado",
+        pastparticiple_english: "signed"
+    },
+    {
         infinitive: "preparar",
         infinitive_english: "to prepare",
         mood: "Indicativo",
@@ -964,8 +1356,6 @@ const presentData = [
         form_3s: "prepara",
         form_1p: "preparamos",
         form_3p: "preparan",
-        gerund: "preparando",
-        gerund_english: "preparing",
         pastparticiple: "preparado",
         pastparticiple_english: "prepared"
     },
@@ -986,6 +1376,22 @@ const presentData = [
         pastparticiple_english: 'prepared'
     },
     {
+        infinitive: "preparar",
+        infinitive_english: "to prepare",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I prepared",
+        form_1s: "preparé",
+        form_2s: "preparaste",
+        form_3s: "preparó",
+        form_1p: "preparamos",
+        form_3p: "prepararon",
+        pastparticiple: "preparado",
+        pastparticiple_english: "prepared"
+    },
+    {
         infinitive: "caminar",
         infinitive_english: "to walk, go",
         mood: "Indicativo",
@@ -998,8 +1404,6 @@ const presentData = [
         form_3s: "camina",
         form_1p: "caminamos",
         form_3p: "caminan",
-        gerund: "caminando",
-        gerund_english: "walking",
         pastparticiple: "caminado",
         pastparticiple_english: "walked"
     },
@@ -1020,6 +1424,22 @@ const presentData = [
         pastparticiple_english: 'walked'
     },
     {
+        infinitive: "caminar",
+        infinitive_english: "to walk, go",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I walked",
+        form_1s: "caminé",
+        form_2s: "caminaste",
+        form_3s: "caminó",
+        form_1p: "caminamos",
+        form_3p: "caminaron",
+        pastparticiple: "caminado",
+        pastparticiple_english: "walked"
+    },
+    {
         infinitive: "ganar",
         infinitive_english: "to win, gain",
         mood: "Indicativo",
@@ -1032,8 +1452,6 @@ const presentData = [
         form_3s: "gana",
         form_1p: "ganamos",
         form_3p: "ganan",
-        gerund: "ganando",
-        gerund_english: "winning",
         pastparticiple: "ganado",
         pastparticiple_english: "won"
     },
@@ -1054,6 +1472,22 @@ const presentData = [
         pastparticiple_english: 'won'
     },
     {
+        infinitive: "ganar",
+        infinitive_english: "to win, gain",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I won",
+        form_1s: "gané",
+        form_2s: "ganaste",
+        form_3s: "ganó",
+        form_1p: "ganamos",
+        form_3p: "ganaron",
+        pastparticiple: "ganado",
+        pastparticiple_english: "won"
+    },
+    {
         infinitive: "regresar",
         infinitive_english: "to return, go back",
         mood: "Indicativo",
@@ -1066,8 +1500,6 @@ const presentData = [
         form_3s: "regresa",
         form_1p: "regresamos",
         form_3p: "regresan",
-        gerund: "regresando",
-        gerund_english: "returning",
         pastparticiple: "regresado",
         pastparticiple_english: "returned"
     },
@@ -1088,6 +1520,22 @@ const presentData = [
         pastparticiple_english: 'returned'
     },
     {
+        infinitive: "regresar",
+        infinitive_english: "to return, go back",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I returned",
+        form_1s: "regresé",
+        form_2s: "regresaste",
+        form_3s: "regresó",
+        form_1p: "regresamos",
+        form_3p: "regresaron",
+        pastparticiple: "regresado",
+        pastparticiple_english: "returned"
+    },
+    {
         infinitive: "gastar",
         infinitive_english: "to spend",
         mood: "Indicativo",
@@ -1100,8 +1548,6 @@ const presentData = [
         form_3s: "gasta",
         form_1p: "gastamos",
         form_3p: "gastan",
-        gerund: "gastando",
-        gerund_english: "spending",
         pastparticiple: "gastado",
         pastparticiple_english: "spent"
     },
@@ -1122,6 +1568,22 @@ const presentData = [
         pastparticiple_english: 'spent'
     },
     {
+        infinitive: "gastar",
+        infinitive_english: "to spend",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I spent",
+        form_1s: "gasté",
+        form_2s: "gastaste",
+        form_3s: "gastó",
+        form_1p: "gastamos",
+        form_3p: "gastaron",
+        pastparticiple: "gastado",
+        pastparticiple_english: "spent"
+    },
+    {
         infinitive: "saludar",
         infinitive_english: "to greet",
         mood: "Indicativo",
@@ -1134,8 +1596,6 @@ const presentData = [
         form_3s: "saluda",
         form_1p: "saludamos",
         form_3p: "saludan",
-        gerund: "saludando",
-        gerund_english: "greeting",
         pastparticiple: "saludado",
         pastparticiple_english: "greeted"
     },
@@ -1156,6 +1616,22 @@ const presentData = [
         pastparticiple_english: 'greeted'
     },
     {
+        infinitive: "saludar",
+        infinitive_english: "to greet",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I greeted",
+        form_1s: "saludé",
+        form_2s: "saludaste",
+        form_3s: "saludó",
+        form_1p: "saludamos",
+        form_3p: "saludaron",
+        pastparticiple: "saludado",
+        pastparticiple_english: "greeted"
+    },
+    {
         infinitive: "cocinar",
         infinitive_english: "to cook",
         mood: "Indicativo",
@@ -1168,8 +1644,6 @@ const presentData = [
         form_3s: "cocina",
         form_1p: "cocinamos",
         form_3p: "cocinan",
-        gerund: "cocinando",
-        gerund_english: "cooking",
         pastparticiple: "cocinado",
         pastparticiple_english: "cooked"
     },
@@ -1190,6 +1664,22 @@ const presentData = [
         pastparticiple_english: 'cooked'
     },
     {
+        infinitive: "cocinar",
+        infinitive_english: "to cook",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I cooked",
+        form_1s: "cociné",
+        form_2s: "cocinaste",
+        form_3s: "cocinó",
+        form_1p: "cocinamos",
+        form_3p: "cocinaron",
+        pastparticiple: "cocinado",
+        pastparticiple_english: "cooked"
+    },
+    {
         infinitive: "tocar",
         infinitive_english: "to touch",
         mood: "Indicativo",
@@ -1202,8 +1692,6 @@ const presentData = [
         form_3s: "toca",
         form_1p: "tocamos",
         form_3p: "tocan",
-        gerund: "tocando",
-        gerund_english: "touching",
         pastparticiple: "tocado",
         pastparticiple_english: "touched"
     },
@@ -1224,6 +1712,22 @@ const presentData = [
         pastparticiple_english: 'touched'
     },
     {
+        infinitive: "tocar",
+        infinitive_english: "to touch",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I touched",
+        form_1s: "toqué",
+        form_2s: "tocaste",
+        form_3s: "tocó",
+        form_1p: "tocamos",
+        form_3p: "tocaron",
+        pastparticiple: "tocado",
+        pastparticiple_english: "touched"
+    },
+    {
         infinitive: "comprar",
         infinitive_english: "to buy, purchase",
         mood: "Indicativo",
@@ -1236,8 +1740,6 @@ const presentData = [
         form_3s: "compra",
         form_1p: "compramos",
         form_3p: "compran",
-        gerund: "comprando",
-        gerund_english: "buying",
         pastparticiple: "comprado",
         pastparticiple_english: "bought"
     },
@@ -1258,6 +1760,22 @@ const presentData = [
         pastparticiple_english: 'bought'
     },
     {
+        infinitive: "comprar",
+        infinitive_english: "to buy, purchase",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I bought",
+        form_1s: "compré",
+        form_2s: "compraste",
+        form_3s: "compró",
+        form_1p: "compramos",
+        form_3p: "compraron",
+        pastparticiple: "comprado",
+        pastparticiple_english: "bought"
+    },
+    {
         infinitive: "lavar",
         infinitive_english: "to wash",
         mood: "Indicativo",
@@ -1270,8 +1788,6 @@ const presentData = [
         form_3s: "lava",
         form_1p: "lavamos",
         form_3p: "lavan",
-        gerund: "lavando",
-        gerund_english: "washing",
         pastparticiple: "lavado",
         pastparticiple_english: "washed"
     },
@@ -1292,6 +1808,22 @@ const presentData = [
         pastparticiple_english: 'washed'
     },
     {
+        infinitive: "lavar",
+        infinitive_english: "to wash",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I washed",
+        form_1s: "lavé",
+        form_2s: "lavaste",
+        form_3s: "lavó",
+        form_1p: "lavamos",
+        form_3p: "lavaron",
+        pastparticiple: "lavado",
+        pastparticiple_english: "washed"
+    },
+    {
         infinitive: "tomar",
         infinitive_english: "to take, drink",
         mood: "Indicativo",
@@ -1304,8 +1836,6 @@ const presentData = [
         form_3s: "toma",
         form_1p: "tomamos",
         form_3p: "toman",
-        gerund: "tomando",
-        gerund_english: "taking",
         pastparticiple: "tomado",
         pastparticiple_english: "taken"
     },
@@ -1326,6 +1856,22 @@ const presentData = [
         pastparticiple_english: 'taken'
     },
     {
+        infinitive: "tomar",
+        infinitive_english: "to take, drink",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I took",
+        form_1s: "tomé",
+        form_2s: "tomaste",
+        form_3s: "tomó",
+        form_1p: "tomamos",
+        form_3p: "tomaron",
+        pastparticiple: "tomado",
+        pastparticiple_english: "taken"
+    },
+    {
         infinitive: "contestar",
         infinitive_english: "to answer",
         mood: "Indicativo",
@@ -1338,8 +1884,6 @@ const presentData = [
         form_3s: "contesta",
         form_1p: "contestamos",
         form_3p: "contestan",
-        gerund: "contestando",
-        gerund_english: "answering",
         pastparticiple: "contestado",
         pastparticiple_english: "answered"
     },
@@ -1360,6 +1904,22 @@ const presentData = [
         pastparticiple_english: 'answered'
     },
     {
+        infinitive: "contestar",
+        infinitive_english: "to answer",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I answered",
+        form_1s: "contesté",
+        form_2s: "contestaste",
+        form_3s: "contestó",
+        form_1p: "contestamos",
+        form_3p: "contestaron",
+        pastparticiple: "contestado",
+        pastparticiple_english: "answered"
+    },
+    {
         infinitive: "llegar",
         infinitive_english: "to arrive",
         mood: "Indicativo",
@@ -1372,8 +1932,6 @@ const presentData = [
         form_3s: "llega",
         form_1p: "llegamos",
         form_3p: "llegan",
-        gerund: "llegando",
-        gerund_english: "arriving",
         pastparticiple: "llegado",
         pastparticiple_english: "arrived"
     },
@@ -1394,6 +1952,22 @@ const presentData = [
         pastparticiple_english: 'arrived'
     },
     {
+        infinitive: "llegar",
+        infinitive_english: "to arrive",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I arrived",
+        form_1s: "llegué",
+        form_2s: "llegaste",
+        form_3s: "llegó",
+        form_1p: "llegamos",
+        form_3p: "llegaron",
+        pastparticiple: "llegado",
+        pastparticiple_english: "arrived"
+    },
+    {
         infinitive: "trabajar",
         infinitive_english: "to work",
         mood: "Indicativo",
@@ -1406,8 +1980,6 @@ const presentData = [
         form_3s: "trabaja",
         form_1p: "trabajamos",
         form_3p: "trabajan",
-        gerund: "trabajando",
-        gerund_english: "working",
         pastparticiple: "trabajado",
         pastparticiple_english: "worked"
     },
@@ -1428,6 +2000,22 @@ const presentData = [
         pastparticiple_english: 'worked'
     },
     {
+        infinitive: "trabajar",
+        infinitive_english: "to work",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I worked",
+        form_1s: "trabajé",
+        form_2s: "trabajaste",
+        form_3s: "trabajó",
+        form_1p: "trabajamos",
+        form_3p: "trabajaron",
+        pastparticiple: "trabajado",
+        pastparticiple_english: "worked"
+    },
+    {
         infinitive: "dejar",
         infinitive_english: "to leave, allow",
         mood: "Indicativo",
@@ -1440,8 +2028,6 @@ const presentData = [
         form_3s: "deja",
         form_1p: "dejamos",
         form_3p: "dejan",
-        gerund: "dejando",
-        gerund_english: "leaving",
         pastparticiple: "dejado",
         pastparticiple_english: "left"
     },
@@ -1462,6 +2048,22 @@ const presentData = [
         pastparticiple_english: 'left'
     },
     {
+        infinitive: "dejar",
+        infinitive_english: "to leave, allow",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I left",
+        form_1s: "dejé",
+        form_2s: "dejaste",
+        form_3s: "dejó",
+        form_1p: "dejamos",
+        form_3p: "dejaron",
+        pastparticiple: "dejado",
+        pastparticiple_english: "left"
+    },
+    {
         infinitive: "llevar",
         infinitive_english: "to carry, wear",
         mood: "Indicativo",
@@ -1474,8 +2076,6 @@ const presentData = [
         form_3s: "lleva",
         form_1p: "llevamos",
         form_3p: "llevan",
-        gerund: "llevando",
-        gerund_english: "carrying",
         pastparticiple: "llevado",
         pastparticiple_english: "carried"
     },
@@ -1496,6 +2096,22 @@ const presentData = [
         pastparticiple_english: 'carried'
     },
     {
+        infinitive: "llevar",
+        infinitive_english: "to carry, wear",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I carried",
+        form_1s: "llevé",
+        form_2s: "llevaste",
+        form_3s: "llevó",
+        form_1p: "llevamos",
+        form_3p: "llevaron",
+        pastparticiple: "llevado",
+        pastparticiple_english: "carried"
+    },
+    {
         infinitive: "viajar",
         infinitive_english: "to travel",
         mood: "Indicativo",
@@ -1508,8 +2124,6 @@ const presentData = [
         form_3s: "viaja",
         form_1p: "viajamos",
         form_3p: "viajan",
-        gerund: "viajando",
-        gerund_english: "traveling",
         pastparticiple: "viajado",
         pastparticiple_english: "traveled"
     },
@@ -1530,8 +2144,24 @@ const presentData = [
         pastparticiple_english: 'travelled'
     },
     {
+        infinitive: "viajar",
+        infinitive_english: "to travel",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I traveled",
+        form_1s: "viajé",
+        form_2s: "viajaste",
+        form_3s: "viajó",
+        form_1p: "viajamos",
+        form_3p: "viajaron",
+        pastparticiple: "viajado",
+        pastparticiple_english: "traveled"
+    },
+    {
         infinitive: "desear",
-        infinitive_english: "to desire, want, wish",
+        infinitive_english: "to desire, wish",
         mood: "Indicativo",
         mood_english: "Indicative",
         tense: "Presente",
@@ -1542,8 +2172,6 @@ const presentData = [
         form_3s: "desea",
         form_1p: "deseamos",
         form_3p: "desean",
-        gerund: "deseando",
-        gerund_english: "desiring",
         pastparticiple: "deseado",
         pastparticiple_english: "desired"
     },
@@ -1564,6 +2192,22 @@ const presentData = [
         pastparticiple_english: 'desired'
     },
     {
+        infinitive: "desear",
+        infinitive_english: "to desire, wish",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I desired",
+        form_1s: "deseé",
+        form_2s: "deseaste",
+        form_3s: "deseó",
+        form_1p: "deseamos",
+        form_3p: "desearon",
+        pastparticiple: "deseado",
+        pastparticiple_english: "desired"
+    },
+    {
         infinitive: "mandar",
         infinitive_english: "to order",
         mood: "Indicativo",
@@ -1576,8 +2220,6 @@ const presentData = [
         form_3s: "manda",
         form_1p: "mandamos",
         form_3p: "mandan",
-        gerund: "mandando",
-        gerund_english: "ordering",
         pastparticiple: "mandado",
         pastparticiple_english: "ordered"
     },
@@ -1598,6 +2240,22 @@ const presentData = [
         pastparticiple_english: 'ordered'
     },
     {
+        infinitive: "mandar",
+        infinitive_english: "to order",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I ordered",
+        form_1s: "mandé",
+        form_2s: "mandaste",
+        form_3s: "mandó",
+        form_1p: "mandamos",
+        form_3p: "mandaron",
+        pastparticiple: "mandado",
+        pastparticiple_english: "ordered"
+    },
+    {
         infinitive: "visitar",
         infinitive_english: "to visit",
         mood: "Indicativo",
@@ -1610,8 +2268,6 @@ const presentData = [
         form_3s: "visita",
         form_1p: "visitamos",
         form_3p: "visitan",
-        gerund: "visitando",
-        gerund_english: "visiting",
         pastparticiple: "visitado",
         pastparticiple_english: "visited"
     },
@@ -1632,6 +2288,22 @@ const presentData = [
         pastparticiple_english: '[eng]ed'
     },
     {
+        infinitive: "visitar",
+        infinitive_english: "to visit",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I visited",
+        form_1s: "visité",
+        form_2s: "visitaste",
+        form_3s: "visitó",
+        form_1p: "visitamos",
+        form_3p: "visitaron",
+        pastparticiple: "visitado",
+        pastparticiple_english: "visited"
+    },
+    {
         infinitive: "enseñar",
         infinitive_english: "to teach",
         mood: "Indicativo",
@@ -1644,8 +2316,6 @@ const presentData = [
         form_3s: "enseña",
         form_1p: "enseñamos",
         form_3p: "enseñan",
-        gerund: "enseñando",
-        gerund_english: "teaching",
         pastparticiple: "enseñado",
         pastparticiple_english: "taught"
     },
@@ -1666,6 +2336,22 @@ const presentData = [
         pastparticiple_english: 'taught'
     },
     {
+        infinitive: "enseñar",
+        infinitive_english: "to teach",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I taught",
+        form_1s: "enseñé",
+        form_2s: "enseñaste",
+        form_3s: "enseñó",
+        form_1p: "enseñamos",
+        form_3p: "enseñaron",
+        pastparticiple: "enseñado",
+        pastparticiple_english: "taught"
+    },
+    {
         infinitive: "mirar",
         infinitive_english: "to watch, look at",
         mood: "Indicativo",
@@ -1678,8 +2364,6 @@ const presentData = [
         form_3s: "mira",
         form_1p: "miramos",
         form_3p: "miran",
-        gerund: "mirando",
-        gerund_english: "watching",
         pastparticiple: "mirado",
         pastparticiple_english: "watched"
     },
@@ -1700,6 +2384,22 @@ const presentData = [
         pastparticiple_english: 'watched'
     },
     {
+        infinitive: "mirar",
+        infinitive_english: "to watch, look at",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I watched",
+        form_1s: "miré",
+        form_2s: "miraste",
+        form_3s: "miró",
+        form_1p: "miramos",
+        form_3p: "miraron",
+        pastparticiple: "mirado",
+        pastparticiple_english: "watched"
+    },
+    {
         infinitive: "aprender",
         infinitive_english: "to learn",
         mood: "Indicativo",
@@ -1712,8 +2412,6 @@ const presentData = [
         form_3s: "aprende",
         form_1p: "aprendemos",
         form_3p: "aprenden",
-        gerund: "aprendiendo",
-        gerund_english: "learning",
         pastparticiple: "aprendido",
         pastparticiple_english: "learned"
     },
@@ -1734,6 +2432,22 @@ const presentData = [
         pastparticiple_english: 'learned'
     },
     {
+        infinitive: "aprender",
+        infinitive_english: "to learn",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I learned",
+        form_1s: "aprendí",
+        form_2s: "aprendiste",
+        form_3s: "aprendió",
+        form_1p: "aprendimos",
+        form_3p: "aprendieron",
+        pastparticiple: "aprendido",
+        pastparticiple_english: "learned"
+    },
+    {
         infinitive: "creer",
         infinitive_english: "to believe, think",
         mood: "Indicativo",
@@ -1746,8 +2460,6 @@ const presentData = [
         form_3s: "cree",
         form_1p: "creemos",
         form_3p: "creen",
-        gerund: "creyendo",
-        gerund_english: "believing",
         pastparticiple: "creído",
         pastparticiple_english: "believed"
     },
@@ -1768,6 +2480,22 @@ const presentData = [
         pastparticiple_english: 'believed'
     },
     {
+        infinitive: "creer",
+        infinitive_english: "to believe, think",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I believed",
+        form_1s: "creí",
+        form_2s: "creíste",
+        form_3s: "creyó",
+        form_1p: "creímos",
+        form_3p: "creyeron",
+        pastparticiple: "creído",
+        pastparticiple_english: "believed"
+    },
+    {
         infinitive: "responder",
         infinitive_english: "to respond, answer, reply to",
         mood: "Indicativo",
@@ -1780,8 +2508,6 @@ const presentData = [
         form_3s: "responde",
         form_1p: "respondemos",
         form_3p: "responden",
-        gerund: "respondiendo",
-        gerund_english: "responding",
         pastparticiple: "respondido",
         pastparticiple_english: "responded"
     },
@@ -1802,6 +2528,22 @@ const presentData = [
         pastparticiple_english: 'responded'
     },
     {
+        infinitive: "responder",
+        infinitive_english: "to respond, answer, reply to",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I responded",
+        form_1s: "respondí",
+        form_2s: "respondiste",
+        form_3s: "respondió",
+        form_1p: "respondimos",
+        form_3p: "respondieron",
+        pastparticiple: "respondido",
+        pastparticiple_english: "responded"
+    },
+    {
         infinitive: "beber",
         infinitive_english: "to drink",
         mood: "Indicativo",
@@ -1814,8 +2556,6 @@ const presentData = [
         form_3s: "bebe",
         form_1p: "bebemos",
         form_3p: "beben",
-        gerund: "bebiendo",
-        gerund_english: "drinking",
         pastparticiple: "bebido",
         pastparticiple_english: "drunk"
     },
@@ -1836,6 +2576,22 @@ const presentData = [
         pastparticiple_english: 'drunk'
     },
     {
+        infinitive: "beber",
+        infinitive_english: "to drink",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I drank",
+        form_1s: "bebí",
+        form_2s: "bebiste",
+        form_3s: "bebió",
+        form_1p: "bebimos",
+        form_3p: "bebieron",
+        pastparticiple: "bebido",
+        pastparticiple_english: "drunk"
+    },
+    {
         infinitive: "deber",
         infinitive_english: "to have to; to owe",
         mood: "Indicativo",
@@ -1848,8 +2604,6 @@ const presentData = [
         form_3s: "debe",
         form_1p: "debemos",
         form_3p: "deben",
-        gerund: "debiendo",
-        gerund_english: "owing",
         pastparticiple: "debido",
         pastparticiple_english: "owed"
     },
@@ -1870,6 +2624,22 @@ const presentData = [
         pastparticiple_english: 'owed'
     },
     {
+        infinitive: "deber",
+        infinitive_english: "to have to; to owe",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I owed",
+        form_1s: "debí",
+        form_2s: "debiste",
+        form_3s: "debió",
+        form_1p: "debimos",
+        form_3p: "debieron",
+        pastparticiple: "debido",
+        pastparticiple_english: "owed"
+    },
+    {
         infinitive: "prometer",
         infinitive_english: "to promise",
         mood: "Indicativo",
@@ -1882,8 +2652,6 @@ const presentData = [
         form_3s: "promete",
         form_1p: "prometemos",
         form_3p: "prometen",
-        gerund: "prometiendo",
-        gerund_english: "promising",
         pastparticiple: "prometido",
         pastparticiple_english: "promised"
     },
@@ -1904,6 +2672,22 @@ const presentData = [
         pastparticiple_english: 'promised'
     },
     {
+        infinitive: "prometer",
+        infinitive_english: "to promise",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I promised",
+        form_1s: "prometí",
+        form_2s: "prometiste",
+        form_3s: "prometió",
+        form_1p: "prometimos",
+        form_3p: "prometieron",
+        pastparticiple: "prometido",
+        pastparticiple_english: "promised"
+    },
+    {
         infinitive: "comer",
         infinitive_english: "to eat",
         mood: "Indicativo",
@@ -1916,8 +2700,6 @@ const presentData = [
         form_3s: "come",
         form_1p: "comemos",
         form_3p: "comen",
-        gerund: "comiendo",
-        gerund_english: "eating",
         pastparticiple: "comido",
         pastparticiple_english: "eaten"
     },
@@ -1938,6 +2720,22 @@ const presentData = [
         pastparticiple_english: 'eaten'
     },
     {
+        infinitive: "comer",
+        infinitive_english: "to eat",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I ate",
+        form_1s: "comí",
+        form_2s: "comiste",
+        form_3s: "comió",
+        form_1p: "comimos",
+        form_3p: "comieron",
+        pastparticiple: "comido",
+        pastparticiple_english: "eaten"
+    },
+    {
         infinitive: "esconder",
         infinitive_english: "to hide",
         mood: "Indicativo",
@@ -1950,8 +2748,6 @@ const presentData = [
         form_3s: "esconde",
         form_1p: "escondemos",
         form_3p: "esconden",
-        gerund: "escondiendo",
-        gerund_english: "hiding",
         pastparticiple: "escondido",
         pastparticiple_english: "hidden"
     },
@@ -1972,6 +2768,22 @@ const presentData = [
         pastparticiple_english: 'hidden'
     },
     {
+        infinitive: "esconder",
+        infinitive_english: "to hide",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I hid",
+        form_1s: "escondí",
+        form_2s: "escondiste",
+        form_3s: "escondió",
+        form_1p: "escondimos",
+        form_3p: "escondieron",
+        pastparticiple: "escondido",
+        pastparticiple_english: "hidden"
+    },
+    {
         infinitive: "romper",
         infinitive_english: "to break",
         mood: "Indicativo",
@@ -1984,8 +2796,6 @@ const presentData = [
         form_3s: "rompe",
         form_1p: "rompemos",
         form_3p: "rompen",
-        gerund: "rompiendo",
-        gerund_english: "breaking",
         pastparticiple: "roto",
         pastparticiple_english: "broken"
     },
@@ -2006,6 +2816,22 @@ const presentData = [
         pastparticiple_english: 'broken'
     },
     {
+        infinitive: "romper",
+        infinitive_english: "to break",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I broke",
+        form_1s: "rompí",
+        form_2s: "rompiste",
+        form_3s: "rompió",
+        form_1p: "rompimos",
+        form_3p: "rompieron",
+        pastparticiple: "roto",
+        pastparticiple_english: "broken"
+    },
+    {
         infinitive: "comprender",
         infinitive_english: "to understand",
         mood: "Indicativo",
@@ -2018,8 +2844,6 @@ const presentData = [
         form_3s: "comprende",
         form_1p: "comprendemos",
         form_3p: "comprenden",
-        gerund: "comprendiendo",
-        gerund_english: "understanding",
         pastparticiple: "comprendido",
         pastparticiple_english: "understood"
     },
@@ -2040,6 +2864,22 @@ const presentData = [
         pastparticiple_english: 'understood'
     },
     {
+        infinitive: "comprender",
+        infinitive_english: "to understand",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I understood",
+        form_1s: "comprendí",
+        form_2s: "comprendiste",
+        form_3s: "comprendió",
+        form_1p: "comprendimos",
+        form_3p: "comprendieron",
+        pastparticiple: "comprendido",
+        pastparticiple_english: "understood"
+    },
+    {
         infinitive: "leer",
         infinitive_english: "to read",
         mood: "Indicativo",
@@ -2052,8 +2892,6 @@ const presentData = [
         form_3s: "lee",
         form_1p: "leemos",
         form_3p: "leen",
-        gerund: "leyendo",
-        gerund_english: "reading",
         pastparticiple: "leído",
         pastparticiple_english: "read"
     },
@@ -2074,6 +2912,22 @@ const presentData = [
         pastparticiple_english: 'read'
     },
     {
+        infinitive: "leer",
+        infinitive_english: "to read",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I read",
+        form_1s: "leí",
+        form_2s: "leíste",
+        form_3s: "leyó",
+        form_1p: "leímos",
+        form_3p: "leyeron",
+        pastparticiple: "leído",
+        pastparticiple_english: "read"
+    },
+    {
         infinitive: "temer",
         infinitive_english: "to fear",
         mood: "Indicativo",
@@ -2086,8 +2940,6 @@ const presentData = [
         form_3s: "teme",
         form_1p: "tememos",
         form_3p: "temen",
-        gerund: "temiendo",
-        gerund_english: "fearing",
         pastparticiple: "temido",
         pastparticiple_english: "feared"
     },
@@ -2108,6 +2960,22 @@ const presentData = [
         pastparticiple_english: 'feared'
     },
     {
+        infinitive: "temer",
+        infinitive_english: "to fear",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I feared",
+        form_1s: "temí",
+        form_2s: "temiste",
+        form_3s: "temió",
+        form_1p: "temimos",
+        form_3p: "temieron",
+        pastparticiple: "temido",
+        pastparticiple_english: "feared"
+    },
+    {
         infinitive: "meter",
         infinitive_english: "to put [into], place, insert",
         mood: "Indicativo",
@@ -2120,8 +2988,6 @@ const presentData = [
         form_3s: "mete",
         form_1p: "metemos",
         form_3p: "meten",
-        gerund: "metiendo",
-        gerund_english: "putting",
         pastparticiple: "metido",
         pastparticiple_english: "put"
     },
@@ -2142,6 +3008,22 @@ const presentData = [
         pastparticiple_english: 'put'
     },
     {
+        infinitive: "meter",
+        infinitive_english: "to put [into], place, insert",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I put",
+        form_1s: "metí",
+        form_2s: "metiste",
+        form_3s: "metió",
+        form_1p: "metimos",
+        form_3p: "metieron",
+        pastparticiple: "metido",
+        pastparticiple_english: "put"
+    },
+    {
         infinitive: "vender",
         infinitive_english: "to sell",
         mood: "Indicativo",
@@ -2154,8 +3036,6 @@ const presentData = [
         form_3s: "vende",
         form_1p: "vendemos",
         form_3p: "venden",
-        gerund: "vendiendo",
-        gerund_english: "selling",
         pastparticiple: "vendido",
         pastparticiple_english: "sold"
     },
@@ -2176,6 +3056,22 @@ const presentData = [
         pastparticiple_english: 'sold'
     },
     {
+        infinitive: "vender",
+        infinitive_english: "to sell",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I sold",
+        form_1s: "vendí",
+        form_2s: "vendiste",
+        form_3s: "vendió",
+        form_1p: "vendimos",
+        form_3p: "vendieron",
+        pastparticiple: "vendido",
+        pastparticiple_english: "sold"
+    },
+    {
         infinitive: "escoger",
         infinitive_english: "to choose, select, pick",
         mood: "Indicativo",
@@ -2188,8 +3084,6 @@ const presentData = [
         form_3s: "escoge",
         form_1p: "escogemos",
         form_3p: "escogen",
-        gerund: "escogiendo",
-        gerund_english: "choosing",
         pastparticiple: "escogido",
         pastparticiple_english: "chosen"
     },
@@ -2210,6 +3104,22 @@ const presentData = [
         pastparticiple_english: 'choosen'
     },
     {
+        infinitive: "escoger",
+        infinitive_english: "to choose, select, pick",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I chose",
+        form_1s: "escogí",
+        form_2s: "escogiste",
+        form_3s: "escogió",
+        form_1p: "escogimos",
+        form_3p: "escogieron",
+        pastparticiple: "escogido",
+        pastparticiple_english: "chosen"
+    },
+    {
         infinitive: "abrir",
         infinitive_english: "to open",
         mood: "Indicativo",
@@ -2222,8 +3132,6 @@ const presentData = [
         form_3s: "abre",
         form_1p: "abrimos",
         form_3p: "abren",
-        gerund: "abriendo",
-        gerund_english: "opening",
         pastparticiple: "abierto",
         pastparticiple_english: "opened"
     },
@@ -2244,6 +3152,22 @@ const presentData = [
         pastparticiple_english: 'opened'
     },
     {
+        infinitive: "abrir",
+        infinitive_english: "to open",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I opened",
+        form_1s: "abrí",
+        form_2s: "abriste",
+        form_3s: "abrió",
+        form_1p: "abrimos",
+        form_3p: "abrieron",
+        pastparticiple: "abierto",
+        pastparticiple_english: "opened"
+    },
+    {
         infinitive: "descubrir",
         infinitive_english: "to discover",
         mood: "Indicativo",
@@ -2256,8 +3180,6 @@ const presentData = [
         form_3s: "descubre",
         form_1p: "descubrimos",
         form_3p: "descubren",
-        gerund: "descubriendo",
-        gerund_english: "discovering",
         pastparticiple: "descubierto",
         pastparticiple_english: "discovered"
     },
@@ -2278,6 +3200,22 @@ const presentData = [
         pastparticiple_english: 'discovered'
     },
     {
+        infinitive: "descubrir",
+        infinitive_english: "to discover",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I discovered",
+        form_1s: "descubrí",
+        form_2s: "descubriste",
+        form_3s: "descubrió",
+        form_1p: "descubrimos",
+        form_3p: "descubrieron",
+        pastparticiple: "descubierto",
+        pastparticiple_english: "discovered"
+    },
+    {
         infinitive: "permitir",
         infinitive_english: "to permit, allow",
         mood: "Indicativo",
@@ -2290,8 +3228,6 @@ const presentData = [
         form_3s: "permite",
         form_1p: "permitimos",
         form_3p: "permiten",
-        gerund: "permitiendo",
-        gerund_english: "permitting",
         pastparticiple: "permitido",
         pastparticiple_english: "permitted"
     },
@@ -2312,6 +3248,22 @@ const presentData = [
         pastparticiple_english: 'permitted'
     },
     {
+        infinitive: "permitir",
+        infinitive_english: "to permit, allow",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I permitted",
+        form_1s: "permití",
+        form_2s: "permitiste",
+        form_3s: "permitió",
+        form_1p: "permitimos",
+        form_3p: "permitieron",
+        pastparticiple: "permitido",
+        pastparticiple_english: "permitted"
+    },
+    {
         infinitive: "admitir",
         infinitive_english: "to admit",
         mood: "Indicativo",
@@ -2324,8 +3276,6 @@ const presentData = [
         form_3s: "admite",
         form_1p: "admitimos",
         form_3p: "admiten",
-        gerund: "admitiendo",
-        gerund_english: "admitting",
         pastparticiple: "admitido",
         pastparticiple_english: "admitted"
     },
@@ -2346,6 +3296,22 @@ const presentData = [
         pastparticiple_english: 'admitted'
     },
     {
+        infinitive: "admitir",
+        infinitive_english: "to admit",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I admitted",
+        form_1s: "admití",
+        form_2s: "admitiste",
+        form_3s: "admitió",
+        form_1p: "admitimos",
+        form_3p: "admitieron",
+        pastparticiple: "admitido",
+        pastparticiple_english: "admitted"
+    },
+    {
         infinitive: "recibir",
         infinitive_english: "to receive",
         mood: "Indicativo",
@@ -2358,8 +3324,6 @@ const presentData = [
         form_3s: "recibe",
         form_1p: "recibimos",
         form_3p: "reciben",
-        gerund: "recibiendo",
-        gerund_english: "receiving",
         pastparticiple: "recibido",
         pastparticiple_english: "received"
     },
@@ -2380,6 +3344,22 @@ const presentData = [
         pastparticiple_english: 'received'
     },
     {
+        infinitive: "recibir",
+        infinitive_english: "to receive",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I received",
+        form_1s: "recibí",
+        form_2s: "recibiste",
+        form_3s: "recibió",
+        form_1p: "recibimos",
+        form_3p: "recibieron",
+        pastparticiple: "recibido",
+        pastparticiple_english: "received"
+    },
+    {
         infinitive: "asistir",
         infinitive_english: "to attend",
         mood: "Indicativo",
@@ -2392,8 +3372,6 @@ const presentData = [
         form_3s: "asiste",
         form_1p: "asistimos",
         form_3p: "asisten",
-        gerund: "asistiendo",
-        gerund_english: "attending",
         pastparticiple: "asistido",
         pastparticiple_english: "attended"
     },
@@ -2414,6 +3392,22 @@ const presentData = [
         pastparticiple_english: 'attended'
     },
     {
+        infinitive: "asistir",
+        infinitive_english: "to attend",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I attended",
+        form_1s: "asistí",
+        form_2s: "asististe",
+        form_3s: "asistió",
+        form_1p: "asistimos",
+        form_3p: "asistieron",
+        pastparticiple: "asistido",
+        pastparticiple_english: "attended"
+    },
+    {
         infinitive: "subir",
         infinitive_english: "to go up, climb",
         mood: "Indicativo",
@@ -2426,8 +3420,6 @@ const presentData = [
         form_3s: "sube",
         form_1p: "subimos",
         form_3p: "suben",
-        gerund: "subiendo",
-        gerund_english: "going up",
         pastparticiple: "subido",
         pastparticiple_english: "went up"
     },
@@ -2448,6 +3440,22 @@ const presentData = [
         pastparticiple_english: 'went up'
     },
     {
+        infinitive: "subir",
+        infinitive_english: "to go up, climb",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I went up",
+        form_1s: "subí",
+        form_2s: "subiste",
+        form_3s: "subió",
+        form_1p: "subimos",
+        form_3p: "subieron",
+        pastparticiple: "subido",
+        pastparticiple_english: "went up"
+    },
+    {
         infinitive: "cubrir",
         infinitive_english: "to cover",
         mood: "Indicativo",
@@ -2460,8 +3468,6 @@ const presentData = [
         form_3s: "cubre",
         form_1p: "cubrimos",
         form_3p: "cubren",
-        gerund: "cubriendo",
-        gerund_english: "covering",
         pastparticiple: "cubierto",
         pastparticiple_english: "covered"
     },
@@ -2482,6 +3488,22 @@ const presentData = [
         pastparticiple_english: 'covered'
     },
     {
+        infinitive: "cubrir",
+        infinitive_english: "to cover",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I covered",
+        form_1s: "cubrí",
+        form_2s: "cubriste",
+        form_3s: "cubrió",
+        form_1p: "cubrimos",
+        form_3p: "cubrieron",
+        pastparticiple: "cubierto",
+        pastparticiple_english: "covered"
+    },
+    {
         infinitive: "sufrir",
         infinitive_english: "to suffer",
         mood: "Indicativo",
@@ -2494,8 +3516,6 @@ const presentData = [
         form_3s: "sufre",
         form_1p: "sufrimos",
         form_3p: "sufren",
-        gerund: "sufriendo",
-        gerund_english: "suffering",
         pastparticiple: "sufrido",
         pastparticiple_english: "suffered"
     },
@@ -2516,6 +3536,22 @@ const presentData = [
         pastparticiple_english: 'suffered'
     },
     {
+        infinitive: "sufrir",
+        infinitive_english: "to suffer; to undergo, experience, put up with",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I suffered",
+        form_1s: "sufrí",
+        form_2s: "sufriste",
+        form_3s: "sufrió",
+        form_1p: "sufrimos",
+        form_3p: "sufrieron",
+        pastparticiple: "sufrido",
+        pastparticiple_english: "suffered"
+    },
+    {
         infinitive: "decidir",
         infinitive_english: "to decide",
         mood: "Indicativo",
@@ -2528,8 +3564,6 @@ const presentData = [
         form_3s: "decide",
         form_1p: "decidimos",
         form_3p: "deciden",
-        gerund: "decidiendo",
-        gerund_english: "deciding",
         pastparticiple: "decidido",
         pastparticiple_english: "decided"
     },
@@ -2550,6 +3584,22 @@ const presentData = [
         pastparticiple_english: 'decided'
     },
     {
+        infinitive: "decidir",
+        infinitive_english: "to decide",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I decided",
+        form_1s: "decidí",
+        form_2s: "decidiste",
+        form_3s: "decidió",
+        form_1p: "decidimos",
+        form_3p: "decidieron",
+        pastparticiple: "decidido",
+        pastparticiple_english: "decided"
+      },
+    {
         infinitive: "unir",
         infinitive_english: "to unite, to join",
         mood: "Indicativo",
@@ -2562,8 +3612,6 @@ const presentData = [
         form_3s: "une",
         form_1p: "unimos",
         form_3p: "unen",
-        gerund: "uniendo",
-        gerund_english: "uniting",
         pastparticiple: "unido",
         pastparticiple_english: "united"
     },
@@ -2584,6 +3632,22 @@ const presentData = [
         pastparticiple_english: 'united'
     },
     {
+        infinitive: "unir",
+        infinitive_english: "to unite, join",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I united",
+        form_1s: "uní",
+        form_2s: "uniste",
+        form_3s: "unió",
+        form_1p: "unimos",
+        form_3p: "unieron",
+        pastparticiple: "unido",
+        pastparticiple_english: "united"
+    },
+    {
         infinitive: "describir",
         infinitive_english: "to describe",
         mood: "Indicativo",
@@ -2596,8 +3660,6 @@ const presentData = [
         form_3s: "describe",
         form_1p: "describimos",
         form_3p: "describen",
-        gerund: "describiendo",
-        gerund_english: "describing",
         pastparticiple: "descrito",
         pastparticiple_english: "described"
     },
@@ -2618,6 +3680,22 @@ const presentData = [
         pastparticiple_english: 'described'
     },
     {
+        infinitive: "describir",
+        infinitive_english: "to describe",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I described",
+        form_1s: "describí",
+        form_2s: "describiste",
+        form_3s: "describió",
+        form_1p: "describimos",
+        form_3p: "describieron",
+        pastparticiple: "descrito",
+        pastparticiple_english: "described"
+    },
+    {
         infinitive: "vivir",
         infinitive_english: "to live",
         mood: "Indicativo",
@@ -2630,8 +3708,6 @@ const presentData = [
         form_3s: "vive",
         form_1p: "vivimos",
         form_3p: "viven",
-        gerund: "viviendo",
-        gerund_english: "living",
         pastparticiple: "vivido",
         pastparticiple_english: "lived"
     },
@@ -2650,6 +3726,22 @@ const presentData = [
         form_3p: 'van a vivir',
         pastparticiple: 'vivido',
         pastparticiple_english: 'lived'
+    },
+    {
+        infinitive: "vivir",
+        infinitive_english: "to live",
+        mood: "Indicativo",
+        mood_english: "Indicative",
+        tense: "Pretérito",
+        tense_english: "Preterite",
+        verb_english: "I lived",
+        form_1s: "viví",
+        form_2s: "viviste",
+        form_3s: "vivió",
+        form_1p: "vivimos",
+        form_3p: "vivieron",
+        pastparticiple: "vivido",
+        pastparticiple_english: "lived"
     },
 ]
 
