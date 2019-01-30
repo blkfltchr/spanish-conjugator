@@ -7,8 +7,17 @@ const initialState = {
     helperText: '',
     correct: false,
     randomVerb: {},
-    randomPerson: []
+    randomPerson: [],
+    // data: latamSpanish(miniData)
 }
+
+// beginner = () => {
+//     this.state.data.filter(
+//         verb =>
+//             (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
+//             (verb.tense_english === 'Future' && verb.mood_english === 'Indicative')
+//     );
+// }
 
 class BeginnerRandom extends Component {
     constructor(props) {
@@ -26,7 +35,7 @@ class BeginnerRandom extends Component {
 
     randomize = () => {
         const randomVerb = this.props.data[Math.floor(Math.random() * this.props.data.length)];
-        const randomPerson = Object.entries(randomVerb)[ Math.floor(Math.random() * 2) + 7 ];
+        const randomPerson = Object.entries(randomVerb)[ Math.floor(Math.random() * 5) + 7 ];
         this.setState({
             randomVerb, randomPerson
         })
@@ -56,25 +65,33 @@ class BeginnerRandom extends Component {
     }
     
     render() { 
-        console.log(this.state)
         if (!this.state.randomVerb) {
             return (
                 <h1>Loading....</h1>
             )
         } else { 
             const { randomVerb, randomPerson, hint, correct, helperText, value } = this.state
-            const { infinitive, infinitive_english, tense_english } = randomVerb
+            const { infinitive, infinitive_english, tense_english, mood_english } = randomVerb
             return ( 
                 <div>
                     <p><b>Verb: </b>{infinitive}</p>
                     <p><b>Translation: </b>{infinitive_english}</p>
-                    <p><b>Tense: </b>{tense_english}</p>
+                    <p><b>Tense: </b>{tense_english} {mood_english}</p>
                     <p><b>Pronoun:</b>
                         { randomPerson[0] === 'form_1s' &&
                             <span> Yo (Singular, 1st person)</span>
                         }
                         { randomPerson[0] === 'form_2s' &&
-                            <span> Tu (Singular, 2nd person)</span>
+                            <span> Tú (Singular, 2nd person)</span>
+                        }
+                        { randomPerson[0] === 'form_3s' &&
+                            <span> Él/Ella/Usted (Singular, 3rd person)</span>
+                        }
+                        { randomPerson[0] === 'form_1p' &&
+                            <span> Nosotros (Plural, 1st person)</span>
+                        }
+                        { randomPerson[0] === 'form_3p' &&
+                            <span> Ellos/Ellas/Ustedes (Plural, 3rd person)</span>
                         }
                     </p>
                     <label>
