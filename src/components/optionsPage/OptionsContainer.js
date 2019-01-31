@@ -14,8 +14,8 @@ class OptionsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: miniData,
-      tempData: [],
+      data: Intermediate,
+      // tempData: Intermediate,
       NumberPerson: 'Latam',
       VerbTenses: 'Intermediate'
     };
@@ -28,45 +28,135 @@ class OptionsContainer extends Component {
   };
 
   updateVerbTenses = event => {
-    this.setState({
-      VerbTenses: event.target.value
-    });
-  };
-
-  filterData = event => {
-    event.preventDefault();
-
-    if (this.state.VerbTenses === 'Beginner') {
+    if (event.target.value === 'Beginner') {
       this.setState({
         data: Beginner
       });
-    } else if (this.state.VerbTenses === 'Intermediate') {
+    } else if (event.target.value === 'Intermediate') {
       this.setState({
         data: Intermediate
       });
-    } else if (this.state.VerbTenses === 'Advanced') {
+    } else if (event.target.value === 'Advanced') {
       this.setState({
         data: miniData
       });
     }
+    // this.setState({
+    //   VerbTenses: event.target.value
+    // });
+  };
 
-    const spainSpanishFiltered = spainSpanish(this.state.data);
-    if (this.state.NumberPerson === 'Spain') {
+  // verbTenseChange = event => {
+  //   event.preventDefault();
+
+  //   if (this.state.VerbTenses === 'Beginner') {
+  //     this.setState({
+  //       data: Beginner
+  //     });
+  //   } else if (this.state.VerbTenses === 'Intermediate') {
+  //     this.setState({
+  //       data: Intermediate
+  //     });
+  //   } else if (this.state.VerbTenses === 'Advanced') {
+  //     this.setState({
+  //       data: miniData
+  //     });
+  //   }
+
+  //   // const spainSpanishFiltered = spainSpanish(this.state.data);
+  //   // if (this.state.NumberPerson === 'Spain') {
+  //   //   this.setState({
+  //   //     data: spainSpanishFiltered
+  //   //   });
+  //   // }
+  //   // const latamFiltered = latamSpanish(this.state.data);
+  //   // if (this.state.NumberPerson === 'Latam') {
+  //   //   this.setState({
+  //   //     data: latamFiltered
+  //   //   });
+  //   // }
+  // };
+
+  filterData = event => {
+    event.preventDefault();
+
+    const spainBeg = spainSpanish(Beginner);
+    const spainInter = spainSpanish(Intermediate);
+    const spainAdv = spainSpanish(miniData);
+    console.log('We are in filter data!');
+    // const spainSpanishFiltered = spainSpanish(this.state.data);
+    if (
+      this.state.NumberPerson === 'Spain' &&
+      this.state.VerbTenses === 'Beginner'
+    ) {
+      console.log('1st');
       this.setState({
-        tempData: spainSpanishFiltered
+        data: spainBeg
       });
     }
-    const latamFiltered = latamSpanish(this.state.data);
-    if (this.state.NumberPerson === 'Latam') {
+    if (
+      this.state.NumberPerson === 'Spain' &&
+      this.state.VerbTenses === 'Intermediate'
+    ) {
+      console.log('2nd');
       this.setState({
-        tempData: latamFiltered
+        data: spainInter
       });
     }
+    if (
+      this.state.NumberPerson === 'Spain' &&
+      this.state.VerbTenses === 'Advanced'
+    ) {
+      console.log('3rd');
+      this.setState({
+        data: spainAdv
+      });
+    }
+
+    const latamBeg = latamSpanish(Beginner);
+    const latamInter = latamSpanish(Intermediate);
+    const latamAdv = latamSpanish(miniData);
+    console.log('LATAM BEG', latamBeg);
+    console.log('Number person', this.state.NumberPerson);
+    console.log('Verb tense', this.state.VerbTenses);
+    // console.log('Afterwards', this.state.data);
+    // const latamFiltered = latamSpanish(this.state.data);
+    if (
+      this.state.NumberPerson === 'Latam' &&
+      this.state.VerbTenses === 'Beginner'
+    ) {
+      console.log('4th');
+      this.setState({
+        data: latamBeg
+      });
+    }
+    if (
+      this.state.NumberPerson === 'Latam' &&
+      this.state.VerbTenses === 'Intermediate'
+    ) {
+      console.log('5th');
+      this.setState({
+        data: latamInter
+      });
+    }
+    if (
+      this.state.NumberPerson === 'Latam' &&
+      this.state.VerbTenses === 'Advanced'
+    ) {
+      console.log('6th');
+      this.setState({
+        data: latamAdv
+      });
+    }
+
+    console.log('state data after filters', this.state.data);
   };
 
   render() {
-    console.log('Data', this.state.data);
-    console.log('Temp', this.state.tempData);
+    console.log('Data from render', this.state.data);
+    // console.log('Temp', this.state.tempData);
+
+    // console.log('Beginner data =', Beginner);
 
     return (
       <div>
@@ -88,7 +178,7 @@ class OptionsContainer extends Component {
         <Link
           to={{
             pathname: '/randomFiltered',
-            state: { data: this.state.tempData }
+            state: { data: this.state.data }
           }}
         >
           <h4 type="submit">Begin Verb Pratice</h4>

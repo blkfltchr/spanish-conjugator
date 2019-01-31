@@ -7,7 +7,7 @@ import ConversationButton from '../../home/Options/OptionsButton';
 
 const RandomFiltered = props => {
   console.log('randomFiltered', props);
-  console.log('Data from random filtered', props.location.state.data);
+  console.log('DATA from random filtered', props.location.state.data);
   return (
     <div>
       {/* <BeginnerRandom data={ props.data } /> */}
