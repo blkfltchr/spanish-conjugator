@@ -7,15 +7,13 @@ import RandomButton from '../home/Options/RandomButton';
 import ConversationButton from '../home/Options/ConversationButton';
 import { spainSpanish, latamSpanish } from '../../components/NumPersonFilters';
 import { Beginner, Intermediate } from '../../components/VerbTensesFilters';
-import { Route, Link } from 'react-router-dom';
-import RandomFiltered from './RandomFiltered/RandomFiltered';
+import { Link } from 'react-router-dom';
 
 class OptionsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: Intermediate,
-      // tempData: Intermediate,
       NumberPerson: 'Latam',
       VerbTenses: 'Intermediate'
     };
@@ -41,41 +39,7 @@ class OptionsContainer extends Component {
         data: miniData
       });
     }
-    // this.setState({
-    //   VerbTenses: event.target.value
-    // });
   };
-
-  // verbTenseChange = event => {
-  //   event.preventDefault();
-
-  //   if (this.state.VerbTenses === 'Beginner') {
-  //     this.setState({
-  //       data: Beginner
-  //     });
-  //   } else if (this.state.VerbTenses === 'Intermediate') {
-  //     this.setState({
-  //       data: Intermediate
-  //     });
-  //   } else if (this.state.VerbTenses === 'Advanced') {
-  //     this.setState({
-  //       data: miniData
-  //     });
-  //   }
-
-  //   // const spainSpanishFiltered = spainSpanish(this.state.data);
-  //   // if (this.state.NumberPerson === 'Spain') {
-  //   //   this.setState({
-  //   //     data: spainSpanishFiltered
-  //   //   });
-  //   // }
-  //   // const latamFiltered = latamSpanish(this.state.data);
-  //   // if (this.state.NumberPerson === 'Latam') {
-  //   //   this.setState({
-  //   //     data: latamFiltered
-  //   //   });
-  //   // }
-  // };
 
   filterData = event => {
     event.preventDefault();
@@ -83,13 +47,11 @@ class OptionsContainer extends Component {
     const spainBeg = spainSpanish(Beginner);
     const spainInter = spainSpanish(Intermediate);
     const spainAdv = spainSpanish(miniData);
-    console.log('We are in filter data!');
-    // const spainSpanishFiltered = spainSpanish(this.state.data);
+
     if (
       this.state.NumberPerson === 'Spain' &&
       this.state.VerbTenses === 'Beginner'
     ) {
-      console.log('1st');
       this.setState({
         data: spainBeg
       });
@@ -98,7 +60,6 @@ class OptionsContainer extends Component {
       this.state.NumberPerson === 'Spain' &&
       this.state.VerbTenses === 'Intermediate'
     ) {
-      console.log('2nd');
       this.setState({
         data: spainInter
       });
@@ -107,7 +68,6 @@ class OptionsContainer extends Component {
       this.state.NumberPerson === 'Spain' &&
       this.state.VerbTenses === 'Advanced'
     ) {
-      console.log('3rd');
       this.setState({
         data: spainAdv
       });
@@ -116,16 +76,11 @@ class OptionsContainer extends Component {
     const latamBeg = latamSpanish(Beginner);
     const latamInter = latamSpanish(Intermediate);
     const latamAdv = latamSpanish(miniData);
-    console.log('LATAM BEG', latamBeg);
-    console.log('Number person', this.state.NumberPerson);
-    console.log('Verb tense', this.state.VerbTenses);
-    // console.log('Afterwards', this.state.data);
-    // const latamFiltered = latamSpanish(this.state.data);
+
     if (
       this.state.NumberPerson === 'Latam' &&
       this.state.VerbTenses === 'Beginner'
     ) {
-      console.log('4th');
       this.setState({
         data: latamBeg
       });
@@ -134,7 +89,6 @@ class OptionsContainer extends Component {
       this.state.NumberPerson === 'Latam' &&
       this.state.VerbTenses === 'Intermediate'
     ) {
-      console.log('5th');
       this.setState({
         data: latamInter
       });
@@ -143,21 +97,14 @@ class OptionsContainer extends Component {
       this.state.NumberPerson === 'Latam' &&
       this.state.VerbTenses === 'Advanced'
     ) {
-      console.log('6th');
       this.setState({
         data: latamAdv
       });
     }
-
-    console.log('state data after filters', this.state.data);
   };
 
   render() {
     console.log('Data from render', this.state.data);
-    // console.log('Temp', this.state.tempData);
-
-    // console.log('Beginner data =', Beginner);
-
     return (
       <div>
         <form onSubmit={this.filterData}>
