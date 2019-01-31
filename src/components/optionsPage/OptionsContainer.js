@@ -8,7 +8,7 @@ import ConversationButton from '../home/Options/ConversationButton';
 import { spainSpanish, latamSpanish } from '../../components/NumPersonFilters';
 import { Beginner, Intermediate } from '../../components/VerbTensesFilters';
 import { Route, Link } from 'react-router-dom';
-import RandomFiltered from './RandomFiltered/RandomFiltered'
+import RandomFiltered from './RandomFiltered/RandomFiltered';
 
 class OptionsContainer extends Component {
   constructor(props) {
@@ -65,35 +65,40 @@ class OptionsContainer extends Component {
   };
 
   render() {
-    console.log('Data', this.state.data)
-    console.log('Temp', this.state.tempData)
+    console.log('Data', this.state.data);
+    console.log('Temp', this.state.tempData);
 
     return (
-        <div>
-            <form onSubmit={ this.filterData }>
-                <div>
-                    <h3>Verb Frequency</h3>
-                    <VerbFrequency />
-                </div>
-                <div>
-                    <h3>Verb Tenses</h3>
-                    <VerbTenses updateVerbTenses={ this.updateVerbTenses } />
-                </div>
-                <div>
-                    <h3>Number and Person</h3>
-                    <NumberPerson updateNumPerson={ this.updateNumPerson } />
-                </div>
-                <button type="submit">Update Settings</button>
-            </form>
-            <Link to={ { pathname: '/randomFiltered', state: { data: this.state.tempData } } }>
-                <h4 type="submit">Begin Verb Pratice</h4>
-            </Link>
-            <Link to="/AdvancedOptions">
-                <h4 type="submit">Advanced Settings</h4>
-            </Link>
-            <RandomButton />
-            <ConversationButton />
-        </div>
+      <div>
+        <form onSubmit={this.filterData}>
+          <div>
+            <h3>Verb Frequency</h3>
+            <VerbFrequency />
+          </div>
+          <div>
+            <h3>Verb Tenses</h3>
+            <VerbTenses updateVerbTenses={this.updateVerbTenses} />
+          </div>
+          <div>
+            <h3>Number and Person</h3>
+            <NumberPerson updateNumPerson={this.updateNumPerson} />
+          </div>
+          <button type="submit">Update Settings</button>
+        </form>
+        <Link
+          to={{
+            pathname: '/randomFiltered',
+            state: { data: this.state.tempData }
+          }}
+        >
+          <h4 type="submit">Begin Verb Pratice</h4>
+        </Link>
+        <Link to="/AdvancedOptions">
+          <h4 type="submit">Advanced Settings</h4>
+        </Link>
+        <RandomButton />
+        <ConversationButton />
+      </div>
     );
   }
 }

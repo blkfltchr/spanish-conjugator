@@ -13,7 +13,7 @@ import ConversationTwo from './components/Conversation/ConversationTwo';
 import AdvancedOptions from './components/OptionsPage/AdvancedOptions';
 import OptionsContainer from './components/OptionsPage/OptionsContainer';
 import Random from './components/Random/Random';
-import RandomFiltered from './components/OptionsPage/RandomFiltered/RandomFiltered'
+import RandomFiltered from './components/OptionsPage/RandomFiltered/RandomFiltered';
 
 class App extends Component {
   constructor() {
@@ -24,25 +24,25 @@ class App extends Component {
   }
   render() {
     return (
-        <div style={ { width: '420px', margin: '0 auto' } }>
-            <Route path="/" component={ Header } />
-            <Route exact path="/" component={ Home } />
-            <Route exact path="/beginner" component={ BeginnerPage } />
-            <Route exact path="/conversation/one" component={ ConversationOne } />
-            <Route
-                exact
-                path="/conversation/two"
-                component={ ConversationTwo }
-            />{' '}
-            <Route path="/options" component={ OptionsContainer } />
-            <Route path="/advancedOptions" component={ AdvancedOptions } />
-            <Route
-                exact
-                path="/random"
-                render={ props => <Random { ...props } data={ this.state.present } /> }
-            />
-            <Route path="/randomFiltered" component={ RandomFiltered } />
-        </div>
+      <div style={{ width: '420px', margin: '0 auto' }}>
+        <Route path="/" component={Header} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/beginner" component={BeginnerPage} />
+        <Route exact path="/conversation/one" component={ConversationOne} />
+        <Route
+          exact
+          path="/conversation/two"
+          component={ConversationTwo}
+        />{' '}
+        <Route path="/options" component={OptionsContainer} />
+        <Route path="/advancedOptions" component={AdvancedOptions} />
+        <Route
+          exact
+          path="/random"
+          render={props => <Random {...props} data={this.state.present} />}
+        />
+        <Route path="/randomFiltered" component={RandomFiltered} />
+      </div>
     );
   }
 }
