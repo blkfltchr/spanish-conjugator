@@ -50,10 +50,7 @@ class FilteredBegRandom extends Component {
     event.preventDefault();
     this.setState({
       hint: true,
-      helperText: `The answer starts with ${this.randomPerson[1].substring(
-        0,
-        3
-      )}...`
+      helperText: `The answer starts with ${this.answer.substring(0, 3)}...`
     });
   };
 
@@ -61,6 +58,8 @@ class FilteredBegRandom extends Component {
     // let infinitive = this.randomVerb.infinitive;
     // let infinitive_english = this.randomVerb.infinitive_english;
     // let tense_english = this.randomVerb.tense_english;
+
+    console.log('Props = ', this.props);
 
     let infinitive = '';
     let infinitive_english = '';

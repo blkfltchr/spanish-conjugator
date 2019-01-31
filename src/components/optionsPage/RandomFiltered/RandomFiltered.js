@@ -14,7 +14,6 @@ const RandomFiltered = props => {
       {/* <OptionsButton /> */}
       {/* <ConversationButton /> */}
       <FilteredBegRandom data={props.location.state.data} />
-      <h2>Heyyy</h2>
     </div>
   );
 };
