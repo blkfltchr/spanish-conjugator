@@ -22,7 +22,8 @@ class BeginnerRandom extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            ...initialState
+            ...initialState,
+            count: 0
         }
     }
 
@@ -30,7 +31,6 @@ class BeginnerRandom extends Component {
         this.setState({hint: false});
         this.randomize()
     }
-
 
     randomize = () => {
         const randomVerb = this.props.data[Math.floor(Math.random() * this.props.data.length)];
@@ -47,10 +47,16 @@ class BeginnerRandom extends Component {
     handleSubmit = () => {
         // event.preventDefault();
         if (this.state.randomPerson[1] === this.state.value) {
-            alert("Correct!");
+            this.addCounter()
+            alert("Correct!")
             this.handleRefresh()
             this.setState({correct: true})
-        } this.setState({helperText: `False, the correct answer is ${this.state.randomPerson[1]}.`}) 
+        } else if (this.state.randomPerson[1] !== this.state.value) {
+            this.setState({helperText: `False, the correct answer is ${this.state.randomPerson[1]}.`})
+            this.resetCounter()
+        } else {
+            console.log('hmmm')
+        }
     }
 
     handleRefresh = () => {
@@ -62,18 +68,36 @@ class BeginnerRandom extends Component {
         event.preventDefault();
         this.setState({hint: true, helperText: `The answer starts with ${this.state.randomPerson[1].substring(0, 3)}...`}) 
     }
+
+    addCounter = () => {
+        this.setState(prevState => {
+            return {
+                count: prevState.count + 1
+            };
+        });
+    }
+
+    resetCounter = () => {
+        this.setState({
+            count: 0
+        })
+    }
     
     render() { 
+        console.log(this.state.randomPerson[1])
         if (!this.state.randomVerb) {
             return (
                 <h1>Loading....</h1>
             )
         } else { 
-            const { randomVerb, randomPerson, correct, helperText, value } = this.state
+            const { count, randomVerb, randomPerson, helperText, value } = this.state
             const { infinitive, infinitive_english, tense_english, mood_english } = randomVerb
             return ( 
                 <div>
-                    <p><b>Verb: </b>{infinitive}</p>
+                    <div style={{display: 'flex', justifyContent: 'space-between', height: '22px', padding: '0 0 16px 0', marginTop: '0'}}>
+                        <p><b>Verb: </b>{infinitive}</p>
+                        <p><b>Streak: </b>{count}</p>
+                    </div>
                     <p><b>Translation: </b>{infinitive_english}</p>
                     <p><b>Tense: </b>{tense_english} {mood_english}</p>
                     <p><b>Pronoun:</b>
@@ -102,7 +126,7 @@ class BeginnerRandom extends Component {
                         />
                         <span style={{fontSize: '12px'}}>En Español</span>
                     </label>
-                    { ( helperText && !correct ) &&
+                    { helperText &&
                         <p>{helperText}</p>
                     }
                     <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'space-between'}}>

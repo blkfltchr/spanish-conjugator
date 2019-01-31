@@ -3598,7 +3598,7 @@ const presentData = [
         form_3p: "decidieron",
         pastparticiple: "decidido",
         pastparticiple_english: "decided"
-      },
+    },
     {
         infinitive: "unir",
         infinitive_english: "to unite, to join",
