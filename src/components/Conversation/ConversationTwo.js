@@ -96,8 +96,10 @@ const ConversationTwo = () => {
                     />
                 </ThemeProvider> 
             </div>
-            <div style={ { marginTop: '1rem', display: 'flex', justifyContent: 'flex-start' } }>
-                <Link to='/conversation'><button className='button' style={ { width: '180px' } }>Prev conversation</button></Link>
+
+            <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'flex-start'}}>
+                <Link to='/conversation/one'><button className='button' style={{width: '180px'}}>Prev conversation</button></Link>
+
             </div>
             <RandomButton />
             <OptionsButton />
