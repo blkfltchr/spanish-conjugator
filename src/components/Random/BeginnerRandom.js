@@ -46,18 +46,19 @@ class BeginnerRandom extends Component {
       }
 
     handleSubmit = () => {
-        // event.preventDefault();
         if (this.state.randomPerson[1] === this.state.value) {
             this.addCounter()
             alert("Correct!")
             this.handleRefresh()
             this.setState({correct: true})
+            this.addStreak()
         } else if (this.state.randomPerson[1] !== this.state.value) {
             this.setState({helperText: `False, the correct answer is ${this.state.randomPerson[1]}.`})
             this.resetCounter()
         } else {
             console.log('hmmm')
         }
+        
     }
 
     handleRefresh = () => {
@@ -71,10 +72,20 @@ class BeginnerRandom extends Component {
         this.setState({hint: true, helperText: `The answer starts with ${answer.substring(answer.length - 3, answer.length)}...`}) 
     }
 
+    addStreak = () => {
+        if (this.state.count >= this.state.bestStreak) {
+            this.setState(prevState => {
+                return {
+                    bestStreak: prevState.bestStreak + 1
+                }
+            })
+        }
+    }
+
     addCounter = () => {
         this.setState(prevState => {
             return {
-                count: prevState.count + 1
+                count: prevState.count + 1,
             };
         });
     }
@@ -92,7 +103,7 @@ class BeginnerRandom extends Component {
                 <h1>Loading....</h1>
             )
         } else { 
-            const { count, randomVerb, randomPerson, helperText, value } = this.state
+            const { count, bestStreak, randomVerb, randomPerson, helperText, value } = this.state
             const { infinitive, infinitive_english, tense_english, mood_english } = randomVerb
             return ( 
                 <div>
@@ -102,7 +113,7 @@ class BeginnerRandom extends Component {
                     </div>
                     <div style={{display: 'flex', justifyContent: 'space-between', height: '22px', padding: '0 0 16px 0', marginTop: '0'}}>    
                         <p><b>Translation: </b>{infinitive_english}</p>
-                        <p><b>Best streak: </b>{count}</p>
+                        <p><b>Best streak: </b>{bestStreak}</p>
                     </div>
                     <p><b>Tense: </b>{tense_english} {mood_english}</p>
                     <p><b>Pronoun:</b>
