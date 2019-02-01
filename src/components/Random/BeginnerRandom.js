@@ -23,7 +23,8 @@ class BeginnerRandom extends Component {
         super(props);
         this.state = { 
             ...initialState,
-            count: 0
+            count: 0,
+            bestStreak: 0
         }
     }
 
@@ -65,8 +66,9 @@ class BeginnerRandom extends Component {
     }
 
     handleHint = (event) => {
+        const answer = this.state.randomPerson[1]
         event.preventDefault();
-        this.setState({hint: true, helperText: `The answer starts with ${this.state.randomPerson[1].substring(0, 3)}...`}) 
+        this.setState({hint: true, helperText: `The answer starts with ${answer.substring(answer.length - 3, answer.length)}...`}) 
     }
 
     addCounter = () => {
@@ -98,7 +100,10 @@ class BeginnerRandom extends Component {
                         <p><b>Verb: </b>{infinitive}</p>
                         <p><b>Streak: </b>{count}</p>
                     </div>
-                    <p><b>Translation: </b>{infinitive_english}</p>
+                    <div style={{display: 'flex', justifyContent: 'space-between', height: '22px', padding: '0 0 16px 0', marginTop: '0'}}>    
+                        <p><b>Translation: </b>{infinitive_english}</p>
+                        <p><b>Best streak: </b>{count}</p>
+                    </div>
                     <p><b>Tense: </b>{tense_english} {mood_english}</p>
                     <p><b>Pronoun:</b>
                         { randomPerson[0] === 'form_1s' &&
