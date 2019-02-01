@@ -33,11 +33,12 @@ class BeginnerRandom extends Component {
     }
 
     handleChange = (event) => {
-        this.setState({value: event.target.value});
+        this.setState({ value: event.target.value });
       }
 
     handleSubmit = () => {
         // event.preventDefault();
+
         if (this.state.randomPerson[1] === this.state.value) {
             alert("Correct!");
             this.handleRefresh()
@@ -52,11 +53,13 @@ class BeginnerRandom extends Component {
 
     handleHint = (event) => {
         event.preventDefault();
+
         this.setState({hint: true, helperText: `The answer starts with ${this.state.randomPerson[1].substring(0, 3)}...`}) 
     }
     
     render() { 
         console.log(this.state)
+
         if (!this.state.randomVerb) {
             return (
                 <h1>Loading....</h1>
@@ -94,6 +97,7 @@ class BeginnerRandom extends Component {
                         <button className='button' onClick={this.handleHint}>Hint</button>
                         <button className='button' onClick={this.handleRefresh}>Next verb</button>
                     </div>
+
                 </div>
              );
         }

@@ -6,11 +6,11 @@ import ConversationButton from '../home/Options/ConversationButton';
 
 const Random = (props) => {
     return ( 
-      <div>
-        <BeginnerRandom data={props.data} />
-        <OptionsButton />
-        <ConversationButton />
-      </div>
+        <div>
+            <BeginnerRandom data={ props.data } />
+            <OptionsButton />
+            <ConversationButton />
+        </div>
      );
   }
  
