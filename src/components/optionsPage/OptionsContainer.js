@@ -4,7 +4,6 @@ import VerbFrequency from './VerbFrequency';
 import VerbTenses from './VerbTenses';
 import NumberPerson from './NumberPerson';
 import RandomButton from '../home/Options/RandomButton';
-import ConversationButton from '../home/Options/ConversationButton';
 import { spainSpanish, latamSpanish } from '../../components/NumPersonFilters';
 import { Beginner, Intermediate } from '../../components/VerbTensesFilters';
 import { Link } from 'react-router-dom';
@@ -88,7 +87,6 @@ class OptionsContainer extends Component {
           <h4 type="submit">Advanced Settings</h4>
         </Link>
         <RandomButton />
-        <ConversationButton />
       </div>
     );
   }
