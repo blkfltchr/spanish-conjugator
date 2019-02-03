@@ -1,6 +1,10 @@
 import React from 'react';
 import RandomButton from '../Options/RandomButton'
 import OptionsButton from '../Options/OptionsButton'
+<<<<<<< HEAD
+=======
+import ConversationButton from '../Options/ConversationButton'
+>>>>>>> 730725da352327dfdac94baed8bedfaca72b0bb9
 
 const BeginnerPage = () => {
     return ( 

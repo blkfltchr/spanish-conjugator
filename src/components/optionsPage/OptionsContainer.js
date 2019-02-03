@@ -12,8 +12,7 @@ class OptionsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: miniData,
-      tempData: [],
+      data: Intermediate,
       NumberPerson: 'Latam',
       VerbTenses: 'Intermediate'
     };
@@ -26,48 +25,87 @@ class OptionsContainer extends Component {
   };
 
   updateVerbTenses = event => {
-    this.setState({
-      VerbTenses: event.target.value
-    });
+    if (event.target.value === 'Beginner') {
+      this.setState({
+        data: Beginner
+      });
+    } else if (event.target.value === 'Intermediate') {
+      this.setState({
+        data: Intermediate
+      });
+    } else if (event.target.value === 'Advanced') {
+      this.setState({
+        data: miniData
+      });
+    }
   };
 
   filterData = event => {
     event.preventDefault();
 
-    if (this.state.VerbTenses === 'Beginner') {
+    const spainBeg = spainSpanish(Beginner);
+    const spainInter = spainSpanish(Intermediate);
+    const spainAdv = spainSpanish(miniData);
+
+    if (
+      this.state.NumberPerson === 'Spain' &&
+      this.state.VerbTenses === 'Beginner'
+    ) {
       this.setState({
-        data: Beginner
+        data: spainBeg
       });
-    } else if (this.state.VerbTenses === 'Intermediate') {
+    }
+    if (
+      this.state.NumberPerson === 'Spain' &&
+      this.state.VerbTenses === 'Intermediate'
+    ) {
       this.setState({
-        data: Intermediate
+        data: spainInter
       });
-    } else if (this.state.VerbTenses === 'Advanced') {
+    }
+    if (
+      this.state.NumberPerson === 'Spain' &&
+      this.state.VerbTenses === 'Advanced'
+    ) {
       this.setState({
-        data: miniData
+        data: spainAdv
       });
     }
 
-    const spainSpanishFiltered = spainSpanish(this.state.data);
-    if (this.state.NumberPerson === 'Spain') {
+    const latamBeg = latamSpanish(Beginner);
+    const latamInter = latamSpanish(Intermediate);
+    const latamAdv = latamSpanish(miniData);
+
+    if (
+      this.state.NumberPerson === 'Latam' &&
+      this.state.VerbTenses === 'Beginner'
+    ) {
       this.setState({
-        tempData: spainSpanishFiltered
+        data: latamBeg
       });
     }
-    const latamFiltered = latamSpanish(this.state.data);
-    if (this.state.NumberPerson === 'Latam') {
+    if (
+      this.state.NumberPerson === 'Latam' &&
+      this.state.VerbTenses === 'Intermediate'
+    ) {
       this.setState({
-        tempData: latamFiltered
+        data: latamInter
+      });
+    }
+    if (
+      this.state.NumberPerson === 'Latam' &&
+      this.state.VerbTenses === 'Advanced'
+    ) {
+      this.setState({
+        data: latamAdv
       });
     }
   };
 
   render() {
+    console.log('Data from render', this.state.data);
     return (
       <div>
-        <Link to="/random">
-          <h4 type="submit">Return to Verb Pratice</h4>
-        </Link>
         <form onSubmit={this.filterData}>
           <div>
             <h3>Verb Frequency</h3>
@@ -83,6 +121,14 @@ class OptionsContainer extends Component {
           </div>
           <button type="submit">Update Settings</button>
         </form>
+        <Link
+          to={{
+            pathname: '/randomFiltered',
+            state: { data: this.state.data }
+          }}
+        >
+          <h4 type="submit">Begin Verb Pratice</h4>
+        </Link>
         <Link to="/AdvancedOptions">
           <h4 type="submit">Advanced Settings</h4>
         </Link>
