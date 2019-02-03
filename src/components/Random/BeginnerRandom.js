@@ -69,7 +69,7 @@ class BeginnerRandom extends Component {
     handleHint = (event) => {
         const answer = this.state.randomPerson[1]
         event.preventDefault();
-        this.setState({hint: true, helperText: `The answer starts with ${answer.substring(answer.length - 3, answer.length)}...`}) 
+        this.setState({hint: true, helperText: `The answer ends with -${answer.substring(answer.length - 3, answer.length)}.`}) 
     }
 
     addStreak = () => {
