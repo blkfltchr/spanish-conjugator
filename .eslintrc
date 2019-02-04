@@ -2,26 +2,26 @@
   "parser": "babel-eslint",
   "plugins": ["react"],
   "rules": {
-    "space-in-parens": ["error", "never"],
-    "template-curly-spacing": ["error", "never"],
-    "array-bracket-spacing": ["always", {
+    "space-in-parens": [2, "never"],
+    "template-curly-spacing": [2, "never"],
+    "array-bracket-spacing": [2, {
       "singleValue": false
     }],
-    "object-curly-spacing": ["always", {
+    "object-curly-spacing": [2, {
       "objectsInObjects": false
     }],
-    "computed-property-spacing": ["error", "always"],
+    "computed-property-spacing": [2, "always"],
     "no-multiple-empty-lines": [{
       "max": 2
     }],
     "quotes": ["single", {
       "avoidEscape": true
     }],
-    "no-use-before-define": ["error", {
+    "no-use-before-define": [2, {
       "functions": true,
       "classes": true
     }],
-    "prefer-const": "error",
+    "prefer-const": 2,
     "react/prefer-es6-class": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-curly-spacing": [2, "always"],
