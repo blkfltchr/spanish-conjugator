@@ -4,19 +4,13 @@
   "rules": {
     "space-in-parens": [2, "never"],
     "template-curly-spacing": [2, "never"],
-    "array-bracket-spacing": [2, {
-      "singleValue": false
-    }],
-    "object-curly-spacing": [2, {
-      "objectsInObjects": false
-    }],
-    "computed-property-spacing": [2, "always"],
-    "no-multiple-empty-lines": [{
+    "array-bracket-spacing": [2, "never"],
+    "object-curly-spacing": [2, "never"],
+    "computed-property-spacing": [2, "never"],
+    "no-multiple-empty-lines": [2, {
       "max": 2
     }],
-    "quotes": ["single", {
-      "avoidEscape": true
-    }],
+    "quotes": [2, "double"],
     "no-use-before-define": [2, {
       "functions": true,
       "classes": true
@@ -26,7 +20,6 @@
     "react/jsx-filename-extension": 0,
     "react/jsx-curly-spacing": [2, "always"],
     "react/jsx-indent": [2, 4],
-    "react/prop-types": [1],
     "react/no-array-index-key": [1]
   }
 }
