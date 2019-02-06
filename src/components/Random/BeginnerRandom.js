@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import "../../app.css";
+import RandomPerson from "./RandomPerson"
+import miniData from "../../miniData"
 
 const initialState = {
   value: "",
@@ -7,16 +9,7 @@ const initialState = {
   correct: false,
   randomVerb: {},
   randomPerson: []
-  // data: latamSpanish(miniData)
 };
-
-// beginner = () => {
-//     this.state.data.filter(
-//         verb =>
-//             (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
-//             (verb.tense_english === 'Future' && verb.mood_english === 'Indicative')
-//     );
-// }
 
 class BeginnerRandom extends Component {
   constructor(props) {
@@ -24,7 +17,8 @@ class BeginnerRandom extends Component {
     this.state = {
       ...initialState,
       count: 0,
-      bestStreak: 0
+      bestStreak: 0,
+      beginner: true
     };
   }
 
@@ -34,8 +28,9 @@ class BeginnerRandom extends Component {
   }
 
   randomize = () => {
-    const randomVerb = this.props.data[
-      Math.floor(Math.random() * this.props.data.length)
+    const data = this.state.beginner ? this.props.beginnerData : miniData
+    const randomVerb = data[
+      Math.floor(Math.random() * data.length)
     ];
     const randomPerson = Object.entries(randomVerb)[
       Math.floor(Math.random() * 5) + 7
@@ -64,8 +59,6 @@ class BeginnerRandom extends Component {
         }.`
       });
       this.resetCounter();
-    } else {
-      console.log("hmmm");
     }
   };
 
@@ -110,8 +103,20 @@ class BeginnerRandom extends Component {
     });
   };
 
+  handleLevelChange = () => {
+    this.setState(prevState => {
+      return {
+        beginner: !prevState.beginner}
+      })
+    this.handleRefresh()
+    if (!this.state.beginner) {
+      alert("If you don't know the first verb tense/conjugation, you can click the 'Next verb' button.")
+    }
+  }
+
   render() {
-    console.log(this.state.randomPerson[1]);
+    console.log("this.state.beginner:", this.state.beginner);
+    console.log("answer:", this.state.randomPerson[1]);
     if (!this.state.randomVerb) {
       return <h1>Loading....</h1>;
     } else {
@@ -131,15 +136,7 @@ class BeginnerRandom extends Component {
       } = randomVerb;
       return (
           <div>
-              <div
-            style={ {
-              display: "flex",
-              justifyContent: "space-between",
-              height: "22px",
-              padding: "0 0 16px 0",
-              marginTop: "0"
-            } }
-          >
+              <div className="streak-flex">
                   <p>
                       <b>Verb: </b>
                       {infinitive}
@@ -149,15 +146,7 @@ class BeginnerRandom extends Component {
                       {count}
                   </p>
               </div>
-              <div
-            style={ {
-              display: "flex",
-              justifyContent: "space-between",
-              height: "22px",
-              padding: "0 0 16px 0",
-              marginTop: "0"
-            } }
-          >
+              <div className="streak-flex">
                   <p>
                       <b>Translation: </b>
                       {infinitive_english}
@@ -171,24 +160,10 @@ class BeginnerRandom extends Component {
                   <b>Tense: </b>
                   {tense_english} {mood_english}
               </p>
-              <p>
-                  <b>Pronoun:</b>
-                  {randomPerson[0] === "form_1s" && (
-                  <span> Yo (Singular, 1st person)</span>
-            )}
-                  {randomPerson[0] === "form_2s" && (
-                  <span> Tú (Singular, 2nd person)</span>
-            )}
-                  {randomPerson[0] === "form_3s" && (
-                  <span> Él/Ella/Usted (Singular, 3rd person)</span>
-            )}
-                  {randomPerson[0] === "form_1p" && (
-                  <span> Nosotros (Plural, 1st person)</span>
-            )}
-                  {randomPerson[0] === "form_3p" && (
-                  <span> Ellos/Ellas/Ustedes (Plural, 3rd person)</span>
-            )}
-              </p>
+              <div className="person-flex">
+                  <b>Pronoun: </b>
+                  <RandomPerson randomPerson={ randomPerson[0] }/>
+              </div>
               <label>
                   <input
               type="text"
@@ -199,13 +174,7 @@ class BeginnerRandom extends Component {
                   <span style={ {fontSize: "12px"} }>En Español</span>
               </label>
               {helperText && <p>{helperText}</p>}
-              <div
-            style={ {
-              marginTop: "1rem",
-              display: "flex",
-              justifyContent: "space-between"
-            } }
-          >
+              <div className="three-buttons">
                   <button className="button" onClick={ this.handleSubmit }>
               Check
                   </button>
@@ -215,6 +184,22 @@ class BeginnerRandom extends Component {
                   <button className="button" onClick={ this.handleRefresh }>
               Next verb
                   </button>
+              </div>
+              <div className="box-container" onClick={ this.handleLevelChange }>
+                  <div className='box'>
+                      {this.state.beginner &&
+                      <div>
+                          <p><b>Advanced</b></p>
+                          <p>You've been speaking Spanish for a while, feel comfortable in conversation, and want to take your skills to the highest level.</p>
+                      </div>
+                      }
+                      {!this.state.beginner &&
+                      <div>
+                          <p><b>Beginner</b></p>
+                          <p>You've just started learning Spanish and you want to build a strong foundation by practicing the basics.</p>
+                      </div>
+                      }
+                  </div>
               </div>
           </div>
       );

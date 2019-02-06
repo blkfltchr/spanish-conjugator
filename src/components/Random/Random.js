@@ -3,10 +3,12 @@ import React from "react";
 import BeginnerRandom from "./BeginnerRandom";
 import OptionsButton from "../home/Options/OptionsButton";
 
-const Random = props => {
+import beginnerData from "../../beginnerData";
+
+const Random = () => {
   return (
       <div>
-          <BeginnerRandom data={ props.data } />
+          <BeginnerRandom beginnerData={ beginnerData } />
           <OptionsButton />
       </div>
   );
