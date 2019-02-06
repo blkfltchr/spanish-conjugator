@@ -2,12 +2,14 @@ import React from "react";
 
 import BeginnerRandom from "./BeginnerRandom";
 import OptionsButton from "../home/Options/OptionsButton";
-import miniData from "../../miniData"
 
-const Random = props => {
+import miniData from "../../miniData"
+import beginnerData from "../../beginnerData";
+
+const Random = () => {
   return (
       <div>
-          <BeginnerRandom beginnerData={ props.data } advancedData={ miniData } />
+          <BeginnerRandom beginnerData={ beginnerData } advancedData={ miniData } />
           <OptionsButton />
       </div>
   );
