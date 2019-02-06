@@ -109,6 +109,9 @@ class BeginnerRandom extends Component {
         beginner: !prevState.beginner}
       })
     this.handleRefresh()
+    if (!this.state.beginner) {
+      alert("If you don't know the first verb tense/conjugation, you can click the 'Next verb' button.")
+    }
   }
 
   render() {
