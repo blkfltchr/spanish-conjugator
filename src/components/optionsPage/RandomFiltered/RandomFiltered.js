@@ -10,9 +10,6 @@ const RandomFiltered = props => {
   console.log('DATA from random filtered', props.location.state.data);
   return (
     <div>
-      {/* <BeginnerRandom data={ props.data } /> */}
-      {/* <OptionsButton /> */}
-      {/* <ConversationButton /> */}
       <FilteredBegRandom data={props.location.state.data} />
     </div>
   );

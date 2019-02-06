@@ -28,10 +28,7 @@ class FilteredBegRandom extends Component {
   };
 
   handleSubmit = () => {
-    // if (this.randomPerson[ 1 ] === this.state.value) {
     if (this.answer === this.state.value) {
-      console.log('From submit pronoun =', this.answer);
-      console.log('From submit state =', this.state.value);
       alert('Correct!');
       this.setState({ correct: true });
       this.handleRefresh();
@@ -55,17 +52,9 @@ class FilteredBegRandom extends Component {
   };
 
   render() {
-    // let infinitive = this.randomVerb.infinitive;
-    // let infinitive_english = this.randomVerb.infinitive_english;
-    // let tense_english = this.randomVerb.tense_english;
-
-    console.log('Props = ', this.props);
-
     let infinitive = '';
     let infinitive_english = '';
     let tense_english = '';
-
-    // let pronoun = this.randomPerson[0];
 
     for (let i = 0; i < this.randomVerb.length; i++) {
       if (this.randomVerb[i].infinitive !== undefined) {
@@ -76,14 +65,6 @@ class FilteredBegRandom extends Component {
         tense_english = this.randomVerb[i].tense_english;
       }
     }
-    // const randomPersonValues = Object.values(this.randomPerson)[1];
-    // const pronoun = Object.keys(randomPersonValues)[0];
-    // const answer = Object.values(this.randomPersonValues)[0];
-    // const almost
-
-    // console.log('random person =', Object.values(this.randomPerson)[1]);
-    console.log('answer =', this.answer);
-    // console.log('random verb =', this.randomVerb[0].infinitive);
     return (
       <div>
         <p>

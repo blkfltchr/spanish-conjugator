@@ -14,6 +14,8 @@ import AdvancedOptions from './components/OptionsPage/AdvancedOptions';
 import OptionsContainer from './components/OptionsPage/OptionsContainer';
 import Random from './components/Random/Random';
 import RandomFiltered from './components/OptionsPage/RandomFiltered/RandomFiltered';
+import FilteredBegRandom from './components/OptionsPage/RandomFiltered/FilteredBegRandom';
+import LoadingSpinner from './components/OptionsPage/LoadingSpinner';
 
 class App extends Component {
   constructor() {
@@ -42,6 +44,7 @@ class App extends Component {
           render={props => <Random {...props} data={this.state.present} />}
         />
         <Route path="/randomFiltered" component={RandomFiltered} />
+        <Route path="/LoadingSpinner" component={LoadingSpinner} />
       </div>
     );
   }

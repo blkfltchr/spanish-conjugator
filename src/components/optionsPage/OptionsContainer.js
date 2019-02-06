@@ -3,8 +3,8 @@ import miniData from '../../miniData';
 import VerbFrequency from './VerbFrequency';
 import VerbTenses from './VerbTenses';
 import NumberPerson from './NumberPerson';
+import FilteredRandomButton from '../OptionsPage/RandomFiltered/FilteredRandomButton';
 import RandomButton from '../home/Options/RandomButton';
-import ConversationButton from '../home/Options/ConversationButton';
 import { spainSpanish, latamSpanish } from '../../components/NumPersonFilters';
 import { Beginner, Intermediate } from '../../components/VerbTensesFilters';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,8 @@ class OptionsContainer extends Component {
     this.state = {
       data: Intermediate,
       NumberPerson: 'Latam',
-      VerbTenses: 'Intermediate'
+      VerbTenses: 'Intermediate',
+      updated: false
     };
   }
 
@@ -43,6 +44,7 @@ class OptionsContainer extends Component {
 
   filterData = event => {
     event.preventDefault();
+    console.log('Filtering data!');
 
     const spainBeg = spainSpanish(Beginner);
     const spainInter = spainSpanish(Intermediate);
@@ -101,6 +103,9 @@ class OptionsContainer extends Component {
         data: latamAdv
       });
     }
+    this.setState({
+      updated: true
+    });
   };
 
   render() {
@@ -122,19 +127,21 @@ class OptionsContainer extends Component {
           </div>
           <button type="submit">Update Settings</button>
         </form>
-        <Link
+        {/* <Link
           to={{
             pathname: '/randomFiltered',
             state: { data: this.state.data }
           }}
         >
           <h4 type="submit">Begin Verb Pratice</h4>
-        </Link>
-        <Link to="/AdvancedOptions">
-          <h4 type="submit">Advanced Settings</h4>
-        </Link>
-        <RandomButton />
-        <ConversationButton />
+        </Link> */}
+        {/* <RandomButton /> */}
+        {this.state.updated === false ? (
+          <RandomButton />
+        ) : (
+          <FilteredRandomButton data={this.state.data} />
+        )}
+        {/* // <FilteredRandomButton data={this.state.data} /> */}
       </div>
     );
   }
