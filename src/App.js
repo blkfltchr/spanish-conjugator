@@ -10,7 +10,6 @@ import BeginnerPage from "./components/home/Levels/BeginnerPage";
 import AdvancedOptions from "./components/optionsPage/AdvancedOptions";
 import OptionsContainer from "./components/optionsPage/OptionsContainer";
 import Random from "./components/Random/Random";
-import IntAdvRandom from "./components/Random/IntAdvRandom";
 
 class App extends Component {
   constructor() {
@@ -27,7 +26,6 @@ class App extends Component {
             <Route exact path="/beginner" component={ BeginnerPage } />
             <Route path="/options" component={ OptionsContainer } />
             <Route path="/advancedOptions" component={ AdvancedOptions } />
-            <Route path="/nextlevel" component={ IntAdvRandom } />
             <Route
           exact
           path="/random"
