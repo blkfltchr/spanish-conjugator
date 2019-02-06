@@ -1,7 +1,7 @@
-import React from 'react';
-import BeginnerButton from './Levels/BeginnerButton'
-import IntermediateButton from './Levels/IntermediateButton'
-import AdvancedButton from './Levels/AdvancedButton'
+import React from "react";
+import BeginnerButton from "./Levels/BeginnerButton"
+import IntermediateButton from "./Levels/IntermediateButton"
+import AdvancedButton from "./Levels/AdvancedButton"
 
 const Home = () => {
     return ( 

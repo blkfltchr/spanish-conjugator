@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import '../../app.css';
+import React, {Component} from "react";
+import "../../app.css";
 
 const initialState = {
-  value: '',
+  value: "",
   helperText: null,
   correct: false,
   randomVerb: {},
@@ -29,7 +29,7 @@ class BeginnerRandom extends Component {
   }
 
   componentDidMount() {
-    this.setState({ hint: false });
+    this.setState({hint: false});
     this.randomize();
   }
 
@@ -47,15 +47,15 @@ class BeginnerRandom extends Component {
   };
 
   handleChange = event => {
-    this.setState({ value: event.target.value });
+    this.setState({value: event.target.value});
   };
 
   handleSubmit = () => {
     if (this.state.randomPerson[1] === this.state.value) {
       this.addCounter();
-      alert('Correct!');
+      alert("Correct!");
       this.handleRefresh();
-      this.setState({ correct: true });
+      this.setState({correct: true});
       this.addStreak();
     } else if (this.state.randomPerson[1] !== this.state.value) {
       this.setState({
@@ -65,12 +65,12 @@ class BeginnerRandom extends Component {
       });
       this.resetCounter();
     } else {
-      console.log('hmmm');
+      console.log("hmmm");
     }
   };
 
   handleRefresh = () => {
-    this.setState({ ...initialState });
+    this.setState({...initialState});
     this.randomize();
   };
 
@@ -130,93 +130,93 @@ class BeginnerRandom extends Component {
         mood_english
       } = randomVerb;
       return (
-        <div>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              height: '22px',
-              padding: '0 0 16px 0',
-              marginTop: '0'
-            }}
+          <div>
+              <div
+            style={ {
+              display: "flex",
+              justifyContent: "space-between",
+              height: "22px",
+              padding: "0 0 16px 0",
+              marginTop: "0"
+            } }
           >
-            <p>
-              <b>Verb: </b>
-              {infinitive}
-            </p>
-            <p>
-              <b>Streak: </b>
-              {count}
-            </p>
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              height: '22px',
-              padding: '0 0 16px 0',
-              marginTop: '0'
-            }}
+                  <p>
+                      <b>Verb: </b>
+                      {infinitive}
+                  </p>
+                  <p>
+                      <b>Streak: </b>
+                      {count}
+                  </p>
+              </div>
+              <div
+            style={ {
+              display: "flex",
+              justifyContent: "space-between",
+              height: "22px",
+              padding: "0 0 16px 0",
+              marginTop: "0"
+            } }
           >
-            <p>
-              <b>Translation: </b>
-              {infinitive_english}
-            </p>
-            <p>
-              <b>Best streak: </b>
-              {bestStreak}
-            </p>
-          </div>
-          <p>
-            <b>Tense: </b>
-            {tense_english} {mood_english}
-          </p>
-          <p>
-            <b>Pronoun:</b>
-            {randomPerson[0] === 'form_1s' && (
-              <span> Yo (Singular, 1st person)</span>
+                  <p>
+                      <b>Translation: </b>
+                      {infinitive_english}
+                  </p>
+                  <p>
+                      <b>Best streak: </b>
+                      {bestStreak}
+                  </p>
+              </div>
+              <p>
+                  <b>Tense: </b>
+                  {tense_english} {mood_english}
+              </p>
+              <p>
+                  <b>Pronoun:</b>
+                  {randomPerson[0] === "form_1s" && (
+                  <span> Yo (Singular, 1st person)</span>
             )}
-            {randomPerson[0] === 'form_2s' && (
-              <span> Tú (Singular, 2nd person)</span>
+                  {randomPerson[0] === "form_2s" && (
+                  <span> Tú (Singular, 2nd person)</span>
             )}
-            {randomPerson[0] === 'form_3s' && (
-              <span> Él/Ella/Usted (Singular, 3rd person)</span>
+                  {randomPerson[0] === "form_3s" && (
+                  <span> Él/Ella/Usted (Singular, 3rd person)</span>
             )}
-            {randomPerson[0] === 'form_1p' && (
-              <span> Nosotros (Plural, 1st person)</span>
+                  {randomPerson[0] === "form_1p" && (
+                  <span> Nosotros (Plural, 1st person)</span>
             )}
-            {randomPerson[0] === 'form_3p' && (
-              <span> Ellos/Ellas/Ustedes (Plural, 3rd person)</span>
+                  {randomPerson[0] === "form_3p" && (
+                  <span> Ellos/Ellas/Ustedes (Plural, 3rd person)</span>
             )}
-          </p>
-          <label>
-            <input
+              </p>
+              <label>
+                  <input
               type="text"
-              value={value}
-              onChange={this.handleChange}
+              value={ value }
+              onChange={ this.handleChange }
               className="input"
             />
-            <span style={{ fontSize: '12px' }}>En Español</span>
-          </label>
-          {helperText && <p>{helperText}</p>}
-          <div
-            style={{
-              marginTop: '1rem',
-              display: 'flex',
-              justifyContent: 'space-between'
-            }}
+                  <span style={ {fontSize: "12px"} }>En Español</span>
+              </label>
+              {helperText && <p>{helperText}</p>}
+              <div
+            style={ {
+              marginTop: "1rem",
+              display: "flex",
+              justifyContent: "space-between"
+            } }
           >
-            <button className="button" onClick={this.handleSubmit}>
+                  <button className="button" onClick={ this.handleSubmit }>
               Check
-            </button>
-            <button className="button" onClick={this.handleHint}>
+                  </button>
+                  <button className="button" onClick={ this.handleHint }>
               Hint
-            </button>
-            <button className="button" onClick={this.handleRefresh}>
+                  </button>
+                  <button className="button" onClick={ this.handleRefresh }>
               Next verb
-            </button>
+                  </button>
+              </div>
           </div>
-        </div>
       );
     }
   }
