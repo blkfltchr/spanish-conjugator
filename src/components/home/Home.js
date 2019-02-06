@@ -1,7 +1,8 @@
-import React from 'react';
-import BeginnerButton from './Levels/BeginnerButton'
-import IntermediateButton from './Levels/IntermediateButton'
-import AdvancedButton from './Levels/AdvancedButton'
+import React from "react";
+import BeginnerButton from "./Levels/BeginnerButton"
+import IntermediateButton from "./Levels/IntermediateButton"
+import AdvancedButton from "./Levels/AdvancedButton"
+import {Link} from "react-router-dom"
 
 const Home = () => {
     return ( 
@@ -10,6 +11,7 @@ const Home = () => {
             <BeginnerButton />
             <IntermediateButton />
             <AdvancedButton />
+            <Link to="/nextlevel">Next level</Link>
         </div>
      );
 }

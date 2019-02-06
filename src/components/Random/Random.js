@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import BeginnerRandom from './BeginnerRandom';
-import OptionsButton from '../home/Options/OptionsButton';
-import ConversationButton from '../home/Options/ConversationButton';
+import BeginnerRandom from "./BeginnerRandom";
+import OptionsButton from "../home/Options/OptionsButton";
 
-const Random = (props) => {
-    return ( 
-        <div>
-            <BeginnerRandom data={ props.data } />
-            <OptionsButton />
-            <ConversationButton />
-        </div>
-     );
-  }
- 
+import beginnerData from "../../beginnerData";
+
+const Random = () => {
+  return (
+      <div>
+          <BeginnerRandom beginnerData={ beginnerData } />
+          <OptionsButton />
+      </div>
+  );
+};
+
 export default Random;

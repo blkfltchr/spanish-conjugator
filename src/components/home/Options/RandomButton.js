@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const RandomButton = () => {
   return (
     <div>
-      <Link to="/random" style={{ color: 'grey', textDecoration: 'none' }}>
+      <Link to="/" style={{ color: 'grey', textDecoration: 'none' }}>
         <div className="box">
           <b style={{ color: 'blue', textDecoration: 'underline' }}>
             Practice with Selected Verbs
