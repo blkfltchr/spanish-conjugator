@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "../../app.css";
 import RandomPerson from "./RandomPerson"
+import miniData from "../../miniData"
 
 const initialState = {
   value: "",
@@ -17,7 +18,7 @@ class BeginnerRandom extends Component {
       ...initialState,
       count: 0,
       bestStreak: 0,
-      level: "beginner"
+      beginner: true
     };
   }
 
@@ -27,7 +28,7 @@ class BeginnerRandom extends Component {
   }
 
   randomize = () => {
-    const data = this.state.level === "beginner" ? this.props.beginnerData : this.props.advancedData
+    const data = this.state.beginner ? this.props.beginnerData : miniData
     const randomVerb = data[
       Math.floor(Math.random() * data.length)
     ];
@@ -103,18 +104,16 @@ class BeginnerRandom extends Component {
   };
 
   handleLevelChange = () => {
-    this.handleRefresh()
-    if (this.state.level === "beginner") {
-      this.setState({level: "advanced"})
-    } else if (this.state.level === "advanced") {
-      this.setState({
-        level: "beginner"
+    this.setState(prevState => {
+      return {
+        beginner: !prevState.beginner}
       })
-    } 
+    this.handleRefresh()
   }
 
   render() {
-    console.log(this.state.randomPerson[1]);
+    console.log("this.state.beginner:", this.state.beginner);
+    console.log("answer:", this.state.randomPerson[1]);
     if (!this.state.randomVerb) {
       return <h1>Loading....</h1>;
     } else {
@@ -158,10 +157,10 @@ class BeginnerRandom extends Component {
                   <b>Tense: </b>
                   {tense_english} {mood_english}
               </p>
-              <p className="person-flex">
+              <div className="person-flex">
                   <b>Pronoun: </b>
                   <RandomPerson randomPerson={ randomPerson[0] }/>
-              </p>
+              </div>
               <label>
                   <input
               type="text"
@@ -185,13 +184,13 @@ class BeginnerRandom extends Component {
               </div>
               <div className="box-container" onClick={ this.handleLevelChange }>
                   <div className='box'>
-                      {this.state.level === "beginner" &&
+                      {this.state.beginner &&
                       <div>
                           <p><b>Advanced</b></p>
                           <p>You've been speaking Spanish for a while, feel comfortable in conversation, and want to take your skills to the highest level.</p>
                       </div>
                       }
-                      {this.state.level === "advanced" &&
+                      {!this.state.beginner &&
                       <div>
                           <p><b>Beginner</b></p>
                           <p>You've just started learning Spanish and you want to build a strong foundation by practicing the basics.</p>

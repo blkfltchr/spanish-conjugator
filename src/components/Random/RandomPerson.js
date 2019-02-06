@@ -1,7 +1,6 @@
 import React from "react"
 
 const RandomPerson = (props) => {
-    console.log(props)
     return ( 
         <div>
             {props.randomPerson === "form_1s" && (
