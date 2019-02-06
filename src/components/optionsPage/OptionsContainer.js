@@ -14,11 +14,6 @@ const Title = styled.h1`
   font-size: 1rem;
 `;
 
-const Container = styled.div`
-  margin: 1em;
-  padding: 0.25em 1em;
-`;
-
 const Section = styled.div`
   padding: 1%;
 `;
