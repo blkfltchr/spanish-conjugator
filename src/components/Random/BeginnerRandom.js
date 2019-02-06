@@ -227,13 +227,13 @@ class BeginnerRandom extends Component {
                       {this.state.level === "beginner" &&
                       <div>
                           <p><b style={ {textDecoration: "underline", color: "blue"} }>Advanced</b></p>
-                          <p>You've been speaking Spanish for a while, feel comfortable in conversation, and want to improve your skills.</p>
+                          <p>You've been speaking Spanish for a while, feel comfortable in conversation, and want to take your skills to the highest level.</p>
                       </div>
                       }
                       {this.state.level === "advanced" &&
                       <div>
                           <p><b style={ {textDecoration: "underline", color: "blue"} }>Beginner</b></p>
-                          <p>You've just started learning Spanish and you want to build a strong foundation by practicing basic words and phrases.</p>
+                          <p>You've just started learning Spanish and you want to build a strong foundation by practicing the basics.</p>
                       </div>
                       }
                   </div>
