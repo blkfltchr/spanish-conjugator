@@ -62,6 +62,18 @@ body {
   margin-top: 0;
 }
 
+.person-flex {
+  display: flex;
+  justify-content: flex-start;
+  height: 22px;
+  padding: 0 0 16px 0;
+  margin-top: 0;
+}
+
+.person-flex b {
+  margin-right: 5px;
+}
+
 .three-buttons {
   margin-top: 1rem;
   display: flex;

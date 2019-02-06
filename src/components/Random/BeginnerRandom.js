@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "../../app.css";
+import RandomPerson from "./RandomPerson"
 
 const initialState = {
   value: "",
@@ -157,26 +158,9 @@ class BeginnerRandom extends Component {
                   <b>Tense: </b>
                   {tense_english} {mood_english}
               </p>
-              <p>
-                  <b>Pronoun:</b>
-                  {randomPerson[0] === "form_1s" && (
-                  <span> Yo (Singular, 1st person)</span>
-            )}
-                  {randomPerson[0] === "form_2s" && (
-                  <span> Tú (Singular, 2nd person)</span>
-            )}
-                  {randomPerson[0] === "form_3s" && (
-                  <span> Él/Ella/Usted (Singular, 3rd person)</span>
-            )}
-                  {randomPerson[0] === "form_1p" && (
-                  <span> Nosotros (Plural, 1st person)</span>
-            )}
-                  {randomPerson[0] === "form_2p" && (
-                  <span> Vosotros (Plural, 2nd person)</span>
-            )}
-                  {randomPerson[0] === "form_3p" && (
-                  <span> Ellos/Ellas/Ustedes (Plural, 3rd person)</span>
-            )}
+              <p className="person-flex">
+                  <b>Pronoun: </b>
+                  <RandomPerson randomPerson={ randomPerson[0] }/>
               </p>
               <label>
                   <input
