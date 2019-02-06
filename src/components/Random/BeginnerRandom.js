@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import "../../app.css";
-import miniData from "../../miniData";
 
 const initialState = {
   value: "",
@@ -27,7 +26,7 @@ class BeginnerRandom extends Component {
   }
 
   randomize = () => {
-    const data = this.state.level === "beginner" ? this.props.data : miniData
+    const data = this.state.level === "beginner" ? this.props.beginnerData : this.props.advancedData
     const randomVerb = data[
       Math.floor(Math.random() * data.length)
     ];
@@ -63,6 +62,11 @@ class BeginnerRandom extends Component {
 
   handleRefresh = () => {
     this.setState({...initialState});
+    this.setState(prevState => {
+      return {
+        level: prevState
+      };
+    });
     this.randomize();
   };
 
@@ -102,8 +106,19 @@ class BeginnerRandom extends Component {
     });
   };
 
+  handleLevelChange = () => {
+    this.handleRefresh()
+    if (this.state.level === "beginner") {
+      this.setState({level: "advanced"})
+    } else if (this.state.level === "advanced") {
+      this.setState({
+        level: "beginner"
+      })
+    } 
+  }
+
   render() {
-    console.log(this.state.randomPerson[1]);
+    console.log(this.state.randomPerson[1], this.state.level);
     if (!this.state.randomVerb) {
       return <h1>Loading....</h1>;
     } else {
@@ -177,6 +192,9 @@ class BeginnerRandom extends Component {
                   {randomPerson[0] === "form_1p" && (
                   <span> Nosotros (Plural, 1st person)</span>
             )}
+                  {randomPerson[0] === "form_2p" && (
+                  <span> Vosotros (Plural, 2nd person)</span>
+            )}
                   {randomPerson[0] === "form_3p" && (
                   <span> Ellos/Ellas/Ustedes (Plural, 3rd person)</span>
             )}
@@ -207,6 +225,22 @@ class BeginnerRandom extends Component {
                   <button className="button" onClick={ this.handleRefresh }>
               Next verb
                   </button>
+              </div>
+              <div style={ {color: "grey", textDecoration: "none", cursor: "pointer"} } onClick={ this.handleLevelChange }>
+                  <div className='box'>
+                      {this.state.level === "beginner" &&
+                      <div>
+                          <p><b style={ {textDecoration: "underline", color: "blue"} }>Advanced</b></p>
+                          <p>You've been speaking Spanish for a while, feel comfortable in conversation, and want to improve your skills.</p>
+                      </div>
+                      }
+                      {this.state.level === "advanced" &&
+                      <div>
+                          <p><b style={ {textDecoration: "underline", color: "blue"} }>Beginner</b></p>
+                          <p>You've just started learning Spanish and you want to build a strong foundation by practicing basic words and phrases.</p>
+                      </div>
+                      }
+                  </div>
               </div>
           </div>
       );
