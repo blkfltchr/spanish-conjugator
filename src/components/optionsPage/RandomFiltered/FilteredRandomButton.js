@@ -13,7 +13,7 @@ const RandomButton = props => {
       >
         <div className="box">
           <b style={{ color: 'blue', textDecoration: 'underline' }}>
-            Continue Practice
+            Practice with Selected Verbs
           </b>
           <p>Conjugate random verbs based on your preferences.</p>
         </div>

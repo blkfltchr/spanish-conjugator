@@ -1,13 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Dropdown = styled.select`
+  padding: 1%;
+`;
 
 const NumberPerson = props => {
   return (
-      <div>
-          <select onChange={ props.updateNumPerson }>
-              <option value="Latam">Latin America</option>
-              <option value="Spain">Spain</option>
-          </select>
-      </div>
+    <div>
+      <Dropdown onChange={props.updateNumPerson}>
+        <option value="Latam">Latin America</option>
+        <option value="Spain">Spain</option>
+      </Dropdown>
+    </div>
   );
 };
 

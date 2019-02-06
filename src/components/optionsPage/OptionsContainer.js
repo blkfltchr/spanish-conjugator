@@ -7,7 +7,21 @@ import FilteredRandomButton from '../OptionsPage/RandomFiltered/FilteredRandomBu
 import RandomButton from '../home/Options/RandomButton';
 import { spainSpanish, latamSpanish } from '../../components/NumPersonFilters';
 import { Beginner, Intermediate } from '../../components/VerbTensesFilters';
-import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import '../../app.css';
+
+const Title = styled.h1`
+  font-size: 1rem;
+`;
+
+const Container = styled.div`
+  margin: 1em;
+  padding: 0.25em 1em;
+`;
+
+const Section = styled.div`
+  padding: 1%;
+`;
 
 class OptionsContainer extends Component {
   constructor(props) {
@@ -44,7 +58,6 @@ class OptionsContainer extends Component {
 
   filterData = event => {
     event.preventDefault();
-    console.log('Filtering data!');
 
     const spainBeg = spainSpanish(Beginner);
     const spainInter = spainSpanish(Intermediate);
@@ -109,39 +122,29 @@ class OptionsContainer extends Component {
   };
 
   render() {
-    console.log('Data from render', this.state.data);
     return (
       <div>
         <form onSubmit={this.filterData}>
-          <div>
-            <h3>Verb Frequency</h3>
+          <Section>
+            <Title>Verb Frequency</Title>
             <VerbFrequency />
-          </div>
-          <div>
-            <h3>Verb Tenses</h3>
+          </Section>
+          <Section>
+            <Title>Verb Tenses</Title>
             <VerbTenses updateVerbTenses={this.updateVerbTenses} />
-          </div>
-          <div>
-            <h3>Number and Person</h3>
+          </Section>
+          <Section>
+            <Title>Number and Person</Title>
             <NumberPerson updateNumPerson={this.updateNumPerson} />
-          </div>
-          <button type="submit">Update Settings</button>
+          </Section>
+          {/* <Button type="submit">Update Settings</Button> */}
+          <button className="button-options">Update Settings</button>
         </form>
-        {/* <Link
-          to={{
-            pathname: '/randomFiltered',
-            state: { data: this.state.data }
-          }}
-        >
-          <h4 type="submit">Begin Verb Pratice</h4>
-        </Link> */}
-        {/* <RandomButton /> */}
         {this.state.updated === false ? (
           <RandomButton />
         ) : (
           <FilteredRandomButton data={this.state.data} />
         )}
-        {/* // <FilteredRandomButton data={this.state.data} /> */}
       </div>
     );
   }
