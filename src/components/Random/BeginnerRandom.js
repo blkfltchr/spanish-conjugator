@@ -114,7 +114,6 @@ class BeginnerRandom extends Component {
 
   render() {
     console.log(this.state.randomPerson[1]);
-    console.log(this.state.level);
     if (!this.state.randomVerb) {
       return <h1>Loading....</h1>;
     } else {
@@ -134,15 +133,7 @@ class BeginnerRandom extends Component {
       } = randomVerb;
       return (
           <div>
-              <div
-            style={ {
-              display: "flex",
-              justifyContent: "space-between",
-              height: "22px",
-              padding: "0 0 16px 0",
-              marginTop: "0"
-            } }
-          >
+              <div className="streak-flex">
                   <p>
                       <b>Verb: </b>
                       {infinitive}
@@ -152,15 +143,7 @@ class BeginnerRandom extends Component {
                       {count}
                   </p>
               </div>
-              <div
-            style={ {
-              display: "flex",
-              justifyContent: "space-between",
-              height: "22px",
-              padding: "0 0 16px 0",
-              marginTop: "0"
-            } }
-          >
+              <div className="streak-flex">
                   <p>
                       <b>Translation: </b>
                       {infinitive_english}
@@ -205,13 +188,7 @@ class BeginnerRandom extends Component {
                   <span style={ {fontSize: "12px"} }>En Español</span>
               </label>
               {helperText && <p>{helperText}</p>}
-              <div
-            style={ {
-              marginTop: "1rem",
-              display: "flex",
-              justifyContent: "space-between"
-            } }
-          >
+              <div className="three-buttons">
                   <button className="button" onClick={ this.handleSubmit }>
               Check
                   </button>
@@ -222,17 +199,17 @@ class BeginnerRandom extends Component {
               Next verb
                   </button>
               </div>
-              <div style={ {color: "grey", textDecoration: "none", cursor: "pointer"} } onClick={ this.handleLevelChange }>
+              <div className="box-container" onClick={ this.handleLevelChange }>
                   <div className='box'>
                       {this.state.level === "beginner" &&
                       <div>
-                          <p><b style={ {textDecoration: "underline", color: "blue"} }>Advanced</b></p>
+                          <p><b>Advanced</b></p>
                           <p>You've been speaking Spanish for a while, feel comfortable in conversation, and want to take your skills to the highest level.</p>
                       </div>
                       }
                       {this.state.level === "advanced" &&
                       <div>
-                          <p><b style={ {textDecoration: "underline", color: "blue"} }>Beginner</b></p>
+                          <p><b>Beginner</b></p>
                           <p>You've just started learning Spanish and you want to build a strong foundation by practicing the basics.</p>
                       </div>
                       }
