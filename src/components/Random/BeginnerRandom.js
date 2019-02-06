@@ -1,22 +1,15 @@
 import React, {Component} from "react";
 import "../../app.css";
+import miniData from "../../miniData";
 
 const initialState = {
   value: "",
   helperText: null,
   correct: false,
   randomVerb: {},
-  randomPerson: []
-  // data: latamSpanish(miniData)
+  randomPerson: [],
+  level: "beginner"
 };
-
-// beginner = () => {
-//     this.state.data.filter(
-//         verb =>
-//             (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
-//             (verb.tense_english === 'Future' && verb.mood_english === 'Indicative')
-//     );
-// }
 
 class BeginnerRandom extends Component {
   constructor(props) {
@@ -34,8 +27,9 @@ class BeginnerRandom extends Component {
   }
 
   randomize = () => {
-    const randomVerb = this.props.data[
-      Math.floor(Math.random() * this.props.data.length)
+    const data = this.state.level === "beginner" ? this.props.data : miniData
+    const randomVerb = data[
+      Math.floor(Math.random() * data.length)
     ];
     const randomPerson = Object.entries(randomVerb)[
       Math.floor(Math.random() * 5) + 7
@@ -64,8 +58,6 @@ class BeginnerRandom extends Component {
         }.`
       });
       this.resetCounter();
-    } else {
-      console.log("hmmm");
     }
   };
 
