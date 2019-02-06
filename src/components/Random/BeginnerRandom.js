@@ -6,8 +6,7 @@ const initialState = {
   helperText: null,
   correct: false,
   randomVerb: {},
-  randomPerson: [],
-  level: "beginner"
+  randomPerson: []
 };
 
 class BeginnerRandom extends Component {
@@ -16,7 +15,8 @@ class BeginnerRandom extends Component {
     this.state = {
       ...initialState,
       count: 0,
-      bestStreak: 0
+      bestStreak: 0,
+      level: "beginner"
     };
   }
 
@@ -62,11 +62,6 @@ class BeginnerRandom extends Component {
 
   handleRefresh = () => {
     this.setState({...initialState});
-    this.setState(prevState => {
-      return {
-        level: prevState
-      };
-    });
     this.randomize();
   };
 
@@ -118,7 +113,8 @@ class BeginnerRandom extends Component {
   }
 
   render() {
-    console.log(this.state.randomPerson[1], this.state.level);
+    console.log(this.state.randomPerson[1]);
+    console.log(this.state.level);
     if (!this.state.randomVerb) {
       return <h1>Loading....</h1>;
     } else {
