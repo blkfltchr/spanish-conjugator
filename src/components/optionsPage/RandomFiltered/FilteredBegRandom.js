@@ -9,7 +9,9 @@ class FilteredBegRandom extends Component {
       answer: false,
       hint: false,
       helperText: '',
-      correct: false
+      correct: false,
+      count: 0,
+      bestStreak: 0
     };
   }
 
@@ -67,7 +69,28 @@ class FilteredBegRandom extends Component {
     }
     return (
       <div>
-        <p>
+        <div className="streak-flex">
+          <p>
+            <b>Verb: </b>
+            {infinitive}
+          </p>
+          <p>
+            <b>Streak: </b>
+            {this.state.count}
+          </p>
+        </div>
+        <div className="streak-flex">
+          <p>
+            <b>Translation: </b>
+            {infinitive_english}
+          </p>
+          <p>
+            <b>Best streak: </b>
+            {this.state.bestStreak}
+          </p>
+        </div>
+
+        {/* <p>
           <b>Verb: </b>
           {infinitive}
         </p>
@@ -78,7 +101,7 @@ class FilteredBegRandom extends Component {
         <p>
           <b>Tense: </b>
           {tense_english}
-        </p>
+        </p> */}
         <p>
           <b>Pronoun:</b>
           {this.pronoun === 'form_1s' && (
