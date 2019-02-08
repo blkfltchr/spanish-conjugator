@@ -30,7 +30,7 @@ body {
 
 .box b {
   text-decoration: underline;
-  color: blue
+  color: blue;
 }
 
 .input {
@@ -52,6 +52,17 @@ body {
   color: white;
   background-color: blue;
   width: 120px;
+}
+
+.button-options {
+  font-size: 1rem;
+  font-family: 'Open Sans';
+  border-radius: 5px;
+  margin-top: 3.5%;
+  padding: 10px 15px;
+  color: white;
+  background-color: blue;
+  width: 40%;
 }
 
 .streak-flex {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../../../app.css';
+import OptionsButton from '../../home/Options/OptionsButton';
+import RandomButton from '../../home/Options/RandomButton';
 
 class FilteredBegRandom extends Component {
   constructor(props) {
@@ -9,7 +11,9 @@ class FilteredBegRandom extends Component {
       answer: false,
       hint: false,
       helperText: '',
-      correct: false
+      correct: false,
+      count: 0,
+      bestStreak: 0
     };
   }
 
@@ -28,10 +32,7 @@ class FilteredBegRandom extends Component {
   };
 
   handleSubmit = () => {
-    // if (this.randomPerson[ 1 ] === this.state.value) {
     if (this.answer === this.state.value) {
-      console.log('From submit pronoun =', this.answer);
-      console.log('From submit state =', this.state.value);
       alert('Correct!');
       this.setState({ correct: true });
       this.handleRefresh();
@@ -55,17 +56,10 @@ class FilteredBegRandom extends Component {
   };
 
   render() {
-    // let infinitive = this.randomVerb.infinitive;
-    // let infinitive_english = this.randomVerb.infinitive_english;
-    // let tense_english = this.randomVerb.tense_english;
-
-    console.log('Props = ', this.props);
-
     let infinitive = '';
     let infinitive_english = '';
     let tense_english = '';
-
-    // let pronoun = this.randomPerson[0];
+    let mood_english = this.randomVerb.mood_english;
 
     for (let i = 0; i < this.randomVerb.length; i++) {
       if (this.randomVerb[i].infinitive !== undefined) {
@@ -76,27 +70,31 @@ class FilteredBegRandom extends Component {
         tense_english = this.randomVerb[i].tense_english;
       }
     }
-    // const randomPersonValues = Object.values(this.randomPerson)[1];
-    // const pronoun = Object.keys(randomPersonValues)[0];
-    // const answer = Object.values(this.randomPersonValues)[0];
-    // const almost
-
-    // console.log('random person =', Object.values(this.randomPerson)[1]);
-    console.log('answer =', this.answer);
-    // console.log('random verb =', this.randomVerb[0].infinitive);
     return (
       <div>
-        <p>
-          <b>Verb: </b>
-          {infinitive}
-        </p>
-        <p>
-          <b>Translation: </b>
-          {infinitive_english}
-        </p>
+        <div className="streak-flex">
+          <p>
+            <b>Verb: </b>
+            {infinitive}
+          </p>
+          <p>
+            <b>Streak: </b>
+            {this.state.count}
+          </p>
+        </div>
+        <div className="streak-flex">
+          <p>
+            <b>Translation: </b>
+            {infinitive_english}
+          </p>
+          <p>
+            <b>Best streak: </b>
+            {this.state.bestStreak}
+          </p>
+        </div>
         <p>
           <b>Tense: </b>
-          {tense_english}
+          {tense_english} {mood_english}
         </p>
         <p>
           <b>Pronoun:</b>
@@ -136,6 +134,8 @@ class FilteredBegRandom extends Component {
             Next verb
           </button>
         </div>
+        <OptionsButton />
+        <RandomButton />
       </div>
     );
   }
