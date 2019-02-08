@@ -1,11 +1,23 @@
-import React from "react";
+import React, {
+    Component
+} from "react";
 
-const Verb = () => {
-  return ( 
-      <div>
-          <p>Verb</p>
-      </div>
-   );
+class Verb extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          data: Intermediate,
+          NumberPerson: "Latam",
+          VerbTenses: "Intermediate",
+          updated: false
+        };
+      }
+    render() {
+        return (<div >
+
+        </div>
+        );
+    }
 }
- 
-export default Verb;
+
+export default Verb
