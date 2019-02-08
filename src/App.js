@@ -4,9 +4,9 @@ import { Route } from 'react-router-dom';
 import Header from './components/Header';
 
 import AdvancedOptions from './components/AdvancedOptions';
-import OptionsContainer from './components/OptionsPage/OptionsContainer';
+import OptionsContainer from './components/OptionsWrapper/OptionsContainer';
 import Random from './components/Random/Random';
-import RandomFiltered from './components/OptionsPage/RandomFiltered/RandomFiltered';
+import RandomFiltered from './components/OptionsWrapper/RandomFiltered/RandomFiltered';
 
 const App = () => {
   return (

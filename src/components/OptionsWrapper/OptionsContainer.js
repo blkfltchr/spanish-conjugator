@@ -3,7 +3,7 @@ import miniData from '../../miniData';
 import VerbFrequency from './VerbFrequency';
 import VerbTenses from './VerbTenses';
 import NumberPerson from './NumberPerson';
-import FilteredRandomButton from '../OptionsPage/RandomFiltered/FilteredRandomButton';
+import FilteredRandomButton from '../OptionsWrapper/RandomFiltered/FilteredRandomButton';
 import RandomButton from '../home/Options/RandomButton';
 import { spainSpanish, latamSpanish } from '../../components/NumPersonFilters';
 import { Beginner, Intermediate } from '../../components/VerbTensesFilters';
