@@ -1,6 +1,6 @@
 import React from 'react';
-import AdvancedVerbTenses from './OptionsPage/AdvancedVerbTenses';
-import AdvancedNumberPerson from './OptionsPage/AdvancedNumberPerson';
+import AdvancedVerbTenses from './OptionsWrapper/AdvancedVerbTenses';
+import AdvancedNumberPerson from './OptionsWrapper/AdvancedNumberPerson';
 
 const AdvancedOptions = props => {
   return (
