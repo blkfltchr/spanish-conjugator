@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../../../app.css';
+import OptionsButton from '../../home/Options/OptionsButton';
+import RandomButton from '../../home/Options/RandomButton';
 
 class FilteredBegRandom extends Component {
   constructor(props) {
@@ -57,6 +59,7 @@ class FilteredBegRandom extends Component {
     let infinitive = '';
     let infinitive_english = '';
     let tense_english = '';
+    let mood_english = this.randomVerb.mood_english;
 
     for (let i = 0; i < this.randomVerb.length; i++) {
       if (this.randomVerb[i].infinitive !== undefined) {
@@ -89,19 +92,10 @@ class FilteredBegRandom extends Component {
             {this.state.bestStreak}
           </p>
         </div>
-
-        {/* <p>
-          <b>Verb: </b>
-          {infinitive}
-        </p>
-        <p>
-          <b>Translation: </b>
-          {infinitive_english}
-        </p>
         <p>
           <b>Tense: </b>
-          {tense_english}
-        </p> */}
+          {tense_english} {mood_english}
+        </p>
         <p>
           <b>Pronoun:</b>
           {this.pronoun === 'form_1s' && (
@@ -140,6 +134,8 @@ class FilteredBegRandom extends Component {
             Next verb
           </button>
         </div>
+        <OptionsButton />
+        <RandomButton />
       </div>
     );
   }

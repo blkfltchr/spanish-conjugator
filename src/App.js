@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import Header from './components/Header';
 
-import AdvancedOptions from './components/OptionsPage/AdvancedOptions';
+import AdvancedOptions from './components/AdvancedOptions';
 import OptionsContainer from './components/OptionsPage/OptionsContainer';
 import Random from './components/Random/Random';
 import RandomFiltered from './components/OptionsPage/RandomFiltered/RandomFiltered';
