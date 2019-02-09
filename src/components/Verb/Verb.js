@@ -36,8 +36,7 @@ class Verb extends Component {
       beginner: true,
       data: Intermediate,
       NumberPerson: "Latam",
-      VerbTenses: "Intermediate",
-      updated: false
+      VerbTenses: "Intermediate"
     };
   }
 
@@ -148,33 +147,20 @@ class Verb extends Component {
   };
 
   updateVerbTenses = event => {
-    if (event.target.value === "Beginner") {
-      this.setState({
-        VerbTenses: "Beginner"
-      });
-    } else if (event.target.value === "Intermediate") {
-      this.setState({
-        VerbTenses: "Intermediate"
-      });
-    } else if (event.target.value === "Advanced") {
-      this.setState({
-        VerbTenses: "Advanced"
-      });
-    }
+    this.setState({
+      VerbTenses: event.target.value
+    });
     this.handleRefresh();
   };
 
   filterData = event => {
     event.preventDefault();
 
-    const spainBeg = spainSpanish(Beginner);
-    const spainInter = spainSpanish(Intermediate);
-    const spainAdv = spainSpanish(miniData);
-
     if (
       this.state.NumberPerson === "Spain" &&
       this.state.VerbTenses === "Beginner"
     ) {
+      const spainBeg = spainSpanish(Beginner);
       this.setState({
         data: spainBeg
       });
@@ -183,6 +169,7 @@ class Verb extends Component {
       this.state.NumberPerson === "Spain" &&
       this.state.VerbTenses === "Intermediate"
     ) {
+      const spainInter = spainSpanish(Intermediate);
       this.setState({
         data: spainInter
       });
@@ -191,19 +178,17 @@ class Verb extends Component {
       this.state.NumberPerson === "Spain" &&
       this.state.VerbTenses === "Advanced"
     ) {
+      const spainAdv = spainSpanish(miniData);
       this.setState({
         data: spainAdv
       });
     }
 
-    const latamBeg = latamSpanish(Beginner);
-    const latamInter = latamSpanish(Intermediate);
-    const latamAdv = latamSpanish(miniData);
-
     if (
       this.state.NumberPerson === "Latam" &&
       this.state.VerbTenses === "Beginner"
     ) {
+      const latamBeg = latamSpanish(Beginner);
       this.setState({
         data: latamBeg
       });
@@ -212,6 +197,7 @@ class Verb extends Component {
       this.state.NumberPerson === "Latam" &&
       this.state.VerbTenses === "Intermediate"
     ) {
+      const latamInter = latamSpanish(Intermediate);
       this.setState({
         data: latamInter
       });
@@ -220,21 +206,17 @@ class Verb extends Component {
       this.state.NumberPerson === "Latam" &&
       this.state.VerbTenses === "Advanced"
     ) {
+      const latamAdv = latamSpanish(miniData);
       this.setState({
         data: latamAdv
       });
     }
-    this.setState({
-      updated: true
-    });
   };
 
   render() {
     console.log("answer:", this.state.randomPerson);
-    // console.log("answer after filter:", this.state.randomPerson[1] === undefined ? this.state.randomPerson[1] : null);
-    // console.log("answer after updated settings:", Object.values(this.state.randomPerson[1]) === undefined ? null : Object.values(this.state.randomPerson[1]));
     console.log("this.state.data:", this.state.data);
-      const {count, bestStreak, randomVerb, randomPerson, helperText, value} = this.state; // beginner
+      const {count, bestStreak, randomVerb, randomPerson, helperText, value} = this.state; 
       const {infinitive, infinitive_english, tense_english, mood_english} = randomVerb;
       return (
           <div>
