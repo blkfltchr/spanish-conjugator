@@ -8,6 +8,7 @@ const Dropdown = styled.select`
 const VerbNumberPerson = props => {
   return (
       <div>
+        Spanish Type:
           <Dropdown onChange={ props.updateNumPerson }>
               <option value="Latam">Latin America</option>
               <option value="Spain">Spain</option>

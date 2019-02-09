@@ -161,6 +161,7 @@ class Verb extends Component {
         VerbTenses: "Advanced"
       });
     }
+    this.handleRefresh();
   };
 
   filterData = event => {

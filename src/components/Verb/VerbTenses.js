@@ -16,7 +16,7 @@ const VerbTenses = props => {
           {/* <List>Beginner: Present, Preterite</List>
           <List>Intermediate: Imperfect, Conditional, Future, Present Perfect</List>
           <List>Advanced: All tenses</List> */}
-          <p>Difficulty: </p>
+          Difficulty:
           <DropdownTwo onChange={ props.updateVerbTenses }>
               <option value="Beginner">Beginner</option>
               <option value="Intermediate" selected="Intermediate">
