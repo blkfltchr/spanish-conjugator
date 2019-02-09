@@ -36,7 +36,8 @@ class Verb extends Component {
       beginner: true,
       data: Intermediate,
       NumberPerson: "Latam",
-      VerbTenses: "Intermediate"
+      VerbTenses: "Intermediate",
+      answered: false
     };
   }
 
@@ -66,7 +67,13 @@ class Verb extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    if (this.state.randomPerson[1] === this.state.value) {
+    if (this.state.answered === true){
+      this.handleRefresh();
+      this.setState({
+        answered: false
+      })
+    }
+    else if (this.state.randomPerson[1] === this.state.value) {
       this.addCounter();
       alert("Correct!");
       this.handleRefresh();
@@ -78,7 +85,8 @@ class Verb extends Component {
       this.setState({
         helperText: `False, the correct answer is ${
               this.state.randomPerson[1]
-            }.`
+            }.`,
+            answered: true
       });
       this.resetCounter();
     }
@@ -217,6 +225,7 @@ class Verb extends Component {
   render() {
     console.log("answer:", this.state.randomPerson);
     console.log("this.state.data:", this.state.data);
+    console.log("ANSWERED", this.state.answered)
       const {count, bestStreak, randomVerb, randomPerson, helperText, value} = this.state; 
       const {infinitive, infinitive_english, tense_english, mood_english} = randomVerb;
       return (
