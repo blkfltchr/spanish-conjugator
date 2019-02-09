@@ -7,7 +7,7 @@ import miniData from "../../miniData";
 
 import VerbButtons from "./VerbButtons";
 import VerbInfo from "./VerbInfo";
-import VerbLevelButton from "./VerbLevelButton";
+// import VerbLevelButton from "./VerbLevelButton";
 import VerbPerson from "./VerbPerson";
 import VerbTenses from "../OptionsWrapper/VerbTenses"
 // import NumberPerson from "../OptionsWrapper/NumberPerson"
@@ -233,7 +233,7 @@ class Verb extends Component {
   render() {
     console.log("answer:", this.state.randomPerson[1]);
     console.log("this.state.data:", this.state.data);
-      const {count, bestStreak, randomVerb, randomPerson, helperText, value, beginner} = this.state;
+      const {count, bestStreak, randomVerb, randomPerson, helperText, value} = this.state; // beginner
       const {infinitive, infinitive_english, tense_english, mood_english} = randomVerb;
       return (
           <div>
@@ -253,7 +253,7 @@ class Verb extends Component {
               </label>
               {helperText && <p>{helperText}</p>}
               <VerbButtons handleSubmit={ this.handleSubmit } handleHint={ this.handleHint } handleRefresh={ this.handleRefresh } />
-              <VerbLevelButton handleLevelChange={ this.handleLevelChange } beginner={ beginner }/>
+              {/* <VerbLevelButton handleLevelChange={ this.handleLevelChange } beginner={ beginner }/> */}
           </div>
       );
     }
