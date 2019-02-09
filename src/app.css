@@ -55,14 +55,15 @@ body {
 }
 
 .button-options {
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-family: 'Open Sans';
   border-radius: 5px;
   margin-top: 3.5%;
-  padding: 10px 15px;
+  padding: 5px 10px;
   color: white;
   background-color: blue;
   width: 40%;
+  opacity: 0.75;
 }
 
 .streak-flex {
@@ -85,8 +86,31 @@ body {
   margin-right: 5px;
 }
 
-.three-buttons {
-  margin-top: 1rem;
+.submit-button {
+  font-size: 16px;
+  font-family: 'Open Sans';
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: white;
+  background-color: blue;
+  width: 100%;
+  margin-top: 3%;
+}
+
+.text-under-input {
   display: flex;
   justify-content: space-between;
+}
+
+.text-under-input span {
+  font-size: 12px;
+  margin-top: 1%;
+}
+
+.hint-button {
+  padding: 1% 1.5%;
+  background-color: blue;
+  border-radius: 5px;
+  color: white;
+  opacity: 0.75;
 }

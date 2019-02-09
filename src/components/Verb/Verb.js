@@ -243,7 +243,10 @@ class Verb extends Component {
               onChange={ this.handleChange }
               className="input"
             />
-                  <span style={ {fontSize: "12px"} }>En Español</span>
+            <div className="text-under-input">
+                  <button className="hint-button">Hint?</button>
+                  <span>En Español</span>
+            </div>
               </label>
               {helperText && <p>{helperText}</p>}
               <VerbButtons handleSubmit={ this.handleSubmit } handleHint={ this.handleHint } handleRefresh={ this.handleRefresh } />
