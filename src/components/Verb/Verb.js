@@ -244,7 +244,7 @@ class Verb extends Component {
               className="input"
             />
             <div className="text-under-input">
-                  <button className="hint-button">Hint?</button>
+                  <button className="hint-button" type="button" onClick={this.handleHint}>Hint?</button>
                   <span>En Español</span>
             </div>
               </label>
