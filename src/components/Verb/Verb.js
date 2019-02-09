@@ -64,7 +64,8 @@ class Verb extends Component {
     });
   };
 
-  handleSubmit = () => {
+  handleSubmit = event => {
+    event.preventDefault()
     if (this.state.randomPerson[1] === this.state.value) {
       this.addCounter();
       alert("Correct!");
@@ -225,6 +226,7 @@ class Verb extends Component {
               <button onClick={ this.filterData } className="button-options">Update Settings</button>
               <VerbInfo infinitive={ infinitive } count={ count } infinitive_english={ infinitive_english } bestStreak={ bestStreak } tense_english={ tense_english } mood_english={ mood_english } />
               <VerbPerson randomPerson={ randomPerson[0] } />
+              <form onSubmit={this.handleSubmit}>
               <label>
                   <input
               type="text"
@@ -236,6 +238,7 @@ class Verb extends Component {
               </label>
               {helperText && <p>{helperText}</p>}
               <VerbButtons handleSubmit={ this.handleSubmit } handleHint={ this.handleHint } handleRefresh={ this.handleRefresh } />
+              </form>
               {/* <VerbLevelButton handleLevelChange={ this.handleLevelChange } beginner={ beginner }/> */}
           </div>
       );

@@ -2,8 +2,8 @@ import React from "react";
 
 const VerbButtons = (props) => {
     return (
-        <div className="three-buttons">
-            <button className="button" onClick={ props.handleSubmit }>
+        <form className="three-buttons" onSubmit={props.handleSubmit}>
+            <button className="button" type="submit">
               Check
             </button>
             <button className="button" onClick={ props.handleHint }>
@@ -12,7 +12,7 @@ const VerbButtons = (props) => {
             <button className="button" onClick={ props.handleRefresh }>
               Next verb
             </button>
-        </div>
+        </form>
     );
 }
 
