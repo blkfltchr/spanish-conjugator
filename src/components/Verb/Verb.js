@@ -230,7 +230,9 @@ class Verb extends Component {
   };
 
   render() {
-    console.log("answer:", this.state.randomPerson[1]);
+    console.log("answer:", this.state.randomPerson);
+    // console.log("answer after filter:", this.state.randomPerson[1] === undefined ? this.state.randomPerson[1] : null);
+    // console.log("answer after updated settings:", Object.values(this.state.randomPerson[1]) === undefined ? null : Object.values(this.state.randomPerson[1]));
     console.log("this.state.data:", this.state.data);
       const {count, bestStreak, randomVerb, randomPerson, helperText, value} = this.state; // beginner
       const {infinitive, infinitive_english, tense_english, mood_english} = randomVerb;
