@@ -34,7 +34,7 @@ class Verb extends Component {
       count: 0,
       bestStreak: 0,
       beginner: true,
-      data: Intermediate,
+      data: latamSpanish(Intermediate),
       NumberPerson: "Latam",
       VerbTenses: "Intermediate",
       answered: false
