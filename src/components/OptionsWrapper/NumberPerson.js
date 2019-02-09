@@ -1,10 +1,17 @@
 import React from "react";
+import styled from "styled-components";
+
+const Dropdown = styled.select`
+  padding: 1%;
+`;
 
 const NumberPerson = props => {
   return (
       <div>
-          <div onClick={ props.updateNumPerson } value="Latam"><span style={ {cursor: "pointer", fontSize: "2rem"} } role="img" aria-label="globe">🌎</span></div>
-          <div onClick={ props.updateNumPerson } value="Spain"><span style={ {pointer: "pointer", fontSize: "2rem"} } role="img" aria-label="spain">🇪🇸</span></div>
+          <Dropdown onChange={ props.updateNumPerson }>
+              <option value="Latam">Latin America</option>
+              <option value="Spain">Spain</option>
+          </Dropdown>
       </div>
   );
 };

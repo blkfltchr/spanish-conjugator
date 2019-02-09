@@ -9,6 +9,8 @@ import VerbButtons from "./VerbButtons";
 import VerbInfo from "./VerbInfo";
 import VerbLevelButton from "./VerbLevelButton";
 import VerbPerson from "./VerbPerson";
+import VerbTenses from "../OptionsWrapper/VerbTenses"
+// import NumberPerson from "../OptionsWrapper/NumberPerson"
 import {
   spainSpanish,
   latamSpanish
@@ -160,6 +162,7 @@ class Verb extends Component {
         data: miniData
       });
     }
+    this.handleRefresh()
   };
 
   filterData = event => {
@@ -229,10 +232,14 @@ class Verb extends Component {
 
   render() {
     console.log("answer:", this.state.randomPerson[1]);
+    console.log("this.state.data:", this.state.data);
       const {count, bestStreak, randomVerb, randomPerson, helperText, value, beginner} = this.state;
       const {infinitive, infinitive_english, tense_english, mood_english} = randomVerb;
       return (
           <div>
+              <VerbTenses updateVerbTenses={ this.updateVerbTenses } />
+              {/* <NumberPerson updateNumPerson={ this.updateNumPerson } />
+              <button onClick={ this.filterData } className="button-options">Update Settings</button> */}
               <VerbInfo infinitive={ infinitive } count={ count } infinitive_english={ infinitive_english } bestStreak={ bestStreak } tense_english={ tense_english } mood_english={ mood_english } />
               <VerbPerson randomPerson={ randomPerson[0] } />
               <label>
