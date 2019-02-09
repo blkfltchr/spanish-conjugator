@@ -9,7 +9,7 @@ import VerbButtons from "./VerbButtons";
 import VerbInfo from "./VerbInfo";
 // import VerbLevelButton from "./VerbLevelButton";
 import VerbPerson from "./VerbPerson";
-import VerbTenses from "../OptionsWrapper/VerbTenses"
+import VerbTenses from "./VerbTenses"
 // import NumberPerson from "../OptionsWrapper/NumberPerson"
 import {
   spainSpanish,

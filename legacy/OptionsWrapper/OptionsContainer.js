@@ -3,8 +3,8 @@ import React, {
 } from "react";
 import miniData from "../../miniData";
 import VerbFrequency from "./VerbFrequency";
-import VerbTenses from "./VerbTenses";
-import NumberPerson from "./NumberPerson";
+import VerbTenses from "../../src/components/Verb/VerbTenses";
+import NumberPerson from "../../src/components/Verb/VerbNumberPerson";
 import FilteredRandomButton from "../OptionsWrapper/RandomFiltered/FilteredRandomButton";
 import RandomButton from "../home/Options/RandomButton";
 import {

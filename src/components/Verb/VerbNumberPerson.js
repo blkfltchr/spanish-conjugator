@@ -5,7 +5,7 @@ const Dropdown = styled.select`
   padding: 1%;
 `;
 
-const NumberPerson = props => {
+const VerbNumberPerson = props => {
   return (
       <div>
           <Dropdown onChange={ props.updateNumPerson }>
@@ -16,4 +16,4 @@ const NumberPerson = props => {
   );
 };
 
-export default NumberPerson;
+export default VerbNumberPerson;
