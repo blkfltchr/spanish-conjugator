@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import "../../app.css";
-import RandomPerson from "./RandomPerson";
 import miniData from "../../miniData";
 
 import VerbButtons from "../Verb/VerbButtons";
 import VerbInfo from "../Verb/VerbInfo";
 import VerbLevelButton from "../Verb/VerbLevelButton";
+import VerbPerson from "../Verb/VerbPerson";
 
 const initialState = {
   value: "",
@@ -126,7 +126,7 @@ class BeginnerRandom extends Component {
       return (
           <div>
               <VerbInfo infinitive={ infinitive } count={ count } infinitive_english={ infinitive_english } bestStreak={ bestStreak } tense_english={ tense_english } mood_english={ mood_english } />
-              <RandomPerson randomPerson={ randomPerson[0] } />
+              <VerbPerson randomPerson={ randomPerson[0] } />
               <label>
                   <input
               type="text"

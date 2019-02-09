@@ -1,6 +1,6 @@
 import React from "react"
 
-const RandomPerson = (props) => {
+const VerbPerson = (props) => {
     return ( 
         <div className="person-flex">
             <b>Pronoun: </b>
@@ -28,4 +28,4 @@ const RandomPerson = (props) => {
      );
 }
  
-export default RandomPerson;
+export default VerbPerson;

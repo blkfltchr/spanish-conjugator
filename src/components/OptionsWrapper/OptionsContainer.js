@@ -125,48 +125,31 @@ class OptionsContainer extends Component {
   };
 
   render() {
-    return (<
-      div >
-        <
-      form onSubmit = {
-        this.filterData
-      } >
-          <
-      Section >
-          <
-      Title > Verb Frequency < /Title> <
-      VerbFrequency / >
-      <
-      /Section> <
-      Section >
-          <
-      Title > Verb Tenses < /Title> <
-      VerbTenses updateVerbTenses = {
-        this.updateVerbTenses
-      }
-      /> <
-      /Section> <
-      Section >
-          <
-      Title > Number and Person < /Title> <
-      NumberPerson updateNumPerson = {
-        this.updateNumPerson
-      }
-      /> <
-      /Section> {
-        /* <Button type="submit">Update Settings</Button> */ } <
-      button className = "button-options" > Update Settings < /button> <
-      /form> {
-        this.state.updated === false ? (<
-          RandomButton / >
-        ) : (<
-          FilteredRandomButton data = {
-            this.state.data
-          }
-          />
-        )
-      } <
-      /div>
+    return (
+        <div>
+            <form onSubmit={ this.filterData }>
+                <Section>
+                    <Title>Verb Frequency</Title>
+                    <VerbFrequency />
+                </Section>
+                <Section>
+                    <Title>Verb Tenses</Title>
+                    <VerbTenses updateVerbTenses={ this.updateVerbTenses } />
+                </Section>
+                <Section>
+                    <Title>Number and Person</Title>
+                    <NumberPerson updateNumPerson={ this.updateNumPerson } />
+                </Section>
+                {/* <Button type="submit">Update Settings</Button> */}
+                <button className="button-options">Update Settings</button>
+            </form>
+            {this.state.updated === false ? (
+                <RandomButton />
+        ) : (
+            <FilteredRandomButton data={ this.state.data } />
+        )}
+        </div>
+
     );
   }
 }
