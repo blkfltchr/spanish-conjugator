@@ -234,16 +234,17 @@ class Verb extends Component {
     return (
       <div>
         <Settings />
-        <VerbInfo
-          randomPerson={randomPerson[0]}
-          infinitive={infinitive}
-          count={count}
-          infinitive_english={infinitive_english}
-          bestStreak={bestStreak}
-          tense_english={tense_english}
-          mood_english={mood_english}
-        />
-        {/* <VerbPerson randomPerson={ randomPerson[0] } /> */}
+        <div className="verb-info-wrapper">
+          <VerbInfo
+            randomPerson={randomPerson[0]}
+            infinitive={infinitive}
+            count={count}
+            infinitive_english={infinitive_english}
+            bestStreak={bestStreak}
+            tense_english={tense_english}
+            mood_english={mood_english}
+          />
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label>
             <div className="input-section">
@@ -276,7 +277,6 @@ class Verb extends Component {
             Submit
           </button>
         </form>
-        {/* <VerbLevelButton handleLevelChange={ this.handleLevelChange } beginner={ beginner }/> */}
       </div>
     );
   }
