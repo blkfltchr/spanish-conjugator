@@ -137,3 +137,13 @@ body {
   color: white;
   opacity: 0.75;
 }
+
+.settings-buttons .display {
+  display: none;
+  border: 2px solid green;
+}
+
+.settings-buttons .hide {
+  display: inline;
+  border: 2px solid red;
+}

@@ -5,8 +5,7 @@ import miniData from '../../miniData';
 
 import VerbInfo from './VerbInfo';
 import VerbPerson from './VerbPerson';
-import VerbTenses from './VerbTenses';
-import NumberPerson from '../Verb/VerbNumberPerson';
+import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { Beginner, Intermediate } from '../VerbTensesFilters';
 
@@ -234,11 +233,7 @@ class Verb extends Component {
     } = randomVerb;
     return (
       <div>
-        <VerbTenses updateVerbTenses={this.updateVerbTenses} />
-        <NumberPerson updateNumPerson={this.updateNumPerson} />
-        <button onClick={this.filterData} className="button-options">
-          Update Settings
-        </button>
+        <Settings />
         <VerbInfo
           randomPerson={randomPerson[0]}
           infinitive={infinitive}
