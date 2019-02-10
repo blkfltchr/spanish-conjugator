@@ -81,18 +81,6 @@ body {
   width: 120px;
 }
 
-.button-options {
-  font-size: 0.75rem;
-  font-family: 'Open Sans';
-  border-radius: 5px;
-  margin-top: 3.5%;
-  padding: 5px 10px;
-  color: white;
-  background-color: blue;
-  width: 40%;
-  opacity: 0.75;
-}
-
 .streak-flex {
   display: flex;
   justify-content: space-between;
@@ -136,14 +124,4 @@ body {
   border-radius: 5px;
   color: white;
   opacity: 0.75;
-}
-
-.settings-buttons .display {
-  display: none;
-  border: 2px solid green;
-}
-
-.settings-buttons .hide {
-  display: inline;
-  border: 2px solid red;
 }

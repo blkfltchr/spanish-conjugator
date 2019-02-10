@@ -1,7 +1,25 @@
+.settings {
+  margin: 2% 0%;
+}
+
 .settings-buttons-display {
-  display: inline;
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
 }
 
 .settings-buttons-hide {
   display: none;
+}
+
+.button-options {
+  font-size: 0.75rem;
+  font-family: 'Open Sans';
+  border-radius: 5px;
+  margin-top: 3.5%;
+  padding: 5px 10px;
+  color: white;
+  background-color: blue;
+  width: 30%;
+  opacity: 0.75;
 }
