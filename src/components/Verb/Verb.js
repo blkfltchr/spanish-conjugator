@@ -233,16 +233,19 @@ class Verb extends Component {
               <VerbTenses updateVerbTenses={ this.updateVerbTenses } />
               <NumberPerson updateNumPerson={ this.updateNumPerson } />
               <button onClick={ this.filterData } className="button-options">Update Settings</button>
-              <VerbInfo infinitive={ infinitive } count={ count } infinitive_english={ infinitive_english } bestStreak={ bestStreak } tense_english={ tense_english } mood_english={ mood_english } />
-              <VerbPerson randomPerson={ randomPerson[0] } />
+              <VerbInfo randomPerson={ randomPerson[0] } infinitive={ infinitive } count={ count } infinitive_english={ infinitive_english } bestStreak={ bestStreak } tense_english={ tense_english } mood_english={ mood_english } />
+              {/* <VerbPerson randomPerson={ randomPerson[0] } /> */}
               <form onSubmit={this.handleSubmit}>
               <label>
-                  <input
-              type="text"
-              value={ value }
-              onChange={ this.handleChange }
-              className="input"
-            />
+              <div className='input-section'>
+                <VerbPerson randomPerson={ randomPerson[0] } />
+                    <input
+                type="text"
+                value={ value }
+                onChange={ this.handleChange }
+                className="input"
+              />
+            </div>
             <div className="text-under-input">
                   <button className="hint-button" type="button" onClick={this.handleHint}>Hint?</button>
                   <span>En Español</span>
