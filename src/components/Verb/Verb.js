@@ -1,27 +1,16 @@
-import React, {
-  Component
-} from "react";
+import React, { Component } from 'react';
 
-import "../../app.css";
-import miniData from "../../miniData";
+import '../../app.css';
+import miniData from '../../miniData';
 
-import VerbButtons from "./VerbButtons";
-import VerbInfo from "./VerbInfo";
-// import VerbLevelButton from "./VerbLevelButton";
-import VerbPerson from "./VerbPerson";
-import VerbTenses from "./VerbTenses"
-// import NumberPerson from "../OptionsWrapper/NumberPerson"
-import {
-  spainSpanish,
-  latamSpanish
-} from "../NumPersonFilters";
-import {
-  Beginner,
-  Intermediate
-} from "../VerbTensesFilters"
+import VerbInfo from './VerbInfo';
+import VerbPerson from './VerbPerson';
+import Settings from './Settings/Settings';
+import { spainSpanish, latamSpanish } from '../NumPersonFilters';
+import { Beginner, Intermediate } from '../VerbTensesFilters';
 
 const initialState = {
-  value: "",
+  value: '',
   helperText: null,
   correct: false,
   randomVerb: {},
@@ -35,10 +24,10 @@ class Verb extends Component {
       count: 0,
       bestStreak: 0,
       beginner: true,
-      data: Intermediate,
-      NumberPerson: "Latam",
-      VerbTenses: "Intermediate",
-      updated: false
+      data: latamSpanish(Intermediate),
+      NumberPerson: 'Latam',
+      VerbTenses: 'Intermediate',
+      answered: false
     };
   }
 
@@ -50,7 +39,9 @@ class Verb extends Component {
   }
 
   randomize = () => {
-    const randomVerb = this.state.data[Math.floor(Math.random() * this.state.data.length)];
+    const randomVerb = this.state.data[
+      Math.floor(Math.random() * this.state.data.length)
+    ];
     const randomPerson = Object.entries(randomVerb)[
       Math.floor(Math.random() * 5) + 7
     ];
@@ -66,10 +57,16 @@ class Verb extends Component {
     });
   };
 
-  handleSubmit = () => {
-    if (this.state.randomPerson[1] === this.state.value) {
+  handleSubmit = event => {
+    event.preventDefault();
+    if (this.state.answered === true) {
+      this.handleRefresh();
+      this.setState({
+        answered: false
+      });
+    } else if (this.state.randomPerson[1] === this.state.value) {
       this.addCounter();
-      alert("Correct!");
+      alert('Correct!');
       this.handleRefresh();
       this.setState({
         correct: true
@@ -78,8 +75,9 @@ class Verb extends Component {
     } else if (this.state.randomPerson[1] !== this.state.value) {
       this.setState({
         helperText: `False, the correct answer is ${
-              this.state.randomPerson[1]
-            }.`
+          this.state.randomPerson[1]
+        }.`,
+        answered: true
       });
       this.resetCounter();
     }
@@ -98,9 +96,9 @@ class Verb extends Component {
     this.setState({
       hint: true,
       helperText: `The answer ends with -${answer.substring(
-            answer.length - 3,
-            answer.length
-          )}.`
+        answer.length - 3,
+        answer.length
+      )}.`
     });
   };
 
@@ -149,114 +147,139 @@ class Verb extends Component {
   };
 
   updateVerbTenses = event => {
-    if (event.target.value === "Beginner") {
-      this.setState({
-        data: Beginner
-      });
-    } else if (event.target.value === "Intermediate") {
-      this.setState({
-        data: Intermediate
-      });
-    } else if (event.target.value === "Advanced") {
-      this.setState({
-        data: miniData
-      });
-    }
-    this.handleRefresh()
+    this.setState({
+      VerbTenses: event.target.value
+    });
+    this.handleRefresh();
   };
 
   filterData = event => {
     event.preventDefault();
 
-    const spainBeg = spainSpanish(Beginner);
-    const spainInter = spainSpanish(Intermediate);
-    const spainAdv = spainSpanish(miniData);
-
     if (
-      this.state.NumberPerson === "Spain" &&
-      this.state.VerbTenses === "Beginner"
+      this.state.NumberPerson === 'Spain' &&
+      this.state.VerbTenses === 'Beginner'
     ) {
+      const spainBeg = spainSpanish(Beginner);
       this.setState({
         data: spainBeg
       });
     }
     if (
-      this.state.NumberPerson === "Spain" &&
-      this.state.VerbTenses === "Intermediate"
+      this.state.NumberPerson === 'Spain' &&
+      this.state.VerbTenses === 'Intermediate'
     ) {
+      const spainInter = spainSpanish(Intermediate);
       this.setState({
         data: spainInter
       });
     }
     if (
-      this.state.NumberPerson === "Spain" &&
-      this.state.VerbTenses === "Advanced"
+      this.state.NumberPerson === 'Spain' &&
+      this.state.VerbTenses === 'Advanced'
     ) {
+      const spainAdv = spainSpanish(miniData);
       this.setState({
         data: spainAdv
       });
     }
 
-    const latamBeg = latamSpanish(Beginner);
-    const latamInter = latamSpanish(Intermediate);
-    const latamAdv = latamSpanish(miniData);
-
     if (
-      this.state.NumberPerson === "Latam" &&
-      this.state.VerbTenses === "Beginner"
+      this.state.NumberPerson === 'Latam' &&
+      this.state.VerbTenses === 'Beginner'
     ) {
+      const latamBeg = latamSpanish(Beginner);
       this.setState({
         data: latamBeg
       });
     }
     if (
-      this.state.NumberPerson === "Latam" &&
-      this.state.VerbTenses === "Intermediate"
+      this.state.NumberPerson === 'Latam' &&
+      this.state.VerbTenses === 'Intermediate'
     ) {
+      const latamInter = latamSpanish(Intermediate);
       this.setState({
         data: latamInter
       });
     }
     if (
-      this.state.NumberPerson === "Latam" &&
-      this.state.VerbTenses === "Advanced"
+      this.state.NumberPerson === 'Latam' &&
+      this.state.VerbTenses === 'Advanced'
     ) {
+      const latamAdv = latamSpanish(miniData);
       this.setState({
         data: latamAdv
       });
     }
-    this.setState({
-      updated: true
-    });
   };
 
   render() {
-    console.log("answer:", this.state.randomPerson[1]);
-    console.log("this.state.data:", this.state.data);
-      const {count, bestStreak, randomVerb, randomPerson, helperText, value} = this.state; // beginner
-      const {infinitive, infinitive_english, tense_english, mood_english} = randomVerb;
-      return (
-          <div>
-              <VerbTenses updateVerbTenses={ this.updateVerbTenses } />
-              {/* <NumberPerson updateNumPerson={ this.updateNumPerson } />
-              <button onClick={ this.filterData } className="button-options">Update Settings</button> */}
-              <VerbInfo infinitive={ infinitive } count={ count } infinitive_english={ infinitive_english } bestStreak={ bestStreak } tense_english={ tense_english } mood_english={ mood_english } />
-              <VerbPerson randomPerson={ randomPerson[0] } />
-              <label>
-                  <input
-              type="text"
-              value={ value }
-              onChange={ this.handleChange }
-              className="input"
-            />
-                  <span style={ {fontSize: "12px"} }>En Español</span>
-              </label>
-              {helperText && <p>{helperText}</p>}
-              <VerbButtons handleSubmit={ this.handleSubmit } handleHint={ this.handleHint } handleRefresh={ this.handleRefresh } />
-              {/* <VerbLevelButton handleLevelChange={ this.handleLevelChange } beginner={ beginner }/> */}
-          </div>
-      );
-    }
+    console.log('answer:', this.state.randomPerson);
+    console.log('this.state.data:', this.state.data);
+    console.log('ANSWERED', this.state.answered);
+    const {
+      count,
+      bestStreak,
+      randomVerb,
+      randomPerson,
+      helperText,
+      value
+    } = this.state;
+    const {
+      infinitive,
+      infinitive_english,
+      tense_english,
+      mood_english
+    } = randomVerb;
+    return (
+      <div>
+        <Settings />
+        <div className="verb-info-wrapper">
+          <VerbInfo
+            randomPerson={randomPerson[0]}
+            infinitive={infinitive}
+            count={count}
+            infinitive_english={infinitive_english}
+            bestStreak={bestStreak}
+            tense_english={tense_english}
+            mood_english={mood_english}
+          />
+        </div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            <div className="input-section">
+              <VerbPerson randomPerson={randomPerson[0]} />
+              <input
+                type="text"
+                value={value}
+                placeholder="Enter conjugated verb..."
+                onChange={this.handleChange}
+                className="input"
+              />
+            </div>
+            <div className="text-under-input">
+              <button
+                className="hint-button"
+                type="button"
+                onClick={this.handleHint}
+              >
+                Hint?
+              </button>
+              <span>En Español</span>
+            </div>
+          </label>
+          {helperText && <p>{helperText}</p>}
+          <button
+            className="submit-button"
+            type="submit"
+            onClick={this.handleSubmit}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    );
   }
+}
 
-  export default Verb
+export default Verb;

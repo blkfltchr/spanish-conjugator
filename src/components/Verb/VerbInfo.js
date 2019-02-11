@@ -1,34 +1,39 @@
-import React from "react";
+import React from 'react';
 
-const VerbInfo = (props) => {
-    return ( 
-        <div>
-            <div className="streak-flex">
-                <p>
-                    <b>Verb: </b>
-                    {props.infinitive}
-                </p>
-                <p>
-                    <b>Streak: </b>
-                    {props.count}
-                </p>
-            </div>
-            <div className="streak-flex">
-                <p>
-                    <b>Translation: </b>
-                    {props.infinitive_english}
-                </p>
-                <p>
-                    <b>Best streak: </b>
-                    {props.bestStreak}
-                </p>
-            </div>
-            <p>
-                <b>Tense: </b>
-                {props.tense_english} {props.mood_english}
-            </p>
+const VerbInfo = props => {
+  return (
+    <div>
+      <div className="verb-info-text">
+        <div className="verb-info-text-left">
+          <p>
+            Verb:&nbsp;<span> </span>
+          </p>
+          <p>
+            <b>{props.infinitive}</b> <span> </span> ({props.infinitive_english}
+            )
+          </p>
         </div>
-   );
-}
- 
+        <b>
+          Streak:
+          <span> </span>
+          {props.count}
+        </b>
+      </div>
+      <div className="verb-info-text">
+        <div className="verb-info-text-left">
+          <span>Tense:&nbsp;</span>
+          <p>
+            {props.tense_english} {props.mood_english}
+          </p>
+        </div>
+        <b>
+          Best streak:
+          <span> </span>
+          {props.bestStreak}
+        </b>
+      </div>
+    </div>
+  );
+};
+
 export default VerbInfo;

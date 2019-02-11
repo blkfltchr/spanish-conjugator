@@ -33,19 +33,45 @@ body {
   color: blue;
 }
 
+.input-section {
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+  align-content: flex-end;
+  align-items: flex-end;
+  margin: 7% 0% 2% 0%;
+}
+
 .input {
-  font-size: 18px;
+  font-size: 1.2rem;
   border: none;
   border-bottom: solid 2px blue;
   background-color: white;
   width: 100%;
   height: 35px;
-  padding-left: 5px;
-  margin-bottom: 5px;
+  margin-left: 2%;
+}
+
+.person-flex {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  margin-bottom: 7.5px;
+}
+
+.person-flex span {
+  display: flex;
+  text-align: center;
+  padding: 10% 20% 0% 0%;
+  font-size: 1.2rem;
+}
+
+.person-flex b {
+  margin-right: 5px;
 }
 
 .button {
-  font-size: 16px;
+  font-size: 1.8rem;
   font-family: 'Open Sans';
   border-radius: 5px;
   padding: 10px 15px;
@@ -54,39 +80,81 @@ body {
   width: 120px;
 }
 
-.button-options {
-  font-size: 1rem;
+.top-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+.top-text-left {
+  display: flex;
+  border: 2px solid red;
+  margin: 0;
+  padding: 0;
+}
+
+.top-text-left p {
+  margin: 0;
+  padding: 0;
+}
+
+.top-text-left b {
+  margin: 0;
+  padding: 0;
+}
+
+.verb-info-text {
+  display: flex;
+  justify-content: space-between;
+  height: 22px;
+  font-size: 1.2rem;
+  flex-wrap: nowrap;
+  margin-bottom: 10%;
+}
+
+.verb-info-text-left {
+  display: flex;
+}
+
+.verb-info-text-left p {
+  margin: 0% 0% 0% 0%;
+  padding: 0;
+}
+
+.verb-info-text-left b {
+  margin: 0;
+  padding: 0;
+}
+
+.submit-button {
+  font-size: 1.2rem;
   font-family: 'Open Sans';
   border-radius: 5px;
-  margin-top: 3.5%;
   padding: 10px 15px;
   color: white;
   background-color: blue;
-  width: 40%;
+  width: 100%;
+  margin-top: 10%;
 }
 
-.streak-flex {
+.text-under-input {
   display: flex;
   justify-content: space-between;
-  height: 22px;
-  padding: 0 0 16px 0;
-  margin-top: 0;
 }
 
-.person-flex {
-  display: flex;
-  justify-content: flex-start;
-  height: 22px;
-  padding: 0 0 16px 0;
-  margin-top: 0;
+.text-under-input span {
+  font-size: 0.8rem;
+  margin-top: 1%;
 }
 
-.person-flex b {
-  margin-right: 5px;
+.hint-button {
+  padding: 1% 1.5%;
+  background-color: blue;
+  border-radius: 5px;
+  color: white;
+  opacity: 0.75;
 }
 
-.three-buttons {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: space-between;
+.verb-info-wrapper {
+  margin: 10% 0%;
 }
