@@ -9,7 +9,8 @@ const VerbInfo = props => {
             Verb:&nbsp;<span> </span>
           </p>
           <p>
-            {props.infinitive} <span> </span> ({props.infinitive_english})
+            <b>{props.infinitive}</b> <span> </span> ({props.infinitive_english}
+            )
           </p>
         </div>
         <b>
