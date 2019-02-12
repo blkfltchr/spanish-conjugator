@@ -23,7 +23,7 @@ const VerbInfo = props => {
         <div className="verb-info-text-left">
           <span>Tense:&nbsp;</span>
           <p>
-            {props.tense_english} {props.mood_english}
+            <b>{props.tense_english} {props.mood_english}</b>
           </p>
         </div>
         <b>
