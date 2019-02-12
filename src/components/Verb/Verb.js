@@ -214,9 +214,9 @@ class Verb extends Component {
   };
 
   render() {
-    console.log('answer:', this.state.randomPerson);
-    console.log('this.state.data:', this.state.data);
-    console.log('ANSWERED', this.state.answered);
+    console.log('answer:', this.state.randomPerson[1]);
+    // console.log('this.state.data:', this.state.data);
+    // console.log('ANSWERED', this.state.answered);
     const {
       count,
       bestStreak,
