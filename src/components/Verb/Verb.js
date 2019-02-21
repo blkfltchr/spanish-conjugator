@@ -59,12 +59,13 @@ class Verb extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const userInput = this.state.value.toLowerCase();
     if (this.state.answered === true) {
       this.handleRefresh();
       this.setState({
         answered: false
       });
-    } else if (this.state.randomPerson[1] === this.state.value) {
+    } else if (this.state.randomPerson[1] === userInput) {
       this.addCounter();
       alert('Correct!');
       this.handleRefresh();
@@ -72,7 +73,7 @@ class Verb extends Component {
         correct: true
       });
       this.addStreak();
-    } else if (this.state.randomPerson[1] !== this.state.value) {
+    } else if (this.state.randomPerson[1] !== userInput) {
       this.setState({
         helperText: `False, the correct answer is ${
           this.state.randomPerson[1]
@@ -217,6 +218,7 @@ class Verb extends Component {
     console.log('answer:', this.state.randomPerson);
     console.log('this.state.data:', this.state.data);
     console.log('ANSWERED', this.state.answered);
+    console.log('INPUT', this.state.value);
     const {
       count,
       bestStreak,
