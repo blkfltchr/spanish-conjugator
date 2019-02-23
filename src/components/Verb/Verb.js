@@ -215,10 +215,13 @@ class Verb extends Component {
   };
 
   render() {
-    console.log('answer:', this.state.randomPerson);
+    // console.log('answer:', this.state.randomPerson);
     console.log('this.state.data:', this.state.data);
-    console.log('ANSWERED', this.state.answered);
-    console.log('INPUT', this.state.value);
+    // console.log('ANSWERED', this.state.answered);
+    // console.log('INPUT', this.state.value);
+    console.log('VERB', this.state.VerbTenses);
+    console.log('NUmber', this.state.NumberPerson);
+    console.log('RANDOM VERB', this.state.randomVerb.mood_english);
     const {
       count,
       bestStreak,
@@ -235,7 +238,11 @@ class Verb extends Component {
     } = randomVerb;
     return (
       <div>
-        <Settings />
+        <Settings
+          updateNumPerson={this.updateNumPerson}
+          updateVerbTenses={this.updateVerbTenses}
+          filterData={this.filterData}
+        />
         <div className="verb-info-wrapper">
           <VerbInfo
             randomPerson={randomPerson[0]}

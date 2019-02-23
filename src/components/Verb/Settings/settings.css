@@ -4,7 +4,8 @@
 
 .settings-buttons-display {
   display: flex;
-  width: 60%;
+  width: 30%;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -12,15 +13,19 @@
   display: none;
 }
 
-.button-options {
+.setting-button-wrapper {
+  width: 100%;
+}
+
+.settings-button {
   font-size: 0.8rem;
   font-family: 'Open Sans';
   border-radius: 5px;
-  margin-top: 3.5%;
+  margin-top: 10%;
   padding: 5px 10px;
   color: white;
   background-color: blue;
-  width: 30%;
+  width: 100%;
   opacity: 0.75;
 }
 

@@ -23,11 +23,20 @@ class Settings extends Component {
     return (
       <div className="settings">
         <div className={this.state.updateSettings ? display : hide}>
-          <VerbTenses updateVerbTenses={this.props.updateVerbTenses} />
-          <NumberPerson updateNumPerson={this.props.updateNumPerson} />
+          <div>
+            <VerbTenses updateVerbTenses={this.props.updateVerbTenses} />
+            <NumberPerson updateNumPerson={this.props.updateNumPerson} />
+          </div>
+          <button className="settings-button" onClick={this.props.filterData}>
+            Update
+          </button>
         </div>
         <div>
-          <i className="fas fa-cog" onClick={this.changeSettings} />
+          <i
+            className="fas fa-cog"
+            onClick={this.changeSettings}
+            // onClick={this.props.filterData}
+          />
         </div>
       </div>
     );
