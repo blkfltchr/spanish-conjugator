@@ -214,14 +214,22 @@ class Verb extends Component {
     }
   };
 
+  addAccent = event => {
+    event.preventDefault();
+    const accent = event.target.value;
+    console.log('ACCENT', accent);
+    this.setState({
+      value: [...this.state.value, accent]
+    });
+    console.log('value from add accent', this.state.value);
+  };
+
   render() {
     // console.log('answer:', this.state.randomPerson);
-    console.log('this.state.data:', this.state.data);
+    // console.log('this.state.data:', this.state.data);
     // console.log('ANSWERED', this.state.answered);
-    // console.log('INPUT', this.state.value);
-    console.log('VERB', this.state.VerbTenses);
-    console.log('NUmber', this.state.NumberPerson);
-    console.log('RANDOM VERB', this.state.randomVerb.mood_english);
+    // // console.log('INPUT', this.state.value);
+    // console.log('VERB', this.state.VerbTenses);
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
       infinitive,
@@ -251,6 +259,7 @@ class Verb extends Component {
           state={this.state}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          addAccent={this.addAccent}
         />
       </div>
     );

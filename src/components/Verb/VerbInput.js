@@ -1,5 +1,6 @@
 import React from 'react';
 import VerbPerson from './VerbPerson';
+import AccentButtons from './AccentButtons';
 
 const VerbInput = props => {
   console.log('PROPPING', props);
@@ -19,6 +20,7 @@ const VerbInput = props => {
               className="input"
             />
           </div>
+          <AccentButtons addAccent={props.addAccent} />
           <div className="text-under-input">
             <button
               className="hint-button"
