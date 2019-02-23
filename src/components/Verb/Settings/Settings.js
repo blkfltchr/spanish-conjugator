@@ -27,9 +27,7 @@ class Settings extends Component {
           <NumberPerson updateNumPerson={this.props.updateNumPerson} />
         </div>
         <div>
-          <button onClick={this.changeSettings} className="button-options">
-            {this.state.updateSettings ? 'Update' : 'Settings'}
-          </button>
+          <i className="fas fa-cog" onClick={this.changeSettings} />
         </div>
       </div>
     );
