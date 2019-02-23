@@ -4,10 +4,10 @@ import '../../app.css';
 import miniData from '../../miniData';
 
 import VerbInfo from './VerbInfo';
-import VerbPerson from './VerbPerson';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { Beginner, Intermediate } from '../VerbTensesFilters';
+import VerbInput from './VerbInput';
 
 const initialState = {
   value: '',
@@ -222,14 +222,7 @@ class Verb extends Component {
     console.log('VERB', this.state.VerbTenses);
     console.log('NUmber', this.state.NumberPerson);
     console.log('RANDOM VERB', this.state.randomVerb.mood_english);
-    const {
-      count,
-      bestStreak,
-      randomVerb,
-      randomPerson,
-      helperText,
-      value
-    } = this.state;
+    const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
       infinitive,
       infinitive_english,
@@ -254,38 +247,11 @@ class Verb extends Component {
             mood_english={mood_english}
           />
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <div className="input-section">
-              <VerbPerson randomPerson={randomPerson[0]} />
-              <input
-                type="text"
-                value={value}
-                placeholder="Enter conjugated verb..."
-                onChange={this.handleChange}
-                className="input"
-              />
-            </div>
-            <div className="text-under-input">
-              <button
-                className="hint-button"
-                type="button"
-                onClick={this.handleHint}
-              >
-                Hint?
-              </button>
-              <span>En Español</span>
-            </div>
-          </label>
-          {helperText && <p>{helperText}</p>}
-          <button
-            className="submit-button"
-            type="submit"
-            onClick={this.handleSubmit}
-          >
-            Submit
-          </button>
-        </form>
+        <VerbInput
+          state={this.state}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
       </div>
     );
   }
