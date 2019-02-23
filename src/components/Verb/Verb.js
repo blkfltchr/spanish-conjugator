@@ -24,9 +24,9 @@ class Verb extends Component {
       count: 0,
       bestStreak: 0,
       beginner: true,
-      data: latamSpanish(Intermediate),
+      data: latamSpanish(Beginner),
       NumberPerson: 'Latam',
-      VerbTenses: 'Intermediate',
+      VerbTenses: 'Beginner',
       answered: false
     };
   }
