@@ -264,15 +264,17 @@ class Verb extends Component {
               <span>En Español</span>
             </div>
           </label>
-          <button
-            className="submit-button"
-            type="submit"
-            onClick={this.handleSubmit}
-            >
-            Submit
-          </button>
+          <div style={{height: '105px'}}>
+            <button
+              className="submit-button"
+              type="submit"
+              onClick={this.handleSubmit}
+              >
+              Submit
+            </button>
+          {helperText && <p>{helperText}</p>}
+        </div>
         </form>
-        {helperText && <p>{helperText}</p>}
         <Settings handleRefresh={this.handleRefresh}/>
         <div style={{textAlign: 'center'}}>Made with ❤️ in 🇨🇴</div>
       </div>
