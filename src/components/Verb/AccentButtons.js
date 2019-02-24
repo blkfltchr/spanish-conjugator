@@ -6,11 +6,21 @@ const AccentButtons = props => {
       <button onClick={props.addAccent} value="á">
         á
       </button>
-      <button onClick={props.addAccent}>é</button>
-      <button onClick={props.addAccent}>í</button>
-      <button onClick={props.addAccent}>ñ</button>
-      <button onClick={props.addAccent}>ó</button>
-      <button onClick={props.addAccent}>ú</button>
+      <button onClick={props.addAccent} value="é">
+        é
+      </button>
+      <button onClick={props.addAccent} value="í">
+        í
+      </button>
+      <button onClick={props.addAccent} value="ñ">
+        ñ
+      </button>
+      <button onClick={props.addAccent} value="ó">
+        ó
+      </button>
+      <button onClick={props.addAccent} value="ú">
+        ú
+      </button>
     </div>
   );
 };
