@@ -276,7 +276,7 @@ class Verb extends Component {
         </div>
         </form>
         <Settings handleRefresh={this.handleRefresh}/>
-        <div style={{textAlign: 'center'}}>Made with ❤️ in 🇨🇴</div>
+        <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
       </div>
     );
   }
