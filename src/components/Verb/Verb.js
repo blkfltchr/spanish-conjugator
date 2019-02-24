@@ -8,6 +8,7 @@ import VerbPerson from './VerbPerson';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { Beginner, Intermediate } from '../VerbTensesFilters';
+import VerbStreak from './VerbStreak';
 
 const initialState = {
   value: '',
@@ -59,12 +60,13 @@ class Verb extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const userInput = this.state.value.toLowerCase();
     if (this.state.answered === true) {
       this.handleRefresh();
       this.setState({
         answered: false
       });
-    } else if (this.state.randomPerson[1] === this.state.value) {
+    } else if (this.state.randomPerson[1] === userInput) {
       this.addCounter();
       alert('Correct!');
       this.handleRefresh();
@@ -72,7 +74,7 @@ class Verb extends Component {
         correct: true
       });
       this.addStreak();
-    } else if (this.state.randomPerson[1] !== this.state.value) {
+    } else if (this.state.randomPerson[1] !== userInput) {
       this.setState({
         helperText: `False, the correct answer is ${
           this.state.randomPerson[1]
@@ -215,8 +217,6 @@ class Verb extends Component {
 
   render() {
     console.log('answer:', this.state.randomPerson[1]);
-    // console.log('this.state.data:', this.state.data);
-    // console.log('ANSWERED', this.state.answered);
     const {
       count,
       bestStreak,
@@ -233,14 +233,12 @@ class Verb extends Component {
     } = randomVerb;
     return (
       <div>
-        <Settings />
         <div className="verb-info-wrapper">
+          <VerbStreak bestStreak={bestStreak} count={count} />
           <VerbInfo
             randomPerson={randomPerson[0]}
             infinitive={infinitive}
-            count={count}
             infinitive_english={infinitive_english}
-            bestStreak={bestStreak}
             tense_english={tense_english}
             mood_english={mood_english}
           />
@@ -268,15 +266,16 @@ class Verb extends Component {
               <span>En Español</span>
             </div>
           </label>
-          {helperText && <p>{helperText}</p>}
           <button
             className="submit-button"
             type="submit"
             onClick={this.handleSubmit}
-          >
+            >
             Submit
           </button>
         </form>
+        {helperText && <p>{helperText}</p>}
+        <Settings />
       </div>
     );
   }

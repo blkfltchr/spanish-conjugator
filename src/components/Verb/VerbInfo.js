@@ -13,11 +13,6 @@ const VerbInfo = props => {
             )
           </p>
         </div>
-        <b>
-          Streak:
-          <span> </span>
-          {props.count}
-        </b>
       </div>
       <div className="verb-info-text">
         <div className="verb-info-text-left">
@@ -26,11 +21,6 @@ const VerbInfo = props => {
             <b>{props.tense_english} {props.mood_english}</b>
           </p>
         </div>
-        <b>
-          Best streak:
-          <span> </span>
-          {props.bestStreak}
-        </b>
       </div>
     </div>
   );
