@@ -230,6 +230,7 @@ class Verb extends Component {
       tense_english,
       mood_english
     } = randomVerb;
+    const buttonText = this.state.randomPerson[1] !== this.state.value.toLowerCase() && this.state.answered ? 'Next verb' : 'Submit'
     return (
       <div>
         <div className="verb-info-wrapper">
@@ -270,7 +271,7 @@ class Verb extends Component {
               type="submit"
               onClick={this.handleSubmit}
               >
-              Submit
+              {buttonText}
             </button>
           {helperText && <p>{helperText}</p>}
         </div>
