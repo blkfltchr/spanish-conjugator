@@ -219,7 +219,7 @@ class Verb extends Component {
     const accent = event.target.value;
     console.log('ACCENT', accent);
     this.setState({
-      value: [...this.state.value, accent]
+      value: this.state.value + accent
     });
     console.log('value from add accent', this.state.value);
   };
