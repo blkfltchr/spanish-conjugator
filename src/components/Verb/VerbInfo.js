@@ -2,26 +2,11 @@ import React from 'react';
 
 const VerbInfo = props => {
   return (
-    <div>
-      <div className="verb-info-text">
-        <div className="verb-info-text-left">
-          <p>
-            Verb:&nbsp;<span> </span>
-          </p>
-          <p>
-            <b>{props.infinitive}</b> <span> </span> ({props.infinitive_english}
-            )
-          </p>
-        </div>
-      </div>
-      <div className="verb-info-text">
-        <div className="verb-info-text-left">
-          <span>Tense:&nbsp;</span>
-          <p>
-            <b>{props.tense_english} {props.mood_english}</b>
-          </p>
-        </div>
-      </div>
+    <div style={{backgroundColor: 'white', padding: '15px 20px', borderRadius: '20px'}}>
+      <div style={{fontSize: '12px'}}>Verb:</div>
+      <div style={{fontSize: '24px', textTransform: 'uppercase'}}>{props.infinitive}</div>
+      <div style={{fontSize: '12px'}}>Tense:</div>
+      <div style={{fontSize: '24px', textTransform: 'uppercase'}}>{props.tense_english} {props.mood_english}</div>
     </div>
   );
 };

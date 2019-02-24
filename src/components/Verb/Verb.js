@@ -227,7 +227,6 @@ class Verb extends Component {
     } = this.state;
     const {
       infinitive,
-      infinitive_english,
       tense_english,
       mood_english
     } = randomVerb;
@@ -238,7 +237,6 @@ class Verb extends Component {
           <VerbInfo
             randomPerson={randomPerson[0]}
             infinitive={infinitive}
-            infinitive_english={infinitive_english}
             tense_english={tense_english}
             mood_english={mood_english}
           />
