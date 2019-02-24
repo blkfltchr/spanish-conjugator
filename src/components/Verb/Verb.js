@@ -274,6 +274,7 @@ class Verb extends Component {
         </form>
         {helperText && <p>{helperText}</p>}
         <Settings />
+        <div style={{textAlign: 'center'}}>Made with ❤️ in 🇨🇴</div>
       </div>
     );
   }
