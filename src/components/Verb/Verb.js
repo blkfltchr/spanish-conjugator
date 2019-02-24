@@ -254,13 +254,13 @@ class Verb extends Component {
               />
             </div>
             <div className="text-under-input">
-              <button
-                className="hint-button"
+              <div
+                style={{cursor: 'pointer'}}
                 type="button"
                 onClick={this.handleHint}
               >
-                Hint?
-              </button>
+                Show example
+              </div>
               <span>En Español</span>
             </div>
           </label>

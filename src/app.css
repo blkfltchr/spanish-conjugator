@@ -119,11 +119,6 @@ body {
   justify-content: space-between;
 }
 
-.text-under-input span {
-  font-size: 0.8rem;
-  margin-top: 1%;
-}
-
 .hint-button {
   padding: 1% 1.5%;
   background-color: blue;
@@ -132,5 +127,5 @@ body {
 }
 
 .verb-info-wrapper {
-  margin: 10% 0%;
+  margin-bottom: 10%;
 }
