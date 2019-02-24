@@ -8,6 +8,7 @@ import VerbPerson from './VerbPerson';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { Beginner, Intermediate } from '../VerbTensesFilters';
+import VerbStreak from './VerbStreak';
 
 const initialState = {
   value: '',
@@ -215,10 +216,7 @@ class Verb extends Component {
   };
 
   render() {
-    console.log('answer:', this.state.randomPerson);
-    console.log('this.state.data:', this.state.data);
-    console.log('ANSWERED', this.state.answered);
-    console.log('INPUT', this.state.value);
+    console.log('answer:', this.state.randomPerson[1]);
     const {
       count,
       bestStreak,
@@ -229,20 +227,17 @@ class Verb extends Component {
     } = this.state;
     const {
       infinitive,
-      infinitive_english,
       tense_english,
       mood_english
     } = randomVerb;
+    const buttonText = this.state.randomPerson[1] !== this.state.value.toLowerCase() && this.state.answered ? 'Next verb' : 'Submit'
     return (
       <div>
-        <Settings />
         <div className="verb-info-wrapper">
+          <VerbStreak bestStreak={bestStreak} count={count} />
           <VerbInfo
             randomPerson={randomPerson[0]}
             infinitive={infinitive}
-            count={count}
-            infinitive_english={infinitive_english}
-            bestStreak={bestStreak}
             tense_english={tense_english}
             mood_english={mood_english}
           />
@@ -260,25 +255,29 @@ class Verb extends Component {
               />
             </div>
             <div className="text-under-input">
-              <button
-                className="hint-button"
+              <div
+                style={{cursor: 'pointer'}}
                 type="button"
                 onClick={this.handleHint}
               >
-                Hint?
-              </button>
+                Show example
+              </div>
               <span>En Español</span>
             </div>
           </label>
+          <div style={{height: '105px'}}>
+            <button
+              className="submit-button"
+              type="submit"
+              onClick={this.handleSubmit}
+              >
+              {buttonText}
+            </button>
           {helperText && <p>{helperText}</p>}
-          <button
-            className="submit-button"
-            type="submit"
-            onClick={this.handleSubmit}
-          >
-            Submit
-          </button>
+        </div>
         </form>
+        <Settings handleRefresh={this.handleRefresh}/>
+        <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
       </div>
     );
   }

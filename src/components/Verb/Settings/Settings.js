@@ -15,6 +15,9 @@ class Settings extends Component {
     this.setState({
       updateSettings: !this.state.updateSettings
     });
+    if(this.state.updateSettings) {
+      this.props.handleRefresh()
+    }
   };
 
   render() {
@@ -22,14 +25,14 @@ class Settings extends Component {
     const display = 'settings-buttons-display';
     return (
       <div className="settings">
+          <button onClick={this.changeSettings} className="button-options">
+            {this.state.updateSettings ? 'Update' : 'Settings'}
+          </button>
         <div className={this.state.updateSettings ? display : hide}>
           <VerbTenses updateVerbTenses={this.props.updateVerbTenses} />
           <NumberPerson updateNumPerson={this.props.updateNumPerson} />
         </div>
         <div>
-          <button onClick={this.changeSettings} className="button-options">
-            {this.state.updateSettings ? 'Update' : 'Settings'}
-          </button>
         </div>
       </div>
     );

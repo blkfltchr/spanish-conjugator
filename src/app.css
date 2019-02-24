@@ -103,29 +103,6 @@ body {
   padding: 0;
 }
 
-.verb-info-text {
-  display: flex;
-  justify-content: space-between;
-  height: 22px;
-  font-size: 1.2rem;
-  flex-wrap: nowrap;
-  margin-bottom: 10%;
-}
-
-.verb-info-text-left {
-  display: flex;
-}
-
-.verb-info-text-left p {
-  margin: 0% 0% 0% 0%;
-  padding: 0;
-}
-
-.verb-info-text-left b {
-  margin: 0;
-  padding: 0;
-}
-
 .submit-button {
   font-size: 1.2rem;
   font-family: 'Open Sans';
@@ -142,19 +119,13 @@ body {
   justify-content: space-between;
 }
 
-.text-under-input span {
-  font-size: 0.8rem;
-  margin-top: 1%;
-}
-
 .hint-button {
   padding: 1% 1.5%;
   background-color: blue;
   border-radius: 5px;
   color: white;
-  opacity: 0.75;
 }
 
 .verb-info-wrapper {
-  margin: 10% 0%;
+  margin-bottom: 10%;
 }
