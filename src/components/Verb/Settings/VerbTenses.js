@@ -8,12 +8,11 @@ const SettingsOptions = styled.div`
 
 const Dropdown = styled.select`
   padding: 1%;
-  width: 85%;
 `;
 
 const SettingsText = styled.p`
   font-size: 0.8rem;
-  /* padding-right: 3%; */
+  padding-right: 3%;
   margin-left: 3%;
   font-weight: bold;
 `;
