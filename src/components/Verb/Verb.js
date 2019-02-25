@@ -143,6 +143,7 @@ class Verb extends Component {
   };
 
   updateNumPerson = event => {
+    console.log("In update NUM person")
     this.setState({
       NumberPerson: event.target.value
     });
@@ -153,11 +154,12 @@ class Verb extends Component {
       VerbTenses: event.target.value
     });
     this.handleRefresh();
+    console.log("In update verb tense")
   };
 
   filterData = event => {
     event.preventDefault();
-
+    console.log('Event', event)
     if (
       this.state.NumberPerson === 'Spain' &&
       this.state.VerbTenses === 'Beginner'
@@ -213,6 +215,7 @@ class Verb extends Component {
         data: latamAdv
       });
     }
+    this.handleRefresh()
   };
 
   addAccent = event => {
@@ -224,6 +227,9 @@ class Verb extends Component {
   };
 
   render() {
+    console.log("DATA", this.state.data)
+    console.log("VerbTenses", this.state.VerbTenses)
+    console.log('Number person from state', this.state.NumberPerson)
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
       infinitive,
@@ -233,11 +239,6 @@ class Verb extends Component {
     const buttonText = this.state.randomPerson[1] !== this.state.value.toLowerCase() && this.state.answered ? 'Next verb' : 'Submit'
     return (
       <div>
-        <Settings
-          updateNumPerson={this.updateNumPerson}
-          updateVerbTenses={this.updateVerbTenses}
-          filterData={this.filterData}
-        />
         <div className="verb-info-wrapper">
           <VerbStreak bestStreak={bestStreak} count={count} />
           <VerbInfo
@@ -253,8 +254,13 @@ class Verb extends Component {
           handleSubmit={this.handleSubmit}
           addAccent={this.addAccent}
           handleExample={this.handleExample}
+          buttonText={buttonText}
         />
-        <Settings handleRefresh={this.handleRefresh}/>
+        <Settings handleRefresh={this.handleRefresh}
+        filterData={this.filterData}
+        updateVerbTenses={this.updateVerbTenses}
+        updateNumPerson={this.updateNumPerson}
+        />
         <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
       </div>
     );

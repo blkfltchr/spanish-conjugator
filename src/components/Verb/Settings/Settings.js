@@ -17,7 +17,7 @@ class Settings extends Component {
     });
     if(this.state.updateSettings) {
       alert('Your settings are updated.')
-      this.props.handleRefresh()
+      this.props.filterData(event)
     }
   };
 
@@ -30,20 +30,10 @@ class Settings extends Component {
             {this.state.updateSettings ? 'Update' : 'Settings'}
           </button>
         <div className={this.state.updateSettings ? display : hide}>
-          <div>
             <VerbTenses updateVerbTenses={this.props.updateVerbTenses} />
             <NumberPerson updateNumPerson={this.props.updateNumPerson} />
-          </div>
-          <button className="settings-button" onClick={this.props.filterData}>
-            Update
-          </button>
         </div>
         <div>
-          <i
-            className="fas fa-cog"
-            onClick={this.changeSettings}
-            // onClick={this.props.filterData}
-          />
         </div>
       </div>
     );
