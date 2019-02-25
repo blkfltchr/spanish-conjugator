@@ -8,6 +8,7 @@ const SettingsOptions = styled.div`
 
 const Dropdown = styled.select`
   padding: 1%;
+  width: 85%;
 `;
 
 const SettingsText = styled.p`

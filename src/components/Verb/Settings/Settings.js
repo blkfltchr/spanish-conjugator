@@ -30,10 +30,20 @@ class Settings extends Component {
             {this.state.updateSettings ? 'Update' : 'Settings'}
           </button>
         <div className={this.state.updateSettings ? display : hide}>
-          <VerbTenses updateVerbTenses={this.props.updateVerbTenses} />
-          <NumberPerson updateNumPerson={this.props.updateNumPerson} />
+          <div>
+            <VerbTenses updateVerbTenses={this.props.updateVerbTenses} />
+            <NumberPerson updateNumPerson={this.props.updateNumPerson} />
+          </div>
+          <button className="settings-button" onClick={this.props.filterData}>
+            Update
+          </button>
         </div>
         <div>
+          <i
+            className="fas fa-cog"
+            onClick={this.changeSettings}
+            // onClick={this.props.filterData}
+          />
         </div>
       </div>
     );
