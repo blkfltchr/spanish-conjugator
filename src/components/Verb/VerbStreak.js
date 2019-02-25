@@ -2,14 +2,14 @@ import React from 'react';
 
 const VerbStreak = props => {
   return (
-    <div style={{display: 'flex', justifyContent: 'center'}}>
-      <div style={{backgroundColor: 'white', padding: '5px 10px', borderRadius: '10px', margin: '10px', width: '90px'}}>
-        <div style={{fontSize: '12px'}}>current streak:</div>
-        <div style={{fontSize: '24px'}}>{props.count}</div>
+    <div className='verb-streak'>
+      <div className='current-best-streak'>
+        <div className='streak'>current streak:</div>
+        <div className='twenty-four'>{props.count}</div>
       </div>
-      <div style={{backgroundColor: 'white', padding: '5px 10px', borderRadius: '10px', margin: '10px', width: '90px'}}>
-        <div style={{fontSize: '12px'}}>best streak:</div>
-        <div style={{fontSize: '24px'}}>{props.bestStreak}</div>
+      <div className='current-best-streak'>
+        <div className='streak'>best streak:</div>
+        <div className='twenty-four'>{props.bestStreak} <span role='img' aria-label='salsa dancer'>💃</span></div>
       </div>
     </div>
   );

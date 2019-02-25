@@ -3,9 +3,7 @@ import VerbPerson from './VerbPerson';
 import AccentButtons from './AccentButtons';
 
 const VerbInput = props => {
-  console.log('PROPPING', props);
   const { randomPerson, helperText, value } = props.state;
-  console.log('Random person from Verb input', randomPerson);
   return (
     <div>
       <form onSubmit={props.handleSubmit}>
@@ -18,21 +16,21 @@ const VerbInput = props => {
               placeholder="Enter conjugated verb..."
               onChange={props.handleChange}
               className="input"
-            />
+              />
           </div>
           <AccentButtons addAccent={props.addAccent} />
           <div className="text-under-input">
-            <button
-              className="hint-button"
-              type="button"
-              onClick={props.handleHint}
-            >
-              Hint?
-            </button>
-            <span>En Español</span>
-          </div>
+              <div
+                style={{cursor: 'pointer'}}
+                type="button"
+                onClick={props.handleExample}
+              >
+                Show example
+              </div>
+              <span>En Español</span>
+            </div>
         </label>
-        {helperText && <p>{helperText}</p>}
+        <div style={{height: '105px'}}>
         <button
           className="submit-button"
           type="submit"
@@ -40,6 +38,8 @@ const VerbInput = props => {
         >
           Submit
         </button>
+        {helperText && <p>{helperText}</p>}
+        </div>
       </form>
     </div>
   );

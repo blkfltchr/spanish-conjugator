@@ -3,7 +3,7 @@ import React from 'react';
 const VerbPerson = props => {
   return (
     <div className="person-flex">
-      <div>
+      <div style={{fontWeight: '800'}}>
         {props.randomPerson === 'form_1s' && <span> Yo</span>}
         {props.randomPerson === 'form_2s' && <span> Tú</span>}
         {props.randomPerson === 'form_3s' && <span> Él/Ella/Usted</span>}

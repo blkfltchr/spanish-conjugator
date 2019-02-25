@@ -77,7 +77,7 @@ class Verb extends Component {
     } else if (this.state.randomPerson[1] !== userInput) {
       this.setState({
         helperText: `False, the correct answer is ${
-          this.state.randomPerson[1]
+          this.state.randomPerson[1].toUpperCase()
         }.`,
         answered: true
       });
@@ -92,15 +92,15 @@ class Verb extends Component {
     this.randomize();
   };
 
-  handleHint = event => {
-    const answer = this.state.randomPerson[1];
+  handleExample = event => {
+    const hablar = this.state.data.filter(verb => (verb.infinitive === 'hablar'))
+    const hablarTense = hablar.filter(verb => (verb.tense_english === this.state.randomVerb.tense_english))
+    const hablarMood = hablarTense.filter(verb => (verb.mood_english === this.state.randomVerb.mood_english))
+    const hablarExample = hablarMood[0]
     event.preventDefault();
     this.setState({
       hint: true,
-      helperText: `The answer ends with -${answer.substring(
-        answer.length - 3,
-        answer.length
-      )}.`
+      helperText: `Yo + Hablar + ${this.state.randomVerb.tense_english} = YO ${hablarExample.form_1s.toUpperCase()}`
     });
   };
 
@@ -252,6 +252,7 @@ class Verb extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           addAccent={this.addAccent}
+          handleExample={this.handleExample}
         />
         <Settings handleRefresh={this.handleRefresh}/>
         <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>

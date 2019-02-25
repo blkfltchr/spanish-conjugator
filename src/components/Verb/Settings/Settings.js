@@ -16,6 +16,7 @@ class Settings extends Component {
       updateSettings: !this.state.updateSettings
     });
     if(this.state.updateSettings) {
+      alert('Your settings are updated.')
       this.props.handleRefresh()
     }
   };
