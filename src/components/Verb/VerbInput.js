@@ -10,7 +10,7 @@ const OptionsButtons = (props) => {
               onChange={ props.handleChange }
               className="input"
               />
-              <span style={ {fontSize: "12px"} }>En Español</span>
+              <span className='twelve'>En Español</span>
           </label>
       </div>
    );

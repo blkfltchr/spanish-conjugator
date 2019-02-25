@@ -125,6 +125,46 @@ body {
   color: white;
 }
 
-.verb-info-wrapper {
-  margin-bottom: 10%;
+/* Verb streak styles */
+
+.verb-streak {
+  display: flex;
+  justify-content: center;
+}
+
+.current-best-streak {
+  background-color: white; 
+  padding: 5px 10px; 
+  border-radius: 10px; 
+  margin: 10px; 
+  width: 90px;
+}
+
+.streak {
+  font-size: 12px;
+}
+
+.streak-count {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* Font styles */
+
+.twelve {
+  font-size: 12px;
+}
+
+.twenty-four {
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* Verb info styles */
+
+.verb-info {
+  background-color: white; 
+  padding: 15px 20px; 
+  border-radius: 20px;
 }
