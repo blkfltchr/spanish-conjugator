@@ -8,6 +8,7 @@ import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { Beginner, Intermediate } from '../VerbTensesFilters';
 import VerbInput from './VerbInput';
+import VerbStreak from './VerbStreak';
 
 const initialState = {
   value: '',
@@ -223,18 +224,13 @@ class Verb extends Component {
   };
 
   render() {
-    // console.log('answer:', this.state.randomPerson);
-    // console.log('this.state.data:', this.state.data);
-    // console.log('ANSWERED', this.state.answered);
-    // // console.log('INPUT', this.state.value);
-    // console.log('VERB', this.state.VerbTenses);
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
       infinitive,
-      infinitive_english,
       tense_english,
       mood_english
     } = randomVerb;
+    const buttonText = this.state.randomPerson[1] !== this.state.value.toLowerCase() && this.state.answered ? 'Next verb' : 'Submit'
     return (
       <div>
         <Settings
@@ -243,12 +239,10 @@ class Verb extends Component {
           filterData={this.filterData}
         />
         <div className="verb-info-wrapper">
+          <VerbStreak bestStreak={bestStreak} count={count} />
           <VerbInfo
             randomPerson={randomPerson[0]}
             infinitive={infinitive}
-            count={count}
-            infinitive_english={infinitive_english}
-            bestStreak={bestStreak}
             tense_english={tense_english}
             mood_english={mood_english}
           />
@@ -259,6 +253,8 @@ class Verb extends Component {
           handleSubmit={this.handleSubmit}
           addAccent={this.addAccent}
         />
+        <Settings handleRefresh={this.handleRefresh}/>
+        <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
       </div>
     );
   }
