@@ -4,10 +4,10 @@ import '../../app.css';
 import miniData from '../../miniData';
 
 import VerbInfo from './VerbInfo';
-import VerbPerson from './VerbPerson';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { Beginner, Intermediate } from '../VerbTensesFilters';
+import VerbInput from './VerbInput';
 import VerbStreak from './VerbStreak';
 
 const initialState = {
@@ -25,9 +25,9 @@ class Verb extends Component {
       count: 0,
       bestStreak: 0,
       beginner: true,
-      data: latamSpanish(Intermediate),
+      data: latamSpanish(Beginner),
       NumberPerson: 'Latam',
-      VerbTenses: 'Intermediate',
+      VerbTenses: 'Beginner',
       answered: false
     };
   }
@@ -215,16 +215,16 @@ class Verb extends Component {
     }
   };
 
+  addAccent = event => {
+    event.preventDefault();
+    const accent = event.target.value;
+    this.setState({
+      value: this.state.value + accent
+    });
+  };
+
   render() {
-    console.log('answer:', this.state.randomPerson[1]);
-    const {
-      count,
-      bestStreak,
-      randomVerb,
-      randomPerson,
-      helperText,
-      value
-    } = this.state;
+    const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
       infinitive,
       tense_english,
@@ -233,6 +233,11 @@ class Verb extends Component {
     const buttonText = this.state.randomPerson[1] !== this.state.value.toLowerCase() && this.state.answered ? 'Next verb' : 'Submit'
     return (
       <div>
+        <Settings
+          updateNumPerson={this.updateNumPerson}
+          updateVerbTenses={this.updateVerbTenses}
+          filterData={this.filterData}
+        />
         <div className="verb-info-wrapper">
           <VerbStreak bestStreak={bestStreak} count={count} />
           <VerbInfo
@@ -242,40 +247,12 @@ class Verb extends Component {
             mood_english={mood_english}
           />
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <div className="input-section">
-              <VerbPerson randomPerson={randomPerson[0]} />
-              <input
-                type="text"
-                value={value}
-                placeholder="Enter conjugated verb..."
-                onChange={this.handleChange}
-                className="input"
-              />
-            </div>
-            <div className="text-under-input">
-              <div
-                style={{cursor: 'pointer'}}
-                type="button"
-                onClick={this.handleHint}
-              >
-                Show example
-              </div>
-              <span>En Español</span>
-            </div>
-          </label>
-          <div style={{height: '105px'}}>
-            <button
-              className="submit-button"
-              type="submit"
-              onClick={this.handleSubmit}
-              >
-              {buttonText}
-            </button>
-          {helperText && <p>{helperText}</p>}
-        </div>
-        </form>
+        <VerbInput
+          state={this.state}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          addAccent={this.addAccent}
+        />
         <Settings handleRefresh={this.handleRefresh}/>
         <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
       </div>
