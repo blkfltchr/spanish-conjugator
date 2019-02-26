@@ -1,16 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <div>
+    <div className="header">
       <h2>
         Bienvenidos, a la{' '}
-        <Link to="/" className="logo">
-          Spanish Conjugator
-        </Link>
+        <span to="/" className="logo">
+          Spanish Conjugator 🇪🇸
+        </span>
       </h2>
-      <p>Practice conjugating verbs and break your best streak!</p>
+      <p>Verb practice for Spanish language learners.</p>
     </div>
   );
 };
