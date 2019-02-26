@@ -28,6 +28,7 @@ body {
 
 .header h2 {
   font-size: 20px;
+  margin: 10px 0;
 }
 
 .header span {
@@ -35,7 +36,7 @@ body {
   color: blue;
 }
 
-.header p {
+.header div {
   font-size: 16px;
 }
 
@@ -111,6 +112,15 @@ body {
 .text-under-input {
   display: flex;
   justify-content: space-between;
+}
+
+/* Accent button styles */
+
+.accent-buttons button {
+  background-color: blue;
+  color: white;
+  border-radius: 4px;
+  margin: 0 2px 6px 2px; 
 }
 
 /* Submit button styles */

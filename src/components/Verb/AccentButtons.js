@@ -2,7 +2,7 @@ import React from 'react';
 
 const AccentButtons = props => {
   return (
-    <div>
+    <div className="accent-buttons">
       <button onClick={props.addAccent} type="button" value="á">
         á
       </button>

@@ -9,7 +9,7 @@ const Header = () => {
           Spanish Conjugator 🇪🇸
         </span>
       </h2>
-      <p>Verb practice for Spanish language learners.</p>
+      <div>Verb practice for Spanish language learners.</div>
     </div>
   );
 };
