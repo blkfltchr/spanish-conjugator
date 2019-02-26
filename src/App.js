@@ -7,7 +7,7 @@ import Verb from "./components/Verb/Verb";
 
 const App = () => {
   return (
-      <div style={ {width: "420px", margin: "0 auto", border: 'solid 3px black', padding: '10px 20px', backgroundColor: '#f6f9fc', borderRadius: '25px'} }>
+      <div className="app">
           <Route path="/" component={ Header } />
           <Route exact path="/" component={ Verb } />
       </div>

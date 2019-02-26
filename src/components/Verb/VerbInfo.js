@@ -1,7 +1,6 @@
 import React from 'react';
 
 const VerbInfo = props => {
-  console.log('props.tense_english', props.tense_english);
   return (
     <div className='verb-info'>
       <div className='twelve'>Verb:</div>
