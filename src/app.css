@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Saira');
 
 body {
   font-family: 'Open Sans';
 }
 
-@import url('https://fonts.googleapis.com/css?family=Saira');
 
 .logo {
   font-family: 'Saira', cursive;
@@ -167,4 +167,34 @@ body {
   background-color: white; 
   padding: 15px 20px; 
   border-radius: 20px;
+}
+
+/* Settings styles */
+
+.settings {
+  margin: 2% 0%;
+  height: 60px;
+}
+
+.settings-buttons-display {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}
+
+.settings-buttons-hide {
+  display: none;
+}
+
+.button-options {
+  font-size: 0.8rem;
+  font-family: 'Open Sans';
+  border-radius: 5px;
+  margin-top: 6%;
+  margin-right: 6%;
+  padding: 5px 10px;
+  color: white;
+  background-color: blue;
+  width: 90px;
+  float: left;
 }

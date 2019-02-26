@@ -22,7 +22,7 @@ const VerbTenses = props => {
     <SettingsOptions>
       <SettingsText>Difficulty</SettingsText>
       <Dropdown onChange={props.updateVerbTenses}>
-        <option value="Beginner" selected="Beginner">
+        <option value="Beginner" defaultValue="Beginner">
           Beginner
         </option>
         <option value="Intermediate">Intermediate</option>
