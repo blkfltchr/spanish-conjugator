@@ -46,6 +46,7 @@ class Verb extends Component {
     let randomPerson = Object.entries(randomVerb)[
       Math.floor(Math.random() * 5) + 7
     ];
+    // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
     do {
       randomVerb = this.state.data[
         Math.floor(Math.random() * this.state.data.length)
