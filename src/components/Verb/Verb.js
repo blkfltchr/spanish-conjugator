@@ -40,22 +40,19 @@ class Verb extends Component {
   }
 
   randomize = () => {
-    const randomVerb = this.state.data[
+    let randomVerb = this.state.data[
       Math.floor(Math.random() * this.state.data.length)
     ];
     let randomPerson = Object.entries(randomVerb)[
       Math.floor(Math.random() * 5) + 7
     ];
-    // if (randomPerson[1] === '') {
-    //   randomPerson = Object.entries(randomVerb)[
-    //     Math.floor(Math.random() * 5) + 7]
-    // }
-    console.log("Answer from randomize", randomPerson[1])
     do {
+      randomVerb = this.state.data[
+        Math.floor(Math.random() * this.state.data.length)
+      ];
       randomPerson = Object.entries(randomVerb)[
             Math.floor(Math.random() * 5) + 7]
-    } while (randomPerson[1] === '')
-    console.log("Answer from randomize 2", randomPerson[1])
+    } while (randomPerson[1] === '' || randomVerb.mood_english === 'Imperative Negative')
     this.setState({
       randomVerb,
       randomPerson
