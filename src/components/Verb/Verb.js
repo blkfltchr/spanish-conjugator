@@ -150,7 +150,6 @@ class Verb extends Component {
   };
 
   updateNumPerson = event => {
-    console.log("In update NUM person")
     this.setState({
       NumberPerson: event.target.value
     });
@@ -161,7 +160,6 @@ class Verb extends Component {
       VerbTenses: event.target.value
     });
     this.handleRefresh();
-    console.log("In update verb tense")
   };
 
   filterData = event => {
