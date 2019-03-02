@@ -165,7 +165,6 @@ class Verb extends Component {
 
   filterData = event => {
     event.preventDefault();
-    console.log('Event', event)
     if (
       this.state.NumberPerson === 'Spain' &&
       this.state.VerbTenses === 'Beginner'
