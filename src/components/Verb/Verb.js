@@ -46,6 +46,7 @@ class Verb extends Component {
     let randomPerson = Object.entries(randomVerb)[
       Math.floor(Math.random() * 5) + 7
     ];
+    // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
     do {
       randomVerb = this.state.data[
         Math.floor(Math.random() * this.state.data.length)
@@ -150,7 +151,6 @@ class Verb extends Component {
   };
 
   updateNumPerson = event => {
-    console.log("In update NUM person")
     this.setState({
       NumberPerson: event.target.value
     });
@@ -161,7 +161,6 @@ class Verb extends Component {
       VerbTenses: event.target.value
     });
     this.handleRefresh();
-    console.log("In update verb tense")
   };
 
   filterData = event => {
