@@ -259,7 +259,6 @@ class Verb extends Component {
         updateVerbTenses={this.updateVerbTenses}
         updateNumPerson={this.updateNumPerson}
         />
-        <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
       </div>
     );
   }

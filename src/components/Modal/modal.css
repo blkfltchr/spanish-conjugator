@@ -2,9 +2,13 @@
   background: white;
   border: 1px solid #d0cccc;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
-  margin: 0 auto;
   transition: all .8s;
-  width: 95%;
+  max-width: 380px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  overflow-y: auto;
 }
 
 .modal-header {
@@ -46,27 +50,22 @@
   color: black;
 }
 
-.btn-cancel, .btn-continue {
-  background: coral;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  outline: none;
-  padding: 10px;
-}
-
 .btn-cancel {
-  background-color: #b71c1c;
+  border: none;
+  outline: none;
+  background-color: red;
   float: left;
+  font-size: 0.8rem;
+  font-family: 'Open Sans';
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  width: 90px;
+  float: left;
+  cursor: pointer;
 }
 
 .btn-continue {
   background-color: #1b5e20;
   float: right;
-}
-
-.open-modal-btn {
-  margin: 15px;
-  padding: 10px;
 }
