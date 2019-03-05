@@ -5,7 +5,7 @@ import Header from "./components/Header";
 
 import Verb from "./components/Verb/Verb";
 
-import Popup from "./components/Modal/Popup"
+import Modal from "./components/Modal/Modal"
 
     class App extends Component {
 
@@ -32,15 +32,13 @@ import Popup from "./components/Modal/Popup"
       render () {
       return(
       <div className="app">
-          { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
           <Route path="/" component={ Header } />
           <Route exact path="/" component={ Verb } />
-          {/* <Route exact path="/modal" component={ Modal } /> */}
           <div style={{textAlign: 'center', cursor: "pointer"}} onClick={this.openModalHandler}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
-          <Popup
-					className="modal"
+          <Modal
 					show={this.state.isShowing}
-					close={this.closeModalHandler} />
+					close={this.closeModalHandler} 
+          />
       </div>
       
   );

@@ -2,9 +2,10 @@
   background: white;
   border: 1px solid #d0cccc;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
-  transition: all .8s;
+  transition: all 1.3s;
   max-width: 380px;
   position: absolute;
+  top: 10%;
   margin-left: auto;
   margin-right: auto;
   overflow: auto;
