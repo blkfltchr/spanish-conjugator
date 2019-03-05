@@ -8,7 +8,8 @@ import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { Beginner, Intermediate } from '../VerbTensesFilters';
 import VerbInput from './VerbInput';
-import VerbStreak from './VerbStreak';
+// import VerbStreak from './VerbStreak';
+import Reward from 'react-rewards';
 
 const initialState = {
   value: '',
@@ -110,7 +111,11 @@ class Verb extends Component {
         return {
           bestStreak: prevState.bestStreak + 1
         };
-      });
+      })
+      if (this.state.bestStreak % 3 === 0) {
+        this.reward.rewardMe();
+      }
+      
     }
   };
 
@@ -238,7 +243,21 @@ class Verb extends Component {
     return (
       <div>
         <div className="verb-info-wrapper">
-          <VerbStreak bestStreak={bestStreak} count={count} />
+          <div className='verb-streak'>
+            <div className='current-best-streak'>
+              <div className='streak'>current streak:</div>
+              <div className='twenty-four'>{count}</div>
+            </div>
+            <Reward
+              ref={(ref) => { this.reward = ref }}
+              type='emoji'
+            >
+              <div className='current-best-streak'>
+                <div className='streak'>best streak:</div>
+                <div className='twenty-four'>{bestStreak} <span role='img' aria-label='salsa dancer'>💃</span></div>
+              </div>
+            </Reward>
+          </div>
           <VerbInfo
             randomPerson={randomPerson[0]}
             infinitive={infinitive}
