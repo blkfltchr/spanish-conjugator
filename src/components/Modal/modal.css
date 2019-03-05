@@ -5,26 +5,33 @@
   transition: all 1.3s;
   max-width: 380px;
   position: absolute;
-  top: 10%;
   margin-left: auto;
   margin-right: auto;
   overflow: auto;
   overflow-y: auto;
+  border-radius: 20px;
 }
 
 .modal-header {
-  background: #263238;
   height: 80px;
   line-height: 40px;
-  padding: 5px 20px;
+  padding: 0 20px 5px 20px;
   text-align: center;
+  background-color: #f6f9fc;
+  height: 80px;
+  border-bottom: #263238 solid 2px;
 }
 
 .modal-header h3 {
-  color: white;
+  color: black;
   float: left;
   margin: 0;
   padding: 0;
+}
+
+.logo {
+  font-family: 'Saira', cursive;
+  color: blue;
 }
 
 .modal-body {
@@ -34,21 +41,8 @@
 
 .modal-footer {
   background: #263238;
-  height: 35px;
+  height: 28px;
   padding: 15px;
-}
-
-.close-modal-btn {
-  color: white;
-  cursor: pointer;
-  float: right;
-  font-size: 30px;
-  top: 0;
-  margin: 0;
-}
-
-.close-modal-btn:hover {
-  color: black;
 }
 
 .btn-cancel {
@@ -64,9 +58,4 @@
   width: 90px;
   float: left;
   cursor: pointer;
-}
-
-.btn-continue {
-  background-color: #1b5e20;
-  float: right;
 }
