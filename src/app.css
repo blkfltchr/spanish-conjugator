@@ -177,3 +177,13 @@ body {
   width: 90px;
   float: left;
 }
+
+/* Hover text styles */
+
+.hover-text { 
+  cursor: pointer;
+}
+
+.hover-text:hover {
+  text-decoration: underline;
+}

@@ -21,7 +21,7 @@ const VerbInput = props => {
           <AccentButtons addAccent={props.addAccent} />
           <div className="text-under-input">
               <div
-                style={{cursor: 'pointer'}}
+                className="hover-text"
                 type="button"
                 onClick={props.handleExample}
               >

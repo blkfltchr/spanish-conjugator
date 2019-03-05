@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Verb from "./components/Verb/Verb";
 
 import Modal from "./components/Modal/Modal"
+import { className } from "postcss-selector-parser";
 
     class App extends Component {
 
@@ -34,7 +35,7 @@ import Modal from "./components/Modal/Modal"
       <div className="app">
           <Route path="/" component={ Header } />
           <Route exact path="/" component={ Verb } />
-          <div style={{textAlign: 'center', cursor: "pointer"}} onClick={this.openModalHandler}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
+          <div style={{textAlign: 'center'}} className="hover-text" onClick={this.openModalHandler}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
           <Modal
 					show={this.state.isShowing}
 					close={this.closeModalHandler} 
