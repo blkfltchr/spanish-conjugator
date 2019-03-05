@@ -6,7 +6,6 @@ import Header from "./components/Header";
 import Verb from "./components/Verb/Verb";
 
 import Modal from "./components/Modal/Modal"
-import { className } from "postcss-selector-parser";
 
     class App extends Component {
 
