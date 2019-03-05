@@ -10,6 +10,8 @@ import { Beginner, Intermediate } from '../VerbTensesFilters';
 import VerbInput from './VerbInput';
 import VerbStreak from './VerbStreak';
 
+import TakeMoney from './Billing/TakeMoney'
+
 const initialState = {
   value: '',
   helperText: null,
@@ -264,6 +266,7 @@ class Verb extends Component {
         updateVerbTenses={this.updateVerbTenses}
         updateNumPerson={this.updateNumPerson}
         />
+        <TakeMoney />
         <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
       </div>
     );
