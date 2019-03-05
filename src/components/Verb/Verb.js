@@ -11,6 +11,8 @@ import VerbInput from './VerbInput';
 import VerbStreak from './VerbStreak';
 
 import TakeMoney from './Billing/TakeMoney'
+import { Elements, StripeProvider } from 'react-stripe-elements';
+
 
 const initialState = {
   value: '',
@@ -266,7 +268,11 @@ class Verb extends Component {
         updateVerbTenses={this.updateVerbTenses}
         updateNumPerson={this.updateNumPerson}
         />
-        <TakeMoney />
+        {/* <StripeProvider apiKey="pk_test_6uEhds8mHz26DG95ZvUwTURp"> */}
+          {/* <Elements> */}
+            <TakeMoney />
+          {/* </Elements> */}
+        {/* </StripeProvider> */}
         <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
       </div>
     );

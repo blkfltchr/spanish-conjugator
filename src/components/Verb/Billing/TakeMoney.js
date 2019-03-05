@@ -43,10 +43,10 @@ export default class TakeMoney extends React.Component {
           style={width}
           token={this.onToken}
           stripeKey="pk_test_Y6iNnz4ImmbwJDcFA982Hahf"
-          name="Refreshr"
+          name="Spanish Conjugator"
           description="Buy us a beer!"
           panelLabel="Donate"
-          amount='500' // Cents
+          amount={500} // Cents
           currency="USD"
           email="nickoferrall@gmail.com" // will update this to the user email
         />

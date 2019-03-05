@@ -20,6 +20,7 @@ router.post('/charge', async (req, res) => {
           ? process.env.PLAN_ID_ONE
           : process.env.PLAN_ID_TWO
     });
+    console.log("CUSTOMER", customer)
     res.status(201).send(customer);
   } catch (error) {
     next(err);
