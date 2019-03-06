@@ -29,7 +29,9 @@ class Verb extends Component {
       data: latamSpanish(Beginner),
       NumberPerson: 'Latam',
       VerbTenses: 'Beginner',
-      answered: false
+      answered: false,
+      totalAnswers: 0,
+      correctAnswers: 0
     };
   }
 
@@ -63,12 +65,23 @@ class Verb extends Component {
     event.preventDefault();
     const userInput = this.state.value.toLowerCase();
     if (this.state.answered === true) {
+      this.setState(prevState => {
+        return {
+          totalAnswers: prevState.totalAnswers + 1
+        };
+      });
       this.handleRefresh();
       this.setState({
         answered: false
       });
     } else if (this.state.randomPerson[1] === userInput) {
       this.addCounter();
+      this.setState(prevState => {
+        return {
+          correctAnswers: prevState.correctAnswers + 1,
+          totalAnswers: prevState.totalAnswers + 1
+        };
+      });
       alert('Correct!');
       this.handleRefresh();
       this.setState({
@@ -112,7 +125,7 @@ class Verb extends Component {
           bestStreak: prevState.bestStreak + 1
         };
       })
-      if (this.state.bestStreak % 3 === 0) {
+      if (this.state.bestStreak % 5 === 0) {
         this.reward.rewardMe();
       }
       
@@ -233,6 +246,10 @@ class Verb extends Component {
 
   render() {
     console.log("Answer:", this.state.randomPerson[1])
+    console.log("totalAnswers:", this.state.totalAnswers)
+    console.log("correctAnswers:", this.state.correctAnswers)
+    const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
+    console.log("percentage", percentage)
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
       infinitive,
@@ -257,6 +274,10 @@ class Verb extends Component {
                 <div className='twenty-four'>{bestStreak} <span role='img' aria-label='salsa dancer'>💃</span></div>
               </div>
             </Reward>
+            <div className='current-best-streak'>
+                <div className='streak'>percentage:</div>
+                <div className='twenty-four'>{percentage}%</div>
+              </div>
           </div>
           <VerbInfo
             randomPerson={randomPerson[0]}

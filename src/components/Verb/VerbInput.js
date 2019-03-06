@@ -16,6 +16,7 @@ const VerbInput = props => {
               placeholder="Enter conjugated verb..."
               onChange={props.handleChange}
               className="input"
+              style={{paddingLeft: "10px"}}
               />
           </div>
           <div className="text-under-input">
