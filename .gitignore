@@ -12,9 +12,10 @@
 /build
 
 # misc
-/server
-/legacy
+server/
+legacy/
 
+.env
 .DS_Store
 .env.local
 .env.development.local
