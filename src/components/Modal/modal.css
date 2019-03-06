@@ -1,7 +1,10 @@
+
 .modal-wrapper {
   background: white;
   border: 1px solid #d0cccc;
-  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+  -webkit-box-shadow: 0 3px 7px rgba(208,204,204,0.29);
+  -moz-box-shadow: 0 3px 7px rgba(208,204,204,0.29);
+  box-shadow: 0 3px 7px rgba(208,204,204,0.29);
   transition: all 1.3s;
   max-width: 380px;
   position: absolute;

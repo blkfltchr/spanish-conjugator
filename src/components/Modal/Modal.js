@@ -11,7 +11,7 @@ const Modal = (props) => {
                 opacity: props.show ? '1' : '0'
             }}>
             <div className="modal-header">
-                <h3>Hola, muchos gracias for visiting <span className="logo">
+                <h3>Hola, muchas gracias for visiting <span className="logo">
                 Spanish Conjugator <span role="img" aria-label="colombia">🇪🇸</span>
                 </span></h3>
             </div>
