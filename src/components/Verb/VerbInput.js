@@ -18,16 +18,15 @@ const VerbInput = props => {
               className="input"
               />
           </div>
-          <AccentButtons addAccent={props.addAccent} />
           <div className="text-under-input">
+              <AccentButtons addAccent={props.addAccent} />
               <div
                 className="hover-text"
                 type="button"
                 onClick={props.handleExample}
               >
-                Show example
+                Show example <i className="far fa-arrow-alt-circle-right"></i>
               </div>
-              <span>En Español</span>
             </div>
         </label>
         <div style={{height: '105px'}}>
