@@ -6,13 +6,22 @@ import miniData from '../../miniData';
 import VerbInfo from './VerbInfo';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
-import { Beginner, Intermediate } from '../VerbTensesFilters';
+// import { Beginner, Intermediate } from '../VerbTensesFilters';
+import { VerbTenseFilters } from '../VerbTensesFilters';
 import VerbInput from './VerbInput';
 import VerbStreak from './VerbStreak';
 
 import TakeMoney from './Billing/TakeMoney'
 import { Elements, StripeProvider } from 'react-stripe-elements';
 
+
+// console.log("VerbTenseFilters", Object.keys(VerbTenseFilters).includes('LevelOne'))
+// console.log("VerbTenseFilters ===", VerbTenseFilters.filter(verb => Object.values(verb).includes('LevelOne')))
+// console.log("VerbTenseFilters ===", VerbTenseFilters.map(verb => verb.LevelOne))
+// var res = ob.filter(o=>Object.values(o).includes(input))
+const level = 'LevelOne';
+console.log("LEVEL", level)
+console.log("Verb filter ===", VerbTenseFilters[1])
 
 const initialState = {
   value: '',
@@ -21,6 +30,7 @@ const initialState = {
   randomVerb: {},
   randomPerson: []
 };
+
 class Verb extends Component {
   constructor(props) {
     super(props);
@@ -29,9 +39,10 @@ class Verb extends Component {
       count: 0,
       bestStreak: 0,
       beginner: true,
-      data: latamSpanish(Beginner),
+      data: latamSpanish(VerbTenseFilters[0]),
       NumberPerson: 'Latam',
-      VerbTenses: 'Beginner',
+      // VerbTensesLevel: 'LevelOne',
+      Level: 0,
       answered: false
     };
   }
@@ -140,20 +151,6 @@ class Verb extends Component {
     });
   };
 
-  handleLevelChange = () => {
-    this.setState(prevState => {
-      return {
-        beginner: !prevState.beginner
-      };
-    });
-    this.handleRefresh();
-    if (!this.state.beginner) {
-      alert(
-        "If you don't know the first verb tense/conjugation, you can click the 'Next verb' button."
-      );
-    }
-  };
-
   updateNumPerson = event => {
     this.setState({
       NumberPerson: event.target.value
@@ -162,68 +159,90 @@ class Verb extends Component {
 
   updateVerbTenses = event => {
     this.setState({
-      VerbTenses: event.target.value
+      Level: event.target.value
     });
     this.handleRefresh();
   };
 
   filterData = event => {
     event.preventDefault();
+
+    const { Level } = Number(this.state.Level)
+    console.log("LEVEL from filter data ===", Level)
+    // let currentFilter = VerbTenseFilters.filter(verbSet => verbSet === this.)
+
+    console.log("Data from filter data", this.state.data)
     if (
-      this.state.NumberPerson === 'Spain' &&
-      this.state.VerbTenses === 'Beginner'
+      this.state.NumberPerson === 'Spain'
     ) {
-      const spainBeg = spainSpanish(Beginner);
+      const spainSpanish = spainSpanish(VerbTenseFilters[Level]);
       this.setState({
-        data: spainBeg
-      });
-    }
-    if (
-      this.state.NumberPerson === 'Spain' &&
-      this.state.VerbTenses === 'Intermediate'
-    ) {
-      const spainInter = spainSpanish(Intermediate);
-      this.setState({
-        data: spainInter
-      });
-    }
-    if (
-      this.state.NumberPerson === 'Spain' &&
-      this.state.VerbTenses === 'Advanced'
-    ) {
-      const spainAdv = spainSpanish(miniData);
-      this.setState({
-        data: spainAdv
+        data: spainSpanish
       });
     }
 
-    if (
-      this.state.NumberPerson === 'Latam' &&
-      this.state.VerbTenses === 'Beginner'
-    ) {
-      const latamBeg = latamSpanish(Beginner);
+    if (this.state.NumberPerson === 'Latam') {
+      const latamSpanish = spainSpanish(VerbTenseFilters(this.state.Level))
       this.setState({
-        data: latamBeg
-      });
+        data: latamSpanish
+      })
     }
-    if (
-      this.state.NumberPerson === 'Latam' &&
-      this.state.VerbTenses === 'Intermediate'
-    ) {
-      const latamInter = latamSpanish(Intermediate);
-      this.setState({
-        data: latamInter
-      });
-    }
-    if (
-      this.state.NumberPerson === 'Latam' &&
-      this.state.VerbTenses === 'Advanced'
-    ) {
-      const latamAdv = latamSpanish(miniData);
-      this.setState({
-        data: latamAdv
-      });
-    }
+
+    // if (
+    //   this.state.NumberPerson === 'Spain' &&
+    //   this.state.VerbTenses === 'LevelOne'
+    // ) {
+    //   const spainBeg = spainSpanish(VerbTenseFilters[this.state.Level]);
+    //   this.setState({
+    //     data: spainBeg
+    //   });
+    // }
+    // if (
+    //   this.state.NumberPerson === 'Spain' &&
+    //   this.state.VerbTenses === 'Intermediate'
+    // ) {
+    //   const spainInter = spainSpanish(VerbTenseFilters);
+    //   this.setState({
+    //     data: spainInter
+    //   });
+    // }
+    // if (
+    //   this.state.NumberPerson === 'Spain' &&
+    //   this.state.VerbTenses === 'Advanced'
+    // ) {
+    //   const spainAdv = spainSpanish(miniData);
+    //   this.setState({
+    //     data: spainAdv
+    //   });
+    // }
+
+    // if (
+    //   this.state.NumberPerson === 'Latam' &&
+    //   this.state.VerbTenses === 'Beginner'
+    // ) {
+    //   const latamBeg = latamSpanish(VerbTenseFilters);
+    //   this.setState({
+    //     data: latamBeg
+    //   });
+    // }
+    // if (
+    //   this.state.NumberPerson === 'Latam' &&
+    //   this.state.VerbTenses === 'Intermediate'
+    // ) {
+    //   const latamInter = latamSpanish(VerbTenseFilters);
+    //   this.setState({
+    //     data: latamInter
+    //   });
+    // }
+    // if (
+    //   this.state.NumberPerson === 'Latam' &&
+    //   this.state.VerbTenses === 'Advanced'
+    // ) {
+    //   const latamAdv = latamSpanish(miniData);
+    //   this.setState({
+    //     data: latamAdv
+    //   });
+    // }
     this.handleRefresh()
   };
 
@@ -237,6 +256,8 @@ class Verb extends Component {
 
   render() {
     console.log("Answer:", this.state.randomPerson[1])
+    console.log("Data from render", this.state.data)
+    console.log("Level", this.state.Level)
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
       infinitive,
@@ -270,7 +291,7 @@ class Verb extends Component {
         />
         {/* <StripeProvider apiKey="pk_test_6uEhds8mHz26DG95ZvUwTURp"> */}
           {/* <Elements> */}
-            <TakeMoney />
+            {/* <TakeMoney /> */}
           {/* </Elements> */}
         {/* </StripeProvider> */}
         <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
