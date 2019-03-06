@@ -1,27 +1,15 @@
 import React, { Component } from 'react';
 
 import '../../app.css';
-import miniData from '../../miniData';
 
 import VerbInfo from './VerbInfo';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
-// import { Beginner, Intermediate } from '../VerbTensesFilters';
 import { VerbTenseFilters } from '../VerbTensesFilters';
 import VerbInput from './VerbInput';
 import VerbStreak from './VerbStreak';
 
-import TakeMoney from './Billing/TakeMoney'
-import { Elements, StripeProvider } from 'react-stripe-elements';
-
-
-// console.log("VerbTenseFilters", Object.keys(VerbTenseFilters).includes('LevelOne'))
-// console.log("VerbTenseFilters ===", VerbTenseFilters.filter(verb => Object.values(verb).includes('LevelOne')))
-// console.log("VerbTenseFilters ===", VerbTenseFilters.map(verb => verb.LevelOne))
-// var res = ob.filter(o=>Object.values(o).includes(input))
 const level = 'LevelOne';
-console.log("LEVEL", level)
-console.log("Verb filter ===", VerbTenseFilters[1])
 
 const initialState = {
   value: '',
@@ -41,7 +29,6 @@ class Verb extends Component {
       beginner: true,
       data: latamSpanish(VerbTenseFilters[0]),
       NumberPerson: 'Latam',
-      // VerbTensesLevel: 'LevelOne',
       Level: 0,
       answered: false
     };
@@ -166,7 +153,7 @@ class Verb extends Component {
 
   filterData = event => {
     event.preventDefault();
-    
+
     let Level = parseInt(this.state.Level)
     if (
       this.state.NumberPerson === 'Spain'
@@ -195,9 +182,6 @@ class Verb extends Component {
   };
 
   render() {
-    console.log("Answer:", this.state.randomPerson[1])
-    console.log("Data from render", this.state.data)
-    console.log("Level", this.state.Level)
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
       infinitive,
@@ -229,11 +213,6 @@ class Verb extends Component {
         updateVerbTenses={this.updateVerbTenses}
         updateNumPerson={this.updateNumPerson}
         />
-        {/* <StripeProvider apiKey="pk_test_6uEhds8mHz26DG95ZvUwTURp"> */}
-          {/* <Elements> */}
-            {/* <TakeMoney /> */}
-          {/* </Elements> */}
-        {/* </StripeProvider> */}
         <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
       </div>
     );
