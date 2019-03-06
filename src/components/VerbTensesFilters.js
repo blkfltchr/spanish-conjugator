@@ -50,7 +50,7 @@ const LevelSix = miniData.filter(
 
 // const VerbTenseFilters = {LevelOne: 'LevelOne', LevelTwo: 'LevelTwo', LevelThree: 'LevelThree', LevelFour: 'LevelFour', LevelFive: 'LevelFive', LevelSix: 'LevelSix' }
 // const VerbTenseFilters = {'LevelOne': LevelOne, 'LevelTwo': LevelTwo, 'LevelThree': LevelThree, 'LevelFour': LevelFour, 'LevelFive': LevelFive, 'LevelSix': LevelSix}
-const VerbTenseFilters = [LevelOne, LevelTwo, LevelThree, LevelFour, LevelFive, LevelSix]
+const VerbTenseFilters = [LevelOne, LevelTwo, LevelThree, LevelFour, LevelFive, LevelSix, miniData]
 // const VerbTenseFilters = {'Level': LevelOne, 'Level': LevelTwo, 'Level': LevelThree, 'Level': LevelFour, 'Level': LevelFive, 'Level': LevelSix}
 
 export { VerbTenseFilters };

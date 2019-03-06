@@ -166,83 +166,23 @@ class Verb extends Component {
 
   filterData = event => {
     event.preventDefault();
-
-    const { Level } = Number(this.state.Level)
-    console.log("LEVEL from filter data ===", Level)
-    // let currentFilter = VerbTenseFilters.filter(verbSet => verbSet === this.)
-
-    console.log("Data from filter data", this.state.data)
+    
+    let Level = parseInt(this.state.Level)
     if (
       this.state.NumberPerson === 'Spain'
     ) {
-      const spainSpanish = spainSpanish(VerbTenseFilters[Level]);
+      const spainSpan = spainSpanish(VerbTenseFilters[Level]);
       this.setState({
-        data: spainSpanish
+        data: spainSpan
       });
     }
 
     if (this.state.NumberPerson === 'Latam') {
-      const latamSpanish = spainSpanish(VerbTenseFilters(this.state.Level))
+      const latamSpan = latamSpanish(VerbTenseFilters[Level])
       this.setState({
-        data: latamSpanish
+        data: latamSpan
       })
     }
-
-    // if (
-    //   this.state.NumberPerson === 'Spain' &&
-    //   this.state.VerbTenses === 'LevelOne'
-    // ) {
-    //   const spainBeg = spainSpanish(VerbTenseFilters[this.state.Level]);
-    //   this.setState({
-    //     data: spainBeg
-    //   });
-    // }
-    // if (
-    //   this.state.NumberPerson === 'Spain' &&
-    //   this.state.VerbTenses === 'Intermediate'
-    // ) {
-    //   const spainInter = spainSpanish(VerbTenseFilters);
-    //   this.setState({
-    //     data: spainInter
-    //   });
-    // }
-    // if (
-    //   this.state.NumberPerson === 'Spain' &&
-    //   this.state.VerbTenses === 'Advanced'
-    // ) {
-    //   const spainAdv = spainSpanish(miniData);
-    //   this.setState({
-    //     data: spainAdv
-    //   });
-    // }
-
-    // if (
-    //   this.state.NumberPerson === 'Latam' &&
-    //   this.state.VerbTenses === 'Beginner'
-    // ) {
-    //   const latamBeg = latamSpanish(VerbTenseFilters);
-    //   this.setState({
-    //     data: latamBeg
-    //   });
-    // }
-    // if (
-    //   this.state.NumberPerson === 'Latam' &&
-    //   this.state.VerbTenses === 'Intermediate'
-    // ) {
-    //   const latamInter = latamSpanish(VerbTenseFilters);
-    //   this.setState({
-    //     data: latamInter
-    //   });
-    // }
-    // if (
-    //   this.state.NumberPerson === 'Latam' &&
-    //   this.state.VerbTenses === 'Advanced'
-    // ) {
-    //   const latamAdv = latamSpanish(miniData);
-    //   this.setState({
-    //     data: latamAdv
-    //   });
-    // }
     this.handleRefresh()
   };
 
