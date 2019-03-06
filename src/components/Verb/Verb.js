@@ -9,8 +9,6 @@ import { VerbTenseFilters } from '../VerbTensesFilters';
 import VerbInput from './VerbInput';
 import VerbStreak from './VerbStreak';
 
-const level = 'LevelOne';
-
 const initialState = {
   value: '',
   helperText: null,
