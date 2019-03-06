@@ -1,12 +1,42 @@
 import miniData from '../miniData';
+import beginnerData from '../beginnerData'
 
-const Beginner = miniData.filter(
+const LevelOne = beginnerData.filter(
+  verb =>
+    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative')
+);
+
+const LevelTwo = beginnerData.filter(
   verb =>
     (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
     (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative')
 );
 
-const Intermediate = miniData.filter(
+const LevelThree = miniData.filter(
+  verb =>
+    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
+    (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative')
+);
+
+const LevelFour = miniData.filter(
+  verb =>
+    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
+    (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative') ||
+    ((verb.tense_english === 'Present Perfect' &&
+    verb.mood_english === 'Indicative'))
+    );
+
+const LevelFive = miniData.filter(
+  verb =>
+    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
+    (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative') ||
+    ((verb.tense_english === 'Present Perfect' &&
+    verb.mood_english === 'Indicative')) ||
+    ((verb.tense_english === 'Future' && verb.mood_english === 'Indicative'))
+)
+
+
+const LevelSix = miniData.filter(
   verb =>
     (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
     (verb.tense_english === 'Preterite' &&
@@ -18,4 +48,6 @@ const Intermediate = miniData.filter(
         verb.mood_english === 'Indicative'))
 );
 
-export { Beginner, Intermediate };
+const VerbTenseFilters = [LevelOne, LevelTwo, LevelThree, LevelFour, LevelFive, LevelSix, miniData]
+
+export { VerbTenseFilters };
