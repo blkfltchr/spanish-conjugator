@@ -31,8 +31,8 @@ class Verb extends Component {
       VerbTenses: 'Beginner',
       answered: false,
       totalAnswers: 0,
-      correctAnswers: 0
-      Level: 0,
+      correctAnswers: 0,
+      Level: 0
     };
   }
 
@@ -199,6 +199,7 @@ class Verb extends Component {
   };
 
   render() {
+    console.log("Answer:", this.state.randomPerson[1])
     const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
