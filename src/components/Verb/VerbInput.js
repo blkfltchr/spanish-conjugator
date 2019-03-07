@@ -16,18 +16,18 @@ const VerbInput = props => {
               placeholder="Enter conjugated verb..."
               onChange={props.handleChange}
               className="input"
+              style={{paddingLeft: "10px"}}
               />
           </div>
-          <AccentButtons addAccent={props.addAccent} />
           <div className="text-under-input">
+              <AccentButtons addAccent={props.addAccent} />
               <div
-                style={{cursor: 'pointer'}}
+                className="hover-text"
                 type="button"
                 onClick={props.handleExample}
               >
-                Show example
+                Show example <i className="far fa-arrow-alt-circle-right"></i>
               </div>
-              <span>En Español</span>
             </div>
         </label>
         <div style={{height: '105px'}}>

@@ -5,8 +5,8 @@ const Header = () => {
     <div className="header">
       <h2>
         Bienvenidos, a la{' '}
-        <span to="/" className="logo">
-          Spanish Conjugator 🇪🇸
+        <span className="logo">
+          Spanish Conjugator <span role="img" aria-label="colombia">🇪🇸</span>
         </span>
       </h2>
       <div>Verb practice for Spanish language learners.</div>

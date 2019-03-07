@@ -7,7 +7,8 @@ import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { VerbTenseFilters } from '../VerbTensesFilters';
 import VerbInput from './VerbInput';
-import VerbStreak from './VerbStreak';
+// import VerbStreak from './VerbStreak';
+import Reward from 'react-rewards';
 
 const initialState = {
   value: '',
@@ -27,8 +28,11 @@ class Verb extends Component {
       beginner: true,
       data: latamSpanish(VerbTenseFilters[0]),
       NumberPerson: 'Latam',
+      VerbTenses: 'Beginner',
+      answered: false,
+      totalAnswers: 0,
+      correctAnswers: 0
       Level: 0,
-      answered: false
     };
   }
 
@@ -70,12 +74,23 @@ class Verb extends Component {
     event.preventDefault();
     const userInput = this.state.value.toLowerCase();
     if (this.state.answered === true) {
+      this.setState(prevState => {
+        return {
+          totalAnswers: prevState.totalAnswers + 1
+        };
+      });
       this.handleRefresh();
       this.setState({
         answered: false
       });
     } else if (this.state.randomPerson[1] === userInput) {
       this.addCounter();
+      this.setState(prevState => {
+        return {
+          correctAnswers: prevState.correctAnswers + 1,
+          totalAnswers: prevState.totalAnswers + 1
+        };
+      });
       alert('Correct!');
       this.handleRefresh();
       this.setState({
@@ -118,7 +133,11 @@ class Verb extends Component {
         return {
           bestStreak: prevState.bestStreak + 1
         };
-      });
+      })
+      if (this.state.bestStreak % 5 === 0) {
+        this.reward.rewardMe();
+      }
+      
     }
   };
 
@@ -180,6 +199,7 @@ class Verb extends Component {
   };
 
   render() {
+    const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
       infinitive,
@@ -190,7 +210,25 @@ class Verb extends Component {
     return (
       <div>
         <div className="verb-info-wrapper">
-          <VerbStreak bestStreak={bestStreak} count={count} />
+          <div className='verb-streak'>
+            <div className='current-best-streak'>
+              <div className='streak'>current streak:</div>
+              <div className='twenty-four'>{count}</div>
+            </div>
+            <Reward
+              ref={(ref) => { this.reward = ref }}
+              type='emoji'
+            >
+              <div className='current-best-streak'>
+                <div className='streak'>best streak:</div>
+                <div className='twenty-four'>{bestStreak} <span role='img' aria-label='salsa dancer'>💃</span></div>
+              </div>
+            </Reward>
+            <div className='current-best-streak'>
+                <div className='streak'>percentage:</div>
+                <div className='twenty-four'>{percentage}%</div>
+              </div>
+          </div>
           <VerbInfo
             randomPerson={randomPerson[0]}
             infinitive={infinitive}
@@ -211,7 +249,6 @@ class Verb extends Component {
         updateVerbTenses={this.updateVerbTenses}
         updateNumPerson={this.updateNumPerson}
         />
-        <div style={{textAlign: 'center'}}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
       </div>
     );
   }

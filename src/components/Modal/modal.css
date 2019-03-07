@@ -1,0 +1,64 @@
+
+.modal-wrapper {
+  background: white;
+  border: 1px solid #d0cccc;
+  -webkit-box-shadow: 0 3px 7px rgba(208,204,204,0.29);
+  -moz-box-shadow: 0 3px 7px rgba(208,204,204,0.29);
+  box-shadow: 0 3px 7px rgba(208,204,204,0.29);
+  transition: all 1.3s;
+  max-width: 380px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  overflow-y: auto;
+  border-radius: 20px;
+}
+
+.modal-header {
+  height: 80px;
+  line-height: 40px;
+  padding: 0 20px 5px 20px;
+  text-align: center;
+  background-color: #f6f9fc;
+  height: 80px;
+  border-bottom: #263238 solid 2px;
+}
+
+.modal-header h3 {
+  color: black;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  font-family: 'Saira', cursive;
+  color: blue;
+}
+
+.modal-body {
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.modal-footer {
+  background: #263238;
+  height: 28px;
+  padding: 15px;
+}
+
+.btn-cancel {
+  border: none;
+  outline: none;
+  background-color: red;
+  float: left;
+  font-size: 0.8rem;
+  font-family: 'Open Sans';
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  width: 90px;
+  float: left;
+  cursor: pointer;
+}

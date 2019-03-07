@@ -19,7 +19,7 @@ body {
   border: none;
   background-color: #f6f9fc;
   padding: 10px 20px;
-  border: solid 3px black;
+  border: solid 3px #263238;
   border-radius: 25px;
 
 }
@@ -176,4 +176,26 @@ body {
   background-color: blue;
   width: 90px;
   float: left;
+}
+
+/* Hover text styles */
+
+.hover-text { 
+  cursor: pointer;
+}
+
+.hover-text:hover {
+  text-decoration: underline;
+}
+
+/* Modal styles */
+
+.back-drop {
+  background-color: rgba(0, 0, 0, 0.85);
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 1.8s;
+  width: 100vw;
 }

@@ -10,8 +10,11 @@
 
 # production
 /build
+/legacy
+
 
 # misc
+
 server/
 legacy/
 
@@ -23,6 +26,7 @@ legacy/
 
 npm-debug.log*
 yarn-debug.log*
+
 yarn-error.log*
 
 src/components/chatbotSteps.js
