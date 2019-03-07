@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
 import '../../app.css';
-import miniData from '../../miniData';
 
 import VerbInfo from './VerbInfo';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
-import { Beginner, Intermediate } from '../VerbTensesFilters';
+import { VerbTenseFilters } from '../VerbTensesFilters';
 import VerbInput from './VerbInput';
 // import VerbStreak from './VerbStreak';
 import Reward from 'react-rewards';
@@ -18,6 +17,7 @@ const initialState = {
   randomVerb: {},
   randomPerson: []
 };
+
 class Verb extends Component {
   constructor(props) {
     super(props);
@@ -26,12 +26,13 @@ class Verb extends Component {
       count: 0,
       bestStreak: 0,
       beginner: true,
-      data: latamSpanish(Beginner),
+      data: latamSpanish(VerbTenseFilters[0]),
       NumberPerson: 'Latam',
       VerbTenses: 'Beginner',
       answered: false,
       totalAnswers: 0,
       correctAnswers: 0
+      Level: 0,
     };
   }
 
@@ -43,12 +44,20 @@ class Verb extends Component {
   }
 
   randomize = () => {
-    const randomVerb = this.state.data[
+    let randomVerb = this.state.data[
       Math.floor(Math.random() * this.state.data.length)
     ];
-    const randomPerson = Object.entries(randomVerb)[
+    let randomPerson = Object.entries(randomVerb)[
       Math.floor(Math.random() * 5) + 7
     ];
+    // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
+    do {
+      randomVerb = this.state.data[
+        Math.floor(Math.random() * this.state.data.length)
+      ];
+      randomPerson = Object.entries(randomVerb)[
+            Math.floor(Math.random() * 5) + 7]
+    } while (randomPerson[1] === '' || randomVerb.mood_english === 'Imperative Negative')
     this.setState({
       randomVerb,
       randomPerson
@@ -146,22 +155,7 @@ class Verb extends Component {
     });
   };
 
-  handleLevelChange = () => {
-    this.setState(prevState => {
-      return {
-        beginner: !prevState.beginner
-      };
-    });
-    this.handleRefresh();
-    if (!this.state.beginner) {
-      alert(
-        "If you don't know the first verb tense/conjugation, you can click the 'Next verb' button."
-      );
-    }
-  };
-
   updateNumPerson = event => {
-    console.log("In update NUM person")
     this.setState({
       NumberPerson: event.target.value
     });
@@ -169,69 +163,29 @@ class Verb extends Component {
 
   updateVerbTenses = event => {
     this.setState({
-      VerbTenses: event.target.value
+      Level: event.target.value
     });
     this.handleRefresh();
-    console.log("In update verb tense")
   };
 
   filterData = event => {
     event.preventDefault();
-    console.log('Event', event)
+
+    let Level = parseInt(this.state.Level)
     if (
-      this.state.NumberPerson === 'Spain' &&
-      this.state.VerbTenses === 'Beginner'
+      this.state.NumberPerson === 'Spain'
     ) {
-      const spainBeg = spainSpanish(Beginner);
+      const spainSpan = spainSpanish(VerbTenseFilters[Level]);
       this.setState({
-        data: spainBeg
-      });
-    }
-    if (
-      this.state.NumberPerson === 'Spain' &&
-      this.state.VerbTenses === 'Intermediate'
-    ) {
-      const spainInter = spainSpanish(Intermediate);
-      this.setState({
-        data: spainInter
-      });
-    }
-    if (
-      this.state.NumberPerson === 'Spain' &&
-      this.state.VerbTenses === 'Advanced'
-    ) {
-      const spainAdv = spainSpanish(miniData);
-      this.setState({
-        data: spainAdv
+        data: spainSpan
       });
     }
 
-    if (
-      this.state.NumberPerson === 'Latam' &&
-      this.state.VerbTenses === 'Beginner'
-    ) {
-      const latamBeg = latamSpanish(Beginner);
+    if (this.state.NumberPerson === 'Latam') {
+      const latamSpan = latamSpanish(VerbTenseFilters[Level])
       this.setState({
-        data: latamBeg
-      });
-    }
-    if (
-      this.state.NumberPerson === 'Latam' &&
-      this.state.VerbTenses === 'Intermediate'
-    ) {
-      const latamInter = latamSpanish(Intermediate);
-      this.setState({
-        data: latamInter
-      });
-    }
-    if (
-      this.state.NumberPerson === 'Latam' &&
-      this.state.VerbTenses === 'Advanced'
-    ) {
-      const latamAdv = latamSpanish(miniData);
-      this.setState({
-        data: latamAdv
-      });
+        data: latamSpan
+      })
     }
     this.handleRefresh()
   };
@@ -245,11 +199,7 @@ class Verb extends Component {
   };
 
   render() {
-    console.log("Answer:", this.state.randomPerson[1])
-    console.log("totalAnswers:", this.state.totalAnswers)
-    console.log("correctAnswers:", this.state.correctAnswers)
     const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
-    console.log("percentage", percentage)
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
       infinitive,
