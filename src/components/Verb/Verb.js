@@ -83,7 +83,7 @@ class Verb extends Component {
       this.setState({
         answered: false
       });
-    } else if (this.state.randomPerson[1] === userInput) {
+    } else if (userInput.includes(this.state.randomPerson[1])) {
       this.addCounter();
       this.setState(prevState => {
         return {
