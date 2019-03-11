@@ -1,5 +1,5 @@
 import React from 'react';
-import VerbPerson from './VerbPerson';
+import Person from './Person';
 import AccentButtons from './AccentButtons';
 
 const VerbInput = props => {
@@ -9,7 +9,7 @@ const VerbInput = props => {
       <form onSubmit={props.handleSubmit}>
         <label>
           <div className="input-section">
-            <VerbPerson randomPerson={randomPerson[0]} />
+            <Person randomPerson={randomPerson[0]} />
             <input
               type="text"
               value={value}

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import '../../app.css';
 
-import VerbInfo from './VerbInfo';
+import VerbInfo from './Info';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { VerbTenseFilters } from '../VerbTensesFilters';
-import VerbInput from './VerbInput';
+import VerbInput from './Input';
 // import VerbStreak from './VerbStreak';
 import Reward from 'react-rewards';
 
@@ -18,7 +18,7 @@ const initialState = {
   randomPerson: []
 };
 
-class Verb extends Component {
+class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -200,6 +200,7 @@ class Verb extends Component {
 
   render() {
     console.log("Answer:", this.state.randomPerson[1])
+    console.log('data', this.state.data)
     const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
@@ -255,4 +256,4 @@ class Verb extends Component {
   }
 }
 
-export default Verb;
+export default Container;
