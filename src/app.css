@@ -160,14 +160,10 @@ body {
 /* Settings styles */
 
 .settings {
-  margin: 2% 0%;
   height: 60px;
-}
-
-.settings-buttons-display {
+  margin-bottom: 10px;
   display: flex;
-  width: 60%;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .settings-buttons-hide {
@@ -179,22 +175,24 @@ body {
   font-family: 'Open Sans';
   border-radius: 5px;
   margin-top: 6%;
-  margin-right: 6%;
   font-weight: 700;
   padding: 5px 10px;
   border: none;
   background-color:inherit;
-  width: 90px;
+  width: 110px;
   float: left;
+  text-align: center;
 }
+
+.button-options:focus {
+  outline:0;
+}
+
 
 /* Hover text styles */
 
 .hover-text { 
   cursor: pointer;
-}
-
-.hover-text:hover {
   text-decoration: underline;
 }
 
