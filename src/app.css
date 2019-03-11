@@ -142,7 +142,8 @@ body {
   color: white;
   background-color: blue;
   width: 100%;
-  margin-top: 10%;
+  position: absolute;
+  bottom: 0;
 }
 
 /* Font styles */

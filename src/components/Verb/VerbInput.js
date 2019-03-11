@@ -30,13 +30,13 @@ const VerbInput = props => {
               </div>
             </div>
         </label>
-        <div style={{height: '105px'}}>
+        <div style={{height: '85px', position: "relative", padding: "10px 0"}}>
+        {helperText && <div>{helperText}</div>}
         <button
           className="submit-button"
           type="submit"
           onClick={props.handleSubmit}
-        >
-        {helperText && <p>{helperText}</p>}
+          >
           {props.buttonText}
         </button>
         </div>
