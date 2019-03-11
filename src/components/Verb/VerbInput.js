@@ -36,9 +36,9 @@ const VerbInput = props => {
           type="submit"
           onClick={props.handleSubmit}
         >
+        {helperText && <p>{helperText}</p>}
           {props.buttonText}
         </button>
-        {helperText && <p>{helperText}</p>}
         </div>
       </form>
     </div>

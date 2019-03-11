@@ -32,14 +32,16 @@ import Modal from "./components/Modal/Modal"
       render () {
       return(
       <div className="app">
+        <Route path="/" component={ Header } />
+        <div className="app-wrapper">
           { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
-          <Route path="/" component={ Header } />
           <Route exact path="/" component={ Verb } />
           <div style={{textAlign: 'center'}} className="hover-text" onClick={this.openModalHandler}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
           <Modal
 					show={this.state.isShowing}
 					close={this.closeModalHandler} 
           />
+        </div>
       </div>
       
   );

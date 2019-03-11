@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800');
 @import url('https://fonts.googleapis.com/css?family=Saira');
 
 /* Global styles */
@@ -17,18 +17,28 @@ body {
 
 .app {
   border: none;
-  background-color: #f6f9fc;
-  padding: 10px 20px;
   border: solid 3px #263238;
   border-radius: 25px;
+}
 
+.app-wrapper {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #f6f9fc;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 /* Header styles */
 
+.header {
+  text-align: center;
+}
+
 .header h2 {
   font-size: 20px;
   margin: 10px 0;
+  font-weight: 400;
 }
 
 .header span {
@@ -48,11 +58,10 @@ body {
 }
 
 .current-best-streak {
-  background-color: white; 
-  padding: 5px 10px; 
-  border-radius: 10px; 
-  margin: 10px; 
-  width: 90px;
+  padding: 5px 0; 
+  margin: 5px 10px; 
+  width: 85px;
+  text-align: center;
 }
 
 .streak {
@@ -144,7 +153,7 @@ body {
 
 .twenty-four {
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
@@ -171,9 +180,10 @@ body {
   border-radius: 5px;
   margin-top: 6%;
   margin-right: 6%;
+  font-weight: 700;
   padding: 5px 10px;
-  color: white;
-  background-color: blue;
+  border: none;
+  background-color:inherit;
   width: 90px;
   float: left;
 }
