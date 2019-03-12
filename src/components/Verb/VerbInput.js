@@ -31,7 +31,7 @@ const VerbInput = props => {
             </div>
         </label>
         <div style={{height: '85px', position: "relative", padding: "10px 0"}}>
-        {helperText && <div>{helperText}</div>}
+        {helperText && <div style={{textAlign: "center"}}>{helperText}</div>}
         <button
           className="submit-button"
           type="submit"

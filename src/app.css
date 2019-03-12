@@ -8,7 +8,14 @@ body {
   width: 95vw;
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 630px) {
+  .app {
+    width: 580px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 630px) {
   .app {
     width: 380px;
     margin: 0 auto;
