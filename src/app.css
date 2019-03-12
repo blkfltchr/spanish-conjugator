@@ -5,11 +5,17 @@
 
 body {
   font-family: 'Open Sans';
-  width: 95vw;
+  background-color: #f6f9fc;
 }
 
 @media only screen and (min-width: 630px) {
   .app {
+    border: none !important
+  }
+}
+
+@media only screen and (min-width: 630px) {
+  .app-wrapper {
     width: 580px;
     margin: 0 auto;
   }
@@ -40,6 +46,16 @@ body {
 
 .header {
   text-align: center;
+  background: white;
+  height: 90px;
+  padding-top: 5px;
+}
+
+@media only screen and (max-width: 630px) {
+  .header {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
 }
 
 .header h2 {
@@ -201,6 +217,14 @@ body {
 /* Hover text styles */
 
 .hover-text { 
+  cursor: pointer;
+}
+
+.hover-text:hover {
+  text-decoration: underline;
+}
+
+.made-with-love { 
   cursor: pointer;
   text-decoration: underline;
 }

@@ -36,7 +36,7 @@ import Modal from "./components/Modal/Modal"
         <div className="app-wrapper">
           { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
           <Route exact path="/" component={ Verb } />
-          <div style={{textAlign: 'center'}} className="hover-text" onClick={this.openModalHandler}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
+          <div style={{textAlign: 'center'}} className="made-with-love" onClick={this.openModalHandler}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
           <Modal
 					show={this.state.isShowing}
 					close={this.closeModalHandler} 
