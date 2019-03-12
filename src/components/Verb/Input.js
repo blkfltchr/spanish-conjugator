@@ -96,28 +96,6 @@ class Input extends Component {
     this.props.randomize();
   };
 
-  // randomize = () => {
-  //   // let randomVerb = this.props.data[
-  //   //   Math.floor(Math.random() * this.state.data.length)
-  //   // ];
-  //   // let randomPerson = Object.entries(randomVerb)[
-  //   //   Math.floor(Math.random() * 5) + 7
-  //   // ];
-  //   // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
-  //   do {
-  //     randomVerb = this.state.data[
-  //       Math.floor(Math.random() * this.state.data.length)
-  //     ];
-  //     randomPerson = Object.entries(randomVerb)[
-  //           Math.floor(Math.random() * 5) + 7]
-  //   } while (randomPerson[1] === '' || randomVerb.mood_english === 'Imperative Negative')
-  //   this.setState({
-  //     randomVerb,
-  //     randomPerson
-  //   });
-  // };
-
-
   render() {
     const { randomPerson } = this.props.state;
     const {helperText, value} = this.state
@@ -164,49 +142,3 @@ class Input extends Component {
 }
 
 export default Input;
-
-
-// const VerbInput = props => {
-//   const { randomPerson, helperText, value } = props.state;
-//   return (
-//     <div>
-//       <form onSubmit={props.handleSubmit}>
-//         <label>
-//           <div className="input-section">
-//             <Person randomPerson={randomPerson[0]} />
-//             <input
-//               type="text"
-//               value={value}
-//               placeholder="Enter conjugated verb..."
-//               onChange={props.handleChange}
-//               className="input"
-//               style={{paddingLeft: "10px"}}
-//               />
-//           </div>
-//           <div className="text-under-input">
-//               <AccentButtons addAccent={props.addAccent} />
-//               <div
-//                 className="hover-text"
-//                 type="button"
-//                 onClick={props.handleExample}
-//               >
-//                 Show example <i className="far fa-arrow-alt-circle-right"></i>
-//               </div>
-//             </div>
-//         </label>
-//         <div style={{height: '105px'}}>
-//         <button
-//           className="submit-button"
-//           type="submit"
-//           onClick={props.handleSubmit}
-//         >
-//           {props.buttonText}
-//         </button>
-//         {helperText && <p>{helperText}</p>}
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default VerbInput;
