@@ -99,7 +99,7 @@ class Input extends Component {
   render() {
     const { randomPerson } = this.props.state;
     const {helperText, value, answered} = this.state
-    const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Submit'
+    const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Check'
     return (
       <div>
               <form onSubmit={this.handleSubmit}>
