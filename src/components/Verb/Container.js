@@ -172,6 +172,8 @@ class Container extends Component {
           randomPerson={randomPerson}
           randomVerb={randomVerb}
           randomize={this.randomize}
+          addCounter={this.addCounter}
+          addStreak={this.addStreak}
         />
         <Settings handleRefresh={this.handleRefresh}
         filterData={this.filterData}

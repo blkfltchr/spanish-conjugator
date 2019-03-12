@@ -39,7 +39,7 @@ class Input extends Component {
         answered: false
       });
     } else if (this.props.randomPerson[1] === userInput) {
-      this.addCounter();
+      this.props.addCounter();
       this.setState(prevState => {
         return {
           correctAnswers: prevState.correctAnswers + 1,
@@ -51,7 +51,7 @@ class Input extends Component {
       this.setState({
         correct: true
       });
-      this.addStreak();
+      this.props.addStreak();
     } else if (this.props.randomPerson[1] !== userInput) {
       this.setState({
         helperText: `False, the correct answer is ${
