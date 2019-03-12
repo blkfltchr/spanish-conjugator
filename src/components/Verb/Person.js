@@ -1,15 +1,20 @@
 import React from 'react';
 
+const personObj = {
+  form_1s: 'Yo',
+  form_2s: 'Tú',
+  form_3s: 'El/Ella',
+  form_1p: 'Nosotros',
+  form_2p: 'Vosotros',
+  form_3p: 'Ellos/Ellas'
+}
+
 const VerbPerson = props => {
+  const person = props.randomPerson
   return (
     <div className="person-flex">
       <div style={{fontWeight: '800'}}>
-        {props.randomPerson === 'form_1s' && <span> Yo</span>}
-        {props.randomPerson === 'form_2s' && <span> Tú</span>}
-        {props.randomPerson === 'form_3s' && <span> Él/Ella</span>}
-        {props.randomPerson === 'form_1p' && <span> Nosotros</span>}
-        {props.randomPerson === 'form_2p' && <span> Vosotros</span>}
-        {props.randomPerson === 'form_3p' && <span> Ellos/Ellas</span>}
+        {personObj[person]}
       </div>
     </div>
   );
