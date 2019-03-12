@@ -5,6 +5,7 @@ import './modal.css';
 
 const Modal = (props) => {
     return (
+        <div style={{display: "flex", justifyContent: "center"}}>
         <div className="modal-wrapper"
             style={{
                 top: props.show ? '15%' : '-100%',
@@ -34,6 +35,7 @@ const Modal = (props) => {
         </div>
         <div className="modal-footer">
             <button className="btn-cancel" onClick={props.close}>CLOSE</button>
+        </div>
         </div>
         </div>
     )

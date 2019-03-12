@@ -35,7 +35,6 @@ const LevelFive = miniData.filter(
     ((verb.tense_english === 'Future' && verb.mood_english === 'Indicative'))
 )
 
-
 const LevelSix = miniData.filter(
   verb =>
     (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||

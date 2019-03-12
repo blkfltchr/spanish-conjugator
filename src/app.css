@@ -1,34 +1,56 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800');
 @import url('https://fonts.googleapis.com/css?family=Saira');
 
 /* Global styles */
 
 body {
   font-family: 'Open Sans';
-  width: 95vw;
+  background-color: #f6f9fc;
 }
 
-@media only screen and (min-width: 480px) {
-  .app {
+.app-wrapper {
+  margin-top: 10px;
+  padding: 10px 0;
+  background-color: #f6f9fc;
+}
+
+/* Desktop styles */
+
+@media only screen and (min-width: 630px) {
+  .app-wrapper {
+    width: 580px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile styles */
+
+@media only screen and (max-width: 630px) {
+  body {
+    width: 95vw;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .app-wrapper {
     width: 380px;
     margin: 0 auto;
   }
 }
 
-.app {
-  border: none;
-  background-color: #f6f9fc;
-  padding: 10px 20px;
-  border: solid 3px #263238;
-  border-radius: 25px;
-
-}
-
 /* Header styles */
+
+.header {
+  text-align: center;
+  background: white;
+  height: 90px;
+  padding-top: 5px;
+}
 
 .header h2 {
   font-size: 20px;
   margin: 10px 0;
+  font-weight: 400;
 }
 
 .header span {
@@ -48,11 +70,10 @@ body {
 }
 
 .current-best-streak {
-  background-color: white; 
-  padding: 5px 10px; 
-  border-radius: 10px; 
-  margin: 10px; 
-  width: 90px;
+  padding: 5px 0; 
+  margin: 5px 10px; 
+  width: 85px;
+  text-align: center;
 }
 
 .streak {
@@ -120,7 +141,8 @@ body {
   background-color: blue;
   color: white;
   border-radius: 4px;
-  margin: 0 2px 6px 2px; 
+  margin: 0 2px 6px 2px;
+  font-size: 16px 
 }
 
 /* Submit button styles */
@@ -133,7 +155,9 @@ body {
   color: white;
   background-color: blue;
   width: 100%;
-  margin-top: 10%;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
 }
 
 /* Font styles */
@@ -144,21 +168,17 @@ body {
 
 .twenty-four {
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 /* Settings styles */
 
 .settings {
-  margin: 2% 0%;
   height: 60px;
-}
-
-.settings-buttons-display {
+  margin-bottom: 10px;
   display: flex;
-  width: 60%;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .settings-buttons-hide {
@@ -170,13 +190,19 @@ body {
   font-family: 'Open Sans';
   border-radius: 5px;
   margin-top: 6%;
-  margin-right: 6%;
+  font-weight: 700;
   padding: 5px 10px;
-  color: white;
-  background-color: blue;
-  width: 90px;
+  border: none;
+  background-color:inherit;
+  width: 110px;
   float: left;
+  text-align: center;
 }
+
+.button-options:focus {
+  outline:0;
+}
+
 
 /* Hover text styles */
 
@@ -185,6 +211,11 @@ body {
 }
 
 .hover-text:hover {
+  text-decoration: underline;
+}
+
+.made-with-love { 
+  cursor: pointer;
   text-decoration: underline;
 }
 
@@ -198,4 +229,5 @@ body {
   left: 0;
   transition: all 1.8s;
   width: 100vw;
+  z-index: 1;
 }
