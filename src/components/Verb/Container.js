@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 
 import '../../app.css';
 
-import VerbInfo from './VerbInfo';
+import Info from './Info';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { VerbTenseFilters } from '../VerbTensesFilters';
-import VerbInput from './VerbInput';
-// import VerbStreak from './VerbStreak';
+import Input from './Input';
 import Reward from 'react-rewards';
 
 const initialState = {
@@ -18,7 +17,7 @@ const initialState = {
   randomPerson: []
 };
 
-class Verb extends Component {
+class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,61 +69,11 @@ class Verb extends Component {
     });
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    const userInput = this.state.value.toLowerCase();
-    if (this.state.answered === true) {
-      this.setState(prevState => {
-        return {
-          totalAnswers: prevState.totalAnswers + 1
-        };
-      });
-      this.handleRefresh();
-      this.setState({
-        answered: false
-      });
-    } else if (userInput.includes(this.state.randomPerson[1])) {
-      this.addCounter();
-      this.setState(prevState => {
-        return {
-          correctAnswers: prevState.correctAnswers + 1,
-          totalAnswers: prevState.totalAnswers + 1
-        };
-      });
-      alert('Correct!');
-      this.handleRefresh();
-      this.setState({
-        correct: true
-      });
-      this.addStreak();
-    } else if (this.state.randomPerson[1] !== userInput) {
-      this.setState({
-        helperText: `False, the correct answer is ${
-          this.state.randomPerson[1].toUpperCase()
-        }.`,
-        answered: true
-      });
-      this.resetCounter();
-    }
-  };
-
   handleRefresh = () => {
     this.setState({
       ...initialState
     });
     this.randomize();
-  };
-
-  handleExample = event => {
-    const hablar = this.state.data.filter(verb => (verb.infinitive === 'hablar'))
-    const hablarTense = hablar.filter(verb => (verb.tense_english === this.state.randomVerb.tense_english))
-    const hablarMood = hablarTense.filter(verb => (verb.mood_english === this.state.randomVerb.mood_english))
-    const hablarExample = hablarMood[0]
-    event.preventDefault();
-    this.setState({
-      hint: true,
-      helperText: `Yo + Hablar + ${this.state.randomVerb.tense_english} = YO ${hablarExample.form_1s.toUpperCase()}`
-    });
   };
 
   addStreak = () => {
@@ -146,12 +95,6 @@ class Verb extends Component {
       return {
         count: prevState.count + 1
       };
-    });
-  };
-
-  resetCounter = () => {
-    this.setState({
-      count: 0
     });
   };
 
@@ -190,14 +133,6 @@ class Verb extends Component {
     this.handleRefresh()
   };
 
-  addAccent = event => {
-    event.preventDefault();
-    const accent = event.target.value;
-    this.setState({
-      value: this.state.value + accent
-    });
-  };
-
   render() {
     console.log("Answer:", this.state.randomPerson[1])
     const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
@@ -230,20 +165,20 @@ class Verb extends Component {
                 <div className='twenty-four'>{percentage}%</div>
               </div>
           </div>
-          <VerbInfo
-            randomPerson={randomPerson[0]}
+          <Info
             infinitive={infinitive}
             tense_english={tense_english}
             mood_english={mood_english}
           />
         </div>
-        <VerbInput
+        <Input
           state={this.state}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          addAccent={this.addAccent}
-          handleExample={this.handleExample}
           buttonText={buttonText}
+          randomPerson={randomPerson}
+          randomVerb={randomVerb}
+          randomize={this.randomize}
+          addCounter={this.addCounter}
+          addStreak={this.addStreak}
         />
         <Settings handleRefresh={this.handleRefresh}
         filterData={this.filterData}
@@ -255,4 +190,4 @@ class Verb extends Component {
   }
 }
 
-export default Verb;
+export default Container;
