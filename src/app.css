@@ -152,7 +152,8 @@ body {
   background-color: blue;
   color: white;
   border-radius: 4px;
-  margin: 0 2px 6px 2px; 
+  margin: 0 2px 6px 2px;
+  font-size: 16px 
 }
 
 /* Submit button styles */
