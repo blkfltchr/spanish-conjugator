@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VerbInfo = props => {
+const Info = props => {
   return (
     <div className='verb-info'>
       <div className='twelve'>Verb:</div>
@@ -14,4 +14,4 @@ const VerbInfo = props => {
   );
 };
 
-export default VerbInfo;
+export default Info;

@@ -10,11 +10,10 @@ const personObj = {
 }
 
 const VerbPerson = props => {
-  const person = props.randomPerson
   return (
     <div className="person-flex">
       <div style={{fontWeight: '800'}}>
-        {personObj[person]}
+        {personObj[props.randomPerson]}
       </div>
     </div>
   );

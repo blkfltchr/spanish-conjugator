@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import '../../app.css';
 
-import VerbInfo from './Info';
+import Info from './Info';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { VerbTenseFilters } from '../VerbTensesFilters';
-import VerbInput from './Input';
+import Input from './Input';
 // import VerbStreak from './VerbStreak';
 import Reward from 'react-rewards';
 
@@ -149,12 +149,6 @@ class Container extends Component {
     });
   };
 
-  resetCounter = () => {
-    this.setState({
-      count: 0
-    });
-  };
-
   updateNumPerson = event => {
     this.setState({
       NumberPerson: event.target.value
@@ -231,20 +225,23 @@ class Container extends Component {
                 <div className='twenty-four'>{percentage}%</div>
               </div>
           </div>
-          <VerbInfo
-            randomPerson={randomPerson[0]}
+          <Info
             infinitive={infinitive}
             tense_english={tense_english}
             mood_english={mood_english}
           />
         </div>
-        <VerbInput
+        <Input
           state={this.state}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           addAccent={this.addAccent}
           handleExample={this.handleExample}
           buttonText={buttonText}
+          randomPerson={randomPerson}
+          randomVerb={randomVerb}
+          randomize={this.randomize}
+          // handleRefresh={this.handleRefresh}
         />
         <Settings handleRefresh={this.handleRefresh}
         filterData={this.filterData}
