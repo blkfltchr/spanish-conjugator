@@ -46,7 +46,6 @@ class Input extends Component {
           totalAnswers: prevState.totalAnswers + 1
         };
       });
-      alert('Correct!');
       this.handleRefresh();
       this.setState({
         correct: true

@@ -63,6 +63,12 @@ class Container extends Component {
     });
   };
 
+  handleChange = event => {
+    this.setState({
+      value: event.target.value
+    });
+  };
+
   handleRefresh = () => {
     this.setState({
       ...initialState
@@ -129,7 +135,6 @@ class Container extends Component {
 
   render() {
     console.log("Answer:", this.state.randomPerson[1])
-    console.log('data', this.state.data)
     const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
