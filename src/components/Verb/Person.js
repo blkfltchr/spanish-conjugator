@@ -12,7 +12,7 @@ const personObj = {
 const VerbPerson = props => {
   return (
     <div className="person-flex">
-      <div style={{fontWeight: '800'}}>
+      <div>
         {personObj[props.randomPerson]}
       </div>
     </div>

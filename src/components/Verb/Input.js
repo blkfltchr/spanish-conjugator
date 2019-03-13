@@ -110,6 +110,7 @@ class Input extends Component {
     const { randomPerson, randomVerb, count } = this.props;
     const {helperText, value, answered, bestStreak} = this.state
     const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Submit'
+    console.log("count", count)
     const {
       infinitive,
       tense_english,
@@ -154,7 +155,6 @@ class Input extends Component {
               placeholder="Enter conjugated verb..."
               onChange={this.handleChange}
               className="input"
-              style={{paddingLeft: "10px"}}
               />
           </div>
           <div className="text-under-input">
@@ -168,8 +168,8 @@ class Input extends Component {
               </div>
             </div>
         </label>
-        <div style={{height: '85px', position: "relative", padding: "10px 0"}}>
-        {helperText && <div style={{textAlign: "center"}}>{helperText}</div>}
+        <div className="helper-text">
+        {helperText && <div>{helperText}</div>}
         <button
           className="submit-button"
           type="submit"

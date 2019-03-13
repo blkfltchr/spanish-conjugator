@@ -23,7 +23,8 @@ class Container extends Component {
       VerbTenses: 'Beginner',
       totalAnswers: 0,
       correctAnswers: 0,
-      level: 0
+      level: 0,
+      count: 0
     };
   }
 

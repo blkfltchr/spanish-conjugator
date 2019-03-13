@@ -5,7 +5,7 @@ import './modal.css';
 
 const Modal = (props) => {
     return (
-        <div style={{display: "flex", justifyContent: "center"}}>
+        <div className="modal">
         <div className="modal-wrapper"
             style={{
                 top: props.show ? '15%' : '-100%',
@@ -19,16 +19,16 @@ const Modal = (props) => {
             <div className="modal-body">
                 <div>
                 <p>Created by:</p>
-                <div style={{display: "flex"}}>
+                <div className="created-by">
                     <div>
-                        <img style={{width: "100px", height: "100px"}} src={BlakeProfile} alt="blake fletcher spanish conjugator"/>
+                        <img src={BlakeProfile} alt="blake fletcher spanish conjugator"/>
                         <div>Blake Fletcher</div>
-                        <p>Find him on <a href="https://github.com/blkfltchr" target="_blank" rel="noopener noreferrer" style={{color: "blue"}}>Github</a>, <a href="https://twitter.com/blkfltchr" target="_blank" rel="noopener noreferrer" style={{color: "blue"}}>Twitter</a> or <a href="mailto:blkfltchr@gmail.com" target="_blank" rel="noopener noreferrer" style={{color: "blue"}}>email</a> him.</p>
+                        <p>Find him on <a href="https://github.com/blkfltchr" target="_blank" rel="noopener noreferrer">Github</a>, <a href="https://twitter.com/blkfltchr" target="_blank" rel="noopener noreferrer">Twitter</a> or <a href="mailto:blkfltchr@gmail.com" target="_blank" rel="noopener noreferrer">email</a> him.</p>
                     </div>
                     <div>
-                        <img style={{width: "100px", height: "100px"}} src={NickProfile} alt="nick o'ferrall spanish conjugator"/>
+                        <img src={NickProfile} alt="nick o'ferrall spanish conjugator"/>
                         <div>Nick O'Ferrall</div>
-                        <p>Find him on <a href="https://github.com/nickoferrall" target="_blank" rel="noopener noreferrer" style={{color: "blue"}}>Github</a>, <a href="https://twitter.com/nickoferrall" target="_blank" rel="noopener noreferrer" style={{color: "blue"}}>Twitter</a> or <a href="mailto:nickoferrall@gmail.com" target="_blank" rel="noopener noreferrer" style={{color: "blue"}}>email</a> him.</p>
+                        <p>Find him on <a href="https://github.com/nickoferrall" target="_blank" rel="noopener noreferrer">Github</a>, <a href="https://twitter.com/nickoferrall" target="_blank" rel="noopener noreferrer">Twitter</a> or <a href="mailto:nickoferrall@gmail.com" target="_blank" rel="noopener noreferrer">email</a> him.</p>
                     </div>
                 </div>
             </div>
