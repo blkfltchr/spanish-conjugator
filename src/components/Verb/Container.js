@@ -27,7 +27,7 @@ class Container extends Component {
       VerbTenses: 'Beginner',
       totalAnswers: 0,
       correctAnswers: 0,
-      Level: 0
+      level: 0
     };
   }
 
@@ -99,7 +99,7 @@ class Container extends Component {
 
   updateVerbTenses = event => {
     this.setState({
-      Level: event.target.value
+      level: event.target.value
     });
     this.handleRefresh();
   };
@@ -107,7 +107,7 @@ class Container extends Component {
   filterData = event => {
     event.preventDefault();
 
-    let Level = parseInt(this.state.Level)
+    let Level = parseInt(this.state.level)
     if (
       this.state.NumberPerson === 'Spain'
     ) {
@@ -128,7 +128,6 @@ class Container extends Component {
 
   render() {
     console.log("Answer:", this.state.randomPerson[1])
-    console.log("Level:", this.state.Level)
     const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {

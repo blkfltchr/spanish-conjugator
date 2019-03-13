@@ -91,8 +91,6 @@ class Input extends Component {
   };
 
   render() {
-    console.log("input state", this.state)
-    console.log("input props state", this.state)
     const { randomPerson } = this.props;
     const {helperText, value, answered} = this.state
     const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Submit'
