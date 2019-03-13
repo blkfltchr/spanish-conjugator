@@ -110,7 +110,6 @@ class Input extends Component {
     const { randomPerson, randomVerb, count } = this.props;
     const {helperText, value, answered, bestStreak} = this.state
     const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Submit'
-    console.log("count", count)
     const {
       infinitive,
       tense_english,
