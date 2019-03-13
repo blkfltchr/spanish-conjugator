@@ -10,8 +10,6 @@ import Input from './Input';
 import Reward from 'react-rewards';
 
 const initialState = {
-  value: '',
-  helperText: null,
   correct: false,
   randomVerb: {},
   randomPerson: []
@@ -24,11 +22,9 @@ class Container extends Component {
       ...initialState,
       count: 0,
       bestStreak: 0,
-      beginner: true,
       data: latamSpanish(VerbTenseFilters[0]),
       NumberPerson: 'Latam',
       VerbTenses: 'Beginner',
-      answered: false,
       totalAnswers: 0,
       correctAnswers: 0,
       Level: 0
@@ -36,9 +32,6 @@ class Container extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      hint: false
-    });
     this.randomize();
   }
 
@@ -60,12 +53,6 @@ class Container extends Component {
     this.setState({
       randomVerb,
       randomPerson
-    });
-  };
-
-  handleChange = event => {
-    this.setState({
-      value: event.target.value
     });
   };
 
@@ -95,6 +82,12 @@ class Container extends Component {
       return {
         count: prevState.count + 1
       };
+    });
+  };
+
+  resetCounter = () => {
+    this.setState({
+      count: 0
     });
   };
 
@@ -135,6 +128,7 @@ class Container extends Component {
 
   render() {
     console.log("Answer:", this.state.randomPerson[1])
+    console.log("Level:", this.state.Level)
     const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
     const { count, bestStreak, randomVerb, randomPerson } = this.state;
     const {
@@ -171,14 +165,15 @@ class Container extends Component {
           />
         </div>
         <Input
-          state={this.state}
+          data={this.state.data}
           randomPerson={randomPerson}
           randomVerb={randomVerb}
           randomize={this.randomize}
           addCounter={this.addCounter}
+          resetCounter={this.resetCounter}
           addStreak={this.addStreak}
         />
-        <Settings handleRefresh={this.handleRefresh}
+        <Settings 
         filterData={this.filterData}
         updateVerbTenses={this.updateVerbTenses}
         updateNumPerson={this.updateNumPerson}

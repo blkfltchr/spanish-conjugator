@@ -59,12 +59,12 @@ class Input extends Component {
         }.`,
         answered: true
       });
-      this.resetCounter();
+      this.props.resetCounter();
     }
   };
   
   handleExample = event => {
-    const hablar = this.props.state.data.filter(verb => (verb.infinitive === 'hablar'))
+    const hablar = this.props.data.filter(verb => (verb.infinitive === 'hablar'))
     const hablarTense = hablar.filter(verb => (verb.tense_english === this.props.randomVerb.tense_english))
     const hablarMood = hablarTense.filter(verb => (verb.mood_english === this.props.randomVerb.mood_english))
     const hablarExample = hablarMood[0]
@@ -83,12 +83,6 @@ class Input extends Component {
     });
   };
 
-  resetCounter = () => {
-    this.setState({
-      count: 0
-    });
-  };
-
   handleRefresh = () => {
     this.setState({
       ...initialState
@@ -97,7 +91,9 @@ class Input extends Component {
   };
 
   render() {
-    const { randomPerson } = this.props.state;
+    console.log("input state", this.state)
+    console.log("input props state", this.state)
+    const { randomPerson } = this.props;
     const {helperText, value, answered} = this.state
     const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Submit'
     return (
