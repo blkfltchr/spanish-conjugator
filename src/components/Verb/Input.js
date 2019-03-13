@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Person from './Person';
 import AccentButtons from './AccentButtons';
+import Info from './Info';
+import Reward from 'react-rewards';
 
 const initialState = {
   value: '',
@@ -12,6 +14,7 @@ class Input extends Component {
     super(props);
     this.state = {
       value: '',
+      bestStreak: 0,
       helperText: null,
       totalAnswers: 0,
       correctAnswers: 0,
@@ -51,7 +54,7 @@ class Input extends Component {
       this.setState({
         correct: true
       });
-      this.props.addStreak();
+      this.addStreak();
     } else if (this.props.randomPerson[1] !== userInput) {
       this.setState({
         helperText: `False, the correct answer is ${
@@ -59,12 +62,12 @@ class Input extends Component {
         }.`,
         answered: true
       });
-      this.resetCounter();
+      this.props.resetCounter();
     }
   };
   
   handleExample = event => {
-    const hablar = this.props.state.data.filter(verb => (verb.infinitive === 'hablar'))
+    const hablar = this.props.data.filter(verb => (verb.infinitive === 'hablar'))
     const hablarTense = hablar.filter(verb => (verb.tense_english === this.props.randomVerb.tense_english))
     const hablarMood = hablarTense.filter(verb => (verb.mood_english === this.props.randomVerb.mood_english))
     const hablarExample = hablarMood[0]
@@ -83,12 +86,6 @@ class Input extends Component {
     });
   };
 
-  resetCounter = () => {
-    this.setState({
-      count: 0
-    });
-  };
-
   handleRefresh = () => {
     this.setState({
       ...initialState
@@ -96,13 +93,58 @@ class Input extends Component {
     this.props.randomize();
   };
 
+  addStreak = () => {
+    if (this.props.count >= this.state.bestStreak) {
+      this.setState(prevState => {
+        return {
+          bestStreak: prevState.bestStreak + 1
+        };
+      })
+      if (this.state.bestStreak % 5 === 0) {
+        this.reward.rewardMe();
+      }
+    }
+  };
+
   render() {
-    const { randomPerson } = this.props.state;
-    const {helperText, value, answered} = this.state
-    const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Check'
+    const { randomPerson, randomVerb, count } = this.props;
+    const {helperText, value, answered, bestStreak} = this.state
+    const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Submit'
+    const {
+      infinitive,
+      tense_english,
+      mood_english
+    } = randomVerb;
+    const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
     return (
       <div>
-              <form onSubmit={this.handleSubmit}>
+        <div className="verb-info-wrapper">
+          <div className='verb-streak'>
+            <div className='current-best-streak'>
+              <div className='streak'>current streak:</div>
+              <div className='twenty-four'>{count}</div>
+            </div>
+            <Reward
+              ref={(ref) => { this.reward = ref }}
+              type='emoji'
+            >
+              <div className='current-best-streak'>
+                <div className='streak'>best streak:</div>
+                <div className='twenty-four'>{bestStreak} <span role='img' aria-label='salsa dancer'>💃</span></div>
+              </div>
+            </Reward>
+            <div className='current-best-streak'>
+                <div className='streak'>percentage:</div>
+                <div className='twenty-four'>{percentage}%</div>
+              </div>
+          </div>
+          <Info
+            infinitive={infinitive}
+            tense_english={tense_english}
+            mood_english={mood_english}
+          />
+        </div>
+        <form onSubmit={this.handleSubmit}>
         <label>
           <div className="input-section">
             <Person randomPerson={randomPerson[0]} />
@@ -112,7 +154,6 @@ class Input extends Component {
               placeholder="Enter conjugated verb..."
               onChange={this.handleChange}
               className="input"
-              style={{paddingLeft: "10px"}}
               />
           </div>
           <div className="text-under-input">
@@ -126,8 +167,8 @@ class Input extends Component {
               </div>
             </div>
         </label>
-        <div style={{height: '85px', position: "relative", padding: "10px 0"}}>
-        {helperText && <div style={{textAlign: "center"}}>{helperText}</div>}
+        <div className="helper-text">
+        {helperText && <div>{helperText}</div>}
         <button
           className="submit-button"
           type="submit"

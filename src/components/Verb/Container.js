@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 
 import '../../app.css';
 
-import Info from './Info';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { VerbTenseFilters } from '../VerbTensesFilters';
 import Input from './Input';
-import Reward from 'react-rewards';
 
 const initialState = {
-  value: '',
-  helperText: null,
   correct: false,
   randomVerb: {},
   randomPerson: []
@@ -22,23 +18,17 @@ class Container extends Component {
     super(props);
     this.state = {
       ...initialState,
-      count: 0,
-      bestStreak: 0,
-      beginner: true,
       data: latamSpanish(VerbTenseFilters[0]),
       NumberPerson: 'Latam',
       VerbTenses: 'Beginner',
-      answered: false,
       totalAnswers: 0,
       correctAnswers: 0,
-      Level: 0
+      level: 0,
+      count: 0
     };
   }
 
   componentDidMount() {
-    this.setState({
-      hint: false
-    });
     this.randomize();
   }
 
@@ -63,12 +53,6 @@ class Container extends Component {
     });
   };
 
-  handleChange = event => {
-    this.setState({
-      value: event.target.value
-    });
-  };
-
   handleRefresh = () => {
     this.setState({
       ...initialState
@@ -76,25 +60,17 @@ class Container extends Component {
     this.randomize();
   };
 
-  addStreak = () => {
-    if (this.state.count >= this.state.bestStreak) {
-      this.setState(prevState => {
-        return {
-          bestStreak: prevState.bestStreak + 1
-        };
-      })
-      if (this.state.bestStreak % 5 === 0) {
-        this.reward.rewardMe();
-      }
-      
-    }
-  };
-
   addCounter = () => {
     this.setState(prevState => {
       return {
         count: prevState.count + 1
       };
+    });
+  };
+
+  resetCounter = () => {
+    this.setState({
+      count: 0
     });
   };
 
@@ -106,7 +82,7 @@ class Container extends Component {
 
   updateVerbTenses = event => {
     this.setState({
-      Level: event.target.value
+      level: event.target.value
     });
     this.handleRefresh();
   };
@@ -114,7 +90,7 @@ class Container extends Component {
   filterData = event => {
     event.preventDefault();
 
-    let Level = parseInt(this.state.Level)
+    let Level = parseInt(this.state.level)
     if (
       this.state.NumberPerson === 'Spain'
     ) {
@@ -135,50 +111,20 @@ class Container extends Component {
 
   render() {
     console.log("Answer:", this.state.randomPerson[1])
-    const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
-    const { count, bestStreak, randomVerb, randomPerson } = this.state;
-    const {
-      infinitive,
-      tense_english,
-      mood_english
-    } = randomVerb;
+    const { randomVerb, randomPerson } = this.state;
     return (
       <div>
-        <div className="verb-info-wrapper">
-          <div className='verb-streak'>
-            <div className='current-best-streak'>
-              <div className='streak'>current streak:</div>
-              <div className='twenty-four'>{count}</div>
-            </div>
-            <Reward
-              ref={(ref) => { this.reward = ref }}
-              type='emoji'
-            >
-              <div className='current-best-streak'>
-                <div className='streak'>best streak:</div>
-                <div className='twenty-four'>{bestStreak} <span role='img' aria-label='salsa dancer'>💃</span></div>
-              </div>
-            </Reward>
-            <div className='current-best-streak'>
-                <div className='streak'>percentage:</div>
-                <div className='twenty-four'>{percentage}%</div>
-              </div>
-          </div>
-          <Info
-            infinitive={infinitive}
-            tense_english={tense_english}
-            mood_english={mood_english}
-          />
-        </div>
         <Input
-          state={this.state}
+          data={this.state.data}
           randomPerson={randomPerson}
           randomVerb={randomVerb}
           randomize={this.randomize}
           addCounter={this.addCounter}
+          resetCounter={this.resetCounter}
           addStreak={this.addStreak}
+          count={this.state.count} 
         />
-        <Settings handleRefresh={this.handleRefresh}
+        <Settings 
         filterData={this.filterData}
         updateVerbTenses={this.updateVerbTenses}
         updateNumPerson={this.updateNumPerson}

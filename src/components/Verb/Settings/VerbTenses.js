@@ -1,15 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const SettingsText = styled.p`
-  font-size: 0.8rem;
-  font-weight: bold;
-`;
 
 const VerbTenses = props => {
   return (
     <div>
-      <SettingsText>Difficulty</SettingsText>
+      <p className="settings-text">Difficulty</p>
       <select onChange={props.updateVerbTenses}>
         <option value='0' defaultValue="Beginner">
           Level One
