@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 
 import '../../app.css';
 
-import Info from './Info';
 import Settings from './Settings/Settings';
 import { spainSpanish, latamSpanish } from '../NumPersonFilters';
 import { VerbTenseFilters } from '../VerbTensesFilters';
 import Input from './Input';
-import Reward from 'react-rewards';
 
 const initialState = {
   correct: false,
@@ -20,8 +18,6 @@ class Container extends Component {
     super(props);
     this.state = {
       ...initialState,
-      count: 0,
-      bestStreak: 0,
       data: latamSpanish(VerbTenseFilters[0]),
       NumberPerson: 'Latam',
       VerbTenses: 'Beginner',
@@ -61,20 +57,6 @@ class Container extends Component {
       ...initialState
     });
     this.randomize();
-  };
-
-  addStreak = () => {
-    if (this.state.count >= this.state.bestStreak) {
-      this.setState(prevState => {
-        return {
-          bestStreak: prevState.bestStreak + 1
-        };
-      })
-      if (this.state.bestStreak % 5 === 0) {
-        this.reward.rewardMe();
-      }
-      
-    }
   };
 
   addCounter = () => {
@@ -128,41 +110,9 @@ class Container extends Component {
 
   render() {
     console.log("Answer:", this.state.randomPerson[1])
-    const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
-    const { count, bestStreak, randomVerb, randomPerson } = this.state;
-    const {
-      infinitive,
-      tense_english,
-      mood_english
-    } = randomVerb;
+    const { randomVerb, randomPerson } = this.state;
     return (
       <div>
-        <div className="verb-info-wrapper">
-          <div className='verb-streak'>
-            <div className='current-best-streak'>
-              <div className='streak'>current streak:</div>
-              <div className='twenty-four'>{count}</div>
-            </div>
-            <Reward
-              ref={(ref) => { this.reward = ref }}
-              type='emoji'
-            >
-              <div className='current-best-streak'>
-                <div className='streak'>best streak:</div>
-                <div className='twenty-four'>{bestStreak} <span role='img' aria-label='salsa dancer'>💃</span></div>
-              </div>
-            </Reward>
-            <div className='current-best-streak'>
-                <div className='streak'>percentage:</div>
-                <div className='twenty-four'>{percentage}%</div>
-              </div>
-          </div>
-          <Info
-            infinitive={infinitive}
-            tense_english={tense_english}
-            mood_english={mood_english}
-          />
-        </div>
         <Input
           data={this.state.data}
           randomPerson={randomPerson}
@@ -171,6 +121,7 @@ class Container extends Component {
           addCounter={this.addCounter}
           resetCounter={this.resetCounter}
           addStreak={this.addStreak}
+          count={this.state.count} 
         />
         <Settings 
         filterData={this.filterData}
