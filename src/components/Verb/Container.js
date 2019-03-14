@@ -111,6 +111,8 @@ class Container extends Component {
 
   render() {
     console.log("Answer:", this.state.randomPerson[1])
+    console.log("Data ==>", this.state.data)
+    console.log("Random person ===", randomPerson)
     const { randomVerb, randomPerson } = this.state;
     return (
       <div>

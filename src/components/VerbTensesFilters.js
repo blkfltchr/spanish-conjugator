@@ -6,11 +6,12 @@ const LevelOne = beginnerData.filter(
     (verb.tense_english === 'Present' && verb.mood_english === 'Indicative')
 );
 
-const LevelTwo = beginnerData.filter(
+const Two = beginnerData.filter(
   verb =>
-    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
     (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative')
 );
+
+const LevelTwo = LevelOne.concat(Two)
 
 const LevelThree = miniData.filter(
   verb =>
@@ -18,34 +19,28 @@ const LevelThree = miniData.filter(
     (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative')
 );
 
-const LevelFour = miniData.filter(
+const Four = miniData.filter(
   verb =>
-    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
-    (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative') ||
     ((verb.tense_english === 'Present Perfect' &&
     verb.mood_english === 'Indicative'))
     );
 
-const LevelFive = miniData.filter(
+const LevelFour = LevelThree.concat(Four)
+
+const Five = miniData.filter(
   verb =>
-    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
-    (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative') ||
-    ((verb.tense_english === 'Present Perfect' &&
-    verb.mood_english === 'Indicative')) ||
     ((verb.tense_english === 'Future' && verb.mood_english === 'Indicative'))
 )
 
-const LevelSix = miniData.filter(
+const LevelFive = LevelFour.concat(Five)
+
+const Six = miniData.filter(
   verb =>
-    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
-    (verb.tense_english === 'Preterite' &&
-      verb.mood_english === 'Indicative') ||
-    (verb.tense_english === 'Conditional' &&
-      verb.mood_english === 'Indicative') ||
-    ((verb.tense_english === 'Future' && verb.mood_english === 'Indicative') ||
-      (verb.tense_english === 'Present Perfect' &&
+      ((verb.tense_english === 'Present Perfect' &&
         verb.mood_english === 'Indicative'))
 );
+
+const LevelSix = LevelFive.concat(Six)
 
 const VerbTenseFilters = [LevelOne, LevelTwo, LevelThree, LevelFour, LevelFive, LevelSix, miniData]
 
