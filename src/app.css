@@ -106,8 +106,6 @@ body {
   font-weight: 800;
 }
 
-/* Input styles */
-
 .input-section {
   display: flex;
   flex-wrap: nowrap;
@@ -115,6 +113,7 @@ body {
   align-content: flex-end;
   align-items: flex-end;
   margin: 7% 0% 2% 0%;
+  position: relative;
 }
 
 .input-section input {
@@ -191,12 +190,16 @@ body {
   height: 60px;
   margin-bottom: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
 .settings-text {
   font-size: 0.8rem;
   font-weight: bold;
+}
+
+.settings-dropdown {
+  margin: 0 25px;
 }
 
 .settings-buttons-hide {
@@ -207,18 +210,13 @@ body {
   font-size: 0.8rem;
   font-family: 'Open Sans';
   border-radius: 5px;
-  margin-top: 6%;
   font-weight: 700;
-  padding: 5px 10px;
-  border: none;
-  background-color:inherit;
+  height: 30px;
+  margin: 25px;
+  background-color:lightgray;
   width: 110px;
   float: left;
   text-align: center;
-}
-
-.button-options:focus {
-  outline:0;
 }
 
 

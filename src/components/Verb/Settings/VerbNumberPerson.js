@@ -2,7 +2,7 @@ import React from 'react';
 
 const VerbNumberPerson = props => {
   return (
-    <div>
+    <div className="settings-dropdown">
       <p className="settings-text">Spanish Type</p>
       <select onChange={props.updateNumPerson}>
         <option value="Latam">Latin America</option>
