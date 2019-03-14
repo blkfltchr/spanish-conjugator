@@ -190,12 +190,16 @@ body {
   height: 60px;
   margin-bottom: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
 .settings-text {
   font-size: 0.8rem;
   font-weight: bold;
+}
+
+.settings-dropdown {
+  margin: 0 25px;
 }
 
 .settings-buttons-hide {
@@ -213,10 +217,6 @@ body {
   width: 110px;
   float: left;
   text-align: center;
-}
-
-.button-options:focus {
-  outline:0;
 }
 
 

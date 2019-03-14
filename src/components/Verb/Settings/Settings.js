@@ -26,12 +26,12 @@ class Settings extends Component {
     const display = 'settings-buttons-display';
     return (
       <div className="settings">
+        <button onClick={this.changeSettings} className="button-options">
+          {this.state.updateSettings ? 'Update level' : 'Change level'}
+        </button>
         <div className={this.state.updateSettings ? display : hide}>
             <VerbTenses updateVerbTenses={this.props.updateVerbTenses} />
         </div>
-          <button onClick={this.changeSettings} className="button-options">
-            {this.state.updateSettings ? 'Update level' : 'Change level'}
-          </button>
         <div className={this.state.updateSettings ? display : hide}>
             <NumberPerson updateNumPerson={this.props.updateNumPerson} />
         </div>

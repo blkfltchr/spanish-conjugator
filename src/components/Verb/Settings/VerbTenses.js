@@ -2,7 +2,7 @@ import React from 'react';
 
 const VerbTenses = props => {
   return (
-    <div>
+    <div className="settings-dropdown">
       <p className="settings-text">Difficulty</p>
       <select onChange={props.updateVerbTenses}>
         <option value='0' defaultValue="Beginner">
