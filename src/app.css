@@ -206,11 +206,10 @@ body {
   font-size: 0.8rem;
   font-family: 'Open Sans';
   border-radius: 5px;
-  margin-top: 6%;
   font-weight: 700;
-  padding: 5px 10px;
-  border: none;
-  background-color:inherit;
+  height: 30px;
+  margin: 25px;
+  background-color:lightgray;
   width: 110px;
   float: left;
   text-align: center;
