@@ -106,8 +106,6 @@ body {
   font-weight: 800;
 }
 
-/* Input styles */
-
 .input-section {
   display: flex;
   flex-wrap: nowrap;
@@ -115,6 +113,7 @@ body {
   align-content: flex-end;
   align-items: flex-end;
   margin: 7% 0% 2% 0%;
+  position: relative;
 }
 
 .input-section input {

@@ -3,10 +3,12 @@ import Person from './Person';
 import AccentButtons from './AccentButtons';
 import Info from './Info';
 import Reward from 'react-rewards';
+import Checkmark from '../Checkmark/Checkmark';
 
 const initialState = {
   value: '',
-  helperText: null
+  helperText: null,
+  correct: false
 };
 
 class Input extends Component {
@@ -15,15 +17,15 @@ class Input extends Component {
     this.state = {
       value: '',
       bestStreak: 0,
-      helperText: null,
       totalAnswers: 0,
       correctAnswers: 0,
-      answered: false
+      answered: false,
     }
   }
 
   handleChange = event => {
     this.setState({
+      correct: false,
       value: event.target.value
     });
   };
@@ -49,7 +51,7 @@ class Input extends Component {
           totalAnswers: prevState.totalAnswers + 1
         };
       });
-      alert('Correct!')
+      // alert('Correct!')
       this.handleRefresh();
       this.setState({
         correct: true
@@ -88,7 +90,8 @@ class Input extends Component {
 
   handleRefresh = () => {
     this.setState({
-      ...initialState
+      ...initialState,
+      correct: false
     });
     this.props.randomize();
   };
@@ -108,13 +111,9 @@ class Input extends Component {
 
   render() {
     const { randomPerson, randomVerb, count } = this.props;
-    const {helperText, value, answered, bestStreak} = this.state
+    const { helperText, value, answered, bestStreak, correct } = this.state
+    const { infinitive, tense_english, mood_english } = randomVerb;
     const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Submit'
-    const {
-      infinitive,
-      tense_english,
-      mood_english
-    } = randomVerb;
     const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
     return (
       <div>
@@ -155,6 +154,7 @@ class Input extends Component {
               onChange={this.handleChange}
               className="input"
               />
+              <Checkmark correct={correct} />
           </div>
           <div className="text-under-input">
               <AccentButtons addAccent={this.addAccent} />
