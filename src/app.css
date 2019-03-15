@@ -38,6 +38,12 @@ body {
   }
 }
 
+@media only screen and (max-width: 450px) {
+  .app-wrapper {
+    width: 95vw;
+  }
+}
+
 /* Header styles */
 
 .header {
@@ -45,6 +51,12 @@ body {
   background: white;
   height: 90px;
   padding-top: 5px;
+}
+
+@media only screen and (max-width: 390px) {
+  .header {
+    height: 130px;
+  }
 }
 
 .header h2 {
@@ -202,6 +214,12 @@ body {
   margin: 0 25px;
 }
 
+@media only screen and (max-width: 630px) {
+  .settings-dropdown {
+    margin: 0;
+  }
+}
+
 .settings-buttons-hide {
   display: none;
 }
@@ -218,7 +236,6 @@ body {
   float: left;
   text-align: center;
 }
-
 
 /* Hover text styles */
 
