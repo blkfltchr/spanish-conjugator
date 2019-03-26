@@ -29,14 +29,14 @@ class Settings extends Component {
         <button onClick={this.changeSettings} className="button-options">
           {this.state.updateSettings ? 'Update level' : 'Change level'}
         </button>
+      <div className="two-dropdowns">
         <div className={this.state.updateSettings ? display : hide}>
             <VerbTenses updateVerbTenses={this.props.updateVerbTenses} />
         </div>
         <div className={this.state.updateSettings ? display : hide}>
             <NumberPerson updateNumPerson={this.props.updateNumPerson} />
         </div>
-        <div>
-        </div>
+      </div>
       </div>
     );
   }

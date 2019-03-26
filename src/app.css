@@ -178,10 +178,11 @@ body {
   padding: 10px 15px;
   color: white;
   background-color: blue;
-  width: 100%;
+  width: 70%;
   position: absolute;
   z-index: 0;
   bottom: 0;
+  left: 15%;
 }
 
 /* Font styles */
@@ -199,10 +200,15 @@ body {
 /* Settings styles */
 
 .settings {
-  height: 60px;
   margin-bottom: 10px;
   display: flex;
-  justify-content: left;
+  flex-direction: column;
+  align-items: center;
+  height: 130px;
+}
+
+.two-dropdowns {
+  display: flex;
 }
 
 .settings-text {
@@ -211,13 +217,7 @@ body {
 }
 
 .settings-dropdown {
-  margin: 0 25px;
-}
-
-@media only screen and (max-width: 630px) {
-  .settings-dropdown {
-    margin: 0;
-  }
+  margin: 10px;
 }
 
 .settings-buttons-hide {
@@ -230,7 +230,7 @@ body {
   border-radius: 5px;
   font-weight: 700;
   height: 30px;
-  margin: 25px;
+  margin: 10px;
   background-color:lightgray;
   width: 110px;
   float: left;
