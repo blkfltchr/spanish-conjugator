@@ -197,6 +197,11 @@ body {
   text-transform: uppercase;
 }
 
+.twenty-four span {
+  font-weight: 400;
+  text-transform: none;
+}
+
 /* Settings styles */
 
 .settings {
