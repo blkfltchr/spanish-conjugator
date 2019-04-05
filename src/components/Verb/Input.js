@@ -112,9 +112,10 @@ class Input extends Component {
   render() {
     const { randomPerson, randomVerb, count } = this.props;
     const { helperText, value, answered, bestStreak, correct } = this.state
-    const { infinitive, tense_english, mood_english } = randomVerb;
+    const { infinitive, tense_english, mood_english, infinitive_english } = randomVerb;
     const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Submit'
     const percentage = this.state.totalAnswers < 1 ? 0 : ((this.state.correctAnswers/this.state.totalAnswers) * 100).toFixed(0)
+    console.log(infinitive_english)
     return (
       <div>
         <div className="verb-info-wrapper">
@@ -139,6 +140,7 @@ class Input extends Component {
           </div>
           <Info
             infinitive={infinitive}
+            infinitive_english={infinitive_english}
             tense_english={tense_english}
             mood_english={mood_english}
           />
