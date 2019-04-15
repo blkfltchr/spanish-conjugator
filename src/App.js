@@ -4,7 +4,9 @@ import Header from "./components/Header";
 
 import Container from "./components/Verb/Container";
 
-import Modal from "./components/Modal/Modal"
+import Modal from "./components/Modal/Modal";
+
+import Login from "./components/Login/Login";
 
     class App extends Component {
 
@@ -32,6 +34,7 @@ import Modal from "./components/Modal/Modal"
       return(
       <div className="app">
           <Header />
+          <Login />
         <div className="app-wrapper">
           { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
           <Container />
