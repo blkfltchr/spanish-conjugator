@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-import Header from "./components/Header";
+import Header from "./components/Layout/Header";
 
-import Container from "./components/Verb/Container";
+import Container from "./components/Verb/index";
 
-import Modal from "./components/Modal/Modal"
+import Modal from "./components/Modal/Modal";
 
     class App extends Component {
 

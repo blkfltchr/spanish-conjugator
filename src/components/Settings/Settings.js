@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import VerbTenses from './VerbTenses';
 import NumberPerson from './VerbNumberPerson';
-import '../../../app.css';
+import '../../app.css';
 
 class Settings extends Component {
   constructor(props) {

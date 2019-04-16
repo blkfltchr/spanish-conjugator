@@ -1,5 +1,5 @@
-import miniData from '../miniData';
-import beginnerData from '../beginnerData'
+import miniData from '../../data/miniData';
+import beginnerData from '../../data/beginnerData'
 
 const LevelOne = beginnerData.filter(
   verb =>

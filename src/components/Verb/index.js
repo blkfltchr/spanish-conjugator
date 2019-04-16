@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import '../../app.css';
 
-import Settings from './Settings/Settings';
-import { spainSpanish, latamSpanish } from '../NumPersonFilters';
-import { VerbTenseFilters } from '../VerbTensesFilters';
+import Settings from '../Settings/Settings';
+import { spainSpanish, latamSpanish } from '../Filters/NumPersonFilters';
+import { VerbTenseFilters } from '../Filters/VerbTensesFilters';
 import Input from './Input';
 
 const initialState = {
