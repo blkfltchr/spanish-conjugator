@@ -36,9 +36,6 @@ class Settings extends Component {
         <div className={this.state.updateSettings ? display : hide}>
             <NumberPerson updateNumPerson={this.props.updateNumPerson} />
         </div>
-        {/* <div className={this.state.updateSettings ? display : hide}>    
-          <i className="fas fa-info-circle"></i>
-        </div> */}
       </div>
       </div>
     );
