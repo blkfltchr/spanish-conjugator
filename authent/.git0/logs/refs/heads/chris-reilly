@@ -1,0 +1,15 @@
+0000000000000000000000000000000000000000 e3efe5e0f31a27881af148433dcb3966fba0d169 duckets615 <33557104+duckets615@users.noreply.github.com> 1554465126 -0400	branch: Created from HEAD
+e3efe5e0f31a27881af148433dcb3966fba0d169 1490d3a640e331ba3a4e239e013f4a2f35a869fc duckets615 <33557104+duckets615@users.noreply.github.com> 1554485028 -0400	commit: server setup, packages, init commit
+1490d3a640e331ba3a4e239e013f4a2f35a869fc a88fc3e173849caf2336c31e9c23e4d3271b2f7e duckets615 <33557104+duckets615@users.noreply.github.com> 1554485587 -0400	commit: req web token, key
+a88fc3e173849caf2336c31e9c23e4d3271b2f7e 7172294b622cc55399e0b213d34094cd703099e0 duckets615 <33557104+duckets615@users.noreply.github.com> 1554485639 -0400	commit: generate token
+7172294b622cc55399e0b213d34094cd703099e0 68bdd965078ca5fdb0f27addb01998a028aa7ffa duckets615 <33557104+duckets615@users.noreply.github.com> 1554485764 -0400	commit: authenticate
+68bdd965078ca5fdb0f27addb01998a028aa7ffa c1a274cf78b66bbed61c4850ea61921f0fb79dac duckets615 <33557104+duckets615@users.noreply.github.com> 1554486400 -0400	commit: server setup
+c1a274cf78b66bbed61c4850ea61921f0fb79dac 6a052fcfba83c24ffcb95da82a0bf046a4268f6e duckets615 <33557104+duckets615@users.noreply.github.com> 1554487169 -0400	commit: register
+6a052fcfba83c24ffcb95da82a0bf046a4268f6e 520d2439f869f209d371e8a6eefcc9129d07e97f duckets615 <33557104+duckets615@users.noreply.github.com> 1554487254 -0400	commit: login
+520d2439f869f209d371e8a6eefcc9129d07e97f 27ff17072f18f4d3a0dbb50cdbdd3ac0782b1d44 duckets615 <33557104+duckets615@users.noreply.github.com> 1554487269 -0400	commit: get jokes
+27ff17072f18f4d3a0dbb50cdbdd3ac0782b1d44 c9ecc6af0c36a8a1b05199048abc0069949da161 duckets615 <33557104+duckets615@users.noreply.github.com> 1554487367 -0400	commit: short answers, MVP
+c9ecc6af0c36a8a1b05199048abc0069949da161 27ff17072f18f4d3a0dbb50cdbdd3ac0782b1d44 duckets615 <33557104+duckets615@users.noreply.github.com> 1554487372 -0400	reset: moving to HEAD~
+27ff17072f18f4d3a0dbb50cdbdd3ac0782b1d44 c657f5bd1cb97c181003999184e49d9520acac31 duckets615 <33557104+duckets615@users.noreply.github.com> 1554487374 -0400	commit: short answers, MVP
+c657f5bd1cb97c181003999184e49d9520acac31 6e05b2d7de956a7deb2778186e66aaaac180cff2 duckets615 <33557104+duckets615@users.noreply.github.com> 1554487528 -0400	commit: bug fix
+6e05b2d7de956a7deb2778186e66aaaac180cff2 596b5edcd2c54418f15fabd7bf9173ec591a8981 duckets615 <33557104+duckets615@users.noreply.github.com> 1554489215 -0400	commit: bug fix
+596b5edcd2c54418f15fabd7bf9173ec591a8981 b0ed722c244e2c7e63859dd94b6b4808b09bcc71 duckets615 <33557104+duckets615@users.noreply.github.com> 1555367993 -0400	commit: bug fix
