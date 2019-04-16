@@ -8,7 +8,7 @@ body {
   background-color: #f6f9fc;
 }
 
-.app-wrapper {
+.home-wrapper {
   margin-top: 10px;
   padding: 10px 0;
   background-color: #f6f9fc;
@@ -17,7 +17,7 @@ body {
 /* Desktop styles */
 
 @media only screen and (min-width: 630px) {
-  .app-wrapper {
+  .home-wrapper {
     width: 580px;
     margin: 0 auto;
   }
@@ -32,14 +32,14 @@ body {
 }
 
 @media only screen and (max-width: 630px) {
-  .app-wrapper {
+  .home-wrapper {
     width: 380px;
     margin: 0 auto;
   }
 }
 
 @media only screen and (max-width: 450px) {
-  .app-wrapper {
+  .home-wrapper {
     width: 95vw;
   }
 }
