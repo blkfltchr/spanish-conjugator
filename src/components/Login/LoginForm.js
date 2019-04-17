@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class LoginForm extends Component {
       e.preventDefault();
       
       this.setState({ username: "", password: ""});
-      // this.props.history.push("");
+      this.props.history.push("/");
     };
   
 
@@ -26,6 +27,13 @@ class LoginForm extends Component {
       const { username, password} = this.state;
 
       return (
+        <div>
+
+        <div className='Login-header'>
+            <h1>Conjugator</h1>
+        </div>
+
+        <h2>Login</h2>
       
         <form className="form" onSubmit={this.formSubmit}>
           <input
@@ -42,10 +50,12 @@ class LoginForm extends Component {
             placeholder="Enter password..."
             onChange={this.handleInputChange}
           />
-           <button type="submit">Login</button>
-  
-          
+          <div className="button">
+           <button type="submit">Sign in</button>
+           </div>
+           <Link to='/Register'><button>New to Conjugator? Register here</button></Link>
         </form>
+        </div>
       );
     }
   }

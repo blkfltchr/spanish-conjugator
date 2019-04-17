@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 class RegisterForm extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class RegisterForm extends Component {
       e.preventDefault();
       
       this.setState({ username: "", password: "", email: "", });
-      // this.props.history.push("");
+      this.props.history.push("/");
     };
   
 
@@ -27,6 +28,14 @@ class RegisterForm extends Component {
       const { username, password, email } = this.state;
 
       return (
+      <div>
+
+        <div className='Login-header'>
+          <h1>Conjugator</h1>
+        </div>
+
+        <h2>Create an account</h2>
+        
         <form className="form" onSubmit={this.formSubmit}>
           <input
             type="text"
@@ -43,17 +52,20 @@ class RegisterForm extends Component {
             onChange={this.handleInputChange}
           />
           
-            <input
-              type="text"
-              value={email}
-              name="email"
-              placeholder="Enter email..."
-              onChange={this.handleInputChange}
-            />
+          <input
+            type="text"
+            value={email}
+            name="email"
+            placeholder="Enter email..."
+            onChange={this.handleInputChange}
+          />
           
-  
-          <button type="submit">Register</button>
-        </form>
+            <div className="button">
+            <button type="submit">Register</button>
+            </div>
+            <Link to='/Login'><button>Already registered? Sign in</button></Link>
+          </form>
+        </div>
       );
     }
   }

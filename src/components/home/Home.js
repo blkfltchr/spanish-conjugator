@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-
+import { Link } from 'react-router-dom';
 import Header from "../Header";
-
 import Container from "../Verb/Container";
-
 import Modal from "../Modal/Modal";
 
-// import RegisterForm from "./components/Login/RegisterForm";
 
-// import LoginForm from "./components/Login/LoginForm";
 
     class Home extends Component {
 
@@ -41,9 +37,13 @@ import Modal from "../Modal/Modal";
           <Container />
           <div className="made-with-love" onClick={this.openModalHandler}>Made with <span role="img" aria-label="heart">❤️</span> in <span role="img" aria-label="colombia">🇨🇴</span></div>
           <Modal
-					show={this.state.isShowing}
-					close={this.closeModalHandler} 
+            show={this.state.isShowing}
+            close={this.closeModalHandler} 
           />
+        </div>
+        <div>
+            <Link to='/Login'><button>Login</button></Link>
+            <Link to='/Register'><button>Register</button></Link>
         </div>
       </div>
       
