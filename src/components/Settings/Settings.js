@@ -1,45 +1,61 @@
 import React, { Component } from 'react';
+import '../../app.css';
+import PropTypes from 'prop-types';
 import VerbTenses from './VerbTenses';
 import NumberPerson from './VerbNumberPerson';
-import '../../app.css';
 
 class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      updateSettings: false
+      updateSettings: false,
     };
   }
+
   changeSettings = event => {
+    const { updateSettings } = this.state;
+    const { filterData } = this.props;
     event.preventDefault();
     this.setState({
-      updateSettings: !this.state.updateSettings
+      updateSettings: !updateSettings,
     });
-    if(this.state.updateSettings) {
-      alert('Your settings are updated.')
-      this.props.filterData(event)
+    if (updateSettings) {
+      alert('Your settings are updated.');
+      filterData(event);
     }
   };
 
   render() {
     const hide = 'settings-buttons-hide';
     const display = 'settings-buttons-display';
+    const { updateSettings } = this.state;
+    const { updateVerbTenses, updateNumPerson } = this.props;
     return (
       <div className="settings">
-        <button onClick={this.changeSettings} className="button-options">
-          {this.state.updateSettings ? 'Update level' : 'Change level'}
+        <button
+          type="button"
+          onClick={this.changeSettings}
+          className="button-options"
+        >
+          {updateSettings ? 'Update level' : 'Change level'}
         </button>
-      <div className="two-dropdowns">
-        <div className={this.state.updateSettings ? display : hide}>
-            <VerbTenses updateVerbTenses={this.props.updateVerbTenses} />
+        <div className="two-dropdowns">
+          <div className={updateSettings ? display : hide}>
+            <VerbTenses updateVerbTenses={updateVerbTenses} />
+          </div>
+          <div className={updateSettings ? display : hide}>
+            <NumberPerson updateNumPerson={updateNumPerson} />
+          </div>
         </div>
-        <div className={this.state.updateSettings ? display : hide}>
-            <NumberPerson updateNumPerson={this.props.updateNumPerson} />
-        </div>
-      </div>
       </div>
     );
   }
 }
+
+Settings.propTypes = {
+  updateVerbTenses: PropTypes.bool,
+  updateNumPerson: PropTypes.bool,
+  filterData: PropTypes.func,
+};
 
 export default Settings;

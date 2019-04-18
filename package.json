@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "eslint-plugin-jsx-a11y": "^6.2.1",
+    "prop-types": "^15.7.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-rewards": "^1.0.7",
