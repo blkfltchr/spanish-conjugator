@@ -91,16 +91,16 @@ class Container extends Component {
 
   filterData = event => {
     event.preventDefault();
-
-    const Level = parseInt(this.state.level);
-    if (this.state.NumberPerson === 'Spain') {
+    const { level, NumberPerson } = this.state;
+    const Level = parseInt(level);
+    if (NumberPerson === 'Spain') {
       const spainSpan = spainSpanish(VerbTenseFilters[Level]);
       this.setState({
         data: spainSpan,
       });
     }
 
-    if (this.state.NumberPerson === 'Latam') {
+    if (NumberPerson === 'Latam') {
       const latamSpan = latamSpanish(VerbTenseFilters[Level]);
       this.setState({
         data: latamSpan,
