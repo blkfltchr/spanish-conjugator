@@ -20,9 +20,6 @@ class Container extends Component {
       ...initialState,
       data: latamSpanish(VerbTenseFilters[0]),
       NumberPerson: 'Latam',
-      VerbTenses: 'Beginner',
-      totalAnswers: 0,
-      correctAnswers: 0,
       level: 0,
       count: 0,
     };
@@ -33,17 +30,14 @@ class Container extends Component {
   }
 
   randomize = () => {
-    let randomVerb = this.state.data[
-      Math.floor(Math.random() * this.state.data.length)
-    ];
+    const { data } = this.state;
+    let randomVerb = data[Math.floor(Math.random() * data.length)];
     let randomPerson = Object.entries(randomVerb)[
       Math.floor(Math.random() * 5) + 7
     ];
     // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
     do {
-      randomVerb = this.state.data[
-        Math.floor(Math.random() * this.state.data.length)
-      ];
+      randomVerb = data[Math.floor(Math.random() * data.length)];
       randomPerson = Object.entries(randomVerb)[
         Math.floor(Math.random() * 5) + 7
       ];
@@ -110,19 +104,19 @@ class Container extends Component {
   };
 
   render() {
-    console.log('Answer:', this.state.randomPerson[1]);
-    const { randomVerb, randomPerson } = this.state;
+    const { randomVerb, randomPerson, data, count } = this.state;
+    console.log('Answer:', randomPerson[1]);
     return (
       <div>
         <Input
-          data={this.state.data}
+          data={data}
           randomPerson={randomPerson}
           randomVerb={randomVerb}
           randomize={this.randomize}
           addCounter={this.addCounter}
           resetCounter={this.resetCounter}
           addStreak={this.addStreak}
-          count={this.state.count}
+          count={count}
         />
         <Settings
           filterData={this.filterData}
