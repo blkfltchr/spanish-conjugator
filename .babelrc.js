@@ -5,5 +5,6 @@ module.exports = {
         {modules: process.env.NODE_ENV === 'test' ? 'commonjs' : false},
       ],
       '@babel/preset-react',
-    ]
+    ],
+    plugins: ['@babel/plugin-proposal-class-properties'],
   };

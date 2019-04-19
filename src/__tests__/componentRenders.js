@@ -4,26 +4,23 @@ import { render } from 'react-testing-library';
 
 import AccentButtons from '../components/Verb/AccentButtons';
 import Info from '../components/Verb/Info';
-// import Container from '../components/Verb/index';
-// import Input from '../components/Verb/Input';
 import Person from '../components/Verb/Person';
 import Streak from '../components/Verb/Streak';
+// import Container from '../components/Verb/index';
+// import Input from '../components/Verb/Input';
+
+import Checkmark from '../components/Checkmark/Checkmark';
+import Modal from '../components/Modal/Modal';
+
+// Testing components render in the /Verb folder
 
 test('AccentButtons component renders', () => {
   render(<AccentButtons />);
 });
 
-// test('Container component renders', () => {
-//   render(<Container />);
-// });
-
 test('Info component renders', () => {
   render(<Info />);
 });
-
-// test('Input component renders', () => {
-//   render(<Input />);
-// });
 
 test('Person component renders', () => {
   render(<Person />);
@@ -32,3 +29,23 @@ test('Person component renders', () => {
 test('Streak component renders', () => {
   render(<Streak />);
 });
+
+// Testing components render with .css imports
+
+test('Checkmark component renders', () => {
+  render(<Checkmark />);
+});
+
+test('Modal component renders', () => {
+  render(<Modal />);
+});
+
+// To be tested: Components with props
+
+// test('Container component renders', () => {
+//   render(<Container />);
+// });
+
+// test('Input component renders', () => {
+//   render(<Input />);
+// });
