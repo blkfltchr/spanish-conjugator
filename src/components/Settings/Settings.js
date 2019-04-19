@@ -53,8 +53,8 @@ class Settings extends Component {
 }
 
 Settings.propTypes = {
-  updateVerbTenses: PropTypes.bool,
-  updateNumPerson: PropTypes.bool,
+  updateVerbTenses: PropTypes.func,
+  updateNumPerson: PropTypes.func,
   filterData: PropTypes.func,
 };
 
