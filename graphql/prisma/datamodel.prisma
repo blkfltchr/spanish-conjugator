@@ -1,3 +1,0 @@
-type Verbs {
-  data: String!
-}

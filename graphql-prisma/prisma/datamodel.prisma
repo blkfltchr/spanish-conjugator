@@ -1,0 +1,20 @@
+type ConjDatabase {
+  form1p: String @db(name: "form_1p")
+  form1s: String @db(name: "form_1s")
+  form2p: String @db(name: "form_2p")
+  form2s: String @db(name: "form_2s")
+  form3p: String @db(name: "form_3p")
+  form3s: String @db(name: "form_3s")
+  gerund: String
+  gerundEnglish: String @db(name: "gerund_english")
+  index: Int! @id
+  infinitive: String
+  infinitiveEnglish: String @db(name: "infinitive_english")
+  mood: String
+  moodEnglish: String @db(name: "mood_english")
+  pastparticiple: String
+  pastparticipleEnglish: String @db(name: "pastparticiple_english")
+  tense: String
+  tenseEnglish: String @db(name: "tense_english")
+  verbEnglish: String @db(name: "verb_english")
+}
