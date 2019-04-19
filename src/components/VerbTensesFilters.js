@@ -21,7 +21,7 @@ const LevelThree = miniData.filter(
 
 const Four = miniData.filter(
   verb =>
-    ((verb.tense_english === 'Present Perfect' &&
+    ((verb.tense_english === 'Imperfect' &&
     verb.mood_english === 'Indicative'))
     );
 
