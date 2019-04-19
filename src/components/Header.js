@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className="header">
       <h2>
-        Bienvenidos, a la{' '}
+        Bienvenidos, al{' '}
         <span className="logo">
           Spanish Conjugator <span role="img" aria-label="colombia">🇪🇸</span>
         </span>
