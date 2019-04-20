@@ -5,7 +5,7 @@ import '../../app.css';
 import Settings from '../Settings/Settings';
 import { spainSpanish, latamSpanish } from '../Filters/NumPersonFilters';
 import { VerbTenseFilters } from '../Filters/VerbTensesFilters';
-import Input from './Input';
+import Container from './Container';
 
 const initialState = {
   correct: false,
@@ -108,7 +108,7 @@ class Verb extends Component {
     console.log('Answer:', randomPerson[1]);
     return (
       <div>
-        <Input
+        <Container
           data={data}
           randomPerson={randomPerson}
           randomVerb={randomVerb}

@@ -32,5 +32,3 @@ yarn-debug.log*
 yarn-error.log*
 
 .eslintrc
-
-/src/shared
