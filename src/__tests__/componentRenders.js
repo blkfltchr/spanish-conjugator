@@ -1,10 +1,10 @@
 import React from 'react';
-import { render } from 'react-testing-library';
+import { render } from 'test-utils';
+import ReactDOM from 'react-dom';
 
 import AccentButtons from '../components/Verb/AccentButtons';
 import Info from '../components/Verb/Info';
 import Person from '../components/Verb/Person';
-import Streak from '../components/Verb/Streak';
 // import Verb from '../components/Verb/index';
 // import Input from '../components/Verb/Input';
 
@@ -17,16 +17,18 @@ test('AccentButtons component renders', () => {
   render(<AccentButtons />);
 });
 
+test('AccentButtons renders six buttons', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<AccentButtons />, div);
+  expect(div.querySelectorAll('button')).toHaveLength(6);
+});
+
 test('Info component renders', () => {
   render(<Info />);
 });
 
 test('Person component renders', () => {
   render(<Person />);
-});
-
-test('Streak component renders', () => {
-  render(<Streak />);
 });
 
 // Testing components render with .css imports
