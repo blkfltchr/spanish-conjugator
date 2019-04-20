@@ -6,7 +6,7 @@ import AccentButtons from '../components/Verb/AccentButtons';
 import Info from '../components/Verb/Info';
 import Person from '../components/Verb/Person';
 import Streak from '../components/Verb/Streak';
-// import Container from '../components/Verb/index';
+// import Verb from '../components/Verb/index';
 // import Input from '../components/Verb/Input';
 
 import Checkmark from '../components/Checkmark/Checkmark';
@@ -42,8 +42,8 @@ test('Modal component renders', () => {
 
 // To be tested: Components with props
 
-// test('Container component renders', () => {
-//   render(<Container />);
+// test('Verb component renders', () => {
+//   render(<Verb />);
 // });
 
 // test('Input component renders', () => {

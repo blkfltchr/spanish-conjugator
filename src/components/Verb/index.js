@@ -13,7 +13,7 @@ const initialState = {
   randomPerson: [],
 };
 
-class Container extends Component {
+class Verb extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -128,4 +128,4 @@ class Container extends Component {
   }
 }
 
-export default Container;
+export default Verb;
