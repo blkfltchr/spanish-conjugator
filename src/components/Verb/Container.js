@@ -135,7 +135,6 @@ class Container extends Component {
         : 'Submit';
     const percentage =
       totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
-    console.log(infinitive_english);
     return (
       <div>
         <div className="verb-info-wrapper">
@@ -188,13 +187,17 @@ class Container extends Component {
 }
 
 Container.propTypes = {
-  randomPerson: PropTypes.string,
+  randomPerson: PropTypes.array,
   addCounter: PropTypes.func,
   resetCounter: PropTypes.func,
   data: PropTypes.array,
   randomVerb: PropTypes.object,
   randomize: PropTypes.func,
   count: PropTypes.number,
+};
+
+Container.defaultProps = {
+  randomPerson: ['answer', 'answer'],
 };
 
 export default Container;

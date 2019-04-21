@@ -6,7 +6,7 @@ import AccentButtons from '../components/Verb/AccentButtons';
 import Info from '../components/Verb/Info';
 import Person from '../components/Verb/Person';
 // import Verb from '../components/Verb/index';
-// import Input from '../components/Verb/Input';
+import Input from '../components/Verb/Input';
 
 import Checkmark from '../components/Checkmark/Checkmark';
 import Modal from '../components/Modal/Modal';
@@ -21,6 +21,7 @@ test('AccentButtons renders six buttons', () => {
   const div = document.createElement('div');
   ReactDOM.render(<AccentButtons />, div);
   expect(div.querySelectorAll('button')).toHaveLength(6);
+  expect(div.querySelector('button')).toHaveAttribute('type', 'button');
 });
 
 test('Info component renders', () => {
@@ -29,6 +30,14 @@ test('Info component renders', () => {
 
 test('Person component renders', () => {
   render(<Person />);
+});
+
+// test('Verb component renders', () => {
+//   render(<Verb />);
+// });
+
+test('Input component renders', () => {
+  render(<Input />);
 });
 
 // Testing components render with .css imports
@@ -40,13 +49,3 @@ test('Checkmark component renders', () => {
 test('Modal component renders', () => {
   render(<Modal />);
 });
-
-// To be tested: Components with props
-
-// test('Verb component renders', () => {
-//   render(<Verb />);
-// });
-
-// test('Input component renders', () => {
-//   render(<Input />);
-// });

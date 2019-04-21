@@ -105,7 +105,7 @@ class Verb extends Component {
 
   render() {
     const { randomVerb, randomPerson, data, count } = this.state;
-    console.log('Answer:', randomPerson[1]);
+    // console.log('Answer:', randomPerson[1]);
     return (
       <div>
         <Container

@@ -10,6 +10,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.css$': require.resolve('./test/test-mock.js'),
     '\\.jpeg$': require.resolve('./test/test-mock.js'),
+    '(react-rewards)': require.resolve('./test/test-mock.js'),
   },
   setupTestFrameworkScriptFile: require.resolve('./test/test-setup.js'),
 };

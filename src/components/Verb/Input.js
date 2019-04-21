@@ -24,7 +24,7 @@ class Input extends Component {
             <Person randomPerson={randomPerson[0]} />
             <input
               type="text"
-              value={value}
+              defaultValue={value}
               placeholder="Enter conjugated verb..."
               onChange={handleChange}
               className="input"
@@ -60,7 +60,7 @@ class Input extends Component {
 }
 
 Input.propTypes = {
-  randomPerson: PropTypes.string,
+  randomPerson: PropTypes.array,
   value: PropTypes.string,
   handleChange: PropTypes.func,
   correct: PropTypes.bool,
@@ -69,6 +69,14 @@ Input.propTypes = {
   helperText: PropTypes.string,
   handleSubmit: PropTypes.func,
   buttonText: PropTypes.string,
+};
+
+Input.defaultProps = {
+  randomPerson: ['answer', 'answer'],
+  value: '',
+  correct: false,
+  helperText: '',
+  buttonText: '',
 };
 
 export default Input;
