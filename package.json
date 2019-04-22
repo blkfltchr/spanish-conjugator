@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.4",
+    "graphql-yoga": "^1.17.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-rewards": "^1.0.7",
