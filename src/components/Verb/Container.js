@@ -5,16 +5,13 @@ import Info from './Info';
 import Input from './Input';
 
 const initialState = {
-  value: '',
   helperText: null,
-  correct: false,
 };
 
 class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
       bestStreak: 0,
       totalAnswers: 0,
       correctAnswers: 0,
@@ -22,16 +19,9 @@ class Container extends Component {
     };
   }
 
-  handleChange = event => {
-    this.setState({
-      correct: false,
-      value: event.target.value,
-    });
-  };
-
   handleSubmit = event => {
-    const { value, answered } = this.state;
-    const { randomPerson, addCounter, resetCounter } = this.props;
+    const { answered } = this.state;
+    const { value, randomPerson, addCounter, resetCounter } = this.props;
     event.preventDefault();
     const userInput = value.toLowerCase();
     if (answered === true) {
@@ -113,10 +103,9 @@ class Container extends Component {
   };
 
   render() {
-    const { randomPerson, randomVerb, count } = this.props;
+    const { randomPerson, randomVerb, count, value } = this.props;
     const {
       helperText,
-      value,
       answered,
       bestStreak,
       correct,
@@ -194,6 +183,7 @@ Container.propTypes = {
   randomVerb: PropTypes.object,
   randomize: PropTypes.func,
   count: PropTypes.number,
+  value: PropTypes.string,
 };
 
 Container.defaultProps = {
