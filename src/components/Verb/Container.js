@@ -1,139 +1,203 @@
 import React, { Component } from 'react';
-
-import '../../app.css';
-
-import Settings from './Settings/Settings';
-import { spainSpanish, latamSpanish } from '../NumPersonFilters';
-import { VerbTenseFilters } from '../VerbTensesFilters';
+import Reward from 'react-rewards';
+import PropTypes from 'prop-types';
+import Info from './Info';
 import Input from './Input';
 
 const initialState = {
+  value: '',
+  helperText: null,
   correct: false,
-  randomVerb: {},
-  randomPerson: []
 };
 
 class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ...initialState,
-      data: latamSpanish(VerbTenseFilters[0]),
-      NumberPerson: 'Latam',
-      VerbTenses: 'Beginner',
+      value: '',
+      bestStreak: 0,
       totalAnswers: 0,
       correctAnswers: 0,
-      level: 0,
-      count: 0
+      answered: false,
     };
   }
 
-  componentDidMount() {
-    this.randomize();
-  }
-
-  randomize = () => {
-    let randomVerb = this.state.data[
-      Math.floor(Math.random() * this.state.data.length)
-    ];
-    let randomPerson = Object.entries(randomVerb)[
-      Math.floor(Math.random() * 5) + 7
-    ];
-    // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
-    do {
-      randomVerb = this.state.data[
-        Math.floor(Math.random() * this.state.data.length)
-      ];
-      randomPerson = Object.entries(randomVerb)[
-            Math.floor(Math.random() * 5) + 7]
-    } while (randomPerson[1] === '' || randomVerb.mood_english === 'Imperative Negative')
+  handleChange = event => {
     this.setState({
-      randomVerb,
-      randomPerson
+      correct: false,
+      value: event.target.value,
+    });
+  };
+
+  handleSubmit = event => {
+    const { value, answered } = this.state;
+    const { randomPerson, addCounter, resetCounter } = this.props;
+    event.preventDefault();
+    const userInput = value.toLowerCase();
+    if (answered === true) {
+      this.setState(prevState => ({
+        totalAnswers: prevState.totalAnswers + 1,
+      }));
+      this.handleRefresh();
+      this.setState({
+        answered: false,
+      });
+    } else if (randomPerson[1] === userInput) {
+      addCounter();
+      this.setState(prevState => ({
+        correctAnswers: prevState.correctAnswers + 1,
+        totalAnswers: prevState.totalAnswers + 1,
+      }));
+      // alert('Correct!')
+      this.handleRefresh();
+      this.setState({
+        correct: true,
+      });
+      this.addStreak();
+    } else if (randomPerson[1] !== userInput) {
+      this.setState({
+        helperText: `False, the correct answer is ${randomPerson[1].toUpperCase()}.`,
+        answered: true,
+      });
+      resetCounter();
+    }
+  };
+
+  handleExample = event => {
+    const { data, randomVerb } = this.props;
+    const hablar = data.filter(verb => verb.infinitive === 'hablar');
+    const hablarTense = hablar.filter(
+      verb => verb.tense_english === randomVerb.tense_english
+    );
+    const hablarMood = hablarTense.filter(
+      verb => verb.mood_english === randomVerb.mood_english
+    );
+    const hablarExample = hablarMood[0];
+    event.preventDefault();
+    this.setState({
+      helperText: `Yo + Hablar + ${
+        randomVerb.tense_english
+      } = YO ${hablarExample.form_1s.toUpperCase()}`,
+    });
+  };
+
+  addAccent = event => {
+    event.preventDefault();
+    const { value } = this.state;
+    const accent = event.target.value;
+    this.setState({
+      value: value + accent,
     });
   };
 
   handleRefresh = () => {
+    const { randomize } = this.props;
     this.setState({
-      ...initialState
+      ...initialState,
+      correct: false,
     });
-    this.randomize();
+    randomize();
   };
 
-  addCounter = () => {
-    this.setState(prevState => {
-      return {
-        count: prevState.count + 1
-      };
-    });
-  };
-
-  resetCounter = () => {
-    this.setState({
-      count: 0
-    });
-  };
-
-  updateNumPerson = event => {
-    this.setState({
-      NumberPerson: event.target.value
-    });
-  };
-
-  updateVerbTenses = event => {
-    this.setState({
-      level: event.target.value
-    });
-    this.handleRefresh();
-  };
-
-  filterData = event => {
-    event.preventDefault();
-
-    let Level = parseInt(this.state.level)
-    if (
-      this.state.NumberPerson === 'Spain'
-    ) {
-      const spainSpan = spainSpanish(VerbTenseFilters[Level]);
-      this.setState({
-        data: spainSpan
-      });
+  addStreak = () => {
+    const { bestStreak } = this.state;
+    const { count } = this.props;
+    if (count >= bestStreak) {
+      this.setState(prevState => ({
+        bestStreak: prevState.bestStreak + 1,
+      }));
+      if (bestStreak % 5 === 0) {
+        this.reward.rewardMe();
+      }
     }
-
-    if (this.state.NumberPerson === 'Latam') {
-      const latamSpan = latamSpanish(VerbTenseFilters[Level])
-      this.setState({
-        data: latamSpan
-      })
-    }
-    this.handleRefresh()
   };
 
   render() {
-    console.log("Answer:", this.state.randomPerson[1])
-    console.log("Data ==>", this.state.data)
-    console.log("Random person ===", randomPerson)
-    const { randomVerb, randomPerson } = this.state;
+    const { randomPerson, randomVerb, count } = this.props;
+    const {
+      helperText,
+      value,
+      answered,
+      bestStreak,
+      correct,
+      totalAnswers,
+      correctAnswers,
+    } = this.state;
+    const {
+      infinitive,
+      tense_english,
+      mood_english,
+      infinitive_english,
+    } = randomVerb;
+    const buttonText =
+      randomPerson[1] !== value.toLowerCase() && answered
+        ? 'Next verb'
+        : 'Submit';
+    const percentage =
+      totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
     return (
       <div>
+        <div className="verb-info-wrapper">
+          <div className="verb-streak">
+            <div className="current-best-streak">
+              <div className="streak">current streak:</div>
+              <div className="twenty-four">{count}</div>
+            </div>
+            <Reward
+              ref={ref => {
+                this.reward = ref;
+              }}
+              type="emoji"
+            >
+              <div className="current-best-streak">
+                <div className="streak">best streak:</div>
+                <div className="twenty-four">
+                  {bestStreak}{' '}
+                  <span role="img" aria-label="salsa dancer">
+                    💃
+                  </span>
+                </div>
+              </div>
+            </Reward>
+            <div className="current-best-streak">
+              <div className="streak">percentage:</div>
+              <div className="twenty-four">{percentage}%</div>
+            </div>
+          </div>
+          <Info
+            infinitive={infinitive}
+            infinitive_english={infinitive_english}
+            tense_english={tense_english}
+            mood_english={mood_english}
+          />
+        </div>
         <Input
-          data={this.state.data}
+          helperText={helperText}
+          correct={correct}
+          value={value}
+          buttonText={buttonText}
+          addAccent={this.addAccent}
+          handleSubmit={this.handleSubmit}
           randomPerson={randomPerson}
-          randomVerb={randomVerb}
-          randomize={this.randomize}
-          addCounter={this.addCounter}
-          resetCounter={this.resetCounter}
-          addStreak={this.addStreak}
-          count={this.state.count} 
-        />
-        <Settings 
-        filterData={this.filterData}
-        updateVerbTenses={this.updateVerbTenses}
-        updateNumPerson={this.updateNumPerson}
+          handleChange={this.handleChange}
         />
       </div>
     );
   }
 }
+
+Container.propTypes = {
+  randomPerson: PropTypes.array,
+  addCounter: PropTypes.func,
+  resetCounter: PropTypes.func,
+  data: PropTypes.array,
+  randomVerb: PropTypes.object,
+  randomize: PropTypes.func,
+  count: PropTypes.number,
+};
+
+Container.defaultProps = {
+  randomPerson: ['answer', 'answer'],
+};
 
 export default Container;
