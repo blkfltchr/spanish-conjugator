@@ -137,7 +137,7 @@ class Input extends Component {
         : 'Submit';
     const percentage =
       totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
-    console.log(infinitive_english);
+    // console.log('Answer:', randomPerson[1]);
     return (
       <div>
         <div className="verb-info-wrapper">
@@ -215,13 +215,23 @@ class Input extends Component {
 }
 
 Input.propTypes = {
-  randomPerson: PropTypes.string,
+  randomPerson: PropTypes.array,
   addCounter: PropTypes.func,
   resetCounter: PropTypes.func,
   data: PropTypes.array,
   randomVerb: PropTypes.object,
   randomize: PropTypes.func,
   count: PropTypes.number,
+};
+
+Input.defaultProps = {
+  randomVerb: {
+    infinitive: '',
+    tense_english: '',
+    mood_english: '',
+    infinitive_english: '',
+  },
+  randomPerson: ['', ''],
 };
 
 export default Input;

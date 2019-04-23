@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../app.css';
 import PropTypes from 'prop-types';
 import VerbTenses from './VerbTenses';
-import NumberPerson from './VerbNumberPerson';
+import VerbRegion from './VerbRegion';
 
 class Settings extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class Settings extends Component {
             <VerbTenses updateVerbTenses={updateVerbTenses} />
           </div>
           <div className={updateSettings ? display : hide}>
-            <NumberPerson updateNumPerson={updateNumPerson} />
+            <VerbRegion updateNumPerson={updateNumPerson} />
           </div>
         </div>
       </div>
