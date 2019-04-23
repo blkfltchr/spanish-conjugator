@@ -23,6 +23,4 @@ test('Button click changes button text first time', () => {
   const button = getByText(/Change level/i);
   fireEvent.click(button);
   expect(button).toHaveTextContent('Update level');
-  fireEvent.click(button);
-  expect(button).toHaveTextContent('Change level');
 });

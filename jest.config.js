@@ -13,4 +13,6 @@ module.exports = {
     '(react-rewards)': require.resolve('./test/test-mock.js'),
   },
   setupTestFrameworkScriptFile: require.resolve('./test/test-setup.js'),
+  collectCoverageFrom: ['**/src/**/*/*.js'],
+  coveragePathIgnorePatterns: ['<rootDir>/src/data'],
 };
