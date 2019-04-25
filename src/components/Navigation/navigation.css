@@ -1,0 +1,20 @@
+nav {
+    margin-top: 25px;
+}
+
+nav a {
+    color: #003893;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.top-bar {
+    color: #003893;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-menu {
+    display: none;
+}
