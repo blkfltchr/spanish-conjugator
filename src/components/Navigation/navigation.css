@@ -35,7 +35,7 @@ nav a {
 }
 
 .nav-logo {
-	background: #003893;
+	background: #941511;
 	border: 1px solid black;
 	border-radius: 0 35px 25px 0;
 	color: #ffffff;
@@ -51,18 +51,12 @@ form {
 	padding: 25px;
 }
 
-input {
-	font-size: 16px;
-	text-align: center;
-	margin: 10px auto;
-	display: flex;
-	flex-direction: column;
-}
-
 .log-in-button {
-	background: #003893;
+	background: #ffc400;
 	border: 1px solid black;
-	color: white;
+	color: #000000;
+	margin: 0 10px;
+	padding: 5px 20px;
 }
 .log-in-button:hover {
 }
@@ -71,21 +65,60 @@ input {
 	background: #941511;
 	border: 1px solid black;
 	color: white;
+	margin: 0 10px;
+	padding: 5px 20px;
 }
 .sign-up-button:hover {
 }
 
-.register-button {
-	background: #003893;
+.sign-up-form {
+	display: flex;
+	flex-direction: column;
+	text-align: start;
+}
+
+.sign-up-input {
+	border-radius: 5px;
+	padding: 5px;
+	margin: 10px 0;
+	background-color: beige;
+}
+
+.form-button {
+	background: #ffc400;
 	border: 1px solid #000000;
+	border-radius: 10px;
 	box-shadow: 2px 2px 4px #000000;
-	color: white;
+	color: #000000;
 	cursor: pointer;
 	margin: 25px auto;
-	padding: 15px 75px;
+	padding: 10px 30px;
 	display: flex;
 }
-.register-button:hover {
-	background: greenyellow;
-	color: #003893;
+.form-button:hover {
+	background: #941511;
+	color: #ffffff;
+}
+
+span {
+	color: #941511;
+}
+
+.modal-header * {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	flex-wrap: wrap;
+}
+
+.modal-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-self: center;
+}
+
+.modal-footer {
+	background: #941511;
+	box-shadow: 1px 1px 1px #000000;
 }

@@ -29,15 +29,23 @@ class SignUp extends Component {
 						Sign Up
 					</button>
 					<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-						<ModalHeader toggle={this.toggle}>Spanish Conjugator</ModalHeader>
+						<ModalHeader toggle={this.toggle}>Sign Up</ModalHeader>
 						<ModalBody>
-							<form>
-								<input name="username" value="" placeholder="username" />
-								<input name="password" value="" placeholder="password" />
-								<input name="firstName" value="" placeholder="first name" />
-								<input name="lastName" value="" placeholder="last name" />
-								<input name="email" value="" placeholder="@example.com" />
-								<button className="register-button">Register</button>
+							<form className="sign-up-form">
+								<span>Username</span>
+								<input className="sign-up-input" name="username" value="" placeholder="Username" />
+								<span>Email</span>
+								<input className="sign-up-input" name="email" value="" placeholder="Email" />
+								<span>password</span>
+								<input className="sign-up-input" name="password" value="" placeholder="Password" />
+								<span>Retype Password</span>
+								<input
+									className="sign-up-input"
+									name="password"
+									value=""
+									placeholder="Retype password"
+								/>
+								<button className="form-button">Register</button>
 							</form>
 						</ModalBody>
 						<ModalFooter />

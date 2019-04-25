@@ -26,13 +26,19 @@ class Login extends Component {
 						Login
 					</button>
 					<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-						<ModalHeader toggle={this.toggle}>Spanish Conjugator</ModalHeader>
+						<ModalHeader toggle={this.toggle}>Login</ModalHeader>
 						<ModalBody>
-							<form>
-								<input name="username" value="" placeholder="username" />
-								<input name="password" value="" placeholder="password" />
+							<form className="sign-up-form">
+								<span>Username</span>
+								<input className="sign-up-input" name="username" value="" placeholder="username" />
+								<span>Password</span>
+								<input className="sign-up-input" name="password" value="" placeholder="password" />
+								<div>
+									<input className="sign-up-input" type="checkbox" name="remeber me" /> remember me{' '}
+									<br />
+								</div>
 							</form>
-							<button>Login</button>
+							<button className="form-button">Login</button>
 						</ModalBody>
 						<ModalFooter />
 					</Modal>
