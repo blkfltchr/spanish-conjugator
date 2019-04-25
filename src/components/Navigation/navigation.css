@@ -1,20 +1,91 @@
+/* Navigation Styling */
+
 nav {
-    margin-top: 25px;
+	margin-top: 25px;
+	color: #003893;
+	margin: 25px 10px 12px 10px;
+	text-decoration: none;
+	display: flex;
+	justify-content: space-between;
 }
 
 nav a {
-    color: #003893;
-    margin: 0 10px;
-    text-decoration: none;
+	margin: 0 10px;
+	text-decoration: none;
 }
 
 .top-bar {
-    color: #003893;
-    padding: 0 15px;
-    display: flex;
-    justify-content: space-between;
+	color: #003893;
+	padding: 0 15px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.default-menu {
+	color: #003893;
+	margin: 0 10px;
+	text-decoration: none;
+	display: flex;
 }
 
 .user-menu {
-    display: none;
+	margin: 0 10px;
+	text-decoration: none;
+	display: none;
+}
+
+.nav-logo {
+	background: #003893;
+	border: 1px solid black;
+	border-radius: 0 35px 25px 0;
+	color: #ffffff;
+	text-shadow: 1px 1px 4px #000000;
+	width: 30%;
+	display: flex;
+	justify-content: center;
+	align-self: center;
+}
+/* Sign Up Styling */
+
+form {
+	padding: 25px;
+}
+
+input {
+	font-size: 16px;
+	text-align: center;
+	margin: 10px auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.log-in-button {
+	background: #003893;
+	border: 1px solid black;
+	color: white;
+}
+.log-in-button:hover {
+}
+
+.sign-up-button {
+	background: #941511;
+	border: 1px solid black;
+	color: white;
+}
+.sign-up-button:hover {
+}
+
+.register-button {
+	background: #003893;
+	border: 1px solid #000000;
+	box-shadow: 2px 2px 4px #000000;
+	color: white;
+	cursor: pointer;
+	margin: 25px auto;
+	padding: 15px 75px;
+	display: flex;
+}
+.register-button:hover {
+	background: greenyellow;
+	color: #003893;
 }
