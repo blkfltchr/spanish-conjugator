@@ -12,12 +12,14 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "bootstrap": "^4.3.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-rewards": "^1.0.7",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "^3.0.0"
+    "react-scripts": "^3.0.0",
+    "reactstrap": "^8.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
