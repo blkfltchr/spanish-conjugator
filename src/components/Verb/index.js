@@ -36,7 +36,7 @@ function Verb (props) {
 
   useEffect(() => {
     randomize();
-  }, [randomVerb])
+  }, [correct])
 
   const randomize = () => {
     // const { data } = this.state;
