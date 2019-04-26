@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState , useEffect} from 'react';
 
 import '../../app.css';
 
@@ -7,30 +7,23 @@ import { spainSpanish, latamSpanish } from '../Filters/NumPersonFilters';
 import { VerbTenseFilters } from '../Filters/VerbTensesFilters';
 import Input from './Input';
 
-const initialState = {
-  correct: false,
-  randomVerb: {},
-  randomPerson: [],
-};
 
-class Verb extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      ...initialState,
-      data: latamSpanish(VerbTenseFilters[0]),
-      NumberPerson: 'Latam',
-      level: 0,
-      count: 0,
-    };
-  }
+const Verb = props => {
+  const [correct, setCorrect] = useState(false);
+  const [randomVerb, setRandomVerb] = useState({});
+  const [randomPerson, setRandomPerson] = useState([]);
+  const [data, setData] = useState(latamSpanish(VerbTenseFilters[0]));
+  const [NumberPerson, setNumberPerson ] = useState('Latam');
+  const [level, setLevel] = useState(0);
+  const [count, setCount]  = useState(0);
+ 
 
-  componentDidMount() {
-    this.randomize();
-  }
+  
+  useEffect(() => {
+    randomize();
+  }, [correct])
 
-  randomize = () => {
-    const { data } = this.state;
+  const randomize = () => {
     let randomVerb = data[Math.floor(Math.random() * data.length)];
     let randomPerson = Object.entries(randomVerb)[
       Math.floor(Math.random() * 5) + 7
@@ -45,66 +38,49 @@ class Verb extends Component {
       randomPerson[1] === '' ||
       randomVerb.mood_english === 'Imperative Negative'
     );
-    this.setState({
-      randomVerb,
-      randomPerson,
-    });
+
+    setRandomVerb(randomVerb);
+    setRandomPerson(randomPerson);
   };
 
-  handleRefresh = () => {
-    this.setState({
-      ...initialState,
-    });
-    this.randomize();
+  const handleRefresh = () => {
+    setCorrect(false);
+    setRandomVerb({});
+    setRandomPerson([])
+    randomize();
   };
 
-  addCounter = () => {
-    this.setState(prevState => ({
-      count: prevState.count + 1,
-    }));
+  const addCounter = () => {
+    setCount(count + 1);
   };
 
-  resetCounter = () => {
-    this.setState({
-      count: 0,
-    });
+  const resetCounter = () => {
+    setCount(0);
   };
 
-  updateNumPerson = event => {
-    this.setState({
-      NumberPerson: event.target.value,
-    });
+  const updateNumPerson = event => {
+    setNumberPerson(event.target.value);
   };
 
-  updateVerbTenses = event => {
-    this.setState({
-      level: event.target.value,
-    });
-    this.handleRefresh();
+  const updateVerbTenses = event => {
+    setLevel(event.target.value);
+    handleRefresh();
   };
 
-  filterData = event => {
+  const filterData = (event) => {
     event.preventDefault();
-    const { level, NumberPerson } = this.state;
     const Level = parseInt(level);
     if (NumberPerson === 'Spain') {
       const spainSpan = spainSpanish(VerbTenseFilters[Level]);
-      this.setState({
-        data: spainSpan,
-      });
+      setData(spainSpan);
     }
 
     if (NumberPerson === 'Latam') {
       const latamSpan = latamSpanish(VerbTenseFilters[Level]);
-      this.setState({
-        data: latamSpan,
-      });
+      setData(latamSpan)
     }
-    this.handleRefresh();
+    handleRefresh();
   };
-
-  render() {
-    const { randomVerb, randomPerson, data, count } = this.state;
     console.log('Answer:', randomPerson[1]);
     return (
       <div>
@@ -112,20 +88,18 @@ class Verb extends Component {
           data={data}
           randomPerson={randomPerson}
           randomVerb={randomVerb}
-          randomize={this.randomize}
-          addCounter={this.addCounter}
-          resetCounter={this.resetCounter}
-          addStreak={this.addStreak}
+          randomize={randomize}
+          addCounter={addCounter}
+          resetCounter={resetCounter}
           count={count}
         />
         <Settings
-          filterData={this.filterData}
-          updateVerbTenses={this.updateVerbTenses}
-          updateNumPerson={this.updateNumPerson}
+          filterData={filterData}
+          updateVerbTenses={updateVerbTenses}
+          updateNumPerson={updateNumPerson}
         />
       </div>
     );
-  }
 }
 
 export default Verb;

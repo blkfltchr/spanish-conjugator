@@ -1,73 +1,54 @@
-import React, { Component } from 'react';
-import Reward from 'react-rewards';
-import PropTypes from 'prop-types';
-import Person from './Person';
-import AccentButtons from './AccentButtons';
-import Info from './Info';
-import Checkmark from '../Checkmark/Checkmark';
+import React, { useState, useRef } from "react";
+import Reward from "react-rewards";
+import PropTypes from "prop-types";
+import Person from "./Person";
+import AccentButtons from "./AccentButtons";
+import Info from "./Info";
+import Checkmark from "../Checkmark/Checkmark";
 
-const initialState = {
-  value: '',
-  helperText: null,
-  correct: false,
-};
+const Input = props => {
+  const [value, setValue] = useState("");
+  const [bestStreak, setBestStreak] = useState(0);
+  const [totalAnswers, setTotalAnswers] = useState(0);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [answered, setAnswered] = useState(false);
+  const [helperText, setHelperText] = useState(null);
+  const [correct, setCorrect] = useState(false);
+  const refReward = useRef(null);
 
-class Input extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: '',
-      bestStreak: 0,
-      totalAnswers: 0,
-      correctAnswers: 0,
-      answered: false,
-    };
-  }
-
-  handleChange = event => {
-    this.setState({
-      correct: false,
-      value: event.target.value,
-    });
+  const handleChange = event => {
+    setCorrect(false);
+    setValue(event.target.value);
   };
 
-  handleSubmit = event => {
-    const { value, answered } = this.state;
-    const { randomPerson, addCounter, resetCounter } = this.props;
+  const handleSubmit = event => {
+    const { randomPerson, addCounter, resetCounter } = props;
     event.preventDefault();
     const userInput = value.toLowerCase();
     if (answered === true) {
-      this.setState(prevState => ({
-        totalAnswers: prevState.totalAnswers + 1,
-      }));
-      this.handleRefresh();
-      this.setState({
-        answered: false,
-      });
+      setTotalAnswers(totalAnswers + 1);
+      handleRefresh();
+      setAnswered(false);
     } else if (randomPerson[1] === userInput) {
       addCounter();
-      this.setState(prevState => ({
-        correctAnswers: prevState.correctAnswers + 1,
-        totalAnswers: prevState.totalAnswers + 1,
-      }));
+      setCorrectAnswers(correctAnswers + 1);
+      setTotalAnswers(totalAnswers + 1);
       // alert('Correct!')
-      this.handleRefresh();
-      this.setState({
-        correct: true,
-      });
-      this.addStreak();
+      handleRefresh();
+      setCorrect(true);
+      addStreak();
     } else if (randomPerson[1] !== userInput) {
-      this.setState({
-        helperText: `False, the correct answer is ${randomPerson[1].toUpperCase()}.`,
-        answered: true,
-      });
+      setHelperText(
+        `False, the correct answer is ${randomPerson[1].toUpperCase()}.`
+      );
+      setAnswered(true);
       resetCounter();
     }
   };
 
-  handleExample = event => {
-    const { data, randomVerb } = this.props;
-    const hablar = data.filter(verb => verb.infinitive === 'hablar');
+  const handleExample = event => {
+    const { data, randomVerb } = props;
+    const hablar = data.filter(verb => verb.infinitive === "hablar");
     const hablarTense = hablar.filter(
       verb => verb.tense_english === randomVerb.tense_english
     );
@@ -76,143 +57,116 @@ class Input extends Component {
     );
     const hablarExample = hablarMood[0];
     event.preventDefault();
-    this.setState({
-      helperText: `Yo + Hablar + ${
+    setHelperText(
+      `Yo + Hablar + ${
         randomVerb.tense_english
-      } = YO ${hablarExample.form_1s.toUpperCase()}`,
-    });
+      } = YO ${hablarExample.form_1s.toUpperCase()}`
+    );
   };
 
-  addAccent = event => {
+  const addAccent = event => {
     event.preventDefault();
-    const { value } = this.state;
     const accent = event.target.value;
-    this.setState({
-      value: value + accent,
-    });
+    setValue(value + accent);
   };
 
-  handleRefresh = () => {
-    const { randomize } = this.props;
-    this.setState({
-      ...initialState,
-      correct: false,
-    });
+  const handleRefresh = () => {
+    const { randomize } = props;
+    setValue("");
+    setHelperText(null);
+    setCorrect(false);
     randomize();
   };
 
-  addStreak = () => {
-    const { bestStreak } = this.state;
-    const { count } = this.props;
+  const addStreak = () => {
+    const { count } = props;
     if (count >= bestStreak) {
-      this.setState(prevState => ({
-        bestStreak: prevState.bestStreak + 1,
-      }));
+      setBestStreak(bestStreak + 1);
       if (bestStreak % 5 === 0) {
-        this.reward.rewardMe();
+        refReward.current.rewardMe();
       }
     }
   };
-
-  render() {
-    const { randomPerson, randomVerb, count } = this.props;
-    const {
-      helperText,
-      value,
-      answered,
-      bestStreak,
-      correct,
-      totalAnswers,
-      correctAnswers,
-    } = this.state;
-    const {
-      infinitive,
-      tense_english,
-      mood_english,
-      infinitive_english,
-    } = randomVerb;
-    const buttonText =
-      randomPerson[1] !== value.toLowerCase() && answered
-        ? 'Next verb'
-        : 'Submit';
-    const percentage =
-      totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
-    console.log(infinitive_english);
-    return (
-      <div>
-        <div className="verb-info-wrapper">
-          <div className="verb-streak">
+  const { randomPerson, randomVerb, count } = props;
+  const {
+    infinitive,
+    tense_english,
+    mood_english,
+    infinitive_english
+  } = randomVerb;
+  const buttonText =
+    randomPerson[1] !== value.toLowerCase() && answered
+      ? "Next verb"
+      : "Submit";
+  const percentage =
+    totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
+  console.log(infinitive_english);
+  return (
+    <div>
+      <div className="verb-info-wrapper">
+        <div className="verb-streak">
+          <div className="current-best-streak">
+            <div className="streak">current streak:</div>
+            <div className="twenty-four">{count}</div>
+          </div>
+          <Reward ref={refReward} type="emoji">
             <div className="current-best-streak">
-              <div className="streak">current streak:</div>
-              <div className="twenty-four">{count}</div>
-            </div>
-            <Reward
-              ref={ref => {
-                this.reward = ref;
-              }}
-              type="emoji"
-            >
-              <div className="current-best-streak">
-                <div className="streak">best streak:</div>
-                <div className="twenty-four">
-                  {bestStreak}{' '}
-                  <span role="img" aria-label="salsa dancer">
-                    💃
-                  </span>
-                </div>
+              <div className="streak">best streak:</div>
+              <div className="twenty-four">
+                {bestStreak} <span role="img" aria-label="salsa dancer" />
               </div>
-            </Reward>
-            <div className="current-best-streak">
-              <div className="streak">percentage:</div>
-              <div className="twenty-four">{percentage}%</div>
             </div>
+          </Reward>
+          <div className="current-best-streak">
+            <div className="streak">percentage:</div>
+            <div className="twenty-four">{percentage}%</div>
           </div>
-          <Info
-            infinitive={infinitive}
-            infinitive_english={infinitive_english}
-            tense_english={tense_english}
-            mood_english={mood_english}
-          />
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="input-section">
-            <Person randomPerson={randomPerson[0]} />
-            <input
-              type="text"
-              value={value}
-              placeholder="Enter conjugated verb..."
-              onChange={this.handleChange}
-              className="input"
-            />
-            <Checkmark correct={correct} />
-          </div>
-          <div className="text-under-input">
-            <AccentButtons addAccent={this.addAccent} />
-            <div
-              className="hover-text"
-              type="button"
-              role="button"
-              tabIndex={0}
-              onClick={this.handleExample}
-            >
-              Show example <i className="far fa-arrow-alt-circle-right" />
-            </div>
-          </div>
-          <div className="helper-text">
-            {helperText && <div>{helperText}</div>}
-            <button
-              className="submit-button"
-              type="submit"
-              onClick={this.handleSubmit}
-            >
-              {buttonText}
-            </button>
-          </div>
-        </form>
+        <Info
+          infinitive={infinitive}
+          infinitive_english={infinitive_english}
+          tense_english={tense_english}
+          mood_english={mood_english}
+        />
       </div>
-    );
-  }
-}
+      <form onSubmit={handleSubmit}>
+        <div className="input-section">
+          <Person randomPerson={randomPerson[0]} />
+          <input
+            type="text"
+            value={value}
+            placeholder="Enter conjugated verb..."
+            onChange={handleChange}
+            className="input"
+          />
+          <Checkmark correct={correct} />
+        </div>
+        <div className="text-under-input">
+          <AccentButtons addAccent={addAccent} />
+          <div
+            className="hover-text"
+            type="button"
+            role="button"
+            tabIndex={0}
+            onClick={handleExample}
+          >
+            Show example <i className="far fa-arrow-alt-circle-right" />
+          </div>
+        </div>
+        <div className="helper-text">
+          {helperText && <div>{helperText}</div>}
+          <button
+            className="submit-button"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            {buttonText}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
 
 Input.propTypes = {
   randomPerson: PropTypes.string,
@@ -221,7 +175,7 @@ Input.propTypes = {
   data: PropTypes.array,
   randomVerb: PropTypes.object,
   randomize: PropTypes.func,
-  count: PropTypes.number,
+  count: PropTypes.number
 };
 
 export default Input;
