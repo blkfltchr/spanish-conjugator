@@ -36,7 +36,7 @@ function Verb (props) {
 
   useEffect(() => {
     randomize();
-  })
+  }, [randomVerb])
 
   const randomize = () => {
     // const { data } = this.state;
@@ -135,16 +135,16 @@ function Verb (props) {
           data={data}
           randomPerson={randomPerson}
           randomVerb={randomVerb}
-          randomize={this.randomize}
-          addCounter={this.addCounter}
-          resetCounter={this.resetCounter}
-          // addStreak={addStreak()}
+          randomize={randomize}
+          addCounter={addCounter}
+          resetCounter={resetCounter}
+          // addStreak={addStreak}
           count={count}
         />
         <Settings
-          filterData={this.filterData}
-          updateVerbTenses={this.updateVerbTenses}
-          updateNumPerson={this.updateNumPerson}
+          filterData={filterData}
+          updateVerbTenses={updateVerbTenses}
+          updateNumPerson={updateNumPerson}
         />
       </div>
     );
