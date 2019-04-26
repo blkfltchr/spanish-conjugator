@@ -5,17 +5,12 @@ import VerbTenses from './VerbTenses';
 import NumberPerson from './VerbNumberPerson';
 
 const Settings = (props) => {
-	const [ state, setState ] = useState({
-		updateSettings: false
-	});
+	const [ updateSettings, setUpdateSettings ] = useState(false);
 
 	const changeSettings = (event) => {
-		const { updateSettings } = state;
 		const { filterData } = props;
 		event.preventDefault();
-		setState({
-			updateSettings: !updateSettings
-		});
+		setUpdateSettings(!updateSettings);
 		if (updateSettings) {
 			alert('Your settings are updated.');
 			filterData(event);
@@ -24,7 +19,6 @@ const Settings = (props) => {
 
 	const hide = 'settings-buttons-hide';
 	const display = 'settings-buttons-display';
-	const { updateSettings } = state;
 	const { updateVerbTenses, updateNumPerson } = props;
 
 	let content = (
@@ -44,6 +38,7 @@ const Settings = (props) => {
 	);
 	return content;
 };
+
 Settings.propTypes = {
 	updateVerbTenses: PropTypes.func,
 	updateNumPerson: PropTypes.func,
