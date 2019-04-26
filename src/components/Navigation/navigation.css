@@ -1,5 +1,4 @@
 /* Navigation Styling */
-
 nav {
 	margin-top: 25px;
 	color: #003893;
@@ -16,6 +15,7 @@ nav a {
 
 .top-bar {
 	color: #003893;
+	margin: 10px 0;
 	padding: 0 15px;
 	display: flex;
 	justify-content: space-between;
@@ -36,11 +36,12 @@ nav a {
 
 .nav-logo {
 	background: #941511;
-	border: 1px solid black;
+	border: 5px solid #ffc400;
+	box-shadow: 1px 1px 3px #000000;
 	border-radius: 0 35px 25px 0;
 	color: #ffffff;
 	text-shadow: 1px 1px 4px #000000;
-	width: 30%;
+	width: 40%;
 	display: flex;
 	justify-content: center;
 	align-self: center;
