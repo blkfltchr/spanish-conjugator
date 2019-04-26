@@ -8,7 +8,7 @@ import { VerbTenseFilters } from '../Filters/VerbTensesFilters';
 import Input from './Input';
 
 
-function Verb (props) {
+const Verb = props => {
   const [correct, setCorrect] = useState(false);
   const [randomVerb, setRandomVerb] = useState({});
   const [randomPerson, setRandomPerson] = useState([]);
