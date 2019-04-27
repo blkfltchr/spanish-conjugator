@@ -19,6 +19,7 @@
     "react-rewards": "^1.0.7",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.0.0",
+    "react-tooltip": "^3.10.0",
     "reactstrap": "^8.0.0"
   },
   "devDependencies": {

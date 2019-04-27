@@ -18,8 +18,12 @@ const Navigation = (props) => {
 					<SignUp />
 				</div>
 				<div className="user-menu">
-					<NavLink to="/">Home</NavLink>
-					<NavLink to="/learn">Go Learn</NavLink>
+					<NavLink className="main-button" to="/">
+						Home
+					</NavLink>
+					<NavLink className="alt-button" to="/learn">
+						Go Learn
+					</NavLink>
 				</div>
 			</nav>
 		</div>

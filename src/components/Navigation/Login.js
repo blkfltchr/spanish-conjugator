@@ -22,7 +22,7 @@ class Login extends Component {
 		return (
 			<div className="login-form">
 				<div>
-					<button className="log-in-button" onClick={this.toggle}>
+					<button className="main-button" onClick={this.toggle}>
 						Login
 					</button>
 					<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>

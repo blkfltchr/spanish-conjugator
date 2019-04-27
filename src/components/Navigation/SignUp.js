@@ -25,7 +25,7 @@ class SignUp extends Component {
 		return (
 			<div className="sign-up-form">
 				<div>
-					<button className="sign-up-button" onClick={this.toggle}>
+					<button className="alt-button" onClick={this.toggle}>
 						Sign Up
 					</button>
 					<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>

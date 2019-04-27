@@ -52,7 +52,7 @@ form {
 	padding: 25px;
 }
 
-.log-in-button {
+.main-button {
 	background: #ffc400;
 	border: 1px solid black;
 	color: #000000;
@@ -62,7 +62,7 @@ form {
 .log-in-button:hover {
 }
 
-.sign-up-button {
+.alt-button {
 	background: #941511;
 	border: 1px solid black;
 	color: white;
