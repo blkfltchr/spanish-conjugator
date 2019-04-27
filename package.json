@@ -16,10 +16,12 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-calendar-heatmap": "^1.8.0",
+    "react-color": "^2.17.2",
     "react-dom": "^16.8.6",
     "react-rewards": "^1.0.7",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.0.0",
+    "react-tooltip": "^3.10.0",
     "reactstrap": "^8.0.0"
   },
   "devDependencies": {
