@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Form, Input } from './Navigation';
 
 class Login extends Component {
 	constructor() {
@@ -22,23 +23,20 @@ class Login extends Component {
 		return (
 			<div className="login-form">
 				<div>
-					<button className="main-button" onClick={this.toggle}>
-						Login
-					</button>
+					<Button onClick={this.toggle}>Login</Button>
 					<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
 						<ModalHeader toggle={this.toggle}>Login</ModalHeader>
 						<ModalBody>
-							<form className="sign-up-form">
+							<Form>
 								<span>Username</span>
-								<input className="sign-up-input" name="username" value="" placeholder="username" />
+								<Input name="username" value="" placeholder="username" />
 								<span>Password</span>
-								<input className="sign-up-input" name="password" value="" placeholder="password" />
+								<Input name="password" value="" placeholder="password" />
 								<div>
-									<input className="sign-up-input" type="checkbox" name="remeber me" /> remember me{' '}
-									<br />
+									<Input type="checkbox" name="remeber me" /> remember me <br />
 								</div>
-							</form>
-							<button className="form-button">Login</button>
+							</Form>
+							<Button form>Login</Button>
 						</ModalBody>
 						<ModalFooter />
 					</Modal>
