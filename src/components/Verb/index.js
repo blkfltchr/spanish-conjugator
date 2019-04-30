@@ -1,27 +1,23 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 
-import '../../app.css';
+import "../../app.css";
 
-import Settings from '../Settings/Settings';
-import { spainSpanish, latamSpanish } from '../Filters/NumPersonFilters';
-import { VerbTenseFilters } from '../Filters/VerbTensesFilters';
-import Input from './Input';
-
+import Settings from "../Settings/Settings";
+import { spainSpanish, latamSpanish } from "../Filters/NumPersonFilters";
+import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
+import Input from "./Input";
 
 const Verb = props => {
   const [correct, setCorrect] = useState(false);
   const [randomVerb, setRandomVerb] = useState({});
   const [randomPerson, setRandomPerson] = useState([]);
   const [data, setData] = useState(latamSpanish(VerbTenseFilters[0]));
-  const [NumberPerson, setNumberPerson ] = useState('Latam');
+  const [NumberPerson, setNumberPerson] = useState("Latam");
   const [level, setLevel] = useState(0);
-  const [count, setCount]  = useState(0);
- 
-
-  
+  const [count, setCount] = useState(0);
   useEffect(() => {
     randomize();
-  }, [correct])
+  }, [correct]);
 
   const randomize = () => {
     let randomVerb = data[Math.floor(Math.random() * data.length)];
@@ -35,10 +31,9 @@ const Verb = props => {
         Math.floor(Math.random() * 5) + 7
       ];
     } while (
-      randomPerson[1] === '' ||
-      randomVerb.mood_english === 'Imperative Negative'
+      randomPerson[1] === "" ||
+      randomVerb.mood_english === "Imperative Negative"
     );
-
     setRandomVerb(randomVerb);
     setRandomPerson(randomPerson);
   };
@@ -46,7 +41,7 @@ const Verb = props => {
   const handleRefresh = () => {
     setCorrect(false);
     setRandomVerb({});
-    setRandomPerson([])
+    setRandomPerson([]);
     randomize();
   };
 
@@ -67,39 +62,39 @@ const Verb = props => {
     handleRefresh();
   };
 
-  const filterData = (event) => {
+  const filterData = event => {
     event.preventDefault();
     const Level = parseInt(level);
-    if (NumberPerson === 'Spain') {
+    if (NumberPerson === "Spain") {
       const spainSpan = spainSpanish(VerbTenseFilters[Level]);
       setData(spainSpan);
     }
 
-    if (NumberPerson === 'Latam') {
+    if (NumberPerson === "Latam") {
       const latamSpan = latamSpanish(VerbTenseFilters[Level]);
-      setData(latamSpan)
+      setData(latamSpan);
     }
     handleRefresh();
   };
-    console.log('Answer:', randomPerson[1]);
-    return (
-      <div>
-        <Input
-          data={data}
-          randomPerson={randomPerson}
-          randomVerb={randomVerb}
-          randomize={randomize}
-          addCounter={addCounter}
-          resetCounter={resetCounter}
-          count={count}
-        />
-        <Settings
-          filterData={filterData}
-          updateVerbTenses={updateVerbTenses}
-          updateNumPerson={updateNumPerson}
-        />
-      </div>
-    );
-}
+  console.log("Answer:", randomPerson[1]);
+  return (
+    <div>
+      <Input
+        data={data}
+        randomPerson={randomPerson}
+        randomVerb={randomVerb}
+        randomize={randomize}
+        addCounter={addCounter}
+        resetCounter={resetCounter}
+        count={count}
+      />
+      <Settings
+        filterData={filterData}
+        updateVerbTenses={updateVerbTenses}
+        updateNumPerson={updateNumPerson}
+      />
+    </div>
+  );
+};
 
 export default Verb;
