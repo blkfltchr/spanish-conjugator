@@ -9,7 +9,7 @@ const Store = ({ children }) => {
   const [colorFill, setColorFill] = useState("#fff");
   const [modal, setmodal] = useState(false);
   const [username, setusername] = useState("");
-  const [password, setpassword] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <ColorFillContext.Provider value={[colorFill, setColorFill]}>
