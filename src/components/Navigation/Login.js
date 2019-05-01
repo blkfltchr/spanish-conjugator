@@ -5,15 +5,21 @@ import {
   UsernameContext,
   PasswordContext
 } from "../../Context/Store";
+import axios from "axios";
+// import jwt_decode from "jwt";
 
 const Login = props => {
-  const [modal, setmodal] = useContext(ModalContext);
+  const [modal, setModal] = useContext(ModalContext);
   const [username, setusername] = useContext(UsernameContext);
-  const [password, setpassword] = useContext(PasswordContext);
+  const [password, setPassword] = useContext(PasswordContext);
 
   const toggle = () => {
     setModal(!modal);
   };
+
+  // useEffect(() => {
+  //     axios.post("https://glacial-hamlet-47910.herokuapp.com/api/login");
+  // }, [input])
 
   return (
     <div className="login-form">
@@ -21,7 +27,7 @@ const Login = props => {
         <button className="log-in-button" onClick={toggle}>
           Login
         </button>
-        <Modal isOpen={modal} toggle={this.toggle} className={props.className}>
+        <Modal isOpen={modal} toggle={toggle} className={props.className}>
           <ModalHeader toggle={toggle}>Login</ModalHeader>
           <ModalBody>
             <form className="sign-up-form">
@@ -56,6 +62,5 @@ const Login = props => {
     </div>
   );
 };
-
 
 export default Login;
