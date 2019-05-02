@@ -56,10 +56,9 @@ const Verb = (props) => {
 
 	const updateVerbTenses = (event) => {
 		setLevel(event.target.value);
-		console.log(level);
+		console.log(event.target.value);
 		handleRefresh();
 	};
-
 	const filterData = (event) => {
 		event.preventDefault();
 		const Level = parseInt(level);
