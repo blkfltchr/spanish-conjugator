@@ -9,13 +9,13 @@ export const VerbContext = React.createContext([{}, () => {}]);
 const Store = ({ children }) => {
   const [colorFill, setColorFill] = useState("#fff");
   const [modal, setmodal] = useState(false);
-  const [username, setusername] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [verbData, setVerbData] = useState([]);
   return (
     <ColorFillContext.Provider value={[colorFill, setColorFill]}>
       <ModalContext.Provider value={[modal, setmodal]}>
-        <UsernameContext.Provider value={[username, setusername]}>
+        <UsernameContext.Provider value={[username, setUsername]}>
           <PasswordContext.Provider value={[password, setPassword]}>
             <VerbContext.Provider value={[verbData, setVerbData]}>
               {children}

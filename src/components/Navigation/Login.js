@@ -11,15 +11,12 @@ import axios from "axios";
 
 const Login = props => {
   const [modal, setModal] = useContext(ModalContext);
-  const [username, setusername] = useContext(UsernameContext);
+  const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
 
   const toggle = () => {
     setModal(!modal);
   };
-
-  setusername("foo");
-  console.log(username);
 
   // useEffect(() => {
   //     axios.post("https://glacial-hamlet-47910.herokuapp.com/api/login");
