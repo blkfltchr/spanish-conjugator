@@ -6,7 +6,7 @@ import { VerbContext, LevelContext } from "../../Context/Store";
 
 import Settings from "../Settings/Settings";
 import { spainSpanish, latamSpanish } from "../Filters/NumPersonFilters";
-import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
+import {} from "../Filters/VerbTensesFilters";
 import Input from "./Input";
 
 import Filter from "../Filters/Filter";
@@ -20,7 +20,6 @@ const Verb = props => {
   const [NumberPerson, setNumberPerson] = useState("Latam");
   const [level, setLevel] = useState(0);
   const [count, setCount] = useState(0);
-  const [level, setLevel] = useContext(LevelContext);
 
   useEffect(() => {
     const token =
@@ -41,25 +40,29 @@ const Verb = props => {
       .catch(err => console.log(err));
   }, []);
 
+  // useEffect(() => {
+  //   console.log(verbData);
+  // }, [verbData]);
+
   useEffect(() => {
-    randomize();
+    // randomize();
   }, [correct]);
 
   const randomize = () => {
-    setMyRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
-    console.log(myRandomVerb);
-    setMyRandomPerson(
-      Object.entries(myRandomVerb)[Math.floor(Math.random() * 5) + 7]
+    setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
+    console.log(randomVerb);
+    setRandomPerson(
+      Object.entries(randomVerb)[Math.floor(Math.random() * 5) + 7]
     );
     // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
     do {
-      setMyRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
-      setMyRandomPerson(
-        Object.entries(myRandomVerb)[Math.floor(Math.random() * 5) + 7]
+      setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
+      setRandomPerson(
+        Object.entries(randomVerb)[Math.floor(Math.random() * 5) + 7]
       );
     } while (
-      myRandomPerson[1] === "" ||
-      myRandomVerb.mood_english === "Imperative Negative"
+      randomPerson[1] === "" ||
+      randomVerb.mood_english === "Imperative Negative"
     );
     // setRandomVerb(myRandomVerb);
     // setRandomPerson(myRandomPerson);
@@ -69,7 +72,7 @@ const Verb = props => {
     setCorrect(false);
     setRandomVerb({});
     setRandomPerson([]);
-    randomize();
+    // randomize();
   };
 
   const addCounter = () => {
@@ -120,7 +123,7 @@ const Verb = props => {
         updateVerbTenses={updateVerbTenses}
         updateNumPerson={updateNumPerson}
       />
-      {/* <Filter /> */}
+      <Filter data={verbData} />
     </div>
   );
 };

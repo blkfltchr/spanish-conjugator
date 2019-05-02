@@ -15,7 +15,7 @@ export function latamSpanish(data) {
     gerund: verb.gerund,
     gerund_english: verb.gerund_english,
     pastparticiple: verb.pastparticiple,
-    pastparticiple_english: verb.pastparticiple_english,
+    pastparticiple_english: verb.pastparticiple_english
   }));
 }
 
@@ -37,6 +37,6 @@ export function spainSpanish(data) {
     gerund: verb.gerund,
     gerund_english: verb.gerund_english,
     pastparticiple: verb.pastparticiple,
-    pastparticiple_english: verb.pastparticiple_english,
+    pastparticiple_english: verb.pastparticiple_english
   }));
 }

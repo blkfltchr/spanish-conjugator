@@ -6,7 +6,7 @@ import {
   PasswordContext
 } from "../../Context/Store";
 
-const SignUp = () => {
+const SignUp = props => {
   const [modal, setModal] = useContext(ModalContext);
   const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
@@ -21,10 +21,10 @@ const SignUp = () => {
   return (
     <div className="sign-up-form">
       <div>
-        <button className="sign-up-button" onClick={this.toggle}>
+        <button className="sign-up-button" onClick={toggle}>
           Sign Up
         </button>
-        <Modal isOpen={modal} toggle={toggle} className={this.props.className}>
+        <Modal isOpen={modal} toggle={toggle} className={props.className}>
           <ModalHeader toggle={toggle}>Sign Up</ModalHeader>
           <ModalBody>
             <form className="sign-up-form">
