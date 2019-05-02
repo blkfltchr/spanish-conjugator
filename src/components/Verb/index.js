@@ -1,41 +1,43 @@
 import React, { useState, useEffect, useContext } from "react";
-import Axios from "axios";
+import axios from "axios";
 import jwt_decode from "jwt-decode";
 import "../../app.css";
-import { VerbContext } from "../../Context/Store";
+import { VerbContext, LevelContext } from "../../Context/Store";
 
 import Settings from "../Settings/Settings";
 import { spainSpanish, latamSpanish } from "../Filters/NumPersonFilters";
 import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
 import Input from "./Input";
 
+import Filter from "../Filters/Filter";
+
 const Verb = props => {
   const [verbData, setVerbData] = useContext(VerbContext);
   const [correct, setCorrect] = useState(false);
   const [randomVerb, setRandomVerb] = useState({});
   const [randomPerson, setRandomPerson] = useState([]);
-  // const [data, setData] = useState(latamSpanish(VerbTenseFilters[0]));
+  // const [data, setData] = useState([]);
   const [NumberPerson, setNumberPerson] = useState("Latam");
   const [level, setLevel] = useState(0);
   const [count, setCount] = useState(0);
+  const [level, setLevel] = useContext(LevelContext);
 
   useEffect(() => {
     const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxLCJ1c2VybmFtZSI6ImFzaCIsImlhdCI6MTU1NjY3OTM3OCwiZXhwIjoxNTU2NzY1Nzc4fQ.FFMN8hHoxSO7TTA3sYsHpkyYASxVLQ2jTzRc59xZb0A";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxLCJ1c2VybmFtZSI6ImFzaCIsImlhdCI6MTU1Njc2NjUzMCwiZXhwIjoxNTU2ODUyOTMwfQ._Ddno-1a-C3OjQCqkzG05JBSNIrc5q3DJuRVWIGs1TA";
     const userName = jwt_decode(token);
     const options = {
       headers: {
         Authorization: token
       }
     };
-    Axios.get(
-      "https://glacial-hamlet-47910.herokuapp.com/api/conjugator",
-      options
-    )
-      // .then(res => {
-      //   setVerbData(res.data);
-      // })
-      .then(res => console.log(res))
+    axios
+      .get("https://glacial-hamlet-47910.herokuapp.com/api/conjugator", options)
+      .then(res => {
+        setVerbData(res.data);
+      })
+      // .then(res => console.log(res.data))
+      // .then(verbData => console.log(verbData))
       .catch(err => console.log(err));
   }, []);
 
@@ -44,23 +46,23 @@ const Verb = props => {
   }, [correct]);
 
   const randomize = () => {
-    let myRandomVerb = verbData[Math.floor(Math.random() * verbData.length)];
+    setMyRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
     console.log(myRandomVerb);
-    let myRandomPerson = Object.entries(myRandomVerb)[
-      Math.floor(Math.random() * 5) + 7
-    ];
+    setMyRandomPerson(
+      Object.entries(myRandomVerb)[Math.floor(Math.random() * 5) + 7]
+    );
     // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
     do {
-      myRandomVerb = verbData[Math.floor(Math.random() * verbData.length)];
-      myRandomPerson = Object.entries(myRandomVerb)[
-        Math.floor(Math.random() * 5) + 7
-      ];
+      setMyRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
+      setMyRandomPerson(
+        Object.entries(myRandomVerb)[Math.floor(Math.random() * 5) + 7]
+      );
     } while (
       myRandomPerson[1] === "" ||
       myRandomVerb.mood_english === "Imperative Negative"
     );
-    setRandomVerb(myRandomVerb);
-    setRandomPerson(myRandomPerson);
+    // setRandomVerb(myRandomVerb);
+    // setRandomPerson(myRandomPerson);
   };
 
   const handleRefresh = () => {
@@ -118,6 +120,7 @@ const Verb = props => {
         updateVerbTenses={updateVerbTenses}
         updateNumPerson={updateNumPerson}
       />
+      {/* <Filter /> */}
     </div>
   );
 };

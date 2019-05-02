@@ -1,5 +1,6 @@
 import miniData from "../../data/miniData";
 import beginnerData from "../../data/beginnerData";
+//need to get data from the api here to filter it out to create the levels
 
 const LevelOne = beginnerData.filter(
   verb => verb.tense_english === "Present" && verb.mood_english === "Indicative"

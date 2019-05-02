@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
-export const ColorFillContext = React.createContext("#fff");
-export const ModalContext = React.createContext(false);
-export const UsernameContext = React.createContext("");
-export const PasswordContext = React.createContext("");
-export const VerbContext = React.createContext([]);
-export const LevelContext = React.createContext(0);
+export const ColorFillContext = React.createContext([{}, () => {}]);
+export const ModalContext = React.createContext([{}, () => {}]);
+export const UsernameContext = React.createContext([{}, () => {}]);
+export const PasswordContext = React.createContext([{}, () => {}]);
+export const VerbContext = React.createContext([{}, () => {}]);
 
 const Store = ({ children }) => {
   const [colorFill, setColorFill] = useState("#fff");
@@ -13,8 +12,6 @@ const Store = ({ children }) => {
   const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
   const [verbData, setVerbData] = useState([]);
-  const [level, setLevel] = useState(0);
-
   return (
     <ColorFillContext.Provider value={[colorFill, setColorFill]}>
       <ModalContext.Provider value={[modal, setmodal]}>

@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import {
   ModalContext,
   UsernameContext,
   PasswordContext
 } from "../../Context/Store";
+
 import axios from "axios";
 // import jwt_decode from "jwt";
 
@@ -16,6 +17,9 @@ const Login = props => {
   const toggle = () => {
     setModal(!modal);
   };
+
+  setusername("foo");
+  console.log(username);
 
   // useEffect(() => {
   //     axios.post("https://glacial-hamlet-47910.herokuapp.com/api/login");
