@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
+import { LevelContext } from '../../Context/Store';
+
+const borderStyle = document.getElementsByClassName('verb-info');
 
 const Info = (props) => {
 	console.log(props);
 	const { infinitive, infinitive_english, tense_english, mood_english, verb_english } = props;
+	const [ level, setLevel ] = useContext(LevelContext);
+
 	return (
 		<div className="verb-info">
+			<h2>Current Level: {props.level}</h2>
 			<div className="twelve">Verb:</div>
 			<div className="twenty-four">
 				{infinitive}

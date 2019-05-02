@@ -14,6 +14,7 @@ const Input = (props) => {
 	const [ answered, setAnswered ] = useState(false);
 	const [ helperText, setHelperText ] = useState(null);
 	const [ correct, setCorrect ] = useState(false);
+	const [ level, setLevel ] = useState(0);
 	const refReward = useRef(null);
 
 	const handleChange = (event) => {
@@ -81,7 +82,6 @@ const Input = (props) => {
 	const { infinitive, tense_english, mood_english, infinitive_english, verb_english } = randomVerb;
 	const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Submit';
 	const percentage = totalAnswers < 1 ? 0 : (correctAnswers / totalAnswers * 100).toFixed(0);
-	console.log(infinitive_english);
 	return (
 		<div>
 			<div className="verb-info-wrapper">
@@ -109,6 +109,7 @@ const Input = (props) => {
 					tense_english={tense_english}
 					mood_english={mood_english}
 					verb_english={verb_english}
+					level={level}
 				/>
 			</div>
 			<form onSubmit={handleSubmit}>

@@ -22,7 +22,8 @@
 		"react-router-dom": "^5.0.0",
 		"react-scripts": "^3.0.0",
 		"react-tooltip": "^3.10.0",
-		"reactstrap": "^8.0.0"
+		"reactstrap": "^8.0.0",
+		"styled-components": "^4.2.0"
 	},
 	"devDependencies": {
 		"babel-eslint": "^10.0.1",
@@ -44,5 +45,10 @@
 		"prettier": "^1.16.4",
 		"react-testing-library": "^6.1.2"
 	},
-	"browserslist": [ ">0.2%", "not dead", "not ie <= 11", "not op_mini all" ]
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	]
 }

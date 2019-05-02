@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { useState, useContext } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
+import { ModalContext, UsernameContext, PasswordContext } from '../../Context/Store';
 import { Form, Button, Input } from './Navigation';
 
 const SignUp = () => {
@@ -18,11 +18,11 @@ const SignUp = () => {
 	return (
 		<div className="sign-up-form">
 			<div>
-				<Button alt onClick={this.toggle}>
+				<Button alt onClick={toggle}>
 					Sign Up
 				</Button>
-				<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-					<ModalHeader toggle={this.toggle}>Sign Up</ModalHeader>
+				<Modal isOpen={modal} toggle={toggle}>
+					<ModalHeader toggle={toggle}>Sign Up</ModalHeader>
 					<ModalBody>
 						<Form>
 							<span>Username</span>

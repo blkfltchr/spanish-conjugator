@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Button, Form, Input } from './Navigation';
+import { ModalContext, UsernameContext, PasswordContext } from '../../Context/Store';
 
 const Login = (props) => {
 	const [ modal, setModal ] = useContext(ModalContext);
@@ -14,9 +14,9 @@ const Login = (props) => {
 	return (
 		<div className="login-form">
 			<div>
-				<Button onClick={this.toggle}>Login</Button>
-				<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-					<ModalHeader toggle={this.toggle}>Login</ModalHeader>
+				<Button onClick={toggle}>Login</Button>
+				<Modal isOpen={modal} toggle={toggle}>
+					<ModalHeader toggle={toggle}>Login</ModalHeader>
 					<ModalBody>
 						<Form>
 							<span>Username</span>
