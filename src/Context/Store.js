@@ -5,6 +5,7 @@ export const ModalContext = React.createContext(false);
 export const UsernameContext = React.createContext("");
 export const PasswordContext = React.createContext("");
 export const RegisterContext = React.createContext(false);
+export const VerbContext = React.createcontext([{}, () => {}]);
 
 const Store = ({ children }) => {
   const [colorFill, setColorFill] = useState("#fff");
@@ -20,7 +21,9 @@ const Store = ({ children }) => {
         <UsernameContext.Provider value={[username, setUsername]}>
           <PasswordContext.Provider value={[password, setPassword]}>
             <RegisterContext.Provider value={[register, setRegister]}>
-              {children}
+              <VerbContext.Provider value={[verbData, setVerbData]}>
+                {children}
+              </VerbContext.Provider>
             </RegisterContext.Provider>
           </PasswordContext.Provider>
         </UsernameContext.Provider>
