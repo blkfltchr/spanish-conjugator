@@ -9,6 +9,7 @@ export const RegisterContext = React.createContext(false);
 const Store = ({ children }) => {
   const [colorFill, setColorFill] = useState("#fff");
   const [modal, setmodal] = useState(false);
+
   const [register, setRegister] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
