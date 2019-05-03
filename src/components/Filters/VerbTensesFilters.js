@@ -2,28 +2,31 @@ import miniData from "../../data/miniData";
 import beginnerData from "../../data/beginnerData";
 //need to get data from the api here to filter it out to create the levels
 import React, { useContext } from "react";
+import { VerbContext } from "../../Context/Store";
 
 const VerbTensesFilters = props => {
-  const LevelOne = beginnerData.filter(
+  const [verbData] = useContext(VerbContext);
+
+  const LevelOne = verbData.filter(
     verb =>
       verb.tense_english === "Present" && verb.mood_english === "Indicative"
   );
 
-  const Two = beginnerData.filter(
+  const Two = verbData.filter(
     verb =>
       verb.tense_english === "Preterite" && verb.mood_english === "Indicative"
   );
 
   const LevelTwo = LevelOne.concat(Two);
 
-  const LevelThree = miniData.filter(
+  const LevelThree = verbData.filter(
     verb =>
       (verb.tense_english === "Present" &&
         verb.mood_english === "Indicative") ||
       (verb.tense_english === "Preterite" && verb.mood_english === "Indicative")
   );
 
-  const Four = miniData.filter(
+  const Four = verbData.filter(
     verb =>
       verb.tense_english === "Present Perfect" &&
       verb.mood_english === "Indicative"
@@ -31,14 +34,14 @@ const VerbTensesFilters = props => {
 
   const LevelFour = LevelThree.concat(Four);
 
-  const Five = miniData.filter(
+  const Five = verbData.filter(
     verb =>
       verb.tense_english === "Future" && verb.mood_english === "Indicative"
   );
 
   const LevelFive = LevelFour.concat(Five);
 
-  const Six = miniData.filter(
+  const Six = verbData.filter(
     verb =>
       verb.tense_english === "Present Perfect" &&
       verb.mood_english === "Indicative"
@@ -46,6 +49,15 @@ const VerbTensesFilters = props => {
 
   const LevelSix = LevelFive.concat(Six);
 
-  return <div />;
+  const FilterLevels = [
+    LevelOne,
+    LevelTwo,
+    LevelThree,
+    LevelFour,
+    LevelFive,
+    LevelSix
+    // miniData
+  ];
+  return <div filterLevels={FilterLevels} />;
 };
-export { VerbTenseFilters };
+export default VerbTensesFilters;
