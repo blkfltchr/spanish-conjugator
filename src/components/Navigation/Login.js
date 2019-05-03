@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import {
@@ -9,7 +8,6 @@ import {
 } from "../../Context/Store";
 // import jwt_decode from "jwt";
 
-import axios from "axios";
 // import jwt_decode from "jwt";
 
 const Login = props => {

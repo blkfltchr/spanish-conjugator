@@ -5,7 +5,7 @@ export const ModalContext = React.createContext(false);
 export const UsernameContext = React.createContext("");
 export const PasswordContext = React.createContext("");
 export const RegisterContext = React.createContext(false);
-export const VerbContext = React.createcontext([{}, () => {}]);
+export const VerbContext = React.createContext([{}, () => {}]);
 
 const Store = ({ children }) => {
   const [colorFill, setColorFill] = useState("#fff");
