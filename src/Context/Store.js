@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
-export const ColorFillContext = React.createContext([{}, () => {}]);
-export const ModalContext = React.createContext([{}, () => {}]);
-export const UsernameContext = React.createContext([{}, () => {}]);
-export const PasswordContext = React.createContext([{}, () => {}]);
-export const VerbContext = React.createContext([{}, () => {}]);
+export const ColorFillContext = React.createContext("#fff");
+export const ModalContext = React.createContext(false);
+export const UsernameContext = React.createContext("");
+export const PasswordContext = React.createContext("");
+export const RegisterContext = React.createContext(false);
 
 const Store = ({ children }) => {
   const [colorFill, setColorFill] = useState("#fff");
   const [modal, setmodal] = useState(false);
+
+  const [register, setRegister] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [verbData, setVerbData] = useState([]);
@@ -17,9 +19,9 @@ const Store = ({ children }) => {
       <ModalContext.Provider value={[modal, setmodal]}>
         <UsernameContext.Provider value={[username, setUsername]}>
           <PasswordContext.Provider value={[password, setPassword]}>
-            <VerbContext.Provider value={[verbData, setVerbData]}>
+            <RegisterContext.Provider value={[register, setRegister]}>
               {children}
-            </VerbContext.Provider>
+            </RegisterContext.Provider>
           </PasswordContext.Provider>
         </UsernameContext.Provider>
       </ModalContext.Provider>
