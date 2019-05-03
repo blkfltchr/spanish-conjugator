@@ -80,6 +80,7 @@ const Input = props => {
 
   const addStreak = () => {
     const { count } = props;
+    console.log(props);
     if (count >= bestStreak) {
       setBestStreak(bestStreak + 1);
       if (bestStreak % 5 === 0) {

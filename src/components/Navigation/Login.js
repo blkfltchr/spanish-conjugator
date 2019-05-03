@@ -1,4 +1,5 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import {
@@ -6,8 +7,6 @@ import {
   UsernameContext,
   PasswordContext
 } from "../../Context/Store";
-
-import axios from "axios";
 // import jwt_decode from "jwt";
 
 const Login = props => {
@@ -23,7 +22,7 @@ const Login = props => {
   // useEffect(() => {
   //     axios.post("https://glacial-hamlet-47910.herokuapp.com/api/login");
   // }, [input])
-  submitHandler = e => {
+  const submitHandler = e => {
     e.preventDefault();
     const user = {
       username: username,
@@ -31,23 +30,30 @@ const Login = props => {
     };
 
     // Axios.post("http://localhost:3333/api/login", user)
-    Axios.post("https://glacial-hamlet-47910.herokuapp.com/api/login", user)
+    fetch("https://glacial-hamlet-47910.herokuapp.com/api/login", user)
       .then(res => {
-        localStorage.setItem("jwt", res.data.token);
-        setLoggedIn({ isLoggedIn: true });
+        console.log(res);
+        console.log("data ", res.token);
+        localStorage.setItem("jwt", res.token);
+        // setLoggedIn(true);
       })
       .catch(error => {
         console.log("Axios Error Msg: ", error);
       });
   };
 
-  handleInput = async e => {
-    e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value });
-  };
-  if (this.state.isLoggedIn) {
-    return <Redirect to="/" />;
+  function handlePassword(e) {
+    setPassword(e.target.value);
+  }
+  function handleUsername(e) {
+    setUsername(e.target.value);
+  }
+
+  if (loggedIn) {
+    return <Redirect to="/learn" />;
   } else {
+    // return <Redirect to="/" />;
+
     return (
       <div className="login-form">
         <div>
@@ -57,19 +63,22 @@ const Login = props => {
           <Modal isOpen={modal} toggle={toggle} className={props.className}>
             <ModalHeader toggle={toggle}>Login</ModalHeader>
             <ModalBody>
-              <form className="sign-up-form">
+              <form className="sign-up-form" onSubmit={submitHandler}>
                 <span>Username</span>
                 <input
                   className="sign-up-input"
                   name="username"
-                  value=""
+                  onChange={handleUsername}
+                  value={username}
                   placeholder="username"
                 />
                 <span>Password</span>
                 <input
+                  type="password"
                   className="sign-up-input"
                   name="password"
-                  value=""
+                  onChange={handlePassword}
+                  value={password}
                   placeholder="password"
                 />
                 <div>
@@ -80,8 +89,8 @@ const Login = props => {
                   />{" "}
                   remember me <br />
                 </div>
+                <button className="form-button">Login</button>
               </form>
-              <button className="form-button">Login</button>
             </ModalBody>
             <ModalFooter />
           </Modal>
