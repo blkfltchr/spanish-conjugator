@@ -1,33 +1,7 @@
-<<<<<<< HEAD
-import React, { useState, useEffect, useContext } from 'react';
-=======
 import React, { useState, useEffect, useContext } from "react";
->>>>>>> fae4cd68a94ecceb64f519b067f50d893a4979bc
 
 import '../../app.css';
 
-<<<<<<< HEAD
-import Settings from '../Settings/Settings';
-import { spainSpanish, latamSpanish } from '../Filters/NumPersonFilters';
-import { VerbTenseFilters } from '../Filters/VerbTensesFilters';
-import Input from './Input';
-import { LevelContext } from '../../Context/Store';
-
-const Verb = (props) => {
-	const [ correct, setCorrect ] = useState(false);
-	const [ randomVerb, setRandomVerb ] = useState({});
-	const [ randomPerson, setRandomPerson ] = useState([]);
-	const [ data, setData ] = useState(latamSpanish(VerbTenseFilters[0]));
-	const [ NumberPerson, setNumberPerson ] = useState('Latam');
-	const [ level, setLevel ] = useContext(LevelContext);
-	const [ count, setCount ] = useState(0);
-	useEffect(
-		() => {
-			randomize();
-		},
-		[ correct ]
-	);
-=======
 import Settings from "../Settings/Settings";
 import { spainSpanish, latamSpanish } from "../Filters/NumPersonFilters";
 import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
@@ -71,7 +45,6 @@ const Verb = props => {
   useEffect(() => {
     randomize();
   }, [correct]);
->>>>>>> fae4cd68a94ecceb64f519b067f50d893a4979bc
 
 	const randomize = () => {
 		let randomVerb = data[Math.floor(Math.random() * data.length)];
@@ -140,7 +113,6 @@ const Verb = props => {
 			<Settings filterData={filterData} updateVerbTenses={updateVerbTenses} updateNumPerson={updateNumPerson} />
 		</div>
 	);
-=======
   // const filterData = event => {
   //   event.preventDefault();
   //   const Level = parseInt(level);
@@ -174,7 +146,6 @@ const Verb = props => {
       />
     </div>
   );
->>>>>>> fae4cd68a94ecceb64f519b067f50d893a4979bc
 };
 
 export default Verb;

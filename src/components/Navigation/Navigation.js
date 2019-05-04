@@ -1,17 +1,12 @@
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import React from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
-<<<<<<< HEAD
 import './navigation.css';
 import styled, { css } from 'styled-components';
-=======
-import "./navigation.css";
->>>>>>> fae4cd68a94ecceb64f519b067f50d893a4979bc
 
-import Login from "./Login";
-import SignUp from "./SignUp";
+import Login from './Login';
+import SignUp from './SignUp';
 
-<<<<<<< HEAD
 const Navigation = (props) => {
 	return (
 		<TopBar>
@@ -34,26 +29,6 @@ const Navigation = (props) => {
 			</nav>
 		</TopBar>
 	);
-=======
-const Navigation = props => {
-  return (
-    <div className="top-bar">
-      <div className="nav-logo">
-        <h1>Spanish Conjugator</h1>
-      </div>
-      <nav>
-        <div className="default-menu">
-          <Login />
-          <SignUp />
-          {/* </div>
-        {/* <div className="user-menu">
-          {/* <NavLink to="/">Home</NavLink> */}
-          {/* <NavLink to="/learn">Go Learn</NavLink>  */}
-        </div>
-      </nav>
-    </div>
-  );
->>>>>>> fae4cd68a94ecceb64f519b067f50d893a4979bc
 };
 
 export default Navigation;
