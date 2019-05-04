@@ -30,11 +30,12 @@ const Login = props => {
     };
 
     // Axios.post("http://localhost:3333/api/login", user)
-    fetch("https://glacial-hamlet-47910.herokuapp.com/api/login", user)
+    axios
+      .post("https://glacial-hamlet-47910.herokuapp.com/api/login", user)
       .then(res => {
-        console.log(res);
-        console.log("data ", res.token);
-        localStorage.setItem("jwt", res.token);
+        console.log(res.data);
+        console.log("data ", res.data.your_token);
+        localStorage.setItem("jwt", res.data.your_token);
         // setLoggedIn(true);
       })
       .catch(error => {
