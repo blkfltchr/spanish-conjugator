@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
-import { Redirect, Link } from "react-router-dom";
 import auth from "../auth/auth";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import {
   ModalContext,
   UsernameContext,
   PasswordContext
 } from "../../Context/Store";
+import { useRouter } from "../../hooks/useRouter";
 // import jwt_decode from "jwt";
 
 const Login = props => {
@@ -20,9 +20,6 @@ const Login = props => {
     setModal(!modal);
   };
 
-  // useEffect(() => {
-  //     axios.post("https://glacial-hamlet-47910.herokuapp.com/api/login");
-  // }, [input])
   const submitHandler = e => {
     e.preventDefault();
     const user = {
@@ -32,7 +29,10 @@ const Login = props => {
 
     // Axios.post("http://localhost:3333/api/login", user)
     axios
-      .post("https://glacial-hamlet-47910.herokuapp.com/api/login", user)
+      .post("https://glacial-hamlet-47910.herokuapp.com/api/login", {
+        username: username,
+        password: password
+      })
       .then(res => {
         console.log(res.data);
         console.log("data ", res.data.your_token);
@@ -88,11 +88,11 @@ const Login = props => {
               </div>
               <button
                 className="form-button"
-                onClick={() => {
+                onClick={useRouter(() => {
                   auth.login(() => {
                     props.history.push("/learn");
                   });
-                }}
+                })}
               >
                 Login
               </button>

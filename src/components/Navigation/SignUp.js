@@ -16,10 +16,6 @@ const SignUp = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-    const user = {
-      username,
-      password
-    };
     axios
       .post("https://glacial-hamlet-47910.herokuapp.com/api/register", {
         username: username,
