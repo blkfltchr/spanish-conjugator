@@ -45,10 +45,10 @@ const Login = props => {
 
   const clickHandler = e => {
     e.preventDefault();
-
     auth.login(() => {
       routeProps.history.push("/learn");
     });
+    toggle();
   };
 
   function handlePassword(e) {
