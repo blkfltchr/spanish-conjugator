@@ -16,9 +16,9 @@ const Navigation = props => {
         <div className="default-menu">
           <Login />
           <SignUp />
-        </div>
-        <div className="user-menu">
-          <NavLink to="/">Home</NavLink>
+          {/* </div>
+        {/* <div className="user-menu">
+          {/* <NavLink to="/">Home</NavLink> */}
           {/* <NavLink to="/learn">Go Learn</NavLink>  */}
         </div>
       </nav>

@@ -8,6 +8,8 @@ import {
   PasswordContext
 } from "../../Context/Store";
 import { useRouter } from "../../hooks/useRouter";
+import { RouterContext } from "../../Context/CustomBrowserRouter";
+
 // import jwt_decode from "jwt";
 
 const Login = props => {
@@ -15,6 +17,7 @@ const Login = props => {
   const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
   const [loggedIn, setLoggedIn] = useState(false);
+  const routeProps = useContext(RouterContext);
 
   const toggle = () => {
     setModal(!modal);
@@ -22,10 +25,6 @@ const Login = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-    const user = {
-      username: username,
-      password: password
-    };
 
     // Axios.post("http://localhost:3333/api/login", user)
     axios
@@ -42,6 +41,14 @@ const Login = props => {
       .catch(error => {
         console.log("Axios Error Msg: ", error);
       });
+  };
+
+  const clickHandler = e => {
+    e.preventDefault();
+
+    auth.login(() => {
+      routeProps.history.push("/learn");
+    });
   };
 
   function handlePassword(e) {
@@ -86,14 +93,7 @@ const Login = props => {
                 />{" "}
                 remember me <br />
               </div>
-              <button
-                className="form-button"
-                onClick={useRouter(() => {
-                  auth.login(() => {
-                    props.history.push("/learn");
-                  });
-                })}
-              >
+              <button className="form-button" onClick={clickHandler}>
                 Login
               </button>
             </form>

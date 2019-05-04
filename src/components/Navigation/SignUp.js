@@ -27,7 +27,7 @@ const SignUp = props => {
       })
       .catch(error => {
         console.log("Error signing up: ", error);
-        console.log(user);
+        // console.log(user);
       });
   };
   //   useEffect(() => {
