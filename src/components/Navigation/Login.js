@@ -36,7 +36,7 @@ const Login = props => {
         console.log(res.data);
         console.log("data ", res.data.your_token);
         localStorage.setItem("jwt", res.data.your_token);
-        // setLoggedIn(true)
+        const token = localStorage.getItem("jwt"); // setLoggedIn(true)
       })
       .catch(error => {
         console.log("Axios Error Msg: ", error);
@@ -44,11 +44,16 @@ const Login = props => {
   };
 
   const clickHandler = e => {
+    const token = localStorage.getItem("jwt");
     e.preventDefault();
-    auth.login(() => {
-      routeProps.history.push("/learn");
-    });
-    toggle();
+    if (token) {
+      auth.login(() => {
+        routeProps.history.push("/learn");
+      });
+      toggle();
+    } else {
+      routeProps.history.push("/");
+    }
   };
 
   function handlePassword(e) {
