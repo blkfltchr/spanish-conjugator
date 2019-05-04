@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-import React, { useContext, useEffect, useState } from "react";
-import { Redirect, Link } from "react-router-dom";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-=======
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import auth from "../auth/auth";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
->>>>>>> f3b0fe489b675e4325f55c94247e4c31aa90e27e
 import {
   ModalContext,
   UsernameContext,
@@ -15,8 +9,6 @@ import {
 } from "../../Context/Store";
 import { useRouter } from "../../hooks/useRouter";
 import { RouterContext } from "../../Context/CustomBrowserRouter";
-
-// import jwt_decode from "jwt";
 
 // import jwt_decode from "jwt";
 
