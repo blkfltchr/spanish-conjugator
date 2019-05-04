@@ -23,10 +23,14 @@ const SignUp = props => {
       username,
       password
     };
-    fetch("https://glacial-hamlet-47910.herokuapp.com/api/register", user)
-      .then(response => {
+    axios
+      .post("https://glacial-hamlet-47910.herokuapp.com/api/register", {
+        username: username,
+        password: password
+      })
+      .then(res => {
         setSignedUp(true);
-        console.log("user sucess ", user);
+        console.log("res ", res);
       })
       .catch(error => {
         console.log("Error signing up: ", error);
