@@ -158,10 +158,10 @@ const Input = (props) => {
     mood_english,
     infinitive_english
   } = randomVerb;
-  const buttonText =
-    randomPerson[1] !== value.toLowerCase() && answered
-      ? "Next verb"
-      : "Submit";
+  // const buttonText =
+  //   randomPerson[1] !== value.toLowerCase() && answered
+  //     ? "Next verb"
+  //     : "Submit";
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
   console.log(infinitive_english);
@@ -195,7 +195,7 @@ const Input = (props) => {
       </div>
       <form onSubmit={handleSubmit}>
         <div className="input-section">
-          <Person randomPerson={randomPerson[0]} />
+          {/* <Person randomPerson={randomPerson[0]} /> */}
           <input
             type="text"
             value={value}
@@ -224,7 +224,7 @@ const Input = (props) => {
             type="submit"
             onClick={handleSubmit}
           >
-            {buttonText}
+            {/* {buttonText} */}
           </button>
         </div>
       </form>
