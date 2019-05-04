@@ -71,11 +71,11 @@ const Input = props => {
   };
 
   const handleRefresh = () => {
-    const { randomize } = props;
+    // const { randomize } = props;
     setValue("");
     setHelperText(null);
     setCorrect(false);
-    randomize();
+    // randomize();
   };
 
   const addStreak = () => {
@@ -175,7 +175,7 @@ Input.propTypes = {
   resetCounter: PropTypes.func,
   data: PropTypes.array,
   randomVerb: PropTypes.object,
-  randomize: PropTypes.func,
+  // randomize: PropTypes.func,
   count: PropTypes.number
 };
 
