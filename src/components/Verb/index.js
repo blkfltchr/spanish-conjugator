@@ -35,7 +35,7 @@ const Verb = props => {
     axios
       .get("https://glacial-hamlet-47910.herokuapp.com/api/conjugator", options)
       .then(res => {
-        // setVerbData(res.data);
+        setVerbData(res.data);
         console.log("success");
         setUsername(username);
         console.log("Hello ", username);
@@ -45,28 +45,28 @@ const Verb = props => {
       .catch(err => console.log(err));
   }, []);
 
-  useEffect(() => {
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxLCJ1c2VybmFtZSI6ImFzaCIsImlhdCI6MTU1Njc2NjUzMCwiZXhwIjoxNTU2ODUyOTMwfQ._Ddno-1a-C3OjQCqkzG05JBSNIrc5q3DJuRVWIGs1TA";
-    const userName = jwt_decode(token);
-    const options = {
-      headers: {
-        Authorization: token
-      }
-    };
-    axios
-      .get("https://glacial-hamlet-47910.herokuapp.com/api/conjugator", options)
-      .then(res => {
-        setVerbData(res.data);
-      })
-      // .then(res => console.log(res.data))
-      // .then(verbData => console.log(verbData))
-      .catch(err => console.log(err));
-  }, []);
-
   // useEffect(() => {
-  //   console.log(verbData);
-  // }, [verbData]);
+  //   const token =
+  //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxLCJ1c2VybmFtZSI6ImFzaCIsImlhdCI6MTU1Njc2NjUzMCwiZXhwIjoxNTU2ODUyOTMwfQ._Ddno-1a-C3OjQCqkzG05JBSNIrc5q3DJuRVWIGs1TA";
+  //   const userName = jwt_decode(token);
+  //   const options = {
+  //     headers: {
+  //       Authorization: token
+  //     }
+  //   };
+  //   axios
+  //     .get("https://glacial-hamlet-47910.herokuapp.com/api/conjugator", options)
+  //     .then(res => {
+  //       setVerbData(res.data);
+  //     })
+  //     // .then(res => console.log(res.data))
+  //     // .then(verbData => console.log(verbData))
+  //     .catch(err => console.log(err));
+  // }, []);
+
+  useEffect(() => {
+    console.log(verbData);
+  }, [verbData]);
 
   useEffect(() => {
     // randomize();
@@ -233,7 +233,7 @@ const Verb = props => {
     <div>
       <Input
         data={verbData}
-        randomPerson={randomPerson}
+        // randomPerson={randomPerson}
         randomVerb={randomVerb}
         randomize={randomize}
         addCounter={addCounter}
