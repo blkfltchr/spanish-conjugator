@@ -5,7 +5,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { ModalContext, UsernameContext, PasswordContext } from '../../Context/Store';
 import { useRouter } from '../../hooks/useRouter';
 import { RouterContext } from '../../Context/CustomBrowserRouter';
-import { Button } from './Navigation';
+import { Button, Form, Input } from './Navigation';
 
 // import jwt_decode from "jwt";
 
@@ -62,31 +62,22 @@ const Login = (props) => {
 				<Modal isOpen={modal} toggle={toggle} className={props.className}>
 					<ModalHeader toggle={toggle}>Login</ModalHeader>
 					<ModalBody>
-						<form className="sign-up-form" onSubmit={submitHandler}>
+						<Form onSubmit={submitHandler}>
 							<span>Username</span>
-							<input
-								className="sign-up-input"
-								name="username"
-								onChange={handleUsername}
-								value={username}
-								placeholder="username"
-							/>
+							<Input name="username" onChange={handleUsername} value={username} placeholder="username" />
 							<span>Password</span>
-							<input
+							<Input
 								type="password"
-								className="sign-up-input"
 								name="password"
 								onChange={handlePassword}
 								value={password}
 								placeholder="password"
 							/>
 							<div>
-								<input className="sign-up-input" type="checkbox" name="remeber me" /> remember me <br />
+								<Input type="checkbox" name="remember me" /> remember me <br />
 							</div>
-							<button className="form-button" onClick={clickHandler}>
-								Login
-							</button>
-						</form>
+							<Button onClick={clickHandler}>Login</Button>
+						</Form>
 					</ModalBody>
 					<ModalFooter />
 				</Modal>

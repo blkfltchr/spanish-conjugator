@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { ModalContext, UsernameContext, PasswordContext, RegisterContext } from '../../Context/Store';
-import { Button } from './Navigation';
+import { Button, Form, Input } from './Navigation';
 
 const SignUp = (props) => {
 	const [ register, setRegister ] = useContext(RegisterContext);
@@ -55,35 +55,32 @@ const SignUp = (props) => {
 				<Modal isOpen={register} toggle={toggle} className={props.className}>
 					<ModalHeader toggle={toggle}>Sign Up</ModalHeader>
 					<ModalBody>
-						<form className="sign-up-form" onSubmit={submitHandler}>
+						<Form onSubmit={submitHandler}>
 							<span>Username</span>
-							<input
-								tpye="username"
-								className="sign-up-input"
+							<Input
+								type="username"
 								name="username"
 								value={username}
 								onChange={handleUsername}
 								placeholder="Username"
 							/>
 							<span>password</span>
-							<input
+							<Input
 								type="password"
-								className="sign-up-input"
 								name="password"
 								value={password}
 								onChange={handlePassword}
 								placeholder="Password"
 							/>
 							<span>Retype Password</span>
-							<input
+							<Input
 								type="password"
-								className="sign-up-input"
 								name="confirmationPassword"
 								validate={{ match: { value: 'password' } }}
 								placeholder="Retype password"
 							/>
-							<button className="form-button">Register</button>
-						</form>
+							<Button>Register</Button>
+						</Form>
 					</ModalBody>
 					<ModalFooter />
 				</Modal>
