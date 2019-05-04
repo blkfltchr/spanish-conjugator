@@ -108,7 +108,7 @@ const Verb = props => {
     <div>
       <Input
         data={data}
-        // randomPerson={randomPerson}
+        randomPerson={randomPerson}
         randomVerb={randomVerb}
         randomize={randomize}
         addCounter={addCounter}
