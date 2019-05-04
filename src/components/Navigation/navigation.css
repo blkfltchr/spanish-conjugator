@@ -1,6 +1,5 @@
 /* Navigation Styling */
 nav {
-	margin-top: 25px;
 	margin: 25px 10px 12px 10px;
 	text-decoration: none;
 	display: flex;
@@ -49,4 +48,15 @@ span {
 .modal-footer {
 	background: #941511;
 	box-shadow: 1px 1px 1px #000000;
+}
+
+.ivPWSL * {
+	margin-top: 0;
+}
+.sc-dnqmqq * {
+	margin-top: 0;
+}
+
+.my-links {
+	margin: 30% 0;
 }

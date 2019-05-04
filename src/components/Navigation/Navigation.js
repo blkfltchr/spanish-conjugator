@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 
 import Login from './Login';
 import SignUp from './SignUp';
+import Sidebar from './Sidebar';
 
 const Navigation = (props) => {
 	return (
@@ -17,6 +18,7 @@ const Navigation = (props) => {
 				<div className="default-menu">
 					<Login />
 					<SignUp />
+					<Sidebar />
 				</div>
 				<div className="user-menu">
 					<NavLink to="/">
@@ -56,9 +58,12 @@ const NavLogo = styled.div`
 `;
 
 export const Form = styled.form`
+	margin: 0 auto;
+	text-align: start;
+	height: 350px;
 	display: flex;
 	flex-direction: column;
-	text-align: start;
+	justify-content: center;
 `;
 
 export const Button = styled.button`
@@ -68,7 +73,7 @@ export const Button = styled.button`
 	box-shadow: 2px 2px 4px #000000;
 	color: #000000;
 	cursor: pointer;
-	margin: 0px 10px;
+	margin: 0 auto;
 	padding: 5px 20px;
 	display: flex;
 
@@ -106,8 +111,9 @@ export const Button = styled.button`
 `;
 
 export const Input = styled.input`
+	background-color: #ffffff;
 	border-radius: 5px;
+	border 1px solid;
 	padding: 5px;
 	margin: 10px 0;
-	background-color: beige;
 `;

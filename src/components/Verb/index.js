@@ -1,50 +1,53 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from 'react';
 
 import '../../app.css';
 
-import Settings from "../Settings/Settings";
-import { spainSpanish, latamSpanish } from "../Filters/NumPersonFilters";
-import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
-import Input from "./Input";
-import { UsernameContext } from "../../Context/Store";
+import Settings from '../Settings/Settings';
+import { spainSpanish, latamSpanish } from '../Filters/NumPersonFilters';
+import { VerbTenseFilters } from '../Filters/VerbTensesFilters';
+import Input from './Input';
+import { UsernameContext } from '../../Context/Store';
 
-import axios from "axios";
-import jwt_decode from "jwt-decode";
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
-const Verb = props => {
-  const [correct, setCorrect] = useState(false);
-  const [randomVerb, setRandomVerb] = useState({});
-  const [randomPerson, setRandomPerson] = useState([]);
-  const [data, setData] = useState(latamSpanish(VerbTenseFilters[0]));
-  const [NumberPerson, setNumberPerson] = useState("Latam");
-  const [level, setLevel] = useState(0);
-  const [count, setCount] = useState(0);
-  const [username, setUsername] = useContext(UsernameContext);
+const Verb = (props) => {
+	const [ correct, setCorrect ] = useState(false);
+	const [ randomVerb, setRandomVerb ] = useState({});
+	const [ randomPerson, setRandomPerson ] = useState([]);
+	const [ data, setData ] = useState(latamSpanish(VerbTenseFilters[0]));
+	const [ NumberPerson, setNumberPerson ] = useState('Latam');
+	const [ level, setLevel ] = useState(0);
+	const [ count, setCount ] = useState(0);
+	const [ username, setUsername ] = useContext(UsernameContext);
 
-  useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    const { username, id } = jwt_decode(token);
-    const options = {
-      headers: {
-        Authorization: token
-      }
-    };
-    axios
-      .get("https://glacial-hamlet-47910.herokuapp.com/api/conjugator", options)
-      .then(res => {
-        // setVerbData(res.data);
-        console.log("success");
-        setUsername(username);
-        console.log("Hello ", username);
-      })
-      // .then(res => console.log(res.data))
-      // .then(verbData => console.log(verbData))
-      .catch(err => console.log(err));
-  }, []);
+	useEffect(() => {
+		const token = localStorage.getItem('jwt');
+		const { username, id } = jwt_decode(token);
+		const options = {
+			headers: {
+				Authorization: token
+			}
+		};
+		axios
+			.get('https://glacial-hamlet-47910.herokuapp.com/api/conjugator', options)
+			.then((res) => {
+				// setVerbData(res.data);
+				console.log('success');
+				setUsername(username);
+				console.log('Hello ', username);
+			})
+			// .then(res => console.log(res.data))
+			// .then(verbData => console.log(verbData))
+			.catch((err) => console.log(err));
+	}, []);
 
-  useEffect(() => {
-    randomize();
-  }, [correct]);
+	useEffect(
+		() => {
+			randomize();
+		},
+		[ correct ]
+	);
 
 	const randomize = () => {
 		let randomVerb = data[Math.floor(Math.random() * data.length)];
@@ -79,24 +82,23 @@ const Verb = props => {
 
 	const updateVerbTenses = (event) => {
 		setLevel(event.target.value);
-		console.log(event.target.value);
 		handleRefresh();
 	};
-	const filterData = (event) => {
-		event.preventDefault();
-		const Level = parseInt(level);
-		if (NumberPerson === 'Spain') {
-			const spainSpan = spainSpanish(VerbTenseFilters[Level]);
-			setData(spainSpan);
-		}
 
-<<<<<<< HEAD
-		if (NumberPerson === 'Latam') {
-			const latamSpan = latamSpanish(VerbTenseFilters[Level]);
-			setData(latamSpan);
-		}
-		handleRefresh();
-	};
+	// const filterData = event => {
+	//   event.preventDefault();
+	//   const Level = parseInt(level);
+	//   if (NumberPerson === "Spain") {
+	//     const spainSpan = spainSpanish(VerbTenseFilters[Level]);
+	//     setData(spainSpan);
+	//   }
+
+	//   if (NumberPerson === "Latam") {
+	//     const latamSpan = latamSpanish(VerbTenseFilters[Level]);
+	//     setData(latamSpan);
+	//   }
+	//   handleRefresh();
+	// };
 	console.log('Answer:', randomPerson[1]);
 	return (
 		<div>
@@ -108,44 +110,14 @@ const Verb = props => {
 				addCounter={addCounter}
 				resetCounter={resetCounter}
 				count={count}
-				level={level}
 			/>
-			<Settings filterData={filterData} updateVerbTenses={updateVerbTenses} updateNumPerson={updateNumPerson} />
+			<Settings
+				// filterData={filterData}
+				updateVerbTenses={updateVerbTenses}
+				updateNumPerson={updateNumPerson}
+			/>
 		</div>
 	);
-  // const filterData = event => {
-  //   event.preventDefault();
-  //   const Level = parseInt(level);
-  //   if (NumberPerson === "Spain") {
-  //     const spainSpan = spainSpanish(VerbTenseFilters[Level]);
-  //     setData(spainSpan);
-  //   }
-
-  //   if (NumberPerson === "Latam") {
-  //     const latamSpan = latamSpanish(VerbTenseFilters[Level]);
-  //     setData(latamSpan);
-  //   }
-  //   handleRefresh();
-  // };
-  console.log("Answer:", randomPerson[1]);
-  return (
-    <div>
-      <Input
-        data={data}
-        randomPerson={randomPerson}
-        randomVerb={randomVerb}
-        randomize={randomize}
-        addCounter={addCounter}
-        resetCounter={resetCounter}
-        count={count}
-      />
-      <Settings
-        // filterData={filterData}
-        updateVerbTenses={updateVerbTenses}
-        updateNumPerson={updateNumPerson}
-      />
-    </div>
-  );
 };
 
 export default Verb;

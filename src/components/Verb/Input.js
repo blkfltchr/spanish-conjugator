@@ -69,9 +69,9 @@ const Input = (props) => {
 		randomize();
 	};
 
-<<<<<<< HEAD
 	const addStreak = () => {
 		const { count } = props;
+		console.log(props);
 		if (count >= bestStreak) {
 			setBestStreak(bestStreak + 1);
 			if (bestStreak % 5 === 0) {
@@ -80,9 +80,13 @@ const Input = (props) => {
 		}
 	};
 	const { randomPerson, randomVerb, count } = props;
-	const { infinitive, tense_english, mood_english, infinitive_english, verb_english } = randomVerb;
-	const buttonText = randomPerson[1] !== value.toLowerCase() && answered ? 'Next verb' : 'Submit';
+	const { infinitive, tense_english, mood_english, infinitive_english } = randomVerb;
+	// const buttonText =
+	//   randomPerson[1] !== value.toLowerCase() && answered
+	//     ? "Next verb"
+	//     : "Submit";
 	const percentage = totalAnswers < 1 ? 0 : (correctAnswers / totalAnswers * 100).toFixed(0);
+	console.log(infinitive_english);
 	return (
 		<div>
 			<div className="verb-info-wrapper">
@@ -109,13 +113,11 @@ const Input = (props) => {
 					infinitive_english={infinitive_english}
 					tense_english={tense_english}
 					mood_english={mood_english}
-					verb_english={verb_english}
-					level={level}
 				/>
 			</div>
 			<form onSubmit={handleSubmit}>
 				<div className="input-section">
-					<Person randomPerson={randomPerson[0]} />
+					{/* <Person randomPerson={randomPerson[0]} /> */}
 					<input
 						type="text"
 						value={value}
@@ -134,103 +136,12 @@ const Input = (props) => {
 				<div className="helper-text">
 					{helperText && <div>{helperText}</div>}
 					<button className="submit-button" type="submit" onClick={handleSubmit}>
-						{buttonText}
+						{/* {buttonText} */}
 					</button>
 				</div>
 			</form>
 		</div>
 	);
-=======
-  const addStreak = () => {
-    const { count } = props;
-    console.log(props);
-    if (count >= bestStreak) {
-      setBestStreak(bestStreak + 1);
-      if (bestStreak % 5 === 0) {
-        refReward.current.rewardMe();
-      }
-    }
-  };
-  const { randomPerson, randomVerb, count } = props;
-  const {
-    infinitive,
-    tense_english,
-    mood_english,
-    infinitive_english
-  } = randomVerb;
-  // const buttonText =
-  //   randomPerson[1] !== value.toLowerCase() && answered
-  //     ? "Next verb"
-  //     : "Submit";
-  const percentage =
-    totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
-  console.log(infinitive_english);
-  return (
-    <div>
-      <div className="verb-info-wrapper">
-        <div className="verb-streak">
-          <div className="current-best-streak">
-            <div className="streak">current streak:</div>
-            <div className="twenty-four">{count}</div>
-          </div>
-          <Reward ref={refReward} type="emoji">
-            <div className="current-best-streak">
-              <div className="streak">best streak:</div>
-              <div className="twenty-four">
-                {bestStreak} <span role="img" aria-label="salsa dancer" />
-              </div>
-            </div>
-          </Reward>
-          <div className="current-best-streak">
-            <div className="streak">percentage:</div>
-            <div className="twenty-four">{percentage}%</div>
-          </div>
-        </div>
-        <Info
-          infinitive={infinitive}
-          infinitive_english={infinitive_english}
-          tense_english={tense_english}
-          mood_english={mood_english}
-        />
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className="input-section">
-          {/* <Person randomPerson={randomPerson[0]} /> */}
-          <input
-            type="text"
-            value={value}
-            placeholder="Enter conjugated verb..."
-            onChange={handleChange}
-            className="input"
-          />
-          <Checkmark correct={correct} />
-        </div>
-        <div className="text-under-input">
-          <AccentButtons addAccent={addAccent} />
-          <div
-            className="hover-text"
-            type="button"
-            role="button"
-            tabIndex={0}
-            onClick={handleExample}
-          >
-            Show example <i className="far fa-arrow-alt-circle-right" />
-          </div>
-        </div>
-        <div className="helper-text">
-          {helperText && <div>{helperText}</div>}
-          <button
-            className="submit-button"
-            type="submit"
-            onClick={handleSubmit}
-          >
-            {/* {buttonText} */}
-          </button>
-        </div>
-      </form>
-    </div>
-  );
->>>>>>> b9fd16b4bd2eef182d4301f37f3c49cedf3e9d2e
 };
 
 Input.propTypes = {
