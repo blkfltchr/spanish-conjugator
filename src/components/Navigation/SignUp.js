@@ -12,9 +12,6 @@ const SignUp = props => {
   const [register, setRegister] = useContext(RegisterContext);
   const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
   const [signedUp, setSignedUp] = useState(false);
 
   const submitHandler = e => {
@@ -52,14 +49,9 @@ const SignUp = props => {
   function handlePassword(e) {
     setPassword(e.target.value);
   }
-
-  function handleEmail(e) {
-    setEmail(e.target.value);
-  }
   useEffect(() => {
     console.log("username:", username);
     console.log("password:", password);
-    console.log("email:", email);
   }, []);
 
   return (
@@ -81,15 +73,6 @@ const SignUp = props => {
                 onChange={handleUsername}
                 placeholder="Username"
               />
-              {/* <span>Email</span>
-              <input
-                type="email"
-                className="sign-up-input"
-                name="email"
-                value={email}
-                onChange={handleEmail}
-                placeholder="Email"
-              /> */}
               <span>password</span>
               <input
                 type="password"

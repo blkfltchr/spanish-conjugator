@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
+import auth from "../auth/auth";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import {
   ModalContext,
@@ -36,7 +37,7 @@ const Login = props => {
         console.log(res.data);
         console.log("data ", res.data.your_token);
         localStorage.setItem("jwt", res.data.your_token);
-        // setLoggedIn(true);
+        // setLoggedIn(true)
       })
       .catch(error => {
         console.log("Axios Error Msg: ", error);
@@ -50,55 +51,58 @@ const Login = props => {
     setUsername(e.target.value);
   }
 
-  if (loggedIn) {
-    return <Redirect to="/learn" />;
-  } else {
-    // return <Redirect to="/" />;
-
-    return (
-      <div className="login-form">
-        <div>
-          <button className="log-in-button" onClick={toggle}>
-            Login
-          </button>
-          <Modal isOpen={modal} toggle={toggle} className={props.className}>
-            <ModalHeader toggle={toggle}>Login</ModalHeader>
-            <ModalBody>
-              <form className="sign-up-form" onSubmit={submitHandler}>
-                <span>Username</span>
+  return (
+    <div className="login-form">
+      <div>
+        <button className="log-in-button" onClick={toggle}>
+          Login
+        </button>
+        <Modal isOpen={modal} toggle={toggle} className={props.className}>
+          <ModalHeader toggle={toggle}>Login</ModalHeader>
+          <ModalBody>
+            <form className="sign-up-form" onSubmit={submitHandler}>
+              <span>Username</span>
+              <input
+                className="sign-up-input"
+                name="username"
+                onChange={handleUsername}
+                value={username}
+                placeholder="username"
+              />
+              <span>Password</span>
+              <input
+                type="password"
+                className="sign-up-input"
+                name="password"
+                onChange={handlePassword}
+                value={password}
+                placeholder="password"
+              />
+              <div>
                 <input
                   className="sign-up-input"
-                  name="username"
-                  onChange={handleUsername}
-                  value={username}
-                  placeholder="username"
-                />
-                <span>Password</span>
-                <input
-                  type="password"
-                  className="sign-up-input"
-                  name="password"
-                  onChange={handlePassword}
-                  value={password}
-                  placeholder="password"
-                />
-                <div>
-                  <input
-                    className="sign-up-input"
-                    type="checkbox"
-                    name="remeber me"
-                  />{" "}
-                  remember me <br />
-                </div>
-                <button className="form-button">Login</button>
-              </form>
-            </ModalBody>
-            <ModalFooter />
-          </Modal>
-        </div>
+                  type="checkbox"
+                  name="remeber me"
+                />{" "}
+                remember me <br />
+              </div>
+              <button
+                className="form-button"
+                onClick={() => {
+                  auth.login(() => {
+                    props.history.push("/learn");
+                  });
+                }}
+              >
+                Login
+              </button>
+            </form>
+          </ModalBody>
+          <ModalFooter />
+        </Modal>
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default Login;

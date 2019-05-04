@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Header from "./components/Layout/Header";
 import Container from "./components/Verb/index";
@@ -7,17 +7,19 @@ import Navigation from "./components/Navigation/Navigation";
 import DefaultLanding from "./DefaultLanding";
 import SignUp from "./components/Navigation/SignUp";
 import Graph from "./components/Graph/Graph";
-
+import { ProtectedRoute } from "./components/auth/protectedRoute";
 const App = () => {
   return (
     <div className="app">
       <Navigation />
       <Header />
       <div className="app-wrapper">
-        <Route exact path="/" component={DefaultLanding} />
+        <Switch>
+          <Route exact path="/" component={DefaultLanding} />
 
-        <Route exact path="/learn" component={Container} />
-        <Route exact path="/progress" component={Graph} />
+          <ProtectedRoute exact path="/learn" component={Container} />
+          <Route exact path="/progress" component={Graph} />
+        </Switch>
       </div>
     </div>
   );
