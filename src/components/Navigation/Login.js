@@ -33,9 +33,16 @@ const Login = props => {
         password: password
       })
       .then(res => {
-        console.log(res.data);
-        console.log("data ", res.data.your_token);
-        localStorage.setItem("jwt", res.data.your_token);
+        if (res.data) {
+          console.log(res.data);
+          console.log("data ", res.data.your_token);
+          localStorage.setItem("jwt", res.data.your_token);
+          auth.login(() => {
+            routeProps.history.push("/learn");
+          });
+          localStorage.setItem("isAuth", auth.authenticated);
+        }
+        toggle();
         // setLoggedIn(true)
       })
       .catch(error => {
@@ -43,13 +50,13 @@ const Login = props => {
       });
   };
 
-  const clickHandler = e => {
-    e.preventDefault();
-    auth.login(() => {
-      routeProps.history.push("/learn");
-    });
-    toggle();
-  };
+  // const clickHandler = e => {
+  //   e.preventDefault();
+  //   auth.login(() => {
+  //     routeProps.history.push("/learn");
+  //   });
+  //   toggle();
+  // };
 
   function handlePassword(e) {
     setPassword(e.target.value);
@@ -93,9 +100,8 @@ const Login = props => {
                 />{" "}
                 remember me <br />
               </div>
-              <button className="form-button" onClick={clickHandler}>
-                Login
-              </button>
+              {/* <button className="form-button" onClick={clickHandler}> */}
+              <button className="form-button">Login</button>
             </form>
           </ModalBody>
           <ModalFooter />

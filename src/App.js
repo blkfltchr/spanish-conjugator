@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, IndexRoute } from "react-router-dom";
 
 import Header from "./components/Layout/Header";
 import Container from "./components/Verb/index";
@@ -16,7 +16,6 @@ const App = () => {
       <div className="app-wrapper">
         <Switch>
           <Route exact path="/" component={DefaultLanding} />
-
           <ProtectedRoute exact path="/learn" component={Container} />
           <Route exact path="/progress" component={Graph} />
         </Switch>
