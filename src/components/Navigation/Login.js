@@ -36,7 +36,7 @@ const Login = props => {
         console.log(res.data);
         console.log("data ", res.data.your_token);
         localStorage.setItem("jwt", res.data.your_token);
-        // setLoggedIn(true)
+        const token = localStorage.getItem("jwt"); // setLoggedIn(true)
       })
       .then(res => {
         auth.login(() => {
