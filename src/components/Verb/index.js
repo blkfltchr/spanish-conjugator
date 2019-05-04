@@ -4,7 +4,7 @@ import { VerbContext } from "../../Context/Store";
 
 import Settings from "../Settings/Settings";
 // import { spainSpanish } from "../Filters/NumPersonFilters";
-// import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
+import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
 import Input from "./Input";
 import { UsernameContext } from "../../Context/Store";
 
@@ -36,6 +36,7 @@ const Verb = props => {
       .get("https://glacial-hamlet-47910.herokuapp.com/api/conjugator", options)
       .then(res => {
         setVerbData(res.data);
+
         console.log("success");
         setUsername(username);
         console.log("Hello ", username);
@@ -44,96 +45,66 @@ const Verb = props => {
       // .then(verbData => console.log(verbData))
       .catch(err => console.log(err));
   }, []);
-
-  // useEffect(() => {
-  //   const token =
-  //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxLCJ1c2VybmFtZSI6ImFzaCIsImlhdCI6MTU1Njc2NjUzMCwiZXhwIjoxNTU2ODUyOTMwfQ._Ddno-1a-C3OjQCqkzG05JBSNIrc5q3DJuRVWIGs1TA";
-  //   const userName = jwt_decode(token);
-  //   const options = {
-  //     headers: {
-  //       Authorization: token
-  //     }
-  //   };
-  //   axios
-  //     .get("https://glacial-hamlet-47910.herokuapp.com/api/conjugator", options)
-  //     .then(res => {
-  //       setVerbData(res.data);
-  //     })
-  //     // .then(res => console.log(res.data))
-  //     // .then(verbData => console.log(verbData))
-  //     .catch(err => console.log(err));
-  // }, []);
+  console.log(verbData);
 
   useEffect(() => {
-    console.log(verbData);
+    console.log("VerbData is ", verbData);
+
+    // console.log(
+    //   "random verb is",
+    //   verbData[Math.floor(Math.random() * verbData.length)]
+    // );
+    // setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
+    setRandomVerb(
+      verbData[verbData[Math.floor(Math.random() * verbData.length)]]
+    );
   }, [verbData]);
+
+  useEffect(() => {
+    if (randomVerb) {
+      console.log("RV is ", randomVerb);
+      console.log(randomVerb.infinitive);
+      setRandomPerson(
+        Object.entries(randomVerb)[Math.floor(Math.random() * 5) + 7]
+      );
+      // console.log("rV infinitive", JSON.stringify(randomVerb.infinitive));
+    }
+  }, [randomVerb]);
+
+  useEffect(() => {
+    if (randomPerson) {
+      console.log("RP is ", randomPerson);
+    }
+  }, [randomPerson]);
+
+  useEffect(() => {
+    console.log("level is", level);
+  });
 
   useEffect(() => {
     // randomize();
   }, [correct]);
 
-  function latamSpanish(data) {
-    return data.map(verb => ({
-      infinitive: verb.infinitive,
-      infinitive_english: verb.infinitive_english,
-      mood: verb.mood,
-      mood_english: verb.mood_english,
-      tense: verb.tense,
-      tense_english: verb.tense_english,
-      verb_english: verb.verb_english,
-      form_1s: verb.form_1s,
-      form_2s: verb.form_2s,
-      form_3s: verb.form_3s,
-      form_1p: verb.form_1p,
-      form_3p: verb.form_3p,
-      gerund: verb.gerund,
-      gerund_english: verb.gerund_english,
-      pastparticiple: verb.pastparticiple,
-      pastparticiple_english: verb.pastparticiple_english
-    }));
-  }
+  // const randomize = () => {
+  //   // let randomVerb = verbData[Math.floor(Math.random() * verbData.length)];
 
-  function spainSpanish(data) {
-    return data.map(verb => ({
-      infinitive: verb.infinitive,
-      infinitive_english: verb.infinitive_english,
-      mood: verb.mood,
-      mood_english: verb.mood_english,
-      tense: verb.tense,
-      tense_english: verb.tense_english,
-      verb_english: verb.verb_english,
-      form_1s: verb.form_1s,
-      form_2s: verb.form_2s,
-      form_3s: verb.form_3s,
-      form_1p: verb.form_1p,
-      form_2p: verb.form_2p,
-      form_3p: verb.form_3p,
-      gerund: verb.gerund,
-      gerund_english: verb.gerund_english,
-      pastparticiple: verb.pastparticiple,
-      pastparticiple_english: verb.pastparticiple_english
-    }));
-  }
+  //   // // let randomPerson = Object.entries(randomVerb)[
+  //   // //   Math.floor(Math.random() * 5) + 7
+  //   // // ];
 
-  const randomize = () => {
-    setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
-    console.log(randomVerb);
-    setRandomPerson(
-      Object.entries(randomVerb)[Math.floor(Math.random() * 5) + 7]
-    );
-    // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
-    do {
-      setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
-      setRandomPerson(
-        Object.entries(randomVerb)[Math.floor(Math.random() * 5) + 7]
-      );
-    } while (
-      randomPerson[1] === "" ||
-      randomVerb.mood_english === "Imperative Negative"
-    );
-    // setRandomVerb(myRandomVerb);
-    // setRandomPerson(myRandomPerson);
-  };
+  //   // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
+  //   do {
+  //     randomVerb = verbData[Math.floor(Math.random() * verbData.length)];
+  //     // randomPerson = Object.entries(randomVerb)[
+  //     //   Math.floor(Math.random() * 5) + 7
+  //     // ];
+  //   } while (
+  //     randomPerson[1] === "" ||
+  //     randomVerb.mood_english === "Imperative Negative"
+  //   );
+  //   setRandomVerb(randomVerb);
+  //   setRandomPerson(randomPerson);
+  // };
 
   const handleRefresh = () => {
     setCorrect(false);
@@ -159,21 +130,7 @@ const Verb = props => {
     handleRefresh();
   };
 
-  const filterData = event => {
-    event.preventDefault();
-    const Level = parseInt(level);
-    if (NumberPerson === "Spain") {
-      const spainSpan = spainSpanish(VerbTenseFilters[Level]);
-      setVerbData(spainSpan);
-    }
-
-    if (NumberPerson === "Latam") {
-      const latamSpan = latamSpanish(VerbTenseFilters[level]);
-      setVerbData(latamSpan);
-    }
-    handleRefresh();
-  };
-
+  //////********************** */LEVEL DATA FILTERING HAPPENS BELOW HERE *******************************////////
   const LevelOne = verbData.filter(
     verb =>
       verb.tense_english === "Present" && verb.mood_english === "Indicative"
@@ -225,29 +182,88 @@ const Verb = props => {
     LevelSix
     // miniData
   ];
+  //////********************** */LEVEL DATA FILTERING HAPPENS ABOVE HERE *******************************////////
+
+  const filterData = event => {
+    event.preventDefault();
+    const Level = parseInt(level);
+    if (NumberPerson === "Spain") {
+      const spainSpan = spainSpanish(VerbTenseFilters[Level]);
+      setVerbData(spainSpan);
+    }
+
+    if (NumberPerson === "Latam") {
+      const latamSpan = latamSpanish(VerbTenseFilters[level]);
+      setVerbData(latamSpan);
+    }
+    handleRefresh();
+  };
 
   // export { VerbTenseFilters };
 
-  console.log("Answer:", randomPerson[1]);
+  // console.log("Answer:", randomPerson[1]);
   return (
     <div>
-      <Input
+      {/* <Input
         data={verbData}
-        // randomPerson={randomPerson}
+        randomPerson={randomPerson}
         randomVerb={randomVerb}
         randomize={randomize}
         addCounter={addCounter}
         resetCounter={resetCounter}
         count={count}
-      />
+      /> */}
       <Settings
-        // filterData={filterData}
+        filterData={filterData}
         updateVerbTenses={updateVerbTenses}
         updateNumPerson={updateNumPerson}
       />
       {/* <Filter data={verbData} /> */}
     </div>
   );
+
+  function latamSpanish(data) {
+    return data.map(verb => ({
+      infinitive: verb.infinitive,
+      infinitive_english: verb.infinitive_english,
+      mood: verb.mood,
+      mood_english: verb.mood_english,
+      tense: verb.tense,
+      tense_english: verb.tense_english,
+      verb_english: verb.verb_english,
+      form_1s: verb.form_1s,
+      form_2s: verb.form_2s,
+      form_3s: verb.form_3s,
+      form_1p: verb.form_1p,
+      form_3p: verb.form_3p,
+      gerund: verb.gerund,
+      gerund_english: verb.gerund_english,
+      pastparticiple: verb.pastparticiple,
+      pastparticiple_english: verb.pastparticiple_english
+    }));
+  }
+
+  function spainSpanish(data) {
+    return data.map(verb => ({
+      infinitive: verb.infinitive,
+      infinitive_english: verb.infinitive_english,
+      mood: verb.mood,
+      mood_english: verb.mood_english,
+      tense: verb.tense,
+      tense_english: verb.tense_english,
+      verb_english: verb.verb_english,
+      form_1s: verb.form_1s,
+      form_2s: verb.form_2s,
+      form_3s: verb.form_3s,
+      form_1p: verb.form_1p,
+      form_2p: verb.form_2p,
+      form_3p: verb.form_3p,
+      gerund: verb.gerund,
+      gerund_english: verb.gerund_english,
+      pastparticiple: verb.pastparticiple,
+      pastparticiple_english: verb.pastparticiple_english
+    }));
+  }
 };
 
 export default Verb;
