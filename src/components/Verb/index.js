@@ -55,9 +55,7 @@ const Verb = props => {
     //   verbData[Math.floor(Math.random() * verbData.length)]
     // );
     // setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
-    setRandomVerb(
-      verbData[verbData[Math.floor(Math.random() * verbData.length)]]
-    );
+    setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
   }, [verbData]);
 
   useEffect(() => {
@@ -74,6 +72,7 @@ const Verb = props => {
   useEffect(() => {
     if (randomPerson) {
       console.log("RP is ", randomPerson);
+      console.log("Answer:", randomPerson[1]);
     }
   }, [randomPerson]);
 
@@ -82,9 +81,12 @@ const Verb = props => {
   });
 
   useEffect(() => {
-    // randomize();
+    randomize();
   }, [correct]);
 
+  const randomize = () => {
+    setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
+  };
   // const randomize = () => {
   //   // let randomVerb = verbData[Math.floor(Math.random() * verbData.length)];
 
@@ -110,7 +112,7 @@ const Verb = props => {
     setCorrect(false);
     setRandomVerb({});
     setRandomPerson([]);
-    // randomize();
+    randomize();
   };
 
   const addCounter = () => {
@@ -188,12 +190,14 @@ const Verb = props => {
     event.preventDefault();
     const Level = parseInt(level);
     if (NumberPerson === "Spain") {
-      const spainSpan = spainSpanish(VerbTenseFilters[Level]);
+      // const spainSpan = spainSpanish(VerbTenseFilters[Level]);
+      const spainSpan = spainSpanish(LevelOne);
       setVerbData(spainSpan);
     }
 
     if (NumberPerson === "Latam") {
-      const latamSpan = latamSpanish(VerbTenseFilters[level]);
+      // const latamSpan = latamSpanish(VerbTenseFilters[level]);
+      const latamSpan = latamSpanish(LevelOne);
       setVerbData(latamSpan);
     }
     handleRefresh();
@@ -201,18 +205,19 @@ const Verb = props => {
 
   // export { VerbTenseFilters };
 
-  // console.log("Answer:", randomPerson[1]);
   return (
     <div>
-      {/* <Input
-        data={verbData}
-        randomPerson={randomPerson}
-        randomVerb={randomVerb}
-        randomize={randomize}
-        addCounter={addCounter}
-        resetCounter={resetCounter}
-        count={count}
-      /> */}
+      {randomVerb && randomPerson ? (
+        <Input
+          data={verbData}
+          randomPerson={randomPerson}
+          randomVerb={randomVerb}
+          // randomize={randomize}
+          addCounter={addCounter}
+          resetCounter={resetCounter}
+          count={count}
+        />
+      ) : null}
       <Settings
         filterData={filterData}
         updateVerbTenses={updateVerbTenses}
