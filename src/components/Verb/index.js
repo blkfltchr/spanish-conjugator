@@ -4,7 +4,7 @@ import { VerbContext } from "../../Context/Store";
 
 import Settings from "../Settings/Settings";
 // import { spainSpanish } from "../Filters/NumPersonFilters";
-import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
+// import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
 import Input from "./Input";
 import { UsernameContext } from "../../Context/Store";
 
@@ -36,30 +36,24 @@ const Verb = props => {
       .then(res => {
         setVerbData(res.data);
 
-        console.log("success");
+        // console.log("success");
         setUsername(username);
-        console.log("Hello ", username);
+        // console.log("Hello ", username);
       })
       // .then(res => console.log(res.data))
       // .then(verbData => console.log(verbData))
       .catch(err => console.log(err));
   }, []);
-  console.log(verbData);
+  // console.log(verbData);
 
   useEffect(() => {
-    console.log("VerbData is ", verbData);
-
-    // console.log(
-    //   "random verb is",
-    //   verbData[Math.floor(Math.random() * verbData.length)]
-    // );
-    // setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
+    // console.log("VerbData is ", verbData);
     setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
   }, [verbData]);
 
   useEffect(() => {
     if (randomVerb) {
-      console.log("RV is ", randomVerb);
+      // console.log("RV is ", randomVerb);
       // console.log(randomVerb.infinitive);
       setRandomPerson(
         Object.entries(randomVerb)[Math.floor(Math.random() * 5) + 7]
@@ -70,14 +64,14 @@ const Verb = props => {
 
   useEffect(() => {
     if (randomPerson) {
-      console.log("RP is ", randomPerson);
+      // console.log("RP is ", randomPerson);
       console.log("Answer:", randomPerson[1]);
     }
   }, [randomPerson]);
 
-  useEffect(() => {
-    console.log("level is", level);
-  });
+  // useEffect(() => {
+  //   console.log("level is", level);
+  // });
 
   useEffect(() => {
     randomize();
@@ -85,28 +79,19 @@ const Verb = props => {
 
   const randomize = () => {
     setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
+    setRandomPerson(
+      Object.entries(randomVerb)[Math.floor(Math.random() * 5) + 7]
+    );
+    do {
+      setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
+      setRandomPerson(
+        Object.entries(randomVerb)[Math.floor(Math.random() * 5) + 7]
+      );
+    } while (
+      setRandomPerson[1] === "" ||
+      randomVerb.mood_english === "Imperative Negative"
+    );
   };
-  // const randomize = () => {
-  //   // let randomVerb = verbData[Math.floor(Math.random() * verbData.length)];
-
-  //   // // let randomPerson = Object.entries(randomVerb)[
-  //   // //   Math.floor(Math.random() * 5) + 7
-  //   // // ];
-
-  //   // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
-  //   do {
-  //     randomVerb = verbData[Math.floor(Math.random() * verbData.length)];
-  //     // randomPerson = Object.entries(randomVerb)[
-  //     //   Math.floor(Math.random() * 5) + 7
-  //     // ];
-  //   } while (
-  //     randomPerson[1] === "" ||
-  //     randomVerb.mood_english === "Imperative Negative"
-  //   );
-  //   setRandomVerb(randomVerb);
-  //   setRandomPerson(randomPerson);
-  // };
-
   const handleRefresh = () => {
     setCorrect(false);
     setRandomVerb({});
@@ -124,10 +109,12 @@ const Verb = props => {
 
   const updateNumPerson = event => {
     setNumberPerson(event.target.value);
+    console.log("from update level is", level);
   };
 
   const updateVerbTenses = event => {
     setLevel(event.target.value);
+    console.log("from updateVerbTenese level is", level);
     handleRefresh();
   };
 
@@ -188,21 +175,20 @@ const Verb = props => {
   const filterData = event => {
     event.preventDefault();
     const Level = parseInt(level);
+    console.log(Level);
     if (NumberPerson === "Spain") {
-      // const spainSpan = spainSpanish(VerbTenseFilters[Level]);
-      const spainSpan = spainSpanish(LevelOne);
+      const spainSpan = spainSpanish(VerbTenseFilters[Level]);
+      // const spainSpan = spainSpanish(Level);
       setVerbData(spainSpan);
     }
 
     if (NumberPerson === "Latam") {
-      // const latamSpan = latamSpanish(VerbTenseFilters[level]);
-      const latamSpan = latamSpanish(LevelOne);
+      const latamSpan = latamSpanish(VerbTenseFilters[Level]);
+      // const latamSpan = latamSpanish(Level);
       setVerbData(latamSpan);
     }
     handleRefresh();
   };
-
-  // export { VerbTenseFilters };
 
   return (
     <div>

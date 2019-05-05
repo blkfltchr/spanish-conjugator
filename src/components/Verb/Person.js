@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const personObj = {
-  form_1s: 'Yo',
-  form_2s: 'Tú',
-  form_3s: 'El/Ella',
-  form_1p: 'Nosotros',
-  form_2p: 'Vosotros',
-  form_3p: 'Ellos/Ellas',
+  form_1s: "Yo",
+  form_2s: "Tú",
+  form_3s: "El/Ella",
+  form_1p: "Nosotros",
+  form_2p: "Vosotros",
+  form_3p: "Ellos/Ellas"
 };
 
 const VerbPerson = props => {
@@ -20,7 +20,7 @@ const VerbPerson = props => {
 };
 
 VerbPerson.propTypes = {
-  randomPerson: PropTypes.string,
+  randomPerson: PropTypes.string
 };
 
 export default VerbPerson;
