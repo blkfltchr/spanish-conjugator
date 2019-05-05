@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useContext } from "react";
 import "../../app.css";
-import { VerbContext } from "../../Context/Store";
+import {
+  VerbContext,
+  UsernameContext,
+  LevelContext
+} from "../../Context/Store";
 
 import Settings from "../Settings/Settings";
-// import { spainSpanish } from "../Filters/NumPersonFilters";
-// import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
+
 import Input from "./Input";
-import { UsernameContext } from "../../Context/Store";
+import {} from "../../Context/Store";
 
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-
-// import Filter, { FilterLevels } from "../Filters/Filter";
+import ReactLoading from "react-loading";
+import styled from "styled-components";
 
 const Verb = props => {
   const [verbData, setVerbData] = useContext(VerbContext);
@@ -19,7 +22,7 @@ const Verb = props => {
   const [randomVerb, setRandomVerb] = useState({});
   const [randomPerson, setRandomPerson] = useState([]);
   const [NumberPerson, setNumberPerson] = useState("Latam");
-  const [level, setLevel] = useState(0);
+  const [level, setLevel] = useContext(LevelContext);
   const [count, setCount] = useState(0);
   const [username, setUsername] = useContext(UsernameContext);
 
@@ -189,9 +192,19 @@ const Verb = props => {
     }
     handleRefresh();
   };
+  /**  Styled Components below    **/
+
+  const StyledDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0px 0px;
+    border 1px solid red;
+  `;
 
   return (
-    <div>
+    <StyledDiv>
       {randomVerb && randomPerson ? (
         <Input
           data={verbData}
@@ -202,13 +215,20 @@ const Verb = props => {
           resetCounter={resetCounter}
           count={count}
         />
-      ) : null}
+      ) : (
+        <ReactLoading
+          type={"bars"}
+          color={"#ffc107"}
+          height={"20%"}
+          width={"20%"}
+        />
+      )}
       <Settings
         filterData={filterData}
         updateVerbTenses={updateVerbTenses}
         updateNumPerson={updateNumPerson}
       />
-    </div>
+    </StyledDiv>
   );
 
   function latamSpanish(data) {

@@ -1,68 +1,68 @@
 /* Navigation Styling */
 .sc-gqjmRU * {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 nav {
-	margin: 25px 10px 12px 10px;
-	text-decoration: none;
+  margin: 25px 10px 12px 10px;
+  text-decoration: none;
 }
 
 nav a {
-	margin: 0 10px;
-	text-decoration: none;
+  margin: 0 10px;
+  text-decoration: none;
 }
 
 .default-menu {
-	margin: 0 auto;
-	text-decoration: none;
-	display: flex;
-	display: none;
+  margin: 0 auto;
+  text-decoration: none;
+  display: flex;
+  /* display: none; */
 }
 
 .user-menu {
-	margin: 0 10px;
-	text-decoration: none;
-	display: flex;
-	/* display: none; */
+  margin: 0 10px;
+  text-decoration: none;
+  display: flex;
+  /* display: none; */
 }
 
 /* Form Styling */
 
 span {
-	color: #941511;
-	margin: 10px;
-	text-align: left;
+  color: #941511;
+  margin: 10px;
+  text-align: left;
 }
 
 /* Modal Styling */
 
 .modal-header * {
-	display: flex;
-	justify-content: center;
-	align-self: center;
-	flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-wrap: wrap;
 }
 
 .modal-body {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
 }
 
 .modal-footer {
-	background: #941511;
-	box-shadow: 1px 1px 1px #000000;
+  background: #941511;
+  box-shadow: 1px 1px 1px #000000;
 }
 
 .ivPWSL * {
-	margin-top: 0;
+  margin-top: 0;
 }
 .sc-dnqmqq * {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 .my-links {
-	margin: 30% auto;
+  margin: 30% auto;
 }
