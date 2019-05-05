@@ -18,6 +18,7 @@ const PageNotFound = () => {
       <NotFound src={image} alt="page not found" />
       <h2>How'd you get here?</h2>
       <p>The page you're looking for either doesn't exist</p>
+      <h2>404 ERROR</h2>
     </StyledDiv>
   );
 };
