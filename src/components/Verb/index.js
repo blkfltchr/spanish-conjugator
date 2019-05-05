@@ -18,7 +18,6 @@ const Verb = props => {
   const [correct, setCorrect] = useState(false);
   const [randomVerb, setRandomVerb] = useState({});
   const [randomPerson, setRandomPerson] = useState([]);
-  // const [data, setData] = useState([]);
   const [NumberPerson, setNumberPerson] = useState("Latam");
   const [level, setLevel] = useState(0);
   const [count, setCount] = useState(0);
@@ -61,7 +60,7 @@ const Verb = props => {
   useEffect(() => {
     if (randomVerb) {
       console.log("RV is ", randomVerb);
-      console.log(randomVerb.infinitive);
+      // console.log(randomVerb.infinitive);
       setRandomPerson(
         Object.entries(randomVerb)[Math.floor(Math.random() * 5) + 7]
       );
