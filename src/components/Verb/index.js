@@ -4,7 +4,7 @@ import { VerbContext } from "../../Context/Store";
 
 import Settings from "../Settings/Settings";
 // import { spainSpanish } from "../Filters/NumPersonFilters";
-import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
+// import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
 import Input from "./Input";
 import { UsernameContext } from "../../Context/Store";
 
@@ -48,12 +48,6 @@ const Verb = props => {
 
   useEffect(() => {
     console.log("VerbData is ", verbData);
-
-    // console.log(
-    //   "random verb is",
-    //   verbData[Math.floor(Math.random() * verbData.length)]
-    // );
-    // setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
     setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
   }, [verbData]);
 
@@ -85,28 +79,19 @@ const Verb = props => {
 
   const randomize = () => {
     setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
+    setRandomPerson(
+      Object.entries(randomVerb)[Math.floor(Math.random() * 5) + 7]
+    );
+    do {
+      setRandomVerb(verbData[Math.floor(Math.random() * verbData.length)]);
+      setRandomPerson(
+        Object.entries(randomVerb)[Math.floor(Math.random() * 5) + 7]
+      );
+    } while (
+      setRandomPerson[1] === "" ||
+      randomVerb.mood_english === "Imperative Negative"
+    );
   };
-  // const randomize = () => {
-  //   // let randomVerb = verbData[Math.floor(Math.random() * verbData.length)];
-
-  //   // // let randomPerson = Object.entries(randomVerb)[
-  //   // //   Math.floor(Math.random() * 5) + 7
-  //   // // ];
-
-  //   // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
-  //   do {
-  //     randomVerb = verbData[Math.floor(Math.random() * verbData.length)];
-  //     // randomPerson = Object.entries(randomVerb)[
-  //     //   Math.floor(Math.random() * 5) + 7
-  //     // ];
-  //   } while (
-  //     randomPerson[1] === "" ||
-  //     randomVerb.mood_english === "Imperative Negative"
-  //   );
-  //   setRandomVerb(randomVerb);
-  //   setRandomPerson(randomPerson);
-  // };
-
   const handleRefresh = () => {
     setCorrect(false);
     setRandomVerb({});
