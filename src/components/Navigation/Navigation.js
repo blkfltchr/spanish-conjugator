@@ -12,21 +12,6 @@ const Navigation = props => {
   return (
     <TopBar>
       <NavLogo>Spanish Conjugator</NavLogo>
-      <nav>
-        <div className="default-menu">
-          {/* <Login />
-          <SignUp />
-          <Sidebar /> */}
-        </div>
-        {/* <div className="user-menu">
-          <NavLink to="/">
-            <Button>Home</Button>
-          </NavLink>
-          <NavLink to="/learn">
-            <Button alt>Go Learn</Button>
-          </NavLink>
-        </div> */}
-      </nav>
     </TopBar>
   );
 };
