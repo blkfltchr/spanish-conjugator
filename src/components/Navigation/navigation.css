@@ -1,11 +1,11 @@
 /* Navigation Styling */
+.sc-gqjmRU * {
+	font-size: 2rem;
+}
+
 nav {
-	margin-top: 25px;
-	color: #003893;
 	margin: 25px 10px 12px 10px;
 	text-decoration: none;
-	display: flex;
-	justify-content: space-between;
 }
 
 nav a {
@@ -13,97 +13,29 @@ nav a {
 	text-decoration: none;
 }
 
-.top-bar {
-	color: #003893;
-	margin: 10px 0;
-	padding: 0 15px;
-	display: flex;
-	justify-content: space-between;
-}
-
 .default-menu {
-	color: #003893;
-	margin: 0 10px;
+	margin: 0 auto;
 	text-decoration: none;
 	display: flex;
+	display: none;
 }
 
 .user-menu {
 	margin: 0 10px;
 	text-decoration: none;
-	display: none;
-}
-
-.nav-logo {
-	background: #941511;
-	border: 5px solid #ffc400;
-	box-shadow: 1px 1px 3px #000000;
-	border-radius: 0 35px 25px 0;
-	color: #ffffff;
-	text-shadow: 1px 1px 4px #000000;
-	width: 40%;
 	display: flex;
-	justify-content: center;
-	align-self: center;
-}
-/* Sign Up Styling */
-
-form {
-	padding: 25px;
+	/* display: none; */
 }
 
-.log-in-button {
-	background: #ffc400;
-	border: 1px solid black;
-	color: #000000;
-	margin: 0 10px;
-	padding: 5px 20px;
-}
-.log-in-button:hover {
-}
-
-.sign-up-button {
-	background: #941511;
-	border: 1px solid black;
-	color: white;
-	margin: 0 10px;
-	padding: 5px 20px;
-}
-.sign-up-button:hover {
-}
-
-.sign-up-form {
-	display: flex;
-	flex-direction: column;
-	text-align: start;
-}
-
-.sign-up-input {
-	border-radius: 5px;
-	padding: 5px;
-	margin: 10px 0;
-	background-color: beige;
-}
-
-.form-button {
-	background: #ffc400;
-	border: 1px solid #000000;
-	border-radius: 10px;
-	box-shadow: 2px 2px 4px #000000;
-	color: #000000;
-	cursor: pointer;
-	margin: 25px auto;
-	padding: 10px 30px;
-	display: flex;
-}
-.form-button:hover {
-	background: #941511;
-	color: #ffffff;
-}
+/* Form Styling */
 
 span {
 	color: #941511;
+	margin: 10px;
+	text-align: left;
 }
+
+/* Modal Styling */
 
 .modal-header * {
 	display: flex;
@@ -122,4 +54,15 @@ span {
 .modal-footer {
 	background: #941511;
 	box-shadow: 1px 1px 1px #000000;
+}
+
+.ivPWSL * {
+	margin-top: 0;
+}
+.sc-dnqmqq * {
+	margin-top: 0;
+}
+
+.my-links {
+	margin: 30% auto;
 }
