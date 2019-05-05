@@ -211,7 +211,7 @@ const Verb = props => {
           data={verbData}
           randomPerson={randomPerson}
           randomVerb={randomVerb}
-          // randomize={randomize}
+          randomize={randomize}
           addCounter={addCounter}
           resetCounter={resetCounter}
           count={count}
@@ -222,7 +222,6 @@ const Verb = props => {
         updateVerbTenses={updateVerbTenses}
         updateNumPerson={updateNumPerson}
       />
-      {/* <Filter data={verbData} /> */}
     </div>
   );
 
