@@ -17,18 +17,22 @@ nav a {
 	margin: 0 auto;
 	text-decoration: none;
 	display: flex;
+	display: none;
 }
 
 .user-menu {
 	margin: 0 10px;
 	text-decoration: none;
-	display: none;
+	display: flex;
+	/* display: none; */
 }
 
 /* Form Styling */
 
 span {
 	color: #941511;
+	margin: 10px;
+	text-align: left;
 }
 
 /* Modal Styling */

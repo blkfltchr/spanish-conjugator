@@ -11,9 +11,7 @@ import Sidebar from './Sidebar';
 const Navigation = (props) => {
 	return (
 		<TopBar>
-			<NavLogo>
-				<h1>Spanish Conjugator</h1>
-			</NavLogo>
+			<NavLogo>Spanish Conjugator</NavLogo>
 			<nav>
 				<div className="default-menu">
 					<Login />
@@ -45,19 +43,21 @@ const TopBar = styled.div`
 `;
 
 const NavLogo = styled.div`
-	font-size: 10px;
 	background: #941511;
 	border: 5px solid #ffc400;
 	box-shadow: 1px 1px 3px #000000;
 	border-radius: 0 35px 25px 0;
 	color: #ffffff;
-	text-shadow: 1px 1px 4px #000000;
+	font-size: 2rem;
 	height: 75px;
+	line-height: 1.8rem;
 	margin: 5px 0;
-	width: 40vw;
+	text-shadow: 1px 1px 4px #000000;
 	padding: 10px;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	width: 40vw;
 `;
 
 export const Form = styled.form`

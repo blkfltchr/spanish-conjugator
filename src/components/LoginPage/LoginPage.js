@@ -58,9 +58,9 @@ const Login = (props) => {
 	}
 	return (
 		<div className="login-page-container">
-			<FormContainer>
+			<div className="form-wrapper">
 				<Form>
-					<h2>Sign In</h2>
+					<h3>Sign In</h3>
 					<br />
 					<span>Username:</span>
 					<Input name="username" onChange={handleUsername} value={username} placeholder="username" />
@@ -72,16 +72,20 @@ const Login = (props) => {
 						value={password}
 						placeholder="password"
 					/>
-					<input type="checkbox" name="remember me" /> <span>remember me</span> <br />
+					<div>
+						<input type="checkbox" name="remember me" /> <span>remember me</span> <br />
+					</div>
 					<Button onClick={clickHandler}>Login</Button>
 				</Form>
-			</FormContainer>
+			</div>
 			<div className="divider" />
-			<FormContainer>
+			<div className="form-wrapper">
 				<Form onSubmit={submitHandler}>
-					<h3>Not Registered? Sign Up Below!</h3>
+					<h3>
+						Not Registered? <br />Sign Up Below!
+					</h3>
 					<br />
-					<span>Username</span>
+					<span>Username:</span>
 					<Input
 						type="username"
 						name="username"
@@ -89,7 +93,7 @@ const Login = (props) => {
 						onChange={handleUsername}
 						placeholder="Username"
 					/>
-					<span>password</span>
+					<span>Password:</span>
 					<Input
 						type="password"
 						name="password"
@@ -97,7 +101,7 @@ const Login = (props) => {
 						onChange={handlePassword}
 						placeholder="Password"
 					/>
-					<span>Retype Password</span>
+					<span>Retype Password:</span>
 					<Input
 						type="password"
 						name="confirmationPassword"
@@ -106,17 +110,9 @@ const Login = (props) => {
 					/>
 					<Button>Register</Button>
 				</Form>
-			</FormContainer>
+			</div>
 		</div>
 	);
 };
 
 export default Login;
-
-const FormContainer = styled.div`
-	background: #f6f9fc;
-	padding: 40px;
-	justify-content: center;
-	text-align: center;
-	width: 45%;
-`;

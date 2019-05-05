@@ -1,34 +1,37 @@
+h3 {
+	font-size: 1.2rem;
+	position: absolute;
+	top: 5%;
+	margin-top: 20px;
+	padding: 5px;
+}
+
 .app-wrapper {
 	background: #ffffff;
-	margin: 20px 220px;
+}
+
+.form-wrapper {
+	background: #f6f9fc;
+	padding: 40px;
+	justify-content: center;
+	text-align: center;
+	width: 45%;
+	margin: 0 auto;
 }
 
 .login-page-container {
+	position: absolute;
+	left: 5%;
 	background: #f6f9fc;
 	border: 5px solid #941511;
 	border-radius: 25px;
 	height: 80vh;
-	width: 75vw;
+	width: 87%;
+	margin: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	justify-self: center;
-	padding: 100px;
-}
-
-.login-sign-up {
-	background: #ffffff;
-	border: 2px solid #474343;
-	box-shadow: 1px 1px 1px #ffc400;
-	border-radius: 15px;
-	color: #000000;
-	margin: 5px auto;
-	padding: 5px;
-	height: 120px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 }
 
 .sc-jzJRlG {
