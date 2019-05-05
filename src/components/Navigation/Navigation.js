@@ -45,16 +45,19 @@ const TopBar = styled.div`
 `;
 
 const NavLogo = styled.div`
+	font-size: 10px;
 	background: #941511;
 	border: 5px solid #ffc400;
 	box-shadow: 1px 1px 3px #000000;
 	border-radius: 0 35px 25px 0;
 	color: #ffffff;
 	text-shadow: 1px 1px 4px #000000;
-	width: 40%;
+	height: 75px;
+	margin: 5px 0;
+	width: 40vw;
+	padding: 10px;
 	display: flex;
 	justify-content: center;
-	align-self: center;
 `;
 
 export const Form = styled.form`
@@ -73,9 +76,13 @@ export const Button = styled.button`
 	box-shadow: 2px 2px 4px #000000;
 	color: #000000;
 	cursor: pointer;
+	padding: 5px 25px;
 	margin: 0 auto;
-	padding: 5px 20px;
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	align-content: center;
 
 	&:hover {
 		background: #941511;
@@ -116,4 +123,5 @@ export const Input = styled.input`
 	border 1px solid;
 	padding: 5px;
 	margin: 10px 0;
+	width: 70%;
 `;

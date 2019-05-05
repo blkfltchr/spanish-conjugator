@@ -1,24 +1,41 @@
-.BNlHk {
-	width: 580px;
+.app-wrapper {
+	background: #ffffff;
+	margin: 20px 220px;
 }
 
-.app-wrapper {
-	padding: 0;
+.login-page-container {
+	background: #f6f9fc;
+	border: 5px solid #941511;
 	border-radius: 25px;
+	height: 80vh;
+	width: 75vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	justify-self: center;
+	padding: 100px;
 }
 
 .login-sign-up {
 	background: #ffffff;
-	border: 2px solid #000000;
+	border: 2px solid #474343;
 	box-shadow: 1px 1px 1px #ffc400;
 	border-radius: 15px;
 	color: #000000;
 	margin: 5px auto;
 	padding: 5px;
-	width: 40%;
 	height: 120px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.sc-jzJRlG {
+	border-radius: 15px;
+}
+
+.divider {
+	border-left: 1px dotted #941511;
+	height: 100%;
 }

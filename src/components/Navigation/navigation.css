@@ -1,9 +1,11 @@
 /* Navigation Styling */
+.sc-gqjmRU * {
+	font-size: 2rem;
+}
+
 nav {
 	margin: 25px 10px 12px 10px;
 	text-decoration: none;
-	display: flex;
-	justify-content: space-between;
 }
 
 nav a {
@@ -12,7 +14,7 @@ nav a {
 }
 
 .default-menu {
-	margin: 0 10px;
+	margin: 0 auto;
 	text-decoration: none;
 	display: flex;
 }
@@ -20,7 +22,7 @@ nav a {
 .user-menu {
 	margin: 0 10px;
 	text-decoration: none;
-	/* display: none; */
+	display: none;
 }
 
 /* Form Styling */
@@ -58,5 +60,5 @@ span {
 }
 
 .my-links {
-	margin: 30% 0;
+	margin: 30% auto;
 }

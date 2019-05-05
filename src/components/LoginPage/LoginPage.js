@@ -57,10 +57,11 @@ const Login = (props) => {
 		setUsername(e.target.value);
 	}
 	return (
-		<div>
+		<div className="login-page-container">
 			<FormContainer>
 				<Form>
 					<h2>Sign In</h2>
+					<br />
 					<span>Username:</span>
 					<Input name="username" onChange={handleUsername} value={username} placeholder="username" />
 					<span>Password:</span>
@@ -71,13 +72,40 @@ const Login = (props) => {
 						value={password}
 						placeholder="password"
 					/>
-					<Input type="checkbox" name="remember me" /> <span>remember me</span> <br />
+					<input type="checkbox" name="remember me" /> <span>remember me</span> <br />
 					<Button onClick={clickHandler}>Login</Button>
 				</Form>
-				<div className="login-sign-up">
-					<p>If you haven't already </p>
-					<SignUp />
-				</div>
+			</FormContainer>
+			<div className="divider" />
+			<FormContainer>
+				<Form onSubmit={submitHandler}>
+					<h3>Not Registered? Sign Up Below!</h3>
+					<br />
+					<span>Username</span>
+					<Input
+						type="username"
+						name="username"
+						value={username}
+						onChange={handleUsername}
+						placeholder="Username"
+					/>
+					<span>password</span>
+					<Input
+						type="password"
+						name="password"
+						value={password}
+						onChange={handlePassword}
+						placeholder="Password"
+					/>
+					<span>Retype Password</span>
+					<Input
+						type="password"
+						name="confirmationPassword"
+						validate={{ match: { value: 'password' } }}
+						placeholder="Retype password"
+					/>
+					<Button>Register</Button>
+				</Form>
 			</FormContainer>
 		</div>
 	);
@@ -87,12 +115,8 @@ export default Login;
 
 const FormContainer = styled.div`
 	background: #f6f9fc;
-	border: 5px solid #941511;
-	padding: 50px;
-	border-radius: 25px;
-	display: flex;
-	flex-direction: column;
+	padding: 40px;
 	justify-content: center;
 	text-align: center;
-	width: 70%;
+	width: 45%;
 `;
