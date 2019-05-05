@@ -9,6 +9,7 @@ import Graph from "./components/Graph/Graph";
 import { ProtectedRoute } from "./components/auth/protectedRoute";
 import LoginPage from "./components/LoginPage/LoginPage";
 import PageNotFound from "./DefaultLanding/PageNotFound";
+import SignUpPage from "./components/LoginPage/SignUpPage";
 
 const App = () => {
   return (
@@ -17,9 +18,10 @@ const App = () => {
       {/* <Header /> */}
       <div className="app-wrapper">
         <Switch>
-          <Route exact path="/" component={DefaultLanding} />
-          <Route exact path="/my-account" component={Account} />
+          <Route exact path="/" component={LoginPage} />
           <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/signup" component={SignUpPage} />
+          <Route exact path="/my-account" component={Account} />
           <ProtectedRoute exact path="/learn" component={Container} />
           <Route exact path="/progress" component={Graph} />
           <Route path="/*" component={PageNotFound} />

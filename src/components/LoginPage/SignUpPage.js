@@ -15,7 +15,7 @@ import axios from "axios";
 import styled from "styled-components";
 import "./login.css";
 
-const Login = props => {
+const SignUpPage = props => {
   const [modal, setModal] = useContext(ModalContext);
   const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
@@ -28,21 +28,16 @@ const Login = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-
-    // Axios.post("http://localhost:3333/api/login", user)
     axios
-      .post("https://glacial-hamlet-47910.herokuapp.com/api/login", {
+      .post("https://glacial-hamlet-47910.herokuapp.com/api/register", {
         username: username,
         password: password
       })
       .then(res => {
-        console.log(res.data);
-        console.log("data ", res.data.your_token);
-        localStorage.setItem("jwt", res.data.your_token);
-        // setLoggedIn(true)
+        console.log("res ", res);
       })
       .catch(error => {
-        console.log("Axios Error Msg: ", error);
+        console.log("Error signing up: ", error);
       });
   };
 
@@ -60,36 +55,48 @@ const Login = props => {
   function handleUsername(e) {
     setUsername(e.target.value);
   }
+
   return (
     <div className="login-page-container">
       <div className="form-wrapper">
-        <Form>
-          <h3>Sign In</h3>
+        <Form onSubmit={submitHandler}>
+          <h3>
+            Not Registered? <br />
+            Sign Up Below!
+          </h3>
           <br />
-          <span>Username:</span>
           <Input
+            type="username"
             name="username"
-            onChange={handleUsername}
             value={username}
-            placeholder="username"
+            onChange={handleUsername}
+            placeholder="Username"
           />
           <span>Password:</span>
           <Input
             type="password"
             name="password"
-            onChange={handlePassword}
             value={password}
-            placeholder="password"
+            onChange={handlePassword}
+            placeholder="Password"
           />
-          <div>
-            <input type="checkbox" name="remember me" />{" "}
-            <span>remember me</span> <br />
-          </div>
-          <Button onClick={clickHandler}>Login</Button>
+          <span>Retype Password:</span>
+          <Input
+            type="password"
+            name="confirmationPassword"
+            validate={{ match: { value: "password" } }}
+            placeholder="Retype password"
+          />
+          <Button>Register</Button>
         </Form>
-      </div>
-      <div className="divider" />
-      {/* <div className="form-wrapper">
+      </div>{" "}
+    </div>
+  );
+};
+
+export default SignUpPage;
+{
+  /* <div className="form-wrapper">
 				<Form onSubmit={submitHandler}>
 					<h3>
 						Not Registered? <br />Sign Up Below!
@@ -120,9 +127,5 @@ const Login = props => {
 					/>
 					<Button>Register</Button>
 				</Form>
-			</div> */}
-    </div>
-  );
-};
-
-export default Login;
+			</div> */
+}
