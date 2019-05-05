@@ -4,270 +4,277 @@
 /* Global styles */
 
 body {
-  font-family: 'Open Sans';
-  background-color: #f6f9fc;
+	font-family: 'Open Sans';
+	background-color: #f6f9fc;
 }
 
 .app-wrapper {
-  margin-top: 10px;
-  padding: 10px 0;
-  background-color: #f6f9fc;
+	margin-top: 10px;
+	padding: 10px 0;
+	background-color: #f6f9fc;
 }
 
 /* Desktop styles */
 
 @media only screen and (min-width: 630px) {
-  .app-wrapper {
-    width: 580px;
-    margin: 0 auto;
-  }
+	.app-wrapper {
+		width: 580px;
+		margin: 0 auto;
+	}
 }
 
 /* Mobile styles */
 
 @media only screen and (max-width: 630px) {
-  body {
-    width: 95vw;
-  }
+	body {
+		width: 95vw;
+	}
 }
 
 @media only screen and (max-width: 630px) {
-  .app-wrapper {
-    width: 380px;
-    margin: 0 auto;
-  }
+	.app-wrapper {
+		width: 380px;
+		margin: 0 auto;
+	}
 }
 
 @media only screen and (max-width: 450px) {
-  .app-wrapper {
-    width: 95vw;
-  }
+	.app-wrapper {
+		width: 95vw;
+	}
 }
 
 /* Header styles */
 
 .header {
-  text-align: center;
-  background: white;
-  height: 90px;
-  padding-top: 5px;
+	text-align: center;
+	background: white;
+	height: 90px;
+	padding-top: 5px;
 }
 
 @media only screen and (max-width: 390px) {
-  .header {
-    height: 130px;
-  }
+	.header {
+		height: 130px;
+	}
 }
 
 .header h2 {
-  font-size: 20px;
-  margin: 10px 0;
-  font-weight: 400;
+	font-size: 20px;
+	margin: 10px 0;
+	font-weight: 400;
 }
 
 .header span {
-  font-family: 'Saira', cursive;
-  color: #003893;
-  font-weight: 700;
+	font-family: 'Saira', cursive;
+	color: #003893;
+	font-weight: 700;
 }
 
 .header div {
-  font-size: 16px;
+	font-size: 16px;
 }
 
 /* Verb streak styles */
 
 .verb-streak {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .current-best-streak {
-  padding: 5px 0;
-  margin: 5px 10px;
-  width: 85px;
-  text-align: center;
+	padding: 5px 0;
+	margin: 5px 10px;
+	width: 85px;
+	text-align: center;
 }
 
 .streak {
-  font-size: 12px;
+	font-size: 12px;
 }
 
 .streak-count {
-  font-size: 24px;
-  font-weight: 800;
+	font-size: 24px;
+	font-weight: 800;
 }
 
 /* Verb info styles */
 
 .verb-info {
-  background-color: white;
-  padding: 15px 20px;
-  border-radius: 20px;
+	background-color: white;
+	border: 1px solid black;
+	padding: 15px 20px;
+	border-radius: 20px;
 }
 
 /* Yo, Tu, Nosotros, etc. Styles */
 
 .person-flex {
-  display: flex;
-  justify-content: flex-start;
-  text-align: center;
-  margin-bottom: 7.5px;
+	display: flex;
+	justify-content: flex-start;
+	text-align: center;
+	margin-bottom: 7.5px;
 }
 
 .person-flex div {
-  font-weight: 800;
+	font-weight: 800;
 }
 
 .input-section {
-  display: flex;
-  flex-wrap: nowrap;
-  text-align: center;
-  align-content: flex-end;
-  align-items: flex-end;
-  margin: 7% 0% 2% 0%;
-  position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	text-align: center;
+	align-content: flex-end;
+	align-items: flex-end;
+	margin: 7% 0% 2% 0%;
+	position: relative;
 }
 
 .input-section input {
-  padding-left: 10px;
+	padding-left: 10px;
 }
 
 .input {
-  font-size: 1.2rem;
-  border: none;
-  border-bottom: solid 2px #003893;
-  background-color: white;
-  width: 100%;
-  height: 35px;
-  margin-left: 1%;
+	font-size: 1.2rem;
+	border: none;
+	border-bottom: solid 2px #003893;
+	background-color: white;
+	width: 100%;
+	height: 35px;
+	margin-left: 1%;
 }
 
 .text-under-input {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 /* Accent button styles */
 
 .accent-buttons button {
-  background-color: #003893;
-  color: white;
-  border-radius: 4px;
-  margin: 0 2px 6px 2px;
-  font-size: 16px
+	background-color: #003893;
+	color: white;
+	border-radius: 4px;
+	margin: 0 2px 6px 2px;
+	font-size: 16px;
 }
 
 /* Helper text styles */
 
 .helper-text {
-  height: 85px;
-  position: relative;
-  padding: 10px 0;
+	height: 85px;
+	position: relative;
+	padding: 10px 0;
 }
 
 .helper-text div {
-  text-align: center;
+	text-align: center;
 }
 
 /* Submit button styles */
 
 .submit-button {
-  font-size: 1.2rem;
-  font-family: 'Open Sans';
-  border-radius: 5px;
-  padding: 10px 15px;
-  color: white;
-  background-color: #003893;
-  width: 70%;
-  position: absolute;
-  z-index: 0;
-  bottom: 0;
-  left: 15%;
+	font-size: 1.2rem;
+	font-family: 'Open Sans';
+	border-radius: 5px;
+	padding: 10px 15px;
+	color: white;
+	background-color: #003893;
+	width: 70%;
+	position: absolute;
+	z-index: 0;
+	bottom: 0;
+	left: 15%;
 }
 
 /* Font styles */
 
+.tense {
+	font-size: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
 .twelve {
-  font-size: 12px;
+	font-size: 12px;
 }
 
 .twenty-four {
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
+	font-size: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
 }
 
 .twenty-four span {
-  font-weight: 400;
-  text-transform: none;
+	font-weight: 400;
+	text-transform: none;
 }
 
 /* Settings styles */
 
 .settings {
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 130px;
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 130px;
 }
 
 .two-dropdowns {
-  display: flex;
+	display: flex;
 }
 
 .settings-text {
-  font-size: 0.8rem;
-  font-weight: bold;
+	font-size: 0.8rem;
+	font-weight: bold;
 }
 
 .settings-dropdown {
-  margin: 10px;
+	margin: 10px;
 }
 
 .settings-buttons-hide {
-  display: none;
+	display: none;
 }
 
 .button-options {
-  font-size: 0.8rem;
-  font-family: 'Open Sans';
-  border-radius: 5px;
-  font-weight: 700;
-  height: 30px;
-  margin: 10px;
-  background-color: lightgray;
-  width: 110px;
-  float: left;
-  text-align: center;
+	font-size: 0.8rem;
+	font-family: 'Open Sans';
+	border-radius: 5px;
+	font-weight: 700;
+	height: 30px;
+	margin: 10px;
+	background-color: lightgray;
+	width: 110px;
+	float: left;
+	text-align: center;
 }
 
 /* Hover text styles */
 
 .hover-text {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .hover-text:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .made-with-love {
-  cursor: pointer;
-  text-decoration: underline;
-  text-align: center;
+	cursor: pointer;
+	text-decoration: underline;
+	text-align: center;
 }
 
 /* Modal styles */
 
 .back-drop {
-  background-color: rgba(0, 0, 0, 0.85);
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: all 1.8s;
-  width: 100vw;
-  z-index: 1;
+	background-color: rgba(0, 0, 0, 0.85);
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 1.8s;
+	width: 100vw;
+	z-index: 1;
 }

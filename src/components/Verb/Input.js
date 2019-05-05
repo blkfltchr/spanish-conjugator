@@ -14,6 +14,7 @@ const Input = props => {
   const [answered, setAnswered] = useState(false);
   const [helperText, setHelperText] = useState(null);
   const [correct, setCorrect] = useState(false);
+  const [level, setLevel] = useState(0);
   const refReward = useRef(null);
 
   const handleChange = event => {
