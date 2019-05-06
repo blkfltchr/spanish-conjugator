@@ -20,7 +20,6 @@ const App = () => {
   return (
     <div>
       {/* <Header /> */}
-
       <ContainingDiv>
         <div className="app-wrapper">
           <Navigation />
@@ -34,7 +33,7 @@ const App = () => {
             <Route path="/*" component={PageNotFound} />
           </Switch>
         </div>
-        {modal || register ? <Sidebar /> : null}
+        {modal ? <Sidebar /> : null}
       </ContainingDiv>
     </div>
   );
@@ -46,5 +45,6 @@ const ContainingDiv = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: 100%;
+  border: 1px solid red;
 `;

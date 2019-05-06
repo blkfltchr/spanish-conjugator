@@ -7,7 +7,7 @@ import {
   PasswordContext,
   RegisterContext
 } from "../../Context/Store";
-import { Span } from "../Navigation/Navigation";
+import { Span } from "../Navigation/Styled";
 
 const SignUp = props => {
   const [register, setRegister] = useContext(RegisterContext);
@@ -29,14 +29,6 @@ const SignUp = props => {
         console.log("Error signing up: ", error);
       });
   };
-  //   useEffect(() => {
-  //     return () => {
-  //       console.log(user);
-  //     };
-  //   }, [user]);
-  // const toggle = () => {
-  //   setRegister(!register);
-  // };
 
   function handleUsername(e) {
     setUsername(e.target.value);

@@ -11,18 +11,11 @@ import { useRouter } from "../../hooks/useRouter";
 import { RouterContext } from "../../Context/CustomBrowserRouter";
 import { Button, Form, Input, Span } from "./Navigation";
 
-// import jwt_decode from "jwt";
-
 const Login = props => {
   const [modal, setModal] = useContext(ModalContext);
   const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
-  const [loggedIn, setLoggedIn] = useState(false);
   const routeProps = useContext(RouterContext);
-
-  const toggle = () => {
-    setModal(!modal);
-  };
 
   const submitHandler = e => {
     e.preventDefault();
@@ -43,8 +36,7 @@ const Login = props => {
           });
           localStorage.setItem("isAuth", auth.authenticated);
         }
-        toggle();
-        // setLoggedIn(true)
+        setModal(true);
       })
       .catch(error => {
         console.log("Axios Error Msg: ", error);
@@ -64,41 +56,41 @@ const Login = props => {
         <button className="log-in-button" onClick={toggle}>
           Login
         </button>
-        <Modal isOpen={modal} toggle={toggle} className={props.className}>
+        {/* <Modal isOpen={modal} toggle={toggle} className={props.className}>
           <ModalHeader toggle={toggle}>Login</ModalHeader>
-          <ModalBody>
-            <form className="sign-up-form" onSubmit={submitHandler}>
-              <Span>Username</Span>
-              <input
-                className="sign-up-input"
-                name="username"
-                onChange={handleUsername}
-                value={username}
-                placeholder="username"
-              />
-              <Span>Password</Span>
-              <input
-                type="password"
-                className="sign-up-input"
-                name="password"
-                onChange={handlePassword}
-                value={password}
-                placeholder="password"
-              />
-              <div>
-                <input
-                  className="sign-up-input"
-                  type="checkbox"
-                  name="remeber me"
-                />{" "}
-                remember me <br />
-              </div>
-              {/* <button className="form-button" onClick={clickHandler}> */}
-              <button className="form-button">Login</button>
-            </form>
-          </ModalBody>
+          <ModalBody> */}
+        <form className="sign-up-form" onSubmit={submitHandler}>
+          <Span>Username</Span>
+          <input
+            className="sign-up-input"
+            name="username"
+            onChange={handleUsername}
+            value={username}
+            placeholder="username"
+          />
+          <Span>Password</Span>
+          <Input
+            type="password"
+            className="sign-up-input"
+            name="password"
+            onChange={handlePassword}
+            value={password}
+            placeholder="password"
+          />
+          <div>
+            <Input
+              className="sign-up-input"
+              type="checkbox"
+              name="remeber me"
+            />{" "}
+            remember me <br />
+          </div>
+          {/* <button className="form-button" onClick={clickHandler}> */}
+          <button className="form-button">Login</button>
+        </form>
+        {/* </ModalBody>
           <ModalFooter />
-        </Modal>
+        </Modal> */}
       </div>
     </div>
   );

@@ -1,25 +1,20 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Form, Input, Button } from "../Navigation/Navigation";
-import auth from "../auth/auth";
-import SignUp from "../Navigation/SignUp";
+import React, { useContext } from "react";
+import { Form, Input, Button, Span, MyLink } from "../Navigation/Styled";
 import {
   ModalContext,
   UsernameContext,
   PasswordContext
 } from "../../Context/Store";
-import { useRouter } from "../../hooks/useRouter";
 import { RouterContext } from "../../Context/CustomBrowserRouter";
 
 import axios from "axios";
 
-import styled from "styled-components";
 import "./login.css";
 
 const Login = props => {
   const [modal, setModal] = useContext(ModalContext);
   const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
-  const [loggedIn, setLoggedIn] = useState(false);
   const routeProps = useContext(RouterContext);
 
   const toggle = () => {
@@ -28,8 +23,6 @@ const Login = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-
-    // Axios.post("http://localhost:3333/api/login", user)
     axios
       .post("https://glacial-hamlet-47910.herokuapp.com/api/login", {
         username: username,
@@ -39,19 +32,16 @@ const Login = props => {
         console.log(res.data);
         console.log("data ", res.data.your_token);
         localStorage.setItem("jwt", res.data.your_token);
-        // setLoggedIn(true)
+        routeProps.history.push("/learn");
+        toggle();
       })
       .catch(error => {
         console.log("Axios Error Msg: ", error);
       });
   };
 
-  const clickHandler = e => {
+  const handleNewUser = e => {
     e.preventDefault();
-    auth.login(() => {
-      routeProps.history.push("/learn");
-    });
-    toggle();
   };
 
   function handlePassword(e) {
@@ -63,17 +53,17 @@ const Login = props => {
   return (
     <div className="login-page-container">
       <div className="form-wrapper">
-        <Form>
+        <Form onSubmit={submitHandler}>
           <h3>Sign In</h3>
           <br />
-          <span>Username:</span>
+          <Span>Username:</Span>
           <Input
             name="username"
             onChange={handleUsername}
             value={username}
             placeholder="username"
           />
-          <span>Password:</span>
+          <Span>Password:</Span>
           <Input
             type="password"
             name="password"
@@ -82,45 +72,15 @@ const Login = props => {
             placeholder="password"
           />
           <div>
-            <input type="checkbox" name="remember me" />{" "}
-            <span>remember me</span> <br />
+            {/* <input type="checkbox" name="remember me" />{" "} */}
+            <Span>remember me</Span> <br />
           </div>
-          <Button onClick={clickHandler}>Login</Button>
+          <Button>Login</Button>
+          <Button onClick={handleNewUser}>
+            <MyLink to="/signup">New User</MyLink>
+          </Button>
         </Form>
       </div>
-      <div className="divider" />
-      {/* <div className="form-wrapper">
-				<Form onSubmit={submitHandler}>
-					<h3>
-						Not Registered? <br />Sign Up Below!
-					</h3>
-					<br />
-					<span>Username:</span>
-					<Input
-						type="username"
-						name="username"
-						value={username}
-						onChange={handleUsername}
-						placeholder="Username"
-					/>
-					<span>Password:</span>
-					<Input
-						type="password"
-						name="password"
-						value={password}
-						onChange={handlePassword}
-						placeholder="Password"
-					/>
-					<span>Retype Password:</span>
-					<Input
-						type="password"
-						name="confirmationPassword"
-						validate={{ match: { value: 'password' } }}
-						placeholder="Retype password"
-					/>
-					<Button>Register</Button>
-				</Form>
-			</div> */}
     </div>
   );
 };

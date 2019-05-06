@@ -14,4 +14,5 @@ export default Container;
 
 const MyDiv = styled.div`
   width: 75%;
+  margin: 0 auto;
 `;

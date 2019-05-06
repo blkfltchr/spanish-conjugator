@@ -195,11 +195,13 @@ const Verb = props => {
   /**  Styled Components below    **/
 
   const StyledDiv = styled.div`
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     padding: 0px 0px;
+    border: 1px solid red;
   `;
 
   return (
