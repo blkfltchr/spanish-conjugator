@@ -8,7 +8,8 @@ import {
   FormWrap,
   PageContainer,
   ButtonContainer,
-  Title
+  Title,
+  LoginSvg
 } from "../Pages/PagesStyled";
 import {
   ModalContext,
@@ -87,7 +88,7 @@ const Login = props => {
           </ButtonContainer>
         </Form>
       </FormWrap>
-      <img src={LoginImage} alt="login" width="50%" />
+      <LoginSvg src={LoginImage} alt="login" />
     </PageContainer>
   );
 };

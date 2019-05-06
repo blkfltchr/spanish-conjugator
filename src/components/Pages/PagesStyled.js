@@ -139,3 +139,9 @@ export const Title = styled.h3`
   top: 5%;
   margin-top: 20px;
 `;
+
+export const LoginSvg = styled.img`
+  margin: 0 auto;
+  width: 50%;
+  height: 75%;
+`;
