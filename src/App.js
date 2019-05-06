@@ -18,6 +18,9 @@ import { ModalContext, RegisterContext } from "./Context/Store";
 const App = () => {
   const [modal] = useContext(ModalContext);
   const [register] = useContext(RegisterContext);
+
+  const modalStorage = localStorage.setItem("modal", modal);
+
   return (
     <div>
       {/* <Header /> */}
@@ -35,7 +38,7 @@ const App = () => {
             <Route path="/*" component={PageNotFound} />
           </Switch>
         </div>
-        {modal ? <Sidebar /> : null}
+        {localStorage.getItem("modal") ? <Sidebar /> : null}
       </ContainingDiv>
     </div>
   );

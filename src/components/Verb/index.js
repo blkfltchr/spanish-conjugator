@@ -3,13 +3,13 @@ import "../../app.css";
 import {
   VerbContext,
   UsernameContext,
-  LevelContext
+  LevelContext,
+  ModalContext
 } from "../../Context/Store";
 
 import Settings from "../Settings/Settings";
 
 import Input from "./Input";
-import {} from "../../Context/Store";
 
 import axios from "axios";
 import jwt_decode from "jwt-decode";
@@ -25,6 +25,13 @@ const Verb = props => {
   const [level, setLevel] = useContext(LevelContext);
   const [count, setCount] = useState(0);
   const [username, setUsername] = useContext(UsernameContext);
+  const [modal, setModal] = useContext(ModalContext);
+
+  useEffect(() => {
+    return () => {
+      console.log("modal: ", modal);
+    };
+  }, [modal]);
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
@@ -100,6 +107,7 @@ const Verb = props => {
     setRandomVerb({});
     setRandomPerson([]);
     randomize();
+    setModal(true);
   };
 
   const addCounter = () => {
