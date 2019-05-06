@@ -117,3 +117,36 @@ export const MyLink = styled(Link)`
     color: #941600;
   }
 `;
+
+export const StyledContainer = styled.div`
+  background: #941511;
+  box-shadow: 1px 1px 5px 1px #000000;
+  text-shadow: 2px 2px 2px #000000;
+  color: #ffc400;
+  right: 0;
+  text-align: center;
+  height: 100vh;
+  opacity: 0.9;
+  padding: 5px 0;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid yellow;
+`;
+
+export const Zelda = styled.a`
+  color: white;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    color: #ffc400;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: #941600;
+  }
+  margin: 30% auto;
+`;
