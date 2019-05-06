@@ -12,6 +12,7 @@ import LoginPage from "./components/Pages/LoginPage";
 import SignUpPage from "./components/Pages/SignUpPage";
 import SignOutPage from "./components/Pages/SignOutPage";
 import Sidebar from "./components/Navigation/Sidebar";
+import About from "./components/Navigation/About";
 import styled from "styled-components";
 import { ModalContext, RegisterContext } from "./Context/Store";
 
@@ -34,6 +35,7 @@ const App = () => {
             <Route exact path="/my-account" component={Account} />
             <ProtectedRoute exact path="/learn" component={Container} />
             <Route exact path="/progress" component={Graph} />
+            <Route exact path="/about" component={About} />
             <Route exact path="/goodbye" component={SignOutPage} />
             <Route path="/*" component={PageNotFound} />
           </Switch>

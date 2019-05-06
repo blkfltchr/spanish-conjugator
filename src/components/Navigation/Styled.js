@@ -132,3 +132,28 @@ export const SidebarStyled = styled.div`
   flex-direction: column;
   justify-content: space-around;
 `;
+
+export const StlyedH3 = styled.div`
+  font-size: 1rem;
+`;
+
+export const AboutDiv = styled.div`
+  margin-top: 30%;
+  display: flex;
+  flex-direction: column;
+`;
+export const AboutH3Div = styled.div`
+  display: flex;
+  align-items: space-around;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+`;
+
+export const AboutImgDiv = styled.div`
+  display: flex;
+  align-items: space-around;
+`;
