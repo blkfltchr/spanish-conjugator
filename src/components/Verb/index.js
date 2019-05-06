@@ -27,6 +27,8 @@ const Verb = props => {
   const [username, setUsername] = useContext(UsernameContext);
   const [modal, setModal] = useContext(ModalContext);
 
+  const storageModal = localStorage.getItem("modal");
+
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     const { username, id } = jwt_decode(token);
@@ -39,7 +41,7 @@ const Verb = props => {
       .get("https://glacial-hamlet-47910.herokuapp.com/api/conjugator", options)
       .then(res => {
         setVerbData(res.data);
-
+        setModal(true);
         // console.log("success");
         setUsername(username);
         // console.log("Hello ", username);
@@ -101,7 +103,6 @@ const Verb = props => {
     setRandomVerb({});
     setRandomPerson([]);
     randomize();
-    setModal(true);
   };
 
   const addCounter = () => {
