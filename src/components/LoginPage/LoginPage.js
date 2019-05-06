@@ -1,31 +1,21 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { Form, Input, Button, Span } from "../Navigation/Navigation";
-import auth from "../auth/auth";
-import SignUp from "../Navigation/SignUp";
+import React, { useContext } from "react";
+import { Form, Input, Button, Span, MyLink } from "../Navigation/Styled";
 import {
   ModalContext,
   UsernameContext,
   PasswordContext
 } from "../../Context/Store";
-import { useRouter } from "../../hooks/useRouter";
 import { RouterContext } from "../../Context/CustomBrowserRouter";
 
 import axios from "axios";
 
-import styled from "styled-components";
 import "./login.css";
 
 const Login = props => {
-  const [modal, setModal] = useContext(ModalContext);
+  const [setModal] = useContext(ModalContext);
   const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
-  const [loggedIn, setLoggedIn] = useState(false);
   const routeProps = useContext(RouterContext);
-
-  // const toggle = () => {
-  //   setModal(!modal);
-  // };
 
   const submitHandler = e => {
     e.preventDefault();
@@ -40,9 +30,10 @@ const Login = props => {
         console.log(res.data);
         console.log("data ", res.data.your_token);
         localStorage.setItem("jwt", res.data.your_token);
-        setModal(true);
-
         routeProps.history.push("/learn");
+      })
+      .then(res => {
+        setModal(true);
       })
       .catch(error => {
         console.log("Axios Error Msg: ", error);
@@ -95,19 +86,3 @@ const Login = props => {
 };
 
 export default Login;
-
-const MyLink = styled(Link)`
-  color: white;
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-
-  &:hover {
-    color: #ffc400;
-    text-decoration: none;
-  }
-
-  &:active {
-    color: #941600;
-  }
-`;

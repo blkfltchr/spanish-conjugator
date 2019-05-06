@@ -20,7 +20,6 @@ const App = () => {
   return (
     <div>
       {/* <Header /> */}
-
       <ContainingDiv>
         <div className="app-wrapper">
           <Navigation />
@@ -47,6 +46,5 @@ const ContainingDiv = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  background: #f6f9fc;
   border: 1px solid red;
 `;

@@ -1,25 +1,16 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Form, Input, Button } from "../Navigation/Navigation";
-import auth from "../auth/auth";
-import SignUp from "../Navigation/SignUp";
-import {
-  ModalContext,
-  UsernameContext,
-  PasswordContext
-} from "../../Context/Store";
-import { useRouter } from "../../hooks/useRouter";
+import React, { useContext } from "react";
+import { Form, Input, Button, Span } from "../Navigation/Styled";
+import { UsernameContext, PasswordContext } from "../../Context/Store";
 import { RouterContext } from "../../Context/CustomBrowserRouter";
 
 import axios from "axios";
+import auth from "../auth/auth";
 
-import styled from "styled-components";
 import "./login.css";
 
 const SignUpPage = props => {
-  const [modal, setModal] = useContext(ModalContext);
   const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
-  const [loggedIn, setLoggedIn] = useState(false);
   const routeProps = useContext(RouterContext);
 
   const submitHandler = e => {
@@ -39,10 +30,6 @@ const SignUpPage = props => {
       routeProps.history.push("/login");
     });
   };
-
-  // const clickHandler = e => {
-  //   e.preventDefault();
-  // };
 
   function handlePassword(e) {
     setPassword(e.target.value);

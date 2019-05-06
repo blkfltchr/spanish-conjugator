@@ -11,18 +11,11 @@ import { useRouter } from "../../hooks/useRouter";
 import { RouterContext } from "../../Context/CustomBrowserRouter";
 import { Button, Form, Input, Span } from "./Navigation";
 
-// import jwt_decode from "jwt";
-
 const Login = props => {
   const [modal, setModal] = useContext(ModalContext);
   const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
-  const [loggedIn, setLoggedIn] = useState(false);
   const routeProps = useContext(RouterContext);
-
-  // const toggle = () => {
-  //   setModal(!modal);
-  // };
 
   const submitHandler = e => {
     e.preventDefault();
@@ -44,7 +37,6 @@ const Login = props => {
           localStorage.setItem("isAuth", auth.authenticated);
         }
         setModal(true);
-        // setLoggedIn(true)
       })
       .catch(error => {
         console.log("Axios Error Msg: ", error);
