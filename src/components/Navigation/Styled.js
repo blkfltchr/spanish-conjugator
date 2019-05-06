@@ -8,7 +8,6 @@ export const TopBar = styled.div`
   display: flex;
   justify-content: space-between;
   background: #f6f9fc;
-  border: 1px solid blue;
   width: 100%;
 `;
 
@@ -17,7 +16,7 @@ export const NavLogo = styled.div`
   border: 5px solid #ffc400;
   box-shadow: 1px 1px 3px #000000;
   border-radius: 0 35px 25px 0;
-  color: #ffffff;
+  color: #ffc107;
   font-size: 2rem;
   height: 75px;
   line-height: 1.8rem;
@@ -28,6 +27,7 @@ export const NavLogo = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  font-family: Sofia;
 `;
 
 export const Form = styled.form`
@@ -131,5 +131,31 @@ export const SidebarStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border: 1px solid yellow;
+`;
+
+export const StlyedH3 = styled.div`
+  font-size: 2rem;
+  font-family: roboto;
+`;
+
+export const AboutDiv = styled.div`
+  margin-top: 30%;
+  display: flex;
+  flex-direction: column;
+  widht: 90%;
+`;
+export const AboutH3Div = styled.div`
+  display: flex;
+  align-items: space-around;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+`;
+
+export const AboutImgDiv = styled.div`
+  display: flex;
+  align-items: space-around;
 `;

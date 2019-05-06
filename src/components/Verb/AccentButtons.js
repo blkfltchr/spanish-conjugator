@@ -1,34 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import { AccentButton, AccentButtonsDiv } from "./VerbStyled";
 
 const AccentButtons = props => {
   const { addAccent } = props;
   return (
-    <div className="accent-buttons">
-      <button onClick={addAccent} type="button" value="á">
+    <AccentButtonsDiv>
+      <AccentButton onClick={addAccent} type="button" value="á">
         á
-      </button>
-      <button onClick={addAccent} type="button" value="é">
+      </AccentButton>
+      <AccentButton onClick={addAccent} type="button" value="é">
         é
-      </button>
-      <button onClick={addAccent} type="button" value="í">
+      </AccentButton>
+      <AccentButton onClick={addAccent} type="button" value="í">
         í
-      </button>
-      <button onClick={addAccent} type="button" value="ñ">
+      </AccentButton>
+      <AccentButton onClick={addAccent} type="button" value="ñ">
         ñ
-      </button>
-      <button onClick={addAccent} type="button" value="ó">
+      </AccentButton>
+      <AccentButton onClick={addAccent} type="button" value="ó">
         ó
-      </button>
-      <button onClick={addAccent} type="button" value="ú">
+      </AccentButton>
+      <AccentButton onClick={addAccent} type="button" value="ú">
         ú
-      </button>
-    </div>
+      </AccentButton>
+    </AccentButtonsDiv>
   );
 };
 
 AccentButtons.propTypes = {
-  addAccent: PropTypes.func,
+  addAccent: PropTypes.func
 };
 
 export default AccentButtons;
