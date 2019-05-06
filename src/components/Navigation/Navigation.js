@@ -1,12 +1,6 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
-
 import "./navigation.css";
 import styled, { css } from "styled-components";
-
-import Login from "./Login";
-import SignUp from "./SignUp";
-import Sidebar from "./Sidebar";
 
 const Navigation = props => {
   return (
@@ -109,4 +103,11 @@ export const Input = styled.input`
 	padding: 5px;
 	margin: 10px 0;
 	width: 70%;
+`;
+
+export const Span = styled.span`
+  color: #941511;
+  margin: 10px;
+  text-align: left;
+  font-size: 20px;
 `;

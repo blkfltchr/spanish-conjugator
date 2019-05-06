@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Switch } from "react-router-dom";
 import Container from "./components/Container/Container";
 import Account from "./components/AccountPage/Account";
@@ -12,8 +12,11 @@ import PageNotFound from "./DefaultLanding/PageNotFound";
 import SignUpPage from "./components/LoginPage/SignUpPage";
 import Sidebar from "./components/Navigation/Sidebar";
 import styled from "styled-components";
+import { ModalContext, RegisterContext } from "./Context/Store";
 
 const App = () => {
+  const [modal] = useContext(ModalContext);
+  const [register] = useContext(RegisterContext);
   return (
     <div>
       {/* <Header /> */}
@@ -31,7 +34,7 @@ const App = () => {
             <Route path="/*" component={PageNotFound} />
           </Switch>
         </div>
-        <Sidebar />
+        {modal || register ? <Sidebar /> : null}
       </ContainingDiv>
     </div>
   );
@@ -43,5 +46,5 @@ const ContainingDiv = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  border: 1px solid blue;
+  width: 50%;
 `;

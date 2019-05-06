@@ -3,7 +3,7 @@
   font-size: 2rem;
 }
 
-nav {
+/* nav {
   margin: 25px 10px 12px 10px;
   text-decoration: none;
 }
@@ -11,29 +11,29 @@ nav {
 nav a {
   margin: 0 10px;
   text-decoration: none;
-}
-
+} */
+/* 
 .default-menu {
   margin: 0 auto;
   text-decoration: none;
   display: flex;
-  /* display: none; */
+  display: none;
 }
 
 .user-menu {
   margin: 0 10px;
   text-decoration: none;
   display: flex;
-  /* display: none; */
-}
+  display: none;
+} */
 
 /* Form Styling */
 
-span {
+/* span {
   color: #941511;
   margin: 10px;
   text-align: left;
-}
+} */
 
 /* Modal Styling */
 
