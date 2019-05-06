@@ -13,7 +13,7 @@ export const TopBar = styled.div`
 `;
 
 export const NavLogo = styled.div`
-  background: #941511;
+  background: #2f2e41;
   border: 5px solid #ffc400;
   box-shadow: 1px 1px 3px #000000;
   border-radius: 0 35px 25px 0;
@@ -113,7 +113,7 @@ export const MyLink = styled(Link)`
   }
 
   &:active {
-    color: #941600;
+    color: #ffc107;
   }
 `;
 
@@ -130,5 +130,6 @@ export const SidebarStyled = styled.div`
   width: 25%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   border: 1px solid yellow;
 `;

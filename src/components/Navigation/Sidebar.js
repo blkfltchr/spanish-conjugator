@@ -1,23 +1,33 @@
 import React, { useContext, useState } from "react";
-// import { Link } from "react-router-dom";
-import { UsernameContext } from "../../Context/Store";
+import {
+  UsernameContext,
+  ModalContext,
+  PasswordContext
+} from "../../Context/Store";
 import { SidebarStyled, MyLink } from "./Styled";
-import { RouterContext } from "../../Context/CustomBrowserRouter";
 
 const Sidebar = props => {
-  const [username] = useContext(UsernameContext);
-  const routeProps = useContext(RouterContext);
+  const [username, setUsername] = useContext(UsernameContext);
+  const [setModal] = useContext(ModalContext);
+  const [setPassword] = useContext(PasswordContext);
+
+  const logOut = () => {
+    localStorage.removeItem("jwt");
+    setModal(false);
+    setUsername("");
+    setPassword("");
+  };
 
   return (
     <SidebarStyled>
       <h2> Hi {username} </h2>
-      <div className="my-links">
-        <MyLink to="/">Home</MyLink>
-        <MyLink to="/learn">Go Learn</MyLink>
-        <MyLink to="/my-account">My Account</MyLink>
-        <MyLink to="/about">About</MyLink>
-        <MyLink to="/goodbye">Goodbye</MyLink>
-      </div>
+      <MyLink to="/">Home</MyLink>
+      <MyLink to="/learn">Go Learn</MyLink>
+      <MyLink to="/my-account">My Account</MyLink>
+      <MyLink to="/about">About</MyLink>
+      <MyLink to="/goodbye" onClick={logOut}>
+        Log Out
+      </MyLink>
     </SidebarStyled>
   );
 };
