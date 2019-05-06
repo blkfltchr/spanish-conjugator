@@ -102,7 +102,8 @@ const Input = props => {
     infinitive,
     tense_english,
     mood_english,
-    infinitive_english
+    infinitive_english,
+    verb_english
   } = randomVerb;
 
   const buttonText =
@@ -140,6 +141,7 @@ const Input = props => {
           infinitive_english={infinitive_english}
           tense_english={tense_english}
           mood_english={mood_english}
+          verb_english={verb_english}
         />
       </div>
       <form onSubmit={handleSubmit}>

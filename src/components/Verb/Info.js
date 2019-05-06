@@ -8,6 +8,7 @@ const borderStyle = document.getElementsByClassName("verb-info");
 
 const Info = props => {
   console.log(props);
+  console.log(verb_english);
   const {
     infinitive,
     infinitive_english,
