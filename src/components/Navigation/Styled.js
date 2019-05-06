@@ -2,6 +2,16 @@ import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 // Styled Components
 
+const size = {
+  mobileS: "320px",
+  mobileM: "375px",
+  mobileL: "425px",
+  tablet: "768px",
+  laptop: "1024px",
+  laptopL: "1440px",
+  desktop: "2560px"
+};
+
 export const TopBar = styled.div`
   margin: 0 0 10px 0;
   padding: 0 15px;
@@ -17,7 +27,7 @@ export const NavLogo = styled.div`
   box-shadow: 1px 1px 3px #000000;
   border-radius: 0 35px 25px 0;
   color: #ffc107;
-  font-size: 2rem;
+  font-size: 1.5rem;
   height: 75px;
   line-height: 1.8rem;
   margin: 5px 0;

@@ -19,8 +19,6 @@ import { RouterContext } from "../../Context/CustomBrowserRouter";
 import LoginImage from "../../assets/login.svg";
 import axios from "axios";
 
-import "./login.css";
-
 const Login = props => {
   const [modal, setModal] = useContext(ModalContext);
   const [username, setUsername] = useContext(UsernameContext);
