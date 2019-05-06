@@ -40,7 +40,7 @@ export const Form = styled.form`
 `;
 
 export const Button = styled.button`
-  background: #ffc400;
+  background: #ffc107;
   border: 1px solid #000000;
   border-radius: 10px;
   box-shadow: 2px 2px 4px #000000;
@@ -68,7 +68,7 @@ export const Button = styled.button`
       color: #ffffff;
 
       &:hover {
-        background: #ffc400;
+        background: #ffc107;
         color: #000000;
       }
     `};
@@ -107,9 +107,8 @@ export const MyLink = styled(Link)`
   font-size: 24px;
   display: flex;
   flex-direction: column;
-
   &:hover {
-    color: #ffc400;
+    color: #ffc107;
     text-decoration: none;
   }
 
@@ -118,11 +117,11 @@ export const MyLink = styled(Link)`
   }
 `;
 
-export const StyledContainer = styled.div`
-  background: #941511;
+export const SidebarStyled = styled.div`
+  background: #2f2e41;
   box-shadow: 1px 1px 5px 1px #000000;
   text-shadow: 2px 2px 2px #000000;
-  color: #ffc400;
+  color: #ffc107;
   right: 0;
   text-align: center;
   height: 100vh;
@@ -132,21 +131,4 @@ export const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid yellow;
-`;
-
-export const Zelda = styled.a`
-  color: white;
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-
-  &:hover {
-    color: #ffc400;
-    text-decoration: none;
-  }
-
-  &:active {
-    color: #941600;
-  }
-  margin: 30% auto;
 `;
