@@ -5,6 +5,7 @@ import Person from "./Person";
 import AccentButtons from "./AccentButtons";
 import Info from "./Info";
 import Checkmark from "../Checkmark/Checkmark";
+import { SubmitButton } from "./VerbStyled";
 
 const Input = props => {
   const [value, setValue] = useState("");
@@ -170,13 +171,13 @@ const Input = props => {
         </div>
         <div className="helper-text">
           {helperText && <div>{helperText}</div>}
-          <button
+          <SubmitButton
             className="submit-button"
             type="submit"
             onClick={handleSubmit}
           >
             {buttonText}
-          </button>
+          </SubmitButton>
         </div>
       </form>
     </div>
