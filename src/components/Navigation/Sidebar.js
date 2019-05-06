@@ -22,7 +22,7 @@ const Sidebar = props => {
         <MyLink to="/my-account">My Account</MyLink>
         <MyLink to="/about">About</MyLink>
         <MyLink to="/goodbye" onClick={logOut}>
-          Goodbye
+          Log Out
         </MyLink>
       </div>
     </SidebarStyled>
