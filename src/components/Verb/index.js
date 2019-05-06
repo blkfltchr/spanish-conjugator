@@ -199,7 +199,7 @@ const Verb = props => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 75%;
     padding: 0px 0px;
     border: 1px solid red;
   `;
