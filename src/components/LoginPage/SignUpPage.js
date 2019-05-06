@@ -90,37 +90,3 @@ const SignUpPage = props => {
 };
 
 export default SignUpPage;
-{
-  /* <div className="form-wrapper">
-				<Form onSubmit={submitHandler}>
-					<h3>
-						Not Registered? <br />Sign Up Below!
-					</h3>
-					<br />
-					<span>Username:</span>
-					<Input
-						type="username"
-						name="username"
-						value={username}
-						onChange={handleUsername}
-						placeholder="Username"
-					/>
-					<span>Password:</span>
-					<Input
-						type="password"
-						name="password"
-						value={password}
-						onChange={handlePassword}
-						placeholder="Password"
-					/>
-					<span>Retype Password:</span>
-					<Input
-						type="password"
-						name="confirmationPassword"
-						validate={{ match: { value: 'password' } }}
-						placeholder="Retype password"
-					/>
-					<Button>Register</Button>
-				</Form>
-			</div> */
-}

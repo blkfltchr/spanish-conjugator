@@ -46,7 +46,7 @@ const ContainingDiv = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: 100%;
   background: #f6f9fc;
   border: 1px solid red;
 `;

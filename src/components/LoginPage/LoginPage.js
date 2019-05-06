@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { Form, Input, Button, Span } from "../Navigation/Navigation";
 import auth from "../auth/auth";
 import SignUp from "../Navigation/SignUp";
@@ -48,6 +49,10 @@ const Login = props => {
       });
   };
 
+  const handleNewUser = e => {
+    e.preventDefault();
+  };
+
   function handlePassword(e) {
     setPassword(e.target.value);
   }
@@ -80,43 +85,29 @@ const Login = props => {
             <Span>remember me</Span> <br />
           </div>
           <Button>Login</Button>
+          <Button onClick={handleNewUser}>
+            <MyLink to="/signup">New User</MyLink>
+          </Button>
         </Form>
       </div>
-      <div className="divider" />
-      {/* <div className="form-wrapper">
-				<Form onSubmit={submitHandler}>
-					<h3>
-						Not Registered? <br />Sign Up Below!
-					</h3>
-					<br />
-					<span>Username:</span>
-					<Input
-						type="username"
-						name="username"
-						value={username}
-						onChange={handleUsername}
-						placeholder="Username"
-					/>
-					<span>Password:</span>
-					<Input
-						type="password"
-						name="password"
-						value={password}
-						onChange={handlePassword}
-						placeholder="Password"
-					/>
-					<span>Retype Password:</span>
-					<Input
-						type="password"
-						name="confirmationPassword"
-						validate={{ match: { value: 'password' } }}
-						placeholder="Retype password"
-					/>
-					<Button>Register</Button>
-				</Form>
-			</div> */}
     </div>
   );
 };
 
 export default Login;
+
+const MyLink = styled(Link)`
+  color: white;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    color: #ffc400;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: #941600;
+  }
+`;
