@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Form, Input, Button } from "../Navigation/Navigation";
+import { Form, Input, Button, Span } from "../Navigation/Navigation";
 import auth from "../auth/auth";
 import SignUp from "../Navigation/SignUp";
 import {
@@ -22,9 +22,9 @@ const Login = props => {
   const [loggedIn, setLoggedIn] = useState(false);
   const routeProps = useContext(RouterContext);
 
-  const toggle = () => {
-    setModal(!modal);
-  };
+  // const toggle = () => {
+  //   setModal(!modal);
+  // };
 
   const submitHandler = e => {
     e.preventDefault();
@@ -39,19 +39,13 @@ const Login = props => {
         console.log(res.data);
         console.log("data ", res.data.your_token);
         localStorage.setItem("jwt", res.data.your_token);
-        // setLoggedIn(true)
+        setModal(true);
+
+        routeProps.history.push("/learn");
       })
       .catch(error => {
         console.log("Axios Error Msg: ", error);
       });
-  };
-
-  const clickHandler = e => {
-    e.preventDefault();
-    auth.login(() => {
-      routeProps.history.push("/learn");
-    });
-    toggle();
   };
 
   function handlePassword(e) {
@@ -63,17 +57,17 @@ const Login = props => {
   return (
     <div className="login-page-container">
       <div className="form-wrapper">
-        <Form>
+        <Form onSubmit={submitHandler}>
           <h3>Sign In</h3>
           <br />
-          <span>Username:</span>
+          <Span>Username:</Span>
           <Input
             name="username"
             onChange={handleUsername}
             value={username}
             placeholder="username"
           />
-          <span>Password:</span>
+          <Span>Password:</Span>
           <Input
             type="password"
             name="password"
@@ -82,10 +76,10 @@ const Login = props => {
             placeholder="password"
           />
           <div>
-            <input type="checkbox" name="remember me" />{" "}
-            <span>remember me</span> <br />
+            {/* <input type="checkbox" name="remember me" />{" "} */}
+            <Span>remember me</Span> <br />
           </div>
-          <Button onClick={clickHandler}>Login</Button>
+          <Button>Login</Button>
         </Form>
       </div>
       <div className="divider" />

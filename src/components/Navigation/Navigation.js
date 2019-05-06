@@ -19,6 +19,8 @@ const TopBar = styled.div`
   padding: 0 15px;
   display: flex;
   justify-content: space-between;
+  background: #f6f9fc;
+  border: 1px solid blue;
 `;
 
 const NavLogo = styled.div`

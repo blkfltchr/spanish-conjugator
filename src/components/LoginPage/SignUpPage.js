@@ -22,10 +22,6 @@ const SignUpPage = props => {
   const [loggedIn, setLoggedIn] = useState(false);
   const routeProps = useContext(RouterContext);
 
-  const toggle = () => {
-    setModal(!modal);
-  };
-
   const submitHandler = e => {
     e.preventDefault();
     axios
@@ -39,15 +35,14 @@ const SignUpPage = props => {
       .catch(error => {
         console.log("Error signing up: ", error);
       });
+    auth.login(() => {
+      routeProps.history.push("/login");
+    });
   };
 
-  const clickHandler = e => {
-    e.preventDefault();
-    auth.login(() => {
-      routeProps.history.push("/learn");
-    });
-    toggle();
-  };
+  // const clickHandler = e => {
+  //   e.preventDefault();
+  // };
 
   function handlePassword(e) {
     setPassword(e.target.value);

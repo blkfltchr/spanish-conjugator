@@ -34,7 +34,7 @@ const App = () => {
             <Route path="/*" component={PageNotFound} />
           </Switch>
         </div>
-        {modal || register ? <Sidebar /> : null}
+        {modal ? <Sidebar /> : null}
       </ContainingDiv>
     </div>
   );
@@ -47,4 +47,6 @@ const ContainingDiv = styled.div`
   display: flex;
   flex-direction: row;
   width: 50%;
+  background: #f6f9fc;
+  border: 1px solid red;
 `;
