@@ -1,14 +1,21 @@
 import React, { useContext, useState } from "react";
-import { UsernameContext, ModalContext } from "../../Context/Store";
+import {
+  UsernameContext,
+  ModalContext,
+  PasswordContext
+} from "../../Context/Store";
 import { SidebarStyled, MyLink } from "./Styled";
 
 const Sidebar = props => {
-  const [username] = useContext(UsernameContext);
+  const [username, setUsername] = useContext(UsernameContext);
   const [setModal] = useContext(ModalContext);
+  const [setPassword] = useContext(PasswordContext);
 
   const logOut = () => {
     localStorage.removeItem("jwt");
     setModal(false);
+    setUsername("");
+    setPassword("");
   };
 
   return (

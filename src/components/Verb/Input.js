@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Reward from "react-rewards";
 import PropTypes from "prop-types";
 import Person from "./Person";
@@ -22,6 +22,10 @@ const Input = props => {
     setValue(event.target.value);
   };
 
+  useEffect(() => {
+    console.log("correct: ", correct);
+  }, [correct]);
+
   const handleSubmit = event => {
     const { randomPerson, addCounter, resetCounter } = props;
     event.preventDefault();
@@ -34,7 +38,7 @@ const Input = props => {
       addCounter();
       setCorrectAnswers(correctAnswers + 1);
       setTotalAnswers(totalAnswers + 1);
-      // alert('Correct!')
+      // alert("Correct!");
       handleRefresh();
       setCorrect(true);
       addStreak();
@@ -82,13 +86,17 @@ const Input = props => {
   const addStreak = () => {
     const { count } = props;
     console.log(props);
+    alert("correct!");
     if (count >= bestStreak) {
+      refReward.current.rewardMe();
       setBestStreak(bestStreak + 1);
+      setCorrect(true);
       if (bestStreak % 5 === 0) {
         refReward.current.rewardMe();
       }
     }
   };
+
   const { randomPerson, randomVerb, count } = props;
   const {
     infinitive,
@@ -96,13 +104,16 @@ const Input = props => {
     mood_english,
     infinitive_english
   } = randomVerb;
+
   const buttonText =
     randomPerson[1] !== value.toLowerCase() && answered
       ? "Next verb"
       : "Submit";
+
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
   console.log(infinitive_english);
+
   return (
     <div>
       <div className="verb-info-wrapper">
