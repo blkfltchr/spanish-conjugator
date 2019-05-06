@@ -1,5 +1,4 @@
 import React from "react";
-import "./navigation.css";
 import { TopBar, NavLogo } from "./Styled";
 
 const Navigation = props => {

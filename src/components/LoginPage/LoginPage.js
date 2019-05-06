@@ -12,15 +12,17 @@ import axios from "axios";
 import "./login.css";
 
 const Login = props => {
-  const [setModal] = useContext(ModalContext);
+  const [modal, setModal] = useContext(ModalContext);
   const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
   const routeProps = useContext(RouterContext);
 
+  const toggle = () => {
+    setModal(!modal);
+  };
+
   const submitHandler = e => {
     e.preventDefault();
-
-    // Axios.post("http://localhost:3333/api/login", user)
     axios
       .post("https://glacial-hamlet-47910.herokuapp.com/api/login", {
         username: username,
@@ -31,9 +33,7 @@ const Login = props => {
         console.log("data ", res.data.your_token);
         localStorage.setItem("jwt", res.data.your_token);
         routeProps.history.push("/learn");
-      })
-      .then(res => {
-        setModal(true);
+        toggle();
       })
       .catch(error => {
         console.log("Axios Error Msg: ", error);
