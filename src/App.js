@@ -7,9 +7,10 @@ import DefaultLanding from "./DefaultLanding";
 import SignUp from "./components/Navigation/SignUp";
 import Graph from "./components/Graph/Graph";
 import { ProtectedRoute } from "./components/auth/protectedRoute";
-import LoginPage from "./components/LoginPage/LoginPage";
-import PageNotFound from "./DefaultLanding/PageNotFound";
-import SignUpPage from "./components/LoginPage/SignUpPage";
+import PageNotFound from "./components/Pages/PageNotFound";
+import LoginPage from "./components/Pages/LoginPage";
+import SignUpPage from "./components/Pages/SignUpPage";
+import SignOutPage from "./components/Pages/SignOutPage";
 import Sidebar from "./components/Navigation/Sidebar";
 import styled from "styled-components";
 import { ModalContext, RegisterContext } from "./Context/Store";
@@ -30,6 +31,7 @@ const App = () => {
             <Route exact path="/my-account" component={Account} />
             <ProtectedRoute exact path="/learn" component={Container} />
             <Route exact path="/progress" component={Graph} />
+            <Route exact path="/goodbye" component={SignOutPage} />
             <Route path="/*" component={PageNotFound} />
           </Switch>
         </div>
