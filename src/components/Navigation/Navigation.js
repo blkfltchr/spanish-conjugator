@@ -21,6 +21,7 @@ const TopBar = styled.div`
   justify-content: space-between;
   background: #f6f9fc;
   border: 1px solid blue;
+  width: 100%;
 `;
 
 const NavLogo = styled.div`
@@ -38,7 +39,7 @@ const NavLogo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40vw;
+  width: 100%;
 `;
 
 export const Form = styled.form`

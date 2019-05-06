@@ -50,4 +50,5 @@ const MyLink = styled(Link)`
   &:active {
     color: #941600;
   }
+  margin: 30% auto;
 `;
