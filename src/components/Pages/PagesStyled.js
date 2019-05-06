@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Svg = styled.img`
   height: 100%
-  width: 10x0%;
+  width: 100%;
 `;
 export const Words = styled.div`
   display: flex;

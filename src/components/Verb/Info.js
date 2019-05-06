@@ -6,8 +6,6 @@ import styled from "styled-components";
 
 const borderStyle = document.getElementsByClassName("verb-info");
 
-
-
 const Info = props => {
   console.log(props);
   const {
@@ -57,4 +55,3 @@ const tooltip = (value, tense) => {
     return "ERROR";
   }
 };
-,
