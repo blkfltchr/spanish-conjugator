@@ -1,12 +1,17 @@
 import React, { useContext, useState } from "react";
 // import { Link } from "react-router-dom";
-import { UsernameContext } from "../../Context/Store";
+import { UsernameContext, ModalContext } from "../../Context/Store";
 import { SidebarStyled, MyLink } from "./Styled";
 import { RouterContext } from "../../Context/CustomBrowserRouter";
 
 const Sidebar = props => {
   const [username] = useContext(UsernameContext);
-  const routeProps = useContext(RouterContext);
+  const [setModal] = useContext(ModalContext);
+
+  const logOut = () => {
+    localStorage.removeItem("jwt");
+    setModal(false);
+  };
 
   return (
     <SidebarStyled>
@@ -16,7 +21,9 @@ const Sidebar = props => {
         <MyLink to="/learn">Go Learn</MyLink>
         <MyLink to="/my-account">My Account</MyLink>
         <MyLink to="/about">About</MyLink>
-        <MyLink to="/goodbye">Goodbye</MyLink>
+        <MyLink to="/goodbye" onClick={logOut}>
+          Goodbye
+        </MyLink>
       </div>
     </SidebarStyled>
   );
