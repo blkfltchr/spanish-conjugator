@@ -15,12 +15,12 @@ body {
   padding: 10px 0; */
   margin: 0 auto;
   border: 1px solid green;
+  width: 75%;
 }
 /* Desktop styles */
 
 @media only screen and (min-width: 630px) {
   .app-wrapper {
-    width: 580px;
     margin: 0 auto;
   }
 }
@@ -35,14 +35,13 @@ body {
 
 @media only screen and (max-width: 630px) {
   .app-wrapper {
-    width: 380px;
     margin: 0 auto;
   }
 }
 
 @media only screen and (max-width: 450px) {
   .app-wrapper {
-    width: 95vw;
+    /* width: 95vw; */
   }
 }
 
