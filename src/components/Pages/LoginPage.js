@@ -1,5 +1,15 @@
 import React, { useContext } from "react";
-import { Form, Input, Button, Span, MyLink } from "../Navigation/Styled";
+import {
+  Form,
+  Input,
+  Button,
+  Span,
+  MyLink,
+  FormWrap,
+  LoginPageContainer,
+  ButtonContainer,
+  Title
+} from "../Pages/PagesStyled";
 import {
   ModalContext,
   UsernameContext,
@@ -51,10 +61,10 @@ const Login = props => {
     setUsername(e.target.value);
   }
   return (
-    <div className="login-page-container">
-      <div className="form-wrapper">
+    <LoginPageContainer>
+      <FormWrap>
         <Form onSubmit={submitHandler}>
-          <h3>Sign In</h3>
+          <Title>Sign In</Title>
           <br />
           <Span>Username:</Span>
           <Input
@@ -71,17 +81,15 @@ const Login = props => {
             value={password}
             placeholder="password"
           />
-          <div>
-            {/* <input type="checkbox" name="remember me" />{" "} */}
-            <Span>remember me</Span> <br />
-          </div>
-          <Button>Login</Button>
-          <Button onClick={handleNewUser}>
-            <MyLink to="/signup">New User</MyLink>
-          </Button>
+          <ButtonContainer>
+            <Button>Login</Button>
+            <Button onClick={handleNewUser}>
+              <MyLink to="/signup">New User</MyLink>
+            </Button>
+          </ButtonContainer>
         </Form>
-      </div>
-    </div>
+      </FormWrap>
+    </LoginPageContainer>
   );
 };
 

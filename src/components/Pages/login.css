@@ -1,44 +1,25 @@
 h3 {
-	font-size: 1.2rem;
-	position: absolute;
-	top: 5%;
-	margin-top: 20px;
-	padding: 5px;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 5%;
+  margin-top: 20px;
+  padding: 5px;
 }
 
-.app-wrapper {
-	background: #ffffff;
-}
-
-.form-wrapper {
-	background: #f6f9fc;
-	padding: 40px;
-	justify-content: center;
-	text-align: center;
-	width: 45%;
-	margin: 0 auto;
-}
-
-.login-page-container {
-	position: absolute;
-	left: 5%;
-	background: #f6f9fc;
-	border: 5px solid #941511;
-	border-radius: 25px;
-	height: 80vh;
-	width: 87%;
-	margin: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	justify-self: center;
-}
+/* .form-wrapper {
+  background: #f6f9fc;
+  padding: 40px;
+  justify-content: center;
+  text-align: center;
+  width: 45%;
+  margin: 0 auto;
+} */
 
 .sc-jzJRlG {
-	border-radius: 15px;
+  border-radius: 15px;
 }
 
 .divider {
-	border-left: 1px dotted #941511;
-	height: 100%;
+  border-left: 1px dotted #941511;
+  height: 100%;
 }
