@@ -31,7 +31,7 @@ const Info = props => {
       <div className="tense" data-tip="React-tooltip">
         {tense_english}{" "}
         {mood_english === "Subjunctive" ? `(${mood_english})` : null}
-        <ReactTooltip place="right" type="info" effect="float">
+        <ReactTooltip place="right" type="warning" effect="float">
           {tooltip(tense_english, verb_english)}
         </ReactTooltip>
       </div>
