@@ -38,7 +38,7 @@ const App = () => {
             <Route path="/*" component={PageNotFound} />
           </Switch>
         </div>
-        {localStorage.getItem("modal") ? <Sidebar /> : null}
+        {modal ? <Sidebar /> : null}
       </ContainingDiv>
     </div>
   );

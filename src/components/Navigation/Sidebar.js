@@ -16,9 +16,7 @@ const Sidebar = props => {
         <MyLink to="/learn">Go Learn</MyLink>
         <MyLink to="/my-account">My Account</MyLink>
         <MyLink to="/about">About</MyLink>
-        <MyLink to="/goodbye" onClick>
-          Goodbye
-        </MyLink>
+        <MyLink to="/goodbye">Goodbye</MyLink>
       </div>
     </SidebarStyled>
   );

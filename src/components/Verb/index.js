@@ -28,12 +28,6 @@ const Verb = props => {
   const [modal, setModal] = useContext(ModalContext);
 
   useEffect(() => {
-    return () => {
-      console.log("modal: ", modal);
-    };
-  }, [modal]);
-
-  useEffect(() => {
     const token = localStorage.getItem("jwt");
     const { username, id } = jwt_decode(token);
     const options = {
