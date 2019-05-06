@@ -204,7 +204,6 @@ const Verb = props => {
     align-items: center;
     width: 75%;
     padding: 0px 0px;
-    border: 1px solid red;
   `;
 
   return (

@@ -51,5 +51,4 @@ const ContainingDiv = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  border: 1px solid red;
 `;
