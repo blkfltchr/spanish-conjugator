@@ -19,8 +19,6 @@ const Login = props => {
 
   const toggle = () => {
     setModal(!modal);
-    const foo = localStorage.getItem("modal");
-    console.log(foo);
   };
 
   const submitHandler = e => {
