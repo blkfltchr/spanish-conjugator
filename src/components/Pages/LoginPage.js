@@ -8,7 +8,8 @@ import {
   FormWrap,
   PageContainer,
   ButtonContainer,
-  Title
+  Title,
+  LoginSvg
 } from "../Pages/PagesStyled";
 import {
   ModalContext,
@@ -18,8 +19,6 @@ import {
 import { RouterContext } from "../../Context/CustomBrowserRouter";
 import LoginImage from "../../assets/login.svg";
 import axios from "axios";
-
-import "./login.css";
 
 const Login = props => {
   const [modal, setModal] = useContext(ModalContext);
@@ -89,7 +88,7 @@ const Login = props => {
           </ButtonContainer>
         </Form>
       </FormWrap>
-      <img src={LoginImage} alt="login" width="50%" />
+      <LoginSvg src={LoginImage} alt="login" />
     </PageContainer>
   );
 };
