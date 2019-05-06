@@ -113,7 +113,7 @@ export const MyLink = styled(Link)`
   }
 
   &:active {
-    color: #941600;
+    color: #ffc107;
   }
 `;
 
@@ -130,5 +130,6 @@ export const SidebarStyled = styled.div`
   width: 25%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   border: 1px solid yellow;
 `;
