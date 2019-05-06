@@ -6,7 +6,7 @@ import {
   Span,
   MyLink,
   FormWrap,
-  LoginPageContainer,
+  PageContainer,
   ButtonContainer,
   Title
 } from "../Pages/PagesStyled";
@@ -16,7 +16,7 @@ import {
   PasswordContext
 } from "../../Context/Store";
 import { RouterContext } from "../../Context/CustomBrowserRouter";
-
+import LoginImage from "../../assets/login.svg";
 import axios from "axios";
 
 import "./login.css";
@@ -61,7 +61,7 @@ const Login = props => {
     setUsername(e.target.value);
   }
   return (
-    <LoginPageContainer>
+    <PageContainer>
       <FormWrap>
         <Form onSubmit={submitHandler}>
           <Title>Sign In</Title>
@@ -89,7 +89,8 @@ const Login = props => {
           </ButtonContainer>
         </Form>
       </FormWrap>
-    </LoginPageContainer>
+      <img src={LoginImage} alt="login" width="50%" />
+    </PageContainer>
   );
 };
 

@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
-import { Form, Input, Button, Span } from "../Navigation/Styled";
+import {
+  Form,
+  Input,
+  Button,
+  Span,
+  PageContainer,
+  FormWrap,
+  Title
+} from "../Pages/PagesStyled";
 import { UsernameContext, PasswordContext } from "../../Context/Store";
 import { RouterContext } from "../../Context/CustomBrowserRouter";
-
+import Happy from "../../assets/happy.svg";
 import axios from "axios";
 import auth from "../auth/auth";
-
-import "./login.css";
 
 const SignUpPage = props => {
   const [username, setUsername] = useContext(UsernameContext);
@@ -39,14 +45,11 @@ const SignUpPage = props => {
   }
 
   return (
-    <div className="login-page-container">
-      <div className="form-wrapper">
+    <PageContainer>
+      <FormWrap>
         <Form onSubmit={submitHandler}>
-          <h3>
-            Not Registered? <br />
-            Sign Up Below!
-          </h3>
-          <br />
+          <Title>Sign Up Below!</Title>
+          <Span>Username:</Span>
           <Input
             type="username"
             name="username"
@@ -54,7 +57,7 @@ const SignUpPage = props => {
             onChange={handleUsername}
             placeholder="Username"
           />
-          <span>Password:</span>
+          <Span>Password:</Span>
           <Input
             type="password"
             name="password"
@@ -62,7 +65,7 @@ const SignUpPage = props => {
             onChange={handlePassword}
             placeholder="Password"
           />
-          <span>Retype Password:</span>
+          <Span>Retype Password:</Span>
           <Input
             type="password"
             name="confirmationPassword"
@@ -71,8 +74,9 @@ const SignUpPage = props => {
           />
           <Button>Register</Button>
         </Form>
-      </div>{" "}
-    </div>
+      </FormWrap>{" "}
+      <img src={Happy} alt="happy" width="50%" />
+    </PageContainer>
   );
 };
 

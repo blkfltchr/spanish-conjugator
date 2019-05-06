@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Graph from "../Graph/Graph";
 import { UsernameContext } from "../../Context/Store";
+import Learning from "../../assets/learning.svg";
 import styled from "styled-components";
 
 const Account = props => {
@@ -16,6 +17,7 @@ const Account = props => {
       <span> Track your Progress...</span>
       <GraphContainer>
         <Graph />
+        <img src={Learning} alt="learning" width="50%" />
       </GraphContainer>
     </MyAccount>
   );

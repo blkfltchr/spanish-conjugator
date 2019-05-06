@@ -110,7 +110,7 @@ export const FormWrap = styled.div`
   text-align: center;
   margin: 0 auto;
 `;
-export const LoginPageContainer = styled.div`
+export const PageContainer = styled.div`
   position: absolute;
   background: #f6f9fc;
   border: 5px solid #ffc107;
@@ -129,7 +129,6 @@ export const ButtonContainer = styled.div`
   flex-direction: column;
   margin: 0 auto;
   margin: 10% 0px;
-  border: 1px solid red;
   width: 100%;
   height: 60%;
 `;
@@ -139,5 +138,4 @@ export const Title = styled.h3`
   position: absolute;
   top: 5%;
   margin-top: 20px;
-  padding: 5px;
 `;
