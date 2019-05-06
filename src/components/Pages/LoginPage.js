@@ -9,7 +9,8 @@ import {
   PageContainer,
   ButtonContainer,
   Title,
-  LoginSvg
+  LoginSvg,
+  SignUpButton
 } from "../Pages/PagesStyled";
 import {
   ModalContext,
@@ -82,9 +83,9 @@ const Login = props => {
           />
           <ButtonContainer>
             <Button>Login</Button>
-            <Button onClick={handleNewUser}>
+            <SignUpButton onClick={handleNewUser}>
               <MyLink to="/signup">New User</MyLink>
-            </Button>
+            </SignUpButton>
           </ButtonContainer>
         </Form>
       </FormWrap>

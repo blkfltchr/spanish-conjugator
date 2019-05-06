@@ -145,3 +145,7 @@ export const LoginSvg = styled.img`
   width: 50%;
   height: 75%;
 `;
+
+export const SignUpButton = styled(Button)`
+  font-size: ;
+`;
