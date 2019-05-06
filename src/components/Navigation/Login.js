@@ -9,7 +9,7 @@ import {
 } from "../../Context/Store";
 import { useRouter } from "../../hooks/useRouter";
 import { RouterContext } from "../../Context/CustomBrowserRouter";
-import { Button, Form, Input } from "./Navigation";
+import { Button, Form, Input, Span } from "./Navigation";
 
 // import jwt_decode from "jwt";
 
@@ -51,14 +51,6 @@ const Login = props => {
       });
   };
 
-  // const clickHandler = e => {
-  //   e.preventDefault();
-  //   auth.login(() => {
-  //     routeProps.history.push("/learn");
-  //   });
-  //   toggle();
-  // };
-
   function handlePassword(e) {
     setPassword(e.target.value);
   }
@@ -76,7 +68,7 @@ const Login = props => {
           <ModalHeader toggle={toggle}>Login</ModalHeader>
           <ModalBody>
             <form className="sign-up-form" onSubmit={submitHandler}>
-              <span>Username</span>
+              <Span>Username</Span>
               <input
                 className="sign-up-input"
                 name="username"
@@ -84,7 +76,7 @@ const Login = props => {
                 value={username}
                 placeholder="username"
               />
-              <span>Password</span>
+              <Span>Password</Span>
               <input
                 type="password"
                 className="sign-up-input"
@@ -113,3 +105,5 @@ const Login = props => {
 };
 
 export default Login;
+
+//Styled-Components

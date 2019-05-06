@@ -14,5 +14,4 @@ export default Container;
 
 const MyDiv = styled.div`
   width: 75%;
-  border: 1px solid purple;
 `;

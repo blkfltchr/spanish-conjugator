@@ -7,12 +7,12 @@ import {
   PasswordContext,
   RegisterContext
 } from "../../Context/Store";
+import { Span } from "../Navigation/Navigation";
 
 const SignUp = props => {
   const [register, setRegister] = useContext(RegisterContext);
   const [username, setUsername] = useContext(UsernameContext);
   const [password, setPassword] = useContext(PasswordContext);
-  const [signedUp, setSignedUp] = useState(false);
 
   const submitHandler = e => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const SignUp = props => {
         password: password
       })
       .then(res => {
-        setSignedUp(true);
+        setRegister(true);
         console.log("res ", res);
       })
       .catch(error => {
@@ -34,9 +34,9 @@ const SignUp = props => {
   //       console.log(user);
   //     };
   //   }, [user]);
-  const toggle = () => {
-    setRegister(!register);
-  };
+  // const toggle = () => {
+  //   setRegister(!register);
+  // };
 
   function handleUsername(e) {
     setUsername(e.target.value);
@@ -52,44 +52,44 @@ const SignUp = props => {
   return (
     <div className="sign-up-form">
       <div>
-        <button className="sign-up-button" onClick={toggle}>
+        {/* <Button className="sign-up-button" onClick={toggle}>
           Sign Up
-        </button>
-        <Modal isOpen={register} toggle={toggle} className={props.className}>
-          <ModalHeader toggle={toggle}>Sign Up</ModalHeader>
-          <ModalBody>
-            <form className="sign-up-form" onSubmit={submitHandler}>
-              <span>Username</span>
-              <input
-                tpye="username"
-                className="sign-up-input"
-                name="username"
-                value={username}
-                onChange={handleUsername}
-                placeholder="Username"
-              />
-              <span>password</span>
-              <input
-                type="password"
-                className="sign-up-input"
-                name="password"
-                value={password}
-                onChange={handlePassword}
-                placeholder="Password"
-              />
-              <span>Retype Password</span>
-              <input
-                type="password"
-                className="sign-up-input"
-                name="confirmationPassword"
-                validate={{ match: { value: "password" } }}
-                placeholder="Retype password"
-              />
-              <button className="form-button">Register</button>
-            </form>
-          </ModalBody>
-          <ModalFooter />
-        </Modal>
+        </Button> */}
+        {/* <Modal isOpen={register} toggle={toggle} className={props.className}> */}
+        {/* <ModalHeader toggle={toggle}>Sign Up</ModalHeader> */}
+        {/* <ModalBody> */}
+        <form className="sign-up-form" onSubmit={submitHandler}>
+          <Span>Username</Span>
+          <input
+            tpye="username"
+            className="sign-up-input"
+            name="username"
+            value={username}
+            onChange={handleUsername}
+            placeholder="Username"
+          />
+          <Span>password</Span>
+          <input
+            type="password"
+            className="sign-up-input"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+            placeholder="Password"
+          />
+          <Span>Retype Password</Span>
+          <input
+            type="password"
+            className="sign-up-input"
+            name="confirmationPassword"
+            validate={{ match: { value: "password" } }}
+            placeholder="Retype password"
+          />
+          <Button>Register </Button>
+        </form>
+        {/* </ModalBody> */}
+        {/* <ModalFooter /> */}
+        {/* </Modal> */}
       </div>
     </div>
   );
