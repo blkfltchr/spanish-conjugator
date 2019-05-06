@@ -134,13 +134,15 @@ export const SidebarStyled = styled.div`
 `;
 
 export const StlyedH3 = styled.div`
-  font-size: 1rem;
+  font-size: 2rem;
+  font-family: roboto;
 `;
 
 export const AboutDiv = styled.div`
   margin-top: 30%;
   display: flex;
   flex-direction: column;
+  widht: 90%;
 `;
 export const AboutH3Div = styled.div`
   display: flex;

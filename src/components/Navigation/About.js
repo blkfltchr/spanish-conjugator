@@ -8,11 +8,12 @@ const About = () => {
   return (
     <AboutDiv>
       <AboutH3Div>
-        <StlyedH3> Made With Hard Work &</StlyedH3>
+        <StlyedH3> Made With Hard Work & </StlyedH3>
 
-        <StlyedH3>Using ReactJS</StlyedH3>
+        <StlyedH3>&nbsp; Using ReactJS &nbsp; </StlyedH3>
+
         <a href="https://github.com/conjugator/spanish-conjugator">
-          <StlyedH3>Check out our Repo on Github!</StlyedH3>
+          <StlyedH3>&nbsp; Check out our Repo on Github!</StlyedH3>
         </a>
       </AboutH3Div>
       <AboutImgDiv>
