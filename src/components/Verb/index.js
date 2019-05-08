@@ -1,20 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
 import "../../app.css";
-import {
-  VerbContext,
-  UsernameContext,
-  LevelContext,
-  ModalContext
-} from "../../Context/Store";
+import { VerbContext } from "../../Context/Store";
 
 import Settings from "../Settings/Settings";
-
+// import { spainSpanish } from "../Filters/NumPersonFilters";
+// import { VerbTenseFilters } from "../Filters/VerbTensesFilters";
 import Input from "./Input";
+import { UsernameContext } from "../../Context/Store";
 
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import ReactLoading from "react-loading";
-import styled from "styled-components";
+
+// import Filter, { FilterLevels } from "../Filters/Filter";
 
 const Verb = props => {
   const [verbData, setVerbData] = useContext(VerbContext);
@@ -22,12 +19,9 @@ const Verb = props => {
   const [randomVerb, setRandomVerb] = useState({});
   const [randomPerson, setRandomPerson] = useState([]);
   const [NumberPerson, setNumberPerson] = useState("Latam");
-  const [level, setLevel] = useContext(LevelContext);
+  const [level, setLevel] = useState(0);
   const [count, setCount] = useState(0);
   const [username, setUsername] = useContext(UsernameContext);
-  const [modal, setModal] = useContext(ModalContext);
-
-  const storageModal = localStorage.getItem("modal");
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
@@ -41,7 +35,7 @@ const Verb = props => {
       .get("https://glacial-hamlet-47910.herokuapp.com/api/conjugator", options)
       .then(res => {
         setVerbData(res.data);
-        setModal(true);
+
         // console.log("success");
         setUsername(username);
         // console.log("Hello ", username);
@@ -195,19 +189,9 @@ const Verb = props => {
     }
     handleRefresh();
   };
-  /**  Styled Components below    **/
-
-  const StyledDiv = styled.div`
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 75%;
-    padding: 0px 0px;
-  `;
 
   return (
-    <StyledDiv>
+    <div>
       {randomVerb && randomPerson ? (
         <Input
           data={verbData}
@@ -218,20 +202,13 @@ const Verb = props => {
           resetCounter={resetCounter}
           count={count}
         />
-      ) : (
-        <ReactLoading
-          type={"bars"}
-          color={"#ffc107"}
-          height={"20%"}
-          width={"20%"}
-        />
-      )}
+      ) : null}
       <Settings
         filterData={filterData}
         updateVerbTenses={updateVerbTenses}
         updateNumPerson={updateNumPerson}
       />
-    </StyledDiv>
+    </div>
   );
 
   function latamSpanish(data) {
