@@ -4,10 +4,24 @@ import PropTypes from 'prop-types';
 import Info from './Info';
 import Input from './Input';
 
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+
+const MY_QUERY = gql`
+  query UsersQuery {
+    users {
+      id
+      name
+      email
+      password
+    }
+  }
+`;
+
 const initialState = {
   value: '',
   helperText: null,
-  correct: false,
+  correct: false
 };
 
 class Container extends Component {
@@ -18,14 +32,14 @@ class Container extends Component {
       bestStreak: 0,
       totalAnswers: 0,
       correctAnswers: 0,
-      answered: false,
+      answered: false
     };
   }
 
   handleChange = event => {
     this.setState({
       correct: false,
-      value: event.target.value,
+      value: event.target.value
     });
   };
 
@@ -36,28 +50,28 @@ class Container extends Component {
     const userInput = value.toLowerCase();
     if (answered === true) {
       this.setState(prevState => ({
-        totalAnswers: prevState.totalAnswers + 1,
+        totalAnswers: prevState.totalAnswers + 1
       }));
       this.handleRefresh();
       this.setState({
-        answered: false,
+        answered: false
       });
     } else if (randomPerson[1] === userInput) {
       addCounter();
       this.setState(prevState => ({
         correctAnswers: prevState.correctAnswers + 1,
-        totalAnswers: prevState.totalAnswers + 1,
+        totalAnswers: prevState.totalAnswers + 1
       }));
       // alert('Correct!')
       this.handleRefresh();
       this.setState({
-        correct: true,
+        correct: true
       });
       this.addStreak();
     } else if (randomPerson[1] !== userInput) {
       this.setState({
         helperText: `False, the correct answer is ${randomPerson[1].toUpperCase()}.`,
-        answered: true,
+        answered: true
       });
       resetCounter();
     }
@@ -77,7 +91,7 @@ class Container extends Component {
     this.setState({
       helperText: `Yo + Hablar + ${
         randomVerb.tense_english
-      } = YO ${hablarExample.form_1s.toUpperCase()}`,
+      } = YO ${hablarExample.form_1s.toUpperCase()}`
     });
   };
 
@@ -86,7 +100,7 @@ class Container extends Component {
     const { value } = this.state;
     const accent = event.target.value;
     this.setState({
-      value: value + accent,
+      value: value + accent
     });
   };
 
@@ -94,7 +108,7 @@ class Container extends Component {
     const { randomize } = this.props;
     this.setState({
       ...initialState,
-      correct: false,
+      correct: false
     });
     randomize();
   };
@@ -104,7 +118,7 @@ class Container extends Component {
     const { count } = this.props;
     if (count >= bestStreak) {
       this.setState(prevState => ({
-        bestStreak: prevState.bestStreak + 1,
+        bestStreak: prevState.bestStreak + 1
       }));
       if (bestStreak % 5 === 0) {
         this.reward.rewardMe();
@@ -121,13 +135,13 @@ class Container extends Component {
       bestStreak,
       correct,
       totalAnswers,
-      correctAnswers,
+      correctAnswers
     } = this.state;
     const {
       infinitive,
       tense_english,
       mood_english,
-      infinitive_english,
+      infinitive_english
     } = randomVerb;
     const buttonText =
       randomPerson[1] !== value.toLowerCase() && answered
@@ -181,6 +195,14 @@ class Container extends Component {
           randomPerson={randomPerson}
           handleChange={this.handleChange}
         />
+        <Query query={MY_QUERY}>
+          {({ loading, error, data }) => {
+            if (loading) return <h4>Loading</h4>;
+            if (error) console.log(error);
+            console.log('Old data son..', data);
+            return <h1>test</h1>;
+          }}
+        </Query>
       </div>
     );
   }
@@ -193,11 +215,11 @@ Container.propTypes = {
   data: PropTypes.array,
   randomVerb: PropTypes.object,
   randomize: PropTypes.func,
-  count: PropTypes.number,
+  count: PropTypes.number
 };
 
 Container.defaultProps = {
-  randomPerson: ['answer', 'answer'],
+  randomPerson: ['answer', 'answer']
 };
 
 export default Container;

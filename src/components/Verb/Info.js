@@ -22,7 +22,7 @@ Info.propTypes = {
   infinitive: PropTypes.string,
   infinitive_english: PropTypes.string,
   tense_english: PropTypes.string,
-  mood_english: PropTypes.string,
+  mood_english: PropTypes.string
 };
 
 export default Info;
