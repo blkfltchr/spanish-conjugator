@@ -7,7 +7,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 const client = new ApolloClient({
-  uri: 'https://frozen-headland-90959.herokuapp.com/' // production
+  uri: 'https://mighty-peak-22601.herokuapp.com/' // production
 });
 // localhost:4000 in development
 

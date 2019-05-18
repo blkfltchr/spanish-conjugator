@@ -8,12 +8,9 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
 const MY_QUERY = gql`
-  query UsersQuery {
-    users {
-      id
-      name
-      email
-      password
+  query VerbsQuery {
+    verbs {
+      form1p
     }
   }
 `;
