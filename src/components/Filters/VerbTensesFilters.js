@@ -37,7 +37,6 @@ const TEST_QUERY = gql`
       form3s
       gerund
       gerundEnglish
-      index
       infinitive
       infinitiveEnglish
       mood

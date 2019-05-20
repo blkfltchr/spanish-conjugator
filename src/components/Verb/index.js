@@ -135,20 +135,21 @@ function Verb(props) {
     //   });
     // }
 
-    setVerbData(data);
+    setVerbData(data.LevelThreeQuery);
     handleRefresh();
   };
 
   // render() {
   // const { randomVerb, randomPerson, data, count } = this.state;
   // console.log('Answer:', randomPerson[1]);
-  console.log('Hook verbData says..:', data);
+  console.log('Hook verbData says..:', data.LevelThreeQuery);
   console.log('STATE VERB DATA', verbData);
+  console.log('Checking count......', count);
   // console.log('my query data', this.props.queryData.LevelThreeQuery);
   // console.log('THE TEST.. has it worked?', this.state.theTest);
   return (
     <div>
-      {/* <Container
+      <Container
         verbData={verbData}
         randomPerson={randomPerson}
         randomVerb={randomVerb}
@@ -157,7 +158,7 @@ function Verb(props) {
         resetCounter={resetCounter}
         // addStreak={addStreak} looks like this isn't in this file?
         count={count}
-      /> */}
+      />
       <Settings
         filterData={filterData}
         updateVerbTenses={updateVerbTenses}
