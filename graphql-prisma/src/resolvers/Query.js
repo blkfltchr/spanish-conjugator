@@ -30,7 +30,7 @@ const Query = {
       }
     });
   },
-  verbs(parent, args, { prisma }, info) {
+  LevelThreeQuery(parent, args, { prisma }, info) {
     const opArgs = {
       first: args.first,
       skip: args.skip,
@@ -38,15 +38,18 @@ const Query = {
       orderBy: args.orderBy
     };
 
-    if (args.query) {
-      opArgs.where = {
-        OR: [
-          {
-            tenseEnglish_eq: args.query
-          }
-        ]
-      };
-    }
+    opArgs.where = {
+      OR: [
+        {
+          tenseEnglish: 'Present',
+          moodEnglish: 'Indicative'
+        },
+        {
+          tenseEnglish: 'Preterite',
+          moodEnglish: 'Indicative'
+        }
+      ]
+    };
 
     return prisma.query.verbs(opArgs, info);
   }

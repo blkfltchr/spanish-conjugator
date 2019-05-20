@@ -9,7 +9,7 @@ type Query {
     orderBy: UserOrderByInput
   ): [User!]!
   me: User!
-  verbs(
+  LevelThreeQuery(
     query: String
     first: Int
     skip: Int

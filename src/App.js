@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Layout/Header';
-import Container from './components/Verb/index';
+import Index from './components/Verb/index';
 import Modal from './components/Modal/Modal';
 
 import ApolloClient from 'apollo-boost';
@@ -15,7 +15,7 @@ const client = new ApolloClient({
 
 const LevelThree = gql`
   query VerbsQuery {
-    verbs(first: 3) {
+    LevelThreeQuery(first: 1) {
       form1p
       form1s
       form2p
@@ -69,14 +69,7 @@ class App extends Component {
             {isShowing ? (
               <div onClick={this.closeModalHandler} className="back-drop" />
             ) : null}
-            <Query query={LevelThree}>
-              {({ loading, error, data }) => {
-                if (loading) return <h4>Loading</h4>;
-                if (error) console.log(error);
-                console.log('From app.js boy..', data);
-                return <Container blackNasty={data} />;
-              }}
-            </Query>
+            <Index />;
             <div className="made-with-love" onClick={this.openModalHandler}>
               Made with
               <span role="img" aria-label="heart">

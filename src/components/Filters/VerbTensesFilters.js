@@ -2,7 +2,7 @@ import miniData from '../../data/miniData';
 import beginnerData from '../../data/beginnerData';
 
 import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
+// import { Query } from 'react-apollo';
 
 const LevelOne = beginnerData.filter(
   verb => verb.tense_english === 'Present' && verb.mood_english === 'Indicative'
@@ -21,9 +21,9 @@ const LevelTwo = LevelOne.concat(Two);
 //     (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative')
 // );
 
-const whatAQuery = gql`
+const LEVEL_THREE = gql`
   query VerbsQuery {
-    verbs {
+    LevelThreeQuery {
       form1p
       form1s
       form2p
@@ -91,4 +91,6 @@ const VerbTenseFilters = [
   miniData
 ];
 
-export { VerbTenseFilters };
+export { VerbTenseFilters, LEVEL_THREE };
+
+// export default LEVEL_THREE;
