@@ -26,8 +26,8 @@ const LevelTwo = LevelOne.concat(Two);
 const random = Math.floor(Math.random() * 1272) + 1;
 console.log('RANDOM NUMBER', random);
 
-const LEVEL_THREE = gql`
-  query VerbsQuery {
+const TEST_QUERY = gql`
+  query MyQuery {
     LevelThreeQuery(first: 1, skip: ${random}) {
       form1p
       form1s
@@ -94,6 +94,6 @@ const VerbTenseFilters = [
   miniData
 ];
 
-export { VerbTenseFilters, LEVEL_THREE };
+export { VerbTenseFilters, TEST_QUERY };
 
 // export default LEVEL_THREE;
