@@ -7,10 +7,35 @@ import Input from './Input';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
-const MY_QUERY = gql`
+// const MY_QUERY = gql`
+//   query VerbsQuery {
+//     verbs(first: 3) {
+//       form1p
+//     }
+//   }
+// `;
+
+const LevelThree = gql`
   query VerbsQuery {
-    verbs {
+    verbs(first: 3) {
       form1p
+      form1s
+      form2p
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      index
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
     }
   }
 `;
@@ -59,7 +84,6 @@ class Container extends Component {
         correctAnswers: prevState.correctAnswers + 1,
         totalAnswers: prevState.totalAnswers + 1
       }));
-      // alert('Correct!')
       this.handleRefresh();
       this.setState({
         correct: true
@@ -146,6 +170,9 @@ class Container extends Component {
         : 'Submit';
     const percentage =
       totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
+
+    console.log('HERE WE ARE BOYS', this.props.blackNasty);
+    // console.log('The dawwgggg testing', test);
     return (
       <div>
         <div className="verb-info-wrapper">
@@ -182,22 +209,23 @@ class Container extends Component {
             mood_english={mood_english}
           />
         </div>
-        <Input
-          helperText={helperText}
-          correct={correct}
-          value={value}
-          buttonText={buttonText}
-          addAccent={this.addAccent}
-          handleSubmit={this.handleSubmit}
-          randomPerson={randomPerson}
-          handleChange={this.handleChange}
-        />
-        <Query query={MY_QUERY}>
+        <Query query={LevelThree}>
           {({ loading, error, data }) => {
             if (loading) return <h4>Loading</h4>;
             if (error) console.log(error);
-            console.log('Old data son..', data);
-            return <h1>test</h1>;
+            return (
+              <Input
+                naughtySizzle={data}
+                helperText={helperText}
+                correct={correct}
+                value={value}
+                buttonText={buttonText}
+                addAccent={this.addAccent}
+                handleSubmit={this.handleSubmit}
+                randomPerson={randomPerson}
+                handleChange={this.handleChange}
+              />
+            );
           }}
         </Query>
       </div>

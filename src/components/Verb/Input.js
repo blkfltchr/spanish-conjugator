@@ -15,8 +15,9 @@ class Input extends Component {
       handleExample,
       helperText,
       handleSubmit,
-      buttonText,
+      buttonText
     } = this.props;
+    console.log('FROM INPUT', this.props.naughtySizzle);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -68,7 +69,7 @@ Input.propTypes = {
   handleExample: PropTypes.func,
   helperText: PropTypes.string,
   handleSubmit: PropTypes.func,
-  buttonText: PropTypes.string,
+  buttonText: PropTypes.string
 };
 
 Input.defaultProps = {
@@ -76,7 +77,7 @@ Input.defaultProps = {
   value: '',
   correct: false,
   helperText: '',
-  buttonText: '',
+  buttonText: ''
 };
 
 export default Input;

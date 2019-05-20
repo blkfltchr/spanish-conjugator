@@ -7,11 +7,50 @@ import { spainSpanish, latamSpanish } from '../Filters/NumPersonFilters';
 import { VerbTenseFilters } from '../Filters/VerbTensesFilters';
 import Container from './Container';
 
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+
+const LevelThree = gql`
+  query VerbsQuery {
+    verbs {
+      form1p
+      form1s
+      form2p
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      index
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
+
 const initialState = {
   correct: false,
   randomVerb: {},
-  randomPerson: [],
+  randomPerson: []
 };
+
+{
+  /* <Query query={LevelThree}>
+  {({ loading, error, data }) => {
+    if (loading) return <h4>Loading</h4>;
+    if (error) console.log(error);
+    console.log('From state in index..', data);
+    return data;
+  }}
+</Query>; */
+}
 
 class Verb extends Component {
   constructor(props) {
@@ -21,7 +60,7 @@ class Verb extends Component {
       data: latamSpanish(VerbTenseFilters[0]),
       NumberPerson: 'Latam',
       level: 0,
-      count: 0,
+      count: 0
     };
   }
 
@@ -47,38 +86,38 @@ class Verb extends Component {
     );
     this.setState({
       randomVerb,
-      randomPerson,
+      randomPerson
     });
   };
 
   handleRefresh = () => {
     this.setState({
-      ...initialState,
+      ...initialState
     });
     this.randomize();
   };
 
   addCounter = () => {
     this.setState(prevState => ({
-      count: prevState.count + 1,
+      count: prevState.count + 1
     }));
   };
 
   resetCounter = () => {
     this.setState({
-      count: 0,
+      count: 0
     });
   };
 
   updateNumPerson = event => {
     this.setState({
-      NumberPerson: event.target.value,
+      NumberPerson: event.target.value
     });
   };
 
   updateVerbTenses = event => {
     this.setState({
-      level: event.target.value,
+      level: event.target.value
     });
     this.handleRefresh();
   };
@@ -90,14 +129,14 @@ class Verb extends Component {
     if (NumberPerson === 'Spain') {
       const spainSpan = spainSpanish(VerbTenseFilters[Level]);
       this.setState({
-        data: spainSpan,
+        data: spainSpan
       });
     }
 
     if (NumberPerson === 'Latam') {
       const latamSpan = latamSpanish(VerbTenseFilters[Level]);
       this.setState({
-        data: latamSpan,
+        data: latamSpan
       });
     }
     this.handleRefresh();
@@ -106,6 +145,7 @@ class Verb extends Component {
   render() {
     const { randomVerb, randomPerson, data, count } = this.state;
     // console.log('Answer:', randomPerson[1]);
+    console.log('Verbs:', data);
     return (
       <div>
         <Container

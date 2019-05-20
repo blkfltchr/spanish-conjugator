@@ -42,7 +42,7 @@ const Query = {
       opArgs.where = {
         OR: [
           {
-            name_contains: args.query
+            tenseEnglish_eq: args.query
           }
         ]
       };
