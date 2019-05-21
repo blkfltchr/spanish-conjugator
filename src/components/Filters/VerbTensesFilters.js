@@ -23,12 +23,12 @@ const LevelTwo = LevelOne.concat(Two);
 
 // length of data is 1273
 // to get a random verb, we can skip a random number of rows from 0-1272 and then get the first one
-const random = Math.floor(Math.random() * 1272) + 1;
-console.log('RANDOM NUMBER', random);
+const randomNum = Math.floor(Math.random() * 1272) + 1;
+console.log('RANDOM NUMBER', randomNum);
 
 const TEST_QUERY = gql`
   query MyQuery {
-    LevelThreeQuery(first: 1, skip: ${random}) {
+    LevelThreeQuery {
       form1p
       form1s
       form2p

@@ -34,10 +34,6 @@ function Container(props) {
   const [correct, setCorrect] = useState(false);
 
   const handleChange = event => {
-    // this.setState({
-    //   correct: false,
-    //   value: event.target.value
-    // });
     setCorrect(false);
     setValue(event.target.value);
   };
@@ -48,36 +44,17 @@ function Container(props) {
     event.preventDefault();
     const userInput = value.toLowerCase();
     if (answered === true) {
-      // this.setState(prevState => ({
-      //   totalAnswers: prevState.totalAnswers + 1
-      // }));
       setTotalAnswers(totalAnswers + 1);
-
       handleRefresh();
-      // this.setState({
-      //   answered: false
-      // });
       setAnswered(false);
     } else if (randomPerson[1] === userInput) {
       addCounter();
       setCorrectAnswers(correctAnswers + 1);
       setTotalAnswers(totalAnswers + 1);
-
-      // this.setState(prevState => ({
-      //   correctAnswers: prevState.correctAnswers + 1,
-      //   totalAnswers: prevState.totalAnswers + 1
-      // }));
       handleRefresh();
       setCorrect(true);
-      // this.setState({
-      //   correct: true
-      // });
       addStreak();
     } else if (randomPerson[1] !== userInput) {
-      // this.setState({
-      //   helperText: `False, the correct answer is ${randomPerson[1].toUpperCase()}.`,
-      //   answered: true
-      // });
       setHelperText(
         `False, the correct answer is ${randomPerson[1].toUpperCase()}.`
       );
@@ -157,7 +134,7 @@ function Container(props) {
   //   totalAnswers,
   //   correctAnswers
   // } = this.state;
-  console.log('PRops from container........ =>', props);
+
   const { infinitive, tenseEnglish, moodEnglish, infinitiveEnglish } = props;
   const buttonText =
     randomPerson[1] !== value.toLowerCase() && answered
@@ -166,7 +143,7 @@ function Container(props) {
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
 
-  console.log('ALL PROPS COnRTainer', props.verbData);
+  console.log('FROM CONTAINER....', props);
   return (
     <div>
       <div className="verb-info-wrapper">
@@ -216,7 +193,6 @@ function Container(props) {
     </div>
   );
 }
-// }
 
 Container.propTypes = {
   randomPerson: PropTypes.array,

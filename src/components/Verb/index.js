@@ -8,6 +8,7 @@ import { VerbTenseFilters, TEST_QUERY } from '../Filters/VerbTensesFilters';
 import Container from './Container';
 
 import { useQuery } from 'react-apollo-hooks';
+import { setTimeout } from 'timers';
 
 // const initialState = {
 //   correct: false,
@@ -40,45 +41,79 @@ import { useQuery } from 'react-apollo-hooks';
 //   }
 
 function Verb(props) {
-  const { data } = useQuery(TEST_QUERY);
+  // const { loading, data } = useQuery(TEST_QUERY);
   // const [verbData, setVerbData] = useState(latamSpanish(VerbTenseFilters[0]));
-  const [verbData, setVerbData] = useState([]);
+  const [verbData, setVerbData] = useState(props.data);
   const [NumberPerson, setNumberPerson] = useState('Latam');
   const [level, setLevel] = useState(0);
   const [count, setCount] = useState(0);
   const [randomPerson, setRandomPerson] = useState([]);
   const [randomVerb, setRandomVerb] = useState({});
   const [correct, setCorrect] = useState(false);
+  const [answered, setAnswered] = useState(false);
   const [infinitive, setInfinitive] = useState('');
   const [tenseEnglish, setTenseEnglish] = useState('');
   const [moodEnglish, setMoodEnglish] = useState('');
   const [infinitiveEnglish, setInfinitiveEnglish] = useState('');
 
   useEffect(() => {
-    randomize();
-    setVerbData(data.LevelThreeQuery);
-    if (verbData !== undefined) {
-      console.log('verbData from use effect', verbData[0]);
+    console.log('In use effect ----:)----');
+    setVerbData(props.data);
+    // getRandomVerb();
+    // console.log('DATA from use effect -->', verbData);
+    // if (verbData !== undefined) {
+    //   // console.log('verbData from use effect', verbData[0]);
+    //   setVerbData(verbData[0]);
+    //   return;
+    // const randomNum = Math.floor(Math.random() * 1272) + 1;
+    // const tempVerbData = verbData[randomNum];
+    // if (tempVerbData !== undefined) {
+    // const randomPersonNum = Math.floor(Math.random() * 7);
+    // setRandomVerb(Object.values(tempVerbData)[randomPersonNum]);
+    // setRandomPerson(tempVerbData.moodEnglish);
+    // setInfinitive(tempVerbData.infinitive);
+    // setInfinitiveEnglish(tempVerbData.infinitiveEnglish);
+    // setTenseEnglish(tempVerbData.tenseEnglish);
+    // setMoodEnglish(tempVerbData.moodEnglish);
+    // getRandomVerb(tempVerbData);
+    // }
+    // }
+  }, [props.data]);
 
-      const tempVerbData = verbData[0];
-      if (tempVerbData !== undefined) {
-        const randomNum = Math.floor(Math.random() * 7);
-        console.log(
-          'NESTED TEST',
-          randomNum,
-          Object.values(tempVerbData)[randomNum]
-        );
-        setRandomVerb(Object.values(tempVerbData)[randomNum]);
-        setRandomPerson(tempVerbData.moodEnglish);
-        setInfinitive(tempVerbData.infinitive);
-        setTenseEnglish(tempVerbData.tenseEnglish);
-        setMoodEnglish(tempVerbData.moodEnglish);
-        setInfinitiveEnglish(tempVerbData.infinitiveEnglish);
-      }
+  useEffect(() => {
+    if (verbData != undefined) {
+      const randomNum = Math.floor(Math.random() * 1272) + 1; // length of query data
+      const randomPersonNum = Math.floor(Math.random() * 7);
+
+      const randomVerb = props.data[randomNum];
+
+      // const randomVerbValues = Object.values(props.data[randomNum]);
+      console.log('randomVerb ->', randomVerb.moodEnglish);
+
+      setRandomVerb(Object.values(randomVerb)[randomPersonNum]);
+      setRandomPerson(randomVerb.moodEnglish);
+      setInfinitive(randomVerb.infinitive);
+      setInfinitiveEnglish(randomVerb.infinitiveEnglish);
+      setTenseEnglish(randomVerb.tenseEnglish);
+      setMoodEnglish(randomVerb.moodEnglish);
     }
-  });
+  }, [verbData]);
+
+  async function getRandomVerb(tempVerbData) {
+    console.log('FROM GET RANDOM _>>>', props.data);
+    const randomNum = Math.floor(Math.random() * 7);
+    // await setRandomVerb(Object.values(tempVerbData)[randomNum]);
+    // await setRandomPerson(tempVerbData.moodEnglish);
+    // setInfinitive(tempVerbData.infinitive);
+    // await setTenseEnglish(tempVerbData.tenseEnglish);
+    // setMoodEnglish(tempVerbData.moodEnglish);
+    // setInfinitiveEnglish(tempVerbData.infinitiveEnglish);
+    // return;
+  }
 
   const randomize = () => {
+    // refetch();
+    // console.log('WE ARE RANDOMIZING', refetch());
     //   // const { data } = this.state;
     // let randomVerb = verbData[Math.floor(Math.random() * 7)];
     //   let randomPerson = Object.entries(randomVerb)[
@@ -159,15 +194,20 @@ function Verb(props) {
     //   });
     // }
 
-    setVerbData(data.LevelThreeQuery);
+    // setVerbData(verbData.LevelThreeQuery);
     handleRefresh();
   };
 
   // render() {
   // const { randomVerb, randomPerson, data, count } = this.state;
   // console.log('Answer:', randomPerson[1]);
-  console.log('STATE VERB DATA', verbData);
-  console.log('RANDOM PERSON, VERB', randomPerson, randomVerb);
+
+  // console.log('STATE VERB DATA and Data', verbData, data);
+  // console.log('TENSE ENGLISH', tenseEnglish);
+
+  console.log('VERB DATA ----->>>>', verbData);
+
+  // console.log('RANDOM PERSON, VERB', randomPerson, randomVerb);
   // console.log('ACCESS THE DATA..', Object.entries(data.LevelThreeQuery));
   // console.log('my query data', this.props.queryData.LevelThreeQuery);
   // console.log('THE TEST.. has it worked?', this.state.theTest);

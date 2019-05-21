@@ -31,7 +31,7 @@ const Checkmark = props => {
 };
 
 Checkmark.propTypes = {
-  correct: PropTypes.bool,
+  correct: PropTypes.bool
 };
 
 export default Checkmark;
