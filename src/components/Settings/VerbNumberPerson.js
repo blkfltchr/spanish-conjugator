@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const VerbNumberPerson = props => {
+function VerbNumberPerson(props) {
   const { updateNumPerson } = props;
   return (
     <div className="settings-dropdown">
@@ -12,10 +12,10 @@ const VerbNumberPerson = props => {
       </select>
     </div>
   );
-};
+}
 
 VerbNumberPerson.propTypes = {
-  updateNumPerson: PropTypes.func,
+  updateNumPerson: PropTypes.func
 };
 
 export default VerbNumberPerson;

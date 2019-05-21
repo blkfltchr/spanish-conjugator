@@ -7,20 +7,20 @@ const personObj = {
   form_3s: 'El/Ella',
   form_1p: 'Nosotros',
   form_2p: 'Vosotros',
-  form_3p: 'Ellos/Ellas',
+  form_3p: 'Ellos/Ellas'
 };
 
-const VerbPerson = props => {
+function VerbPerson(props) {
   const { randomPerson } = props;
   return (
     <div className="person-flex">
       <div>{personObj[randomPerson]}</div>
     </div>
   );
-};
+}
 
 VerbPerson.propTypes = {
-  randomPerson: PropTypes.string,
+  randomPerson: PropTypes.string
 };
 
 export default VerbPerson;

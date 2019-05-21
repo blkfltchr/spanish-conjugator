@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const VerbTenses = props => {
+function VerbTenses(props) {
   const { updateVerbTenses } = props;
   return (
     <div className="settings-dropdown">
       <p className="settings-text">Difficulty</p>
       <select onChange={updateVerbTenses}>
-        <option value='0' defaultValue="Beginner">
+        <option value="0" defaultValue="Beginner">
           Popular verbs, present tense
         </option>
         <option value="1">Popular verbs, present + preterite</option>
@@ -19,10 +19,10 @@ const VerbTenses = props => {
       </select>
     </div>
   );
-};
+}
 
 VerbTenses.propTypes = {
-  updateVerbTenses: PropTypes.func,
+  updateVerbTenses: PropTypes.func
 };
 
 export default VerbTenses;
