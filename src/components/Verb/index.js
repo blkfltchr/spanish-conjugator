@@ -49,15 +49,19 @@ function Verb(props) {
   const [randomPerson, setRandomPerson] = useState([]);
   const [randomVerb, setRandomVerb] = useState({});
   const [correct, setCorrect] = useState(false);
-  // const { data } = useQuery(TEST_QUERY);
+  const [infinitive, setInfinitive] = useState('');
+  const [tenseEnglish, setTenseEnglish] = useState('');
+  const [moodEnglish, setMoodEnglish] = useState('');
+  const [infinitiveEnglish, setInfinitiveEnglish] = useState('');
 
   useEffect(() => {
     randomize();
     setVerbData(data.LevelThreeQuery);
     if (verbData !== undefined) {
       console.log('verbData from use effect', verbData[0]);
+
       const tempVerbData = verbData[0];
-      if (tempVerbData != undefined) {
+      if (tempVerbData !== undefined) {
         const randomNum = Math.floor(Math.random() * 7);
         console.log(
           'NESTED TEST',
@@ -66,6 +70,10 @@ function Verb(props) {
         );
         setRandomVerb(Object.values(tempVerbData)[randomNum]);
         setRandomPerson(tempVerbData.moodEnglish);
+        setInfinitive(tempVerbData.infinitive);
+        setTenseEnglish(tempVerbData.tenseEnglish);
+        setMoodEnglish(tempVerbData.moodEnglish);
+        setInfinitiveEnglish(tempVerbData.infinitiveEnglish);
       }
     }
   });
@@ -174,6 +182,10 @@ function Verb(props) {
         resetCounter={resetCounter}
         // addStreak={addStreak} looks like this isn't in this file?
         count={count}
+        infinitive={infinitive}
+        tenseEnglish={tenseEnglish}
+        moodEnglish={moodEnglish}
+        infinitiveEnglish={infinitiveEnglish}
       />
       <Settings
         filterData={filterData}

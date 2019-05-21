@@ -157,12 +157,8 @@ function Container(props) {
   //   totalAnswers,
   //   correctAnswers
   // } = this.state;
-  const {
-    infinitive,
-    tense_english,
-    mood_english,
-    infinitive_english
-  } = randomVerb;
+  console.log('PRops from container........ =>', props);
+  const { infinitive, tenseEnglish, moodEnglish, infinitiveEnglish } = props;
   const buttonText =
     randomPerson[1] !== value.toLowerCase() && answered
       ? 'Next verb'
@@ -170,8 +166,7 @@ function Container(props) {
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
 
-  console.log('randomVerb FROM CONTAINER', randomVerb);
-  console.log('tenseEnglish FROM CONTAINER', mood_english);
+  console.log('ALL PROPS COnRTainer', props.verbData);
   return (
     <div>
       <div className="verb-info-wrapper">
@@ -203,9 +198,9 @@ function Container(props) {
         </div>
         <Info
           infinitive={infinitive}
-          infinitive_english={infinitive_english}
-          tense_english={tense_english}
-          mood_english={mood_english}
+          infinitiveEnglish={infinitiveEnglish}
+          tenseEnglish={tenseEnglish}
+          moodEnglish={moodEnglish}
         />
       </div>
       <Input
