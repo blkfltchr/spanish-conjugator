@@ -17,7 +17,6 @@ class Input extends Component {
       handleSubmit,
       buttonText
     } = this.props;
-    console.log('FROM INPUT', this.props.naughtySizzle);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

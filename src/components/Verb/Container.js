@@ -34,15 +34,17 @@ function Container(props) {
   const [correct, setCorrect] = useState(false);
 
   const handleChange = event => {
-    this.setState({
-      correct: false,
-      value: event.target.value
-    });
+    // this.setState({
+    //   correct: false,
+    //   value: event.target.value
+    // });
+    setCorrect(false);
+    setValue(event.target.value);
   };
 
   const handleSubmit = event => {
     // const { value, answered } = this.state;
-    const { randomPerson, addCounter, resetCounter } = this.props;
+    const { randomPerson, addCounter, resetCounter } = props;
     event.preventDefault();
     const userInput = value.toLowerCase();
     if (answered === true) {
@@ -113,7 +115,7 @@ function Container(props) {
   };
 
   const handleRefresh = () => {
-    const { randomize } = this.props;
+    const { randomize } = props;
     // this.setState({
     //   ...initialState,
     //   correct: false
@@ -168,7 +170,8 @@ function Container(props) {
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
 
-  console.log('PROPS FROM CONTAINER', props);
+  console.log('randomVerb FROM CONTAINER', randomVerb);
+  console.log('tenseEnglish FROM CONTAINER', mood_english);
   return (
     <div>
       <div className="verb-info-wrapper">

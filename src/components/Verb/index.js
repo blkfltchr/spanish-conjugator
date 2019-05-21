@@ -40,7 +40,9 @@ import { useQuery } from 'react-apollo-hooks';
 //   }
 
 function Verb(props) {
-  const [verbData, setVerbData] = useState(latamSpanish(VerbTenseFilters[0]));
+  const { data } = useQuery(TEST_QUERY);
+  // const [verbData, setVerbData] = useState(latamSpanish(VerbTenseFilters[0]));
+  const [verbData, setVerbData] = useState([]);
   const [NumberPerson, setNumberPerson] = useState('Latam');
   const [level, setLevel] = useState(0);
   const [count, setCount] = useState(0);
@@ -48,40 +50,54 @@ function Verb(props) {
   const [randomVerb, setRandomVerb] = useState({});
   const [correct, setCorrect] = useState(false);
   // const { data } = useQuery(TEST_QUERY);
-  const { data } = useQuery(TEST_QUERY);
 
   useEffect(() => {
     randomize();
-  }, []);
+    setVerbData(data.LevelThreeQuery);
+    if (verbData !== undefined) {
+      console.log('verbData from use effect', verbData[0]);
+      const tempVerbData = verbData[0];
+      if (tempVerbData != undefined) {
+        const randomNum = Math.floor(Math.random() * 7);
+        console.log(
+          'NESTED TEST',
+          randomNum,
+          Object.values(tempVerbData)[randomNum]
+        );
+        setRandomVerb(Object.values(tempVerbData)[randomNum]);
+        setRandomPerson(tempVerbData.moodEnglish);
+      }
+    }
+  });
 
   const randomize = () => {
-    // const { data } = this.state;
-    let randomVerb = verbData[Math.floor(Math.random() * verbData.length)];
-    let randomPerson = Object.entries(randomVerb)[
-      Math.floor(Math.random() * 5) + 7
-    ];
-    // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
-    // do {
-    //   randomVerb = verbData[Math.floor(Math.random() * verbData.length)];
-    //   randomPerson = Object.entries(randomVerb)[
+    //   // const { data } = this.state;
+    // let randomVerb = verbData[Math.floor(Math.random() * 7)];
+    //   let randomPerson = Object.entries(randomVerb)[
     //     Math.floor(Math.random() * 5) + 7
     //   ];
-    // } while (
-    //   randomPerson[1] === '' ||
-    //   randomVerb.mood_english === 'Imperative Negative'
-    // );
-    setRandomVerb(randomVerb);
-    setRandomPerson(randomPerson);
-    // this.setState({
-    //   randomVerb,
-    //   randomPerson
-    // });
+    //   // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
+    //   do {
+    //     randomVerb = verbData[Math.floor(Math.random() * verbData.length)];
+    //     randomPerson = Object.entries(randomVerb)[
+    //       Math.floor(Math.random() * 5) + 7
+    //     ];
+    //   } while (
+    //     randomPerson[1] === '' ||
+    //     randomVerb.mood_english === 'Imperative Negative'
+    //   );
+    //   setRandomVerb(randomVerb);
+    //   setRandomPerson(randomPerson);
+    //   // this.setState({
+    //   //   randomVerb,
+    //   //   randomPerson
+    //   // });
   };
 
   const handleRefresh = () => {
     setCorrect(false);
-    setRandomVerb({});
-    setRandomPerson([]);
+    // setRandomVerb({});
+    // setRandomPerson([]);
     // this.setState({
     //   ...initialState
     // });
@@ -142,9 +158,9 @@ function Verb(props) {
   // render() {
   // const { randomVerb, randomPerson, data, count } = this.state;
   // console.log('Answer:', randomPerson[1]);
-  console.log('Hook verbData says..:', data.LevelThreeQuery);
   console.log('STATE VERB DATA', verbData);
-  console.log('Checking count......', count);
+  console.log('RANDOM PERSON, VERB', randomPerson, randomVerb);
+  // console.log('ACCESS THE DATA..', Object.entries(data.LevelThreeQuery));
   // console.log('my query data', this.props.queryData.LevelThreeQuery);
   // console.log('THE TEST.. has it worked?', this.state.theTest);
   return (
