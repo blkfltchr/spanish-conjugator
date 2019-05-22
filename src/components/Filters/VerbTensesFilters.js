@@ -24,11 +24,18 @@ const LevelTwo = LevelOne.concat(Two);
 // length of data is 1273
 // to get a random verb, we can skip a random number of rows from 0-1272 and then get the first one
 const randomNum = Math.floor(Math.random() * 1272) + 1;
-console.log('RANDOM NUMBER', randomNum);
+// console.log('RANDOM NUMBER', randomNum);
 
-const TEST_QUERY = gql`
-  query MyQuery {
-    LevelThreeQuery {
+const LEVEL_THREE = gql`
+  query {
+    verbs(
+      where: {
+        AND: [
+          { moodEnglish: "Indicative" }
+          { OR: [{ tenseEnglish: "Preterite" }, { tenseEnglish: "Present" }] }
+        ]
+      }
+    ) {
       form1p
       form1s
       form2p
@@ -93,6 +100,4 @@ const VerbTenseFilters = [
   miniData
 ];
 
-export { VerbTenseFilters, TEST_QUERY };
-
-// export default LEVEL_THREE;
+export { VerbTenseFilters, LEVEL_THREE };

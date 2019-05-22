@@ -5,7 +5,7 @@ import Modal from './components/Modal/Modal';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import { TEST_QUERY } from './components/Filters/VerbTensesFilters';
+import { LEVEL_THREE } from './components/Filters/VerbTensesFilters';
 import { useQuery } from 'react-apollo-hooks';
 
 const client = new ApolloClient({
@@ -25,8 +25,10 @@ const client = new ApolloClient({
 function App(props) {
   const [isShowing, setIsShowing] = useState(false);
   const [level, setLevel] = useState(0);
-  const test = 'TEST_QUERY';
-  const { loading, data } = useQuery(test);
+  const test = 'LEVEL_THREE';
+  const { loading, data } = useQuery(LEVEL_THREE);
+
+  console.log('From App.js --->', data);
 
   const openModalHandler = () => {
     this.setState({
@@ -57,7 +59,7 @@ function App(props) {
             level={level}
             updateVerbTenses={updateVerbTenses}
             loading={loading}
-            data={data.LevelThreeQuery}
+            data={data.verbs}
           />
           ;
           <div className="made-with-love" onClick={openModalHandler}>
