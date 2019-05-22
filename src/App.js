@@ -24,7 +24,9 @@ const client = new ApolloClient({
 
 function App(props) {
   const [isShowing, setIsShowing] = useState(false);
-  const { loading, data } = useQuery(TEST_QUERY);
+  const [level, setLevel] = useState(0);
+  const test = 'TEST_QUERY';
+  const { loading, data } = useQuery(test);
 
   const openModalHandler = () => {
     this.setState({
@@ -38,6 +40,11 @@ function App(props) {
     });
   };
 
+  const updateVerbTenses = event => {
+    setLevel(event.target.value);
+    // handleRefresh();
+  };
+
   return (
     <ApolloProvider client={client}>
       <div className="app">
@@ -46,7 +53,13 @@ function App(props) {
           {isShowing ? (
             <div onClick={closeModalHandler} className="back-drop" />
           ) : null}
-          <Index loading={loading} data={data.LevelThreeQuery} />;
+          <Index
+            level={level}
+            updateVerbTenses={updateVerbTenses}
+            loading={loading}
+            data={data.LevelThreeQuery}
+          />
+          ;
           <div className="made-with-love" onClick={openModalHandler}>
             Made with
             <span role="img" aria-label="heart">

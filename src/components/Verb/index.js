@@ -3,11 +3,13 @@ import '../../app.css';
 import Settings from '../Settings/Settings';
 import { spainSpanish, latamSpanish } from '../Filters/NumPersonFilters';
 import Container from './Container';
+import { TEST_QUERY } from '../Filters/VerbTensesFilters';
+import { useQuery } from 'react-apollo-hooks';
 
 function Verb(props) {
   const [verbData, setVerbData] = useState(props.data);
   const [NumberPerson, setNumberPerson] = useState('Latam');
-  const [level, setLevel] = useState(0);
+  // const [level, setLevel] = useState(0);
   const [count, setCount] = useState(0);
   const [randomPerson, setRandomPerson] = useState([]);
   const [randomVerb, setRandomVerb] = useState({});
@@ -68,11 +70,6 @@ function Verb(props) {
     setNumberPerson(event.target.value);
   };
 
-  const updateVerbTenses = event => {
-    setLevel(event.target.value);
-    handleRefresh();
-  };
-
   const filterData = event => {
     event.preventDefault();
     // const { level, NumberPerson } = this.state;
@@ -114,7 +111,7 @@ function Verb(props) {
       />
       <Settings
         filterData={filterData}
-        updateVerbTenses={updateVerbTenses}
+        updateVerbTenses={props.updateVerbTenses}
         updateNumPerson={updateNumPerson}
       />
     </div>
