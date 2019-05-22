@@ -40,23 +40,23 @@ function Container(props) {
 
   const handleSubmit = event => {
     // const { value, answered } = this.state;
-    const { randomPerson, addCounter, resetCounter } = props;
+    const { randomPerson, addCounter, resetCounter, randomVerb } = props;
     event.preventDefault();
     const userInput = value.toLowerCase();
     if (answered === true) {
       setTotalAnswers(totalAnswers + 1);
       handleRefresh();
       setAnswered(false);
-    } else if (randomPerson[1] === userInput) {
+    } else if (randomVerb === userInput) {
       addCounter();
       setCorrectAnswers(correctAnswers + 1);
       setTotalAnswers(totalAnswers + 1);
       handleRefresh();
       setCorrect(true);
       addStreak();
-    } else if (randomPerson[1] !== userInput) {
+    } else if (randomVerb !== userInput) {
       setHelperText(
-        `False, the correct answer is ${randomPerson[1].toUpperCase()}.`
+        `False, the correct answer is ${randomVerb.toUpperCase()}.`
       );
       setAnswered(true);
       resetCounter();
@@ -143,6 +143,7 @@ function Container(props) {
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
 
+  console.log('Props random person..', props.randomVerb);
   return (
     <div>
       <div className="verb-info-wrapper">
