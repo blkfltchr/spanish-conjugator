@@ -59,28 +59,15 @@ function Verb(props) {
   useEffect(() => {
     console.log('In use effect ----:)----');
     setVerbData(props.data);
-    // getRandomVerb();
-    // console.log('DATA from use effect -->', verbData);
-    // if (verbData !== undefined) {
-    //   // console.log('verbData from use effect', verbData[0]);
-    //   setVerbData(verbData[0]);
-    //   return;
-    // const randomNum = Math.floor(Math.random() * 1272) + 1;
-    // const tempVerbData = verbData[randomNum];
-    // if (tempVerbData !== undefined) {
-    // const randomPersonNum = Math.floor(Math.random() * 7);
-    // setRandomVerb(Object.values(tempVerbData)[randomPersonNum]);
-    // setRandomPerson(tempVerbData.moodEnglish);
-    // setInfinitive(tempVerbData.infinitive);
-    // setInfinitiveEnglish(tempVerbData.infinitiveEnglish);
-    // setTenseEnglish(tempVerbData.tenseEnglish);
-    // setMoodEnglish(tempVerbData.moodEnglish);
-    // getRandomVerb(tempVerbData);
-    // }
-    // }
   }, [props.data]);
 
   useEffect(() => {
+    console.log('Second use effect ^^^^^:^^^^');
+    getRandomVerb();
+  }, [verbData]);
+
+  const getRandomVerb = () => {
+    console.log("we're in............^....");
     if (verbData != undefined) {
       const randomNum = Math.floor(Math.random() * 1272) + 1; // length of query data
       const randomPersonNum = Math.floor(Math.random() * 7);
@@ -97,21 +84,6 @@ function Verb(props) {
       setTenseEnglish(randomVerb.tenseEnglish);
       setMoodEnglish(randomVerb.moodEnglish);
     }
-  }, [verbData]);
-
-  async function getRandomVerb(tempVerbData) {
-    console.log('FROM GET RANDOM _>>>', props.data);
-    const randomNum = Math.floor(Math.random() * 7);
-    // await setRandomVerb(Object.values(tempVerbData)[randomNum]);
-    // await setRandomPerson(tempVerbData.moodEnglish);
-    // setInfinitive(tempVerbData.infinitive);
-    // await setTenseEnglish(tempVerbData.tenseEnglish);
-    // setMoodEnglish(tempVerbData.moodEnglish);
-    // setInfinitiveEnglish(tempVerbData.infinitiveEnglish);
-    // return;
-  }
-
-  const randomize = () => {
     // refetch();
     // console.log('WE ARE RANDOMIZING', refetch());
     //   // const { data } = this.state;
@@ -144,7 +116,7 @@ function Verb(props) {
     // this.setState({
     //   ...initialState
     // });
-    randomize();
+    getRandomVerb();
   };
 
   const addCounter = () => {
@@ -217,7 +189,7 @@ function Verb(props) {
         verbData={verbData}
         randomPerson={randomPerson}
         randomVerb={randomVerb}
-        randomize={randomize}
+        getRandomVerb={getRandomVerb}
         addCounter={addCounter}
         resetCounter={resetCounter}
         // addStreak={addStreak} looks like this isn't in this file?

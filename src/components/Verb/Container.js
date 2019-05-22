@@ -92,7 +92,7 @@ function Container(props) {
   };
 
   const handleRefresh = () => {
-    const { randomize } = props;
+    const { getRandomVerb } = props;
     // this.setState({
     //   ...initialState,
     //   correct: false
@@ -106,7 +106,7 @@ function Container(props) {
     setHelperText(null);
     setCorrect(false);
 
-    randomize();
+    getRandomVerb();
   };
 
   const addStreak = () => {
