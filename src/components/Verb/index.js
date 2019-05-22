@@ -29,11 +29,11 @@ function Verb(props) {
   const getRandomVerb = () => {
     if (verbData != undefined) {
       const randomNum = Math.floor(Math.random() * 1272) + 1; // length of query data
-      const randomPersonNum = Math.floor(Math.random() * 7);
+      const randomVerbNum = Math.floor(Math.random() * 6);
       const randomVerb = props.data[randomNum];
 
-      setRandomVerb(Object.values(randomVerb)[randomPersonNum]);
-      setRandomPerson(randomVerb.moodEnglish);
+      setRandomVerb(Object.values(randomVerb)[randomVerbNum]);
+      setRandomPerson(Object.keys(randomVerb)[randomVerbNum]);
       setInfinitive(randomVerb.infinitive);
       setInfinitiveEnglish(randomVerb.infinitiveEnglish);
       setTenseEnglish(randomVerb.tenseEnglish);
@@ -95,6 +95,7 @@ function Verb(props) {
     handleRefresh();
   };
 
+  console.log('Verb data: ', verbData);
   return (
     <div>
       <Container

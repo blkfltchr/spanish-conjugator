@@ -20,7 +20,7 @@ function Input(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <div className="input-section">
-          <Person randomPerson={randomPerson[0]} />
+          <Person randomPerson={randomPerson} />
           <input
             type="text"
             defaultValue={value}
