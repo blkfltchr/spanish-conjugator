@@ -1,48 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
 import '../../app.css';
-
 import Settings from '../Settings/Settings';
 import { spainSpanish, latamSpanish } from '../Filters/NumPersonFilters';
-import { VerbTenseFilters, TEST_QUERY } from '../Filters/VerbTensesFilters';
 import Container from './Container';
 
-import { useQuery } from 'react-apollo-hooks';
-import { setTimeout } from 'timers';
-
-// const initialState = {
-//   correct: false,
-//   randomVerb: {},
-//   randomPerson: []
-// };
-
-{
-  /* <Query query={LevelThree}>
-  {({ loading, error, data }) => {
-    if (loading) return <h4>Loading</h4>;
-    if (error) console.log(error);
-    console.log('From state in index..', data);
-    return data;
-  }}
-</Query>; */
-}
-
-// class Verb extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       ...initialState,
-//       theTest: [],
-//       data: latamSpanish(VerbTenseFilters[0]),
-//       NumberPerson: 'Latam',
-//       level: 0,
-//       count: 0
-//     };
-//   }
-
 function Verb(props) {
-  // const { loading, data } = useQuery(TEST_QUERY);
-  // const [verbData, setVerbData] = useState(latamSpanish(VerbTenseFilters[0]));
   const [verbData, setVerbData] = useState(props.data);
   const [NumberPerson, setNumberPerson] = useState('Latam');
   const [level, setLevel] = useState(0);
@@ -57,25 +19,18 @@ function Verb(props) {
   const [infinitiveEnglish, setInfinitiveEnglish] = useState('');
 
   useEffect(() => {
-    console.log('In use effect ----:)----');
     setVerbData(props.data);
   }, [props.data]);
 
   useEffect(() => {
-    console.log('Second use effect ^^^^^:^^^^');
     getRandomVerb();
   }, [verbData]);
 
   const getRandomVerb = () => {
-    console.log("we're in............^....");
     if (verbData != undefined) {
       const randomNum = Math.floor(Math.random() * 1272) + 1; // length of query data
       const randomPersonNum = Math.floor(Math.random() * 7);
-
       const randomVerb = props.data[randomNum];
-
-      // const randomVerbValues = Object.values(props.data[randomNum]);
-      console.log('randomVerb ->', randomVerb.moodEnglish);
 
       setRandomVerb(Object.values(randomVerb)[randomPersonNum]);
       setRandomPerson(randomVerb.moodEnglish);
@@ -84,13 +39,6 @@ function Verb(props) {
       setTenseEnglish(randomVerb.tenseEnglish);
       setMoodEnglish(randomVerb.moodEnglish);
     }
-    // refetch();
-    // console.log('WE ARE RANDOMIZING', refetch());
-    //   // const { data } = this.state;
-    // let randomVerb = verbData[Math.floor(Math.random() * 7)];
-    //   let randomPerson = Object.entries(randomVerb)[
-    //     Math.floor(Math.random() * 5) + 7
-    //   ];
     //   // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
     //   do {
     //     randomVerb = verbData[Math.floor(Math.random() * verbData.length)];
@@ -101,49 +49,26 @@ function Verb(props) {
     //     randomPerson[1] === '' ||
     //     randomVerb.mood_english === 'Imperative Negative'
     //   );
-    //   setRandomVerb(randomVerb);
-    //   setRandomPerson(randomPerson);
-    //   // this.setState({
-    //   //   randomVerb,
-    //   //   randomPerson
-    //   // });
   };
 
   const handleRefresh = () => {
     setCorrect(false);
-    // setRandomVerb({});
-    // setRandomPerson([]);
-    // this.setState({
-    //   ...initialState
-    // });
     getRandomVerb();
   };
 
   const addCounter = () => {
     setCount(count + 1);
-    // this.setState(prevState => ({
-    //   count: prevState.count + 1
-    // }));
   };
 
   const resetCounter = () => {
-    // this.setState({
-    //   count: 0
-    // });
     setCount(0);
   };
 
   const updateNumPerson = event => {
-    // this.setState({
-    //   NumberPerson: event.target.value
-    // });
     setNumberPerson(event.target.value);
   };
 
   const updateVerbTenses = event => {
-    // this.setState({
-    //   level: event.target.value
-    // });
     setLevel(event.target.value);
     handleRefresh();
   };
@@ -170,19 +95,6 @@ function Verb(props) {
     handleRefresh();
   };
 
-  // render() {
-  // const { randomVerb, randomPerson, data, count } = this.state;
-  // console.log('Answer:', randomPerson[1]);
-
-  // console.log('STATE VERB DATA and Data', verbData, data);
-  // console.log('TENSE ENGLISH', tenseEnglish);
-
-  console.log('VERB DATA ----->>>>', verbData);
-
-  // console.log('RANDOM PERSON, VERB', randomPerson, randomVerb);
-  // console.log('ACCESS THE DATA..', Object.entries(data.LevelThreeQuery));
-  // console.log('my query data', this.props.queryData.LevelThreeQuery);
-  // console.log('THE TEST.. has it worked?', this.state.theTest);
   return (
     <div>
       <Container
@@ -207,7 +119,5 @@ function Verb(props) {
     </div>
   );
 }
-// }
-// }
 
 export default Verb;
