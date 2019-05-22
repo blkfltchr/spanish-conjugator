@@ -23,7 +23,7 @@ function Input(props) {
           <Person randomPerson={randomPerson} />
           <input
             type="text"
-            defaultValue={value}
+            value={value}
             placeholder="Enter conjugated verb..."
             onChange={handleChange}
             className="input"

@@ -39,10 +39,9 @@ function Container(props) {
   };
 
   const handleSubmit = event => {
-    // const { value, answered } = this.state;
-    const { randomPerson, addCounter, resetCounter, randomVerb } = props;
+    const { addCounter, resetCounter, randomVerb } = props;
     event.preventDefault();
-    const userInput = value.toLowerCase();
+    let userInput = value.toLowerCase();
     if (answered === true) {
       setTotalAnswers(totalAnswers + 1);
       handleRefresh();
