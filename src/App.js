@@ -25,18 +25,13 @@ const client = new ApolloClient({
 function App(props) {
   const [isShowing, setIsShowing] = useState(false);
   const [level, setLevel] = useState(0);
-  // console.log('Verb queries --->', verbQueries);
-  // if (level <= 1) {
-  //   let data = verbQueries[level];
-  // } else {
-  //   let { loading, data } = useQuery(verbQueries[Level]);
-  // }
-  // let data = [];
-  // level <= 1
-  //   ? (data = verbQueries[level])
-  //   : ({ data } = useQuery(verbQueries[level]));
-  const { data } = useQuery(verbQueries[level]);
-  console.log('Data from App.js -->', data);
+  const [latam, setLatam] = useState(true);
+
+  // we're importing an array of GraphQL queries and
+  // slicing by the level which is a number between 0-6
+  const { data } = useQuery(verbQueries[level], {
+    variables: { latam }
+  });
 
   const openModalHandler = () => {
     this.setState({
@@ -55,7 +50,7 @@ function App(props) {
     // handleRefresh();
   };
 
-  console.log('Level --->', level, data);
+  console.log('data ---->>>>>', data);
 
   return (
     <ApolloProvider client={client}>

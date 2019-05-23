@@ -1,9 +1,7 @@
-import miniData from '../../data/miniData';
-import beginnerData from '../../data/beginnerData';
-
+// import beginnerData from '../../data/beginnerData';
 import gql from 'graphql-tag';
-// import { Query } from 'react-apollo';
 
+// We could still use beginnerData for the first two levels
 // const LEVEL_ONE = beginnerData.filter(
 //   verb => verb.tense_english === 'Present' && verb.mood_english === 'Indicative'
 // );
@@ -14,7 +12,7 @@ import gql from 'graphql-tag';
 // );
 
 const LEVEL_ONE = gql`
-  query {
+  query($latam: Boolean!) {
     verbs(
       where: {
         AND: [{ moodEnglish: "Indicative" }, { tenseEnglish: "Present" }]
@@ -23,7 +21,7 @@ const LEVEL_ONE = gql`
       form1p
       form1s
       form2p
-      form2s
+      form2s @skip(if: $latam)
       form3p
       form3s
       gerund
@@ -109,14 +107,6 @@ const LEVEL_THREE = gql`
   }
 `;
 
-// const LevelFour = miniData.filter(
-//   verb =>
-//     verb.tense_english === 'Present Perfect' &&
-//     verb.mood_english === 'Indicative'
-// );
-
-// const LevelFour = LevelThree.concat(Four);
-
 const LEVEL_FOUR = gql`
   query {
     verbs(
@@ -154,20 +144,6 @@ const LEVEL_FOUR = gql`
     }
   }
 `;
-
-// const Five = miniData.filter(
-//   verb => verb.tense_english === 'Future' && verb.mood_english === 'Indicative'
-// );
-
-// const LevelFive = LevelFour.concat(Five);
-
-// const Six = miniData.filter(
-//   verb =>
-//     verb.tense_english === 'Present Perfect' &&
-//     verb.mood_english === 'Indicative'
-// );
-
-// const LevelSix = LevelFive.concat(Six);
 
 const LEVEL_FIVE = gql`
   query {
@@ -283,4 +259,3 @@ const verbQueries = [
 ];
 
 export { verbQueries };
-// export { LEVEL_FOUR };
