@@ -33,6 +33,10 @@ function App(props) {
     variables: { latam }
   });
 
+  const updateLatam = () => {
+    setLatam(!latam);
+  };
+
   const openModalHandler = () => {
     this.setState({
       isShowing: true
@@ -50,6 +54,7 @@ function App(props) {
     // handleRefresh();
   };
 
+  console.log('updateLatam ---->>>>>', latam);
   console.log('data ---->>>>>', data);
 
   return (
@@ -64,6 +69,7 @@ function App(props) {
             level={level}
             updateVerbTenses={updateVerbTenses}
             data={data.verbs}
+            updateLatam={updateLatam}
           />
           ;
           <div className="made-with-love" onClick={openModalHandler}>

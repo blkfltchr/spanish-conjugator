@@ -20,8 +20,8 @@ const LEVEL_ONE = gql`
     ) {
       form1p
       form1s
-      form2p
-      form2s @skip(if: $latam)
+      form2p @skip(if: $latam)
+      form2s
       form3p
       form3s
       gerund
@@ -40,7 +40,7 @@ const LEVEL_ONE = gql`
 `;
 
 const LEVEL_TWO = gql`
-  query {
+  query($latam: Boolean!) {
     verbs(
       where: {
         AND: [
@@ -51,7 +51,7 @@ const LEVEL_TWO = gql`
     ) {
       form1p
       form1s
-      form2p
+      form2p @skip(if: $latam)
       form2s
       form3p
       form3s
@@ -71,7 +71,7 @@ const LEVEL_TWO = gql`
 `;
 
 const LEVEL_THREE = gql`
-  query {
+  query($latam: Boolean!) {
     verbs(
       where: {
         AND: [
@@ -88,7 +88,7 @@ const LEVEL_THREE = gql`
     ) {
       form1p
       form1s
-      form2p
+      form2p @skip(if: $latam)
       form2s
       form3p
       form3s
@@ -108,7 +108,7 @@ const LEVEL_THREE = gql`
 `;
 
 const LEVEL_FOUR = gql`
-  query {
+  query($latam: Boolean!) {
     verbs(
       where: {
         AND: [
@@ -126,7 +126,7 @@ const LEVEL_FOUR = gql`
     ) {
       form1p
       form1s
-      form2p
+      form2p @skip(if: $latam)
       form2s
       form3p
       form3s
@@ -146,7 +146,7 @@ const LEVEL_FOUR = gql`
 `;
 
 const LEVEL_FIVE = gql`
-  query {
+  query($latam: Boolean!) {
     verbs(
       where: {
         AND: [
@@ -165,7 +165,7 @@ const LEVEL_FIVE = gql`
     ) {
       form1p
       form1s
-      form2p
+      form2p @skip(if: $latam)
       form2s
       form3p
       form3s
@@ -185,7 +185,7 @@ const LEVEL_FIVE = gql`
 `;
 
 const LEVEL_SIX = gql`
-  query {
+  query($latam: Boolean!) {
     verbs(
       where: {
         AND: [
@@ -205,7 +205,7 @@ const LEVEL_SIX = gql`
     ) {
       form1p
       form1s
-      form2p
+      form2p @skip(if: $latam)
       form2s
       form3p
       form3s
@@ -225,11 +225,11 @@ const LEVEL_SIX = gql`
 `;
 
 const LEVEL_SEVEN = gql`
-  query {
+  query($latam: Boolean!) {
     verbs {
       form1p
       form1s
-      form2p
+      form2p @skip(if: $latam)
       form2s
       form3p
       form3s

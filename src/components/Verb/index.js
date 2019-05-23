@@ -32,7 +32,7 @@ function Verb(props) {
     if (verbData != undefined) {
       const dataLength = Object.keys(props.data).length;
       const randomNum = Math.floor(Math.random() * dataLength) + 1; // length of query data
-      const randomVerbNum = Math.floor(Math.random() * 6);
+      const randomVerbNum = Math.floor(Math.random() * 5);
       const randomVerb = props.data[randomNum];
 
       setRandomVerb(Object.values(randomVerb)[randomVerbNum]);
@@ -69,6 +69,7 @@ function Verb(props) {
 
   const updateNumPerson = event => {
     setNumberPerson(event.target.value);
+    props.updateLatam();
   };
 
   const filterData = event => {
