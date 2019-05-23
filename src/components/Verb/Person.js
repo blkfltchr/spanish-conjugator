@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const personObj = {
-  form_1s: 'Yo',
-  form_2s: 'Tú',
-  form_3s: 'El/Ella',
-  form_1p: 'Nosotros',
-  form_2p: 'Vosotros',
-  form_3p: 'Ellos/Ellas',
-};
-
-const VerbPerson = props => {
+function VerbPerson(props) {
   const { randomPerson } = props;
+  const personObj = {
+    form1s: 'Yo',
+    form2s: 'Tú',
+    form3s: 'El/Ella',
+    form1p: 'Nosotros',
+    form2p: 'Vosotros',
+    form3p: 'Ellos/Ellas'
+  };
+
   return (
     <div className="person-flex">
       <div>{personObj[randomPerson]}</div>
     </div>
   );
-};
+}
 
 VerbPerson.propTypes = {
-  randomPerson: PropTypes.string,
+  randomPerson: PropTypes.string
 };
 
 export default VerbPerson;

@@ -32,3 +32,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .eslintrc
+
+csv_to_db.ipynb
+jehle_verb_database.csv

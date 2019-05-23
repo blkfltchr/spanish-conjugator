@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const AccentButtons = props => {
+function AccentButtons(props) {
   const { addAccent } = props;
   return (
     <div className="accent-buttons">
@@ -25,10 +25,10 @@ const AccentButtons = props => {
       </button>
     </div>
   );
-};
+}
 
 AccentButtons.propTypes = {
-  addAccent: PropTypes.func,
+  addAccent: PropTypes.func
 };
 
 export default AccentButtons;

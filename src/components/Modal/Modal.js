@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import BlakeProfile from '../../assets/bf-profile.jpeg';
 import NickProfile from '../../assets/no-profile.jpeg';
 
-const Modal = props => {
+function Modal(props) {
   const { show, close } = props;
   return (
     <div className="modal">
@@ -12,7 +12,7 @@ const Modal = props => {
         className="modal-wrapper"
         style={{
           top: show ? '15%' : '-100%',
-          opacity: show ? '1' : '0',
+          opacity: show ? '1' : '0'
         }}
       >
         <div className="modal-header">
@@ -109,11 +109,11 @@ const Modal = props => {
       </div>
     </div>
   );
-};
+}
 
 Modal.propTypes = {
   show: PropTypes.bool,
-  close: PropTypes.bool,
+  close: PropTypes.bool
 };
 
 export default Modal;

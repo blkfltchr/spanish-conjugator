@@ -1,130 +1,81 @@
-import React, { Component } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import '../../app.css';
-
 import Settings from '../Settings/Settings';
-import { spainSpanish, latamSpanish } from '../Filters/NumPersonFilters';
-import { VerbTenseFilters } from '../Filters/VerbTensesFilters';
-import Input from './Input';
+import Container from './Container';
 
-const initialState = {
-  correct: false,
-  randomVerb: {},
-  randomPerson: [],
-};
+function Verb(props) {
+  const [verbData, setVerbData] = useState(props.data);
+  const [count, setCount] = useState(0);
+  const [randomPerson, setRandomPerson] = useState([]);
+  const [randomVerb, setRandomVerb] = useState({});
+  const [infinitive, setInfinitive] = useState('');
+  const [tenseEnglish, setTenseEnglish] = useState('');
+  const [moodEnglish, setMoodEnglish] = useState('');
+  const [infinitiveEnglish, setInfinitiveEnglish] = useState('');
 
-class Verb extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      ...initialState,
-      data: latamSpanish(VerbTenseFilters[0]),
-      NumberPerson: 'Latam',
-      level: 0,
-      count: 0,
-    };
-  }
+  useEffect(() => {
+    setVerbData(props.data);
+  }, [props.data]);
 
-  componentDidMount() {
-    this.randomize();
-  }
+  useEffect(() => {
+    getRandomVerb();
+  }, [verbData]);
 
-  randomize = () => {
-    const { data } = this.state;
-    let randomVerb = data[Math.floor(Math.random() * data.length)];
-    let randomPerson = Object.entries(randomVerb)[
-      Math.floor(Math.random() * 5) + 7
-    ];
-    // This do while loop check for an empty string or Imperative Negative and randomises the verb again if it's found
-    do {
-      randomVerb = data[Math.floor(Math.random() * data.length)];
-      randomPerson = Object.entries(randomVerb)[
-        Math.floor(Math.random() * 5) + 7
-      ];
-    } while (
-      randomPerson[1] === '' ||
-      randomVerb.mood_english === 'Imperative Negative'
-    );
-    this.setState({
-      randomVerb,
-      randomPerson,
-    });
-  };
+  const getRandomVerb = () => {
+    if (verbData != undefined) {
+      const dataLength = Object.keys(props.data).length;
+      const randomNum = Math.floor(Math.random() * dataLength) + 1;
+      const randomVerbNum = Math.floor(Math.random() * 5); // this grabs the 6 yo, tu, ellos etc that we want to use
+      const randomVerb = props.data[randomNum];
 
-  handleRefresh = () => {
-    this.setState({
-      ...initialState,
-    });
-    this.randomize();
-  };
-
-  addCounter = () => {
-    this.setState(prevState => ({
-      count: prevState.count + 1,
-    }));
-  };
-
-  resetCounter = () => {
-    this.setState({
-      count: 0,
-    });
-  };
-
-  updateNumPerson = event => {
-    this.setState({
-      NumberPerson: event.target.value,
-    });
-  };
-
-  updateVerbTenses = event => {
-    this.setState({
-      level: event.target.value,
-    });
-    this.handleRefresh();
-  };
-
-  filterData = event => {
-    event.preventDefault();
-    const { level, NumberPerson } = this.state;
-    const Level = parseInt(level);
-    if (NumberPerson === 'Spain') {
-      const spainSpan = spainSpanish(VerbTenseFilters[Level]);
-      this.setState({
-        data: spainSpan,
-      });
+      setRandomVerb(Object.values(randomVerb)[randomVerbNum]);
+      setRandomPerson(Object.keys(randomVerb)[randomVerbNum]);
+      setInfinitive(randomVerb.infinitive);
+      setInfinitiveEnglish(randomVerb.infinitiveEnglish);
+      setTenseEnglish(randomVerb.tenseEnglish);
+      setMoodEnglish(randomVerb.moodEnglish);
     }
-
-    if (NumberPerson === 'Latam') {
-      const latamSpan = latamSpanish(VerbTenseFilters[Level]);
-      this.setState({
-        data: latamSpan,
-      });
-    }
-    this.handleRefresh();
   };
 
-  render() {
-    const { randomVerb, randomPerson, data, count } = this.state;
-    return (
-      <div>
-        <Input
-          data={data}
-          randomPerson={randomPerson}
-          randomVerb={randomVerb}
-          randomize={this.randomize}
-          addCounter={this.addCounter}
-          resetCounter={this.resetCounter}
-          addStreak={this.addStreak}
-          count={count}
-        />
-        <Settings
-          filterData={this.filterData}
-          updateVerbTenses={this.updateVerbTenses}
-          updateNumPerson={this.updateNumPerson}
-        />
-      </div>
-    );
-  }
+  const handleRefresh = () => {
+    getRandomVerb();
+  };
+
+  const addCounter = () => {
+    setCount(count + 1);
+  };
+
+  const resetCounter = () => {
+    setCount(0);
+  };
+
+  const updateNumPerson = event => {
+    props.updateLatam();
+  };
+
+  return (
+    <div>
+      <Container
+        verbData={verbData}
+        randomPerson={randomPerson}
+        randomVerb={randomVerb}
+        getRandomVerb={getRandomVerb}
+        addCounter={addCounter}
+        resetCounter={resetCounter}
+        // addStreak={addStreak} looks like this isn't in this file?
+        count={count}
+        infinitive={infinitive}
+        tenseEnglish={tenseEnglish}
+        moodEnglish={moodEnglish}
+        infinitiveEnglish={infinitiveEnglish}
+      />
+      <Settings
+        handleRefresh={handleRefresh}
+        updateVerbTenses={props.updateVerbTenses}
+        updateNumPerson={updateNumPerson}
+      />
+    </div>
+  );
 }
 
 export default Verb;

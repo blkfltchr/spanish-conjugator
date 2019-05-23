@@ -1,53 +1,261 @@
-import miniData from '../../data/miniData';
-import beginnerData from '../../data/beginnerData';
+// import beginnerData from '../../data/beginnerData';
+import gql from 'graphql-tag';
 
-const LevelOne = beginnerData.filter(
-  verb => verb.tense_english === 'Present' && verb.mood_english === 'Indicative'
-);
+// We could still use beginnerData for the first two levels
+// const LEVEL_ONE = beginnerData.filter(
+//   verb => verb.tense_english === 'Present' && verb.mood_english === 'Indicative'
+// );
 
-const Two = beginnerData.filter(
-  verb =>
-    verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative'
-);
+// const Two = beginnerData.filter(
+//   verb =>
+//     verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative'
+// );
 
-const LevelTwo = LevelOne.concat(Two);
+const LEVEL_ONE = gql`
+  query($latam: Boolean!) {
+    verbs(
+      where: {
+        AND: [{ moodEnglish: "Indicative" }, { tenseEnglish: "Present" }]
+      }
+    ) {
+      form1p
+      form1s
+      form2p @skip(if: $latam)
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
 
-const LevelThree = miniData.filter(
-  verb =>
-    (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
-    (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative')
-);
+const LEVEL_TWO = gql`
+  query($latam: Boolean!) {
+    verbs(
+      where: {
+        AND: [
+          { moodEnglish: "Indicative" }
+          { OR: [{ tenseEnglish: "Preterite" }, { tenseEnglish: "Present" }] }
+        ]
+      }
+    ) {
+      form1p
+      form1s
+      form2p @skip(if: $latam)
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
 
-const Four = miniData.filter(
-  verb =>
-    verb.tense_english === 'Present Perfect' &&
-    verb.mood_english === 'Indicative'
-);
+const LEVEL_THREE = gql`
+  query($latam: Boolean!) {
+    verbs(
+      where: {
+        AND: [
+          { moodEnglish: "Indicative" }
+          {
+            OR: [
+              { tenseEnglish: "Preterite" }
+              { tenseEnglish: "Present" }
+              { tenseEnglish: "Imperfect" }
+            ]
+          }
+        ]
+      }
+    ) {
+      form1p
+      form1s
+      form2p @skip(if: $latam)
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
 
-const LevelFour = LevelThree.concat(Four);
+const LEVEL_FOUR = gql`
+  query($latam: Boolean!) {
+    verbs(
+      where: {
+        AND: [
+          { moodEnglish: "Indicative" }
+          {
+            OR: [
+              { tenseEnglish: "Preterite" }
+              { tenseEnglish: "Present" }
+              { tenseEnglish: "Imperfect" }
+              { tenseEnglish: "Present Perfect" }
+            ]
+          }
+        ]
+      }
+    ) {
+      form1p
+      form1s
+      form2p @skip(if: $latam)
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
 
-const Five = miniData.filter(
-  verb => verb.tense_english === 'Future' && verb.mood_english === 'Indicative'
-);
+const LEVEL_FIVE = gql`
+  query($latam: Boolean!) {
+    verbs(
+      where: {
+        AND: [
+          { moodEnglish: "Indicative" }
+          {
+            OR: [
+              { tenseEnglish: "Preterite" }
+              { tenseEnglish: "Present" }
+              { tenseEnglish: "Imperfect" }
+              { tenseEnglish: "Present Perfect" }
+              { tenseEnglish: "Conditional" }
+            ]
+          }
+        ]
+      }
+    ) {
+      form1p
+      form1s
+      form2p @skip(if: $latam)
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
 
-const LevelFive = LevelFour.concat(Five);
+const LEVEL_SIX = gql`
+  query($latam: Boolean!) {
+    verbs(
+      where: {
+        AND: [
+          { moodEnglish: "Indicative" }
+          {
+            OR: [
+              { tenseEnglish: "Preterite" }
+              { tenseEnglish: "Present" }
+              { tenseEnglish: "Present Perfect" }
+              { tenseEnglish: "Imperfect" }
+              { tenseEnglish: "Conditional" }
+              { tenseEnglish: "Future" }
+            ]
+          }
+        ]
+      }
+    ) {
+      form1p
+      form1s
+      form2p @skip(if: $latam)
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
 
-const Six = miniData.filter(
-  verb =>
-    verb.tense_english === 'Present Perfect' &&
-    verb.mood_english === 'Indicative'
-);
+const LEVEL_SEVEN = gql`
+  query($latam: Boolean!) {
+    verbs {
+      form1p
+      form1s
+      form2p @skip(if: $latam)
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
 
-const LevelSix = LevelFive.concat(Six);
-
-const VerbTenseFilters = [
-  LevelOne,
-  LevelTwo,
-  LevelThree,
-  LevelFour,
-  LevelFive,
-  LevelSix,
-  miniData,
+const verbQueries = [
+  LEVEL_ONE,
+  LEVEL_TWO,
+  LEVEL_THREE,
+  LEVEL_FOUR,
+  LEVEL_FIVE,
+  LEVEL_SIX,
+  LEVEL_SEVEN
 ];
 
-export { VerbTenseFilters };
+export { verbQueries };
