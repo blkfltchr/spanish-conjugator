@@ -3,7 +3,7 @@ import '../../app.css';
 import Settings from '../Settings/Settings';
 import { spainSpanish, latamSpanish } from '../Filters/NumPersonFilters';
 import Container from './Container';
-import { TEST_QUERY } from '../Filters/VerbTensesFilters';
+import { LEVEL_THREE } from '../Filters/VerbTensesFilters';
 import { useQuery } from 'react-apollo-hooks';
 
 function Verb(props) {
@@ -30,7 +30,8 @@ function Verb(props) {
 
   const getRandomVerb = () => {
     if (verbData != undefined) {
-      const randomNum = Math.floor(Math.random() * 1272) + 1; // length of query data
+      const dataLength = Object.keys(props.data).length;
+      const randomNum = Math.floor(Math.random() * dataLength) + 1; // length of query data
       const randomVerbNum = Math.floor(Math.random() * 6);
       const randomVerb = props.data[randomNum];
 
@@ -92,7 +93,6 @@ function Verb(props) {
     handleRefresh();
   };
 
-  console.log('Verb data: ', verbData);
   return (
     <div>
       <Container

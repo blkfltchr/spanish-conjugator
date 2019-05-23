@@ -4,29 +4,44 @@ import beginnerData from '../../data/beginnerData';
 import gql from 'graphql-tag';
 // import { Query } from 'react-apollo';
 
-const LevelOne = beginnerData.filter(
-  verb => verb.tense_english === 'Present' && verb.mood_english === 'Indicative'
-);
-
-const Two = beginnerData.filter(
-  verb =>
-    verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative'
-);
-
-const LevelTwo = LevelOne.concat(Two);
-
-// const LevelThree = miniData.filter(
-//   verb =>
-//     (verb.tense_english === 'Present' && verb.mood_english === 'Indicative') ||
-//     (verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative')
+// const LEVEL_ONE = beginnerData.filter(
+//   verb => verb.tense_english === 'Present' && verb.mood_english === 'Indicative'
 // );
 
-// length of data is 1273
-// to get a random verb, we can skip a random number of rows from 0-1272 and then get the first one
-const randomNum = Math.floor(Math.random() * 1272) + 1;
-// console.log('RANDOM NUMBER', randomNum);
+// const Two = beginnerData.filter(
+//   verb =>
+//     verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative'
+// );
 
-const LEVEL_THREE = gql`
+const LEVEL_ONE = gql`
+  query {
+    verbs(
+      where: {
+        AND: [{ moodEnglish: "Indicative" }, { tenseEnglish: "Present" }]
+      }
+    ) {
+      form1p
+      form1s
+      form2p
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
+
+const LEVEL_TWO = gql`
   query {
     verbs(
       where: {
@@ -57,47 +72,215 @@ const LEVEL_THREE = gql`
   }
 `;
 
-// const LevelThree = () => {
-//   <Query query={whatAQuery}>
-//     {({ loading, error, data }) => {
-//       if (loading) return <h4>Loading</h4>;
-//       if (error) console.log(error);
-//       console.log('From state in index..', data);
-//       return <div>{data}</div>;
-//     }}
-//   </Query>;
-// };
+const LEVEL_THREE = gql`
+  query {
+    verbs(
+      where: {
+        AND: [
+          { moodEnglish: "Indicative" }
+          {
+            OR: [
+              { tenseEnglish: "Preterite" }
+              { tenseEnglish: "Present" }
+              { tenseEnglish: "Imperfect" }
+            ]
+          }
+        ]
+      }
+    ) {
+      form1p
+      form1s
+      form2p
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
 
-const LevelFour = miniData.filter(
-  verb =>
-    verb.tense_english === 'Present Perfect' &&
-    verb.mood_english === 'Indicative'
-);
+// const LevelFour = miniData.filter(
+//   verb =>
+//     verb.tense_english === 'Present Perfect' &&
+//     verb.mood_english === 'Indicative'
+// );
 
 // const LevelFour = LevelThree.concat(Four);
 
-const Five = miniData.filter(
-  verb => verb.tense_english === 'Future' && verb.mood_english === 'Indicative'
-);
+const LEVEL_FOUR = gql`
+  query {
+    verbs(
+      where: {
+        AND: [
+          { moodEnglish: "Indicative" }
+          {
+            OR: [
+              { tenseEnglish: "Preterite" }
+              { tenseEnglish: "Present" }
+              { tenseEnglish: "Imperfect" }
+              { tenseEnglish: "Present Perfect" }
+            ]
+          }
+        ]
+      }
+    ) {
+      form1p
+      form1s
+      form2p
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
 
-const LevelFive = LevelFour.concat(Five);
+// const Five = miniData.filter(
+//   verb => verb.tense_english === 'Future' && verb.mood_english === 'Indicative'
+// );
 
-const Six = miniData.filter(
-  verb =>
-    verb.tense_english === 'Present Perfect' &&
-    verb.mood_english === 'Indicative'
-);
+// const LevelFive = LevelFour.concat(Five);
 
-const LevelSix = LevelFive.concat(Six);
+// const Six = miniData.filter(
+//   verb =>
+//     verb.tense_english === 'Present Perfect' &&
+//     verb.mood_english === 'Indicative'
+// );
 
-const VerbTenseFilters = [
-  LevelOne,
-  LevelTwo,
-  // LevelThree,
-  LevelFour,
-  LevelFive,
-  LevelSix,
-  miniData
+// const LevelSix = LevelFive.concat(Six);
+
+const LEVEL_FIVE = gql`
+  query {
+    verbs(
+      where: {
+        AND: [
+          { moodEnglish: "Indicative" }
+          {
+            OR: [
+              { tenseEnglish: "Preterite" }
+              { tenseEnglish: "Present" }
+              { tenseEnglish: "Imperfect" }
+              { tenseEnglish: "Present Perfect" }
+              { tenseEnglish: "Conditional" }
+            ]
+          }
+        ]
+      }
+    ) {
+      form1p
+      form1s
+      form2p
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
+
+const LEVEL_SIX = gql`
+  query {
+    verbs(
+      where: {
+        AND: [
+          { moodEnglish: "Indicative" }
+          {
+            OR: [
+              { tenseEnglish: "Preterite" }
+              { tenseEnglish: "Present" }
+              { tenseEnglish: "Present Perfect" }
+              { tenseEnglish: "Imperfect" }
+              { tenseEnglish: "Conditional" }
+              { tenseEnglish: "Future" }
+            ]
+          }
+        ]
+      }
+    ) {
+      form1p
+      form1s
+      form2p
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
+
+const LEVEL_SEVEN = gql`
+  query {
+    verbs {
+      form1p
+      form1s
+      form2p
+      form2s
+      form3p
+      form3s
+      gerund
+      gerundEnglish
+      infinitive
+      infinitiveEnglish
+      mood
+      moodEnglish
+      pastparticiple
+      pastparticipleEnglish
+      tense
+      tenseEnglish
+      verbEnglish
+    }
+  }
+`;
+
+const verbQueries = [
+  LEVEL_ONE,
+  LEVEL_TWO,
+  LEVEL_THREE,
+  LEVEL_FOUR,
+  LEVEL_FIVE,
+  LEVEL_SIX,
+  LEVEL_SEVEN
 ];
 
-export { VerbTenseFilters, LEVEL_THREE };
+export { verbQueries };
+// export { LEVEL_FOUR };

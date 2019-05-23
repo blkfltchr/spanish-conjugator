@@ -5,7 +5,7 @@ import Modal from './components/Modal/Modal';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import { LEVEL_THREE } from './components/Filters/VerbTensesFilters';
+import { verbQueries } from './components/Filters/VerbTensesFilters';
 import { useQuery } from 'react-apollo-hooks';
 
 const client = new ApolloClient({
@@ -25,10 +25,18 @@ const client = new ApolloClient({
 function App(props) {
   const [isShowing, setIsShowing] = useState(false);
   const [level, setLevel] = useState(0);
-  const test = 'LEVEL_THREE';
-  const { loading, data } = useQuery(LEVEL_THREE);
-
-  console.log('From App.js --->', data);
+  // console.log('Verb queries --->', verbQueries);
+  // if (level <= 1) {
+  //   let data = verbQueries[level];
+  // } else {
+  //   let { loading, data } = useQuery(verbQueries[Level]);
+  // }
+  // let data = [];
+  // level <= 1
+  //   ? (data = verbQueries[level])
+  //   : ({ data } = useQuery(verbQueries[level]));
+  const { data } = useQuery(verbQueries[level]);
+  console.log('Data from App.js -->', data);
 
   const openModalHandler = () => {
     this.setState({
@@ -47,6 +55,8 @@ function App(props) {
     // handleRefresh();
   };
 
+  console.log('Level --->', level, data);
+
   return (
     <ApolloProvider client={client}>
       <div className="app">
@@ -58,7 +68,6 @@ function App(props) {
           <Index
             level={level}
             updateVerbTenses={updateVerbTenses}
-            loading={loading}
             data={data.verbs}
           />
           ;
