@@ -24,8 +24,6 @@ const LEVEL_ONE = gql`
       form2s
       form3p
       form3s
-      gerund
-      gerundEnglish
       infinitive
       infinitiveEnglish
       moodEnglish
@@ -51,8 +49,6 @@ const LEVEL_TWO = gql`
       form2s
       form3p
       form3s
-      gerund
-      gerundEnglish
       infinitive
       infinitiveEnglish
       moodEnglish
@@ -84,8 +80,6 @@ const LEVEL_THREE = gql`
       form2s
       form3p
       form3s
-      gerund
-      gerundEnglish
       infinitive
       infinitiveEnglish
       moodEnglish
@@ -118,8 +112,6 @@ const LEVEL_FOUR = gql`
       form2s
       form3p
       form3s
-      gerund
-      gerundEnglish
       infinitive
       infinitiveEnglish
       moodEnglish
@@ -153,8 +145,6 @@ const LEVEL_FIVE = gql`
       form2s
       form3p
       form3s
-      gerund
-      gerundEnglish
       infinitive
       infinitiveEnglish
       moodEnglish
@@ -189,8 +179,6 @@ const LEVEL_SIX = gql`
       form2s
       form3p
       form3s
-      gerund
-      gerundEnglish
       infinitive
       infinitiveEnglish
       moodEnglish
