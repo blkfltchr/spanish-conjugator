@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function VerbNumberPerson(props) {
+function VerbRegion(props) {
   const { updateNumPerson } = props;
   return (
     <div className="settings-dropdown">
@@ -14,8 +14,8 @@ function VerbNumberPerson(props) {
   );
 }
 
-VerbNumberPerson.propTypes = {
+VerbRegion.propTypes = {
   updateNumPerson: PropTypes.func
 };
 
-export default VerbNumberPerson;
+export default VerbRegion;

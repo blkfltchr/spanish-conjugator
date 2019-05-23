@@ -1,4 +1,3 @@
-# endpoint: http://localhost:4466
-datamodel: datamodel.prisma
-
-endpoint: https://conj-postls-prod-1372a8eb07.herokuapp.com/conj-postls-prod/prod
+endpoint: ${env:PRISMA_ENDPOINT}
+datamodel: datamodel.graphql
+secret: ${env:PRISMA_SECRET}

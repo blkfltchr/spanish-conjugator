@@ -1,7 +1,4 @@
-import {
-  latamSpanish,
-  spainSpanish,
-} from '../components/Filters/NumPersonFilters';
+import { latamSpanish, spainSpanish } from '../NumPersonFilters';
 
 const correr = [
   {

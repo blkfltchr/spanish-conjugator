@@ -8,14 +8,14 @@ function VerbTenses(props) {
       <p className="settings-text">Difficulty</p>
       <select onChange={updateVerbTenses}>
         <option value="0" defaultValue="Beginner">
-          Popular verbs, present tense
+          Present tense
         </option>
-        <option value="1">Popular verbs, present + preterite</option>
-        <option value="2">All verbs, present + preterite</option>
-        <option value="3">The above + Imperfect</option>
-        <option value="4">The above + future</option>
-        <option value="5">The above + present perfect</option>
-        <option value="6">All verbs and tenses</option>
+        <option value="1">Present and Preterite</option>
+        <option value="2">Present, Preterite and Imperfect</option>
+        <option value="3">The above + Present Perfect</option>
+        <option value="4">The above + Conditional</option>
+        <option value="5">The above + Future</option>
+        <option value="6">The above + Subjunctive</option>
       </select>
     </div>
   );

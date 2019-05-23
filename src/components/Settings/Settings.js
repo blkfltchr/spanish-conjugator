@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../app.css';
 import PropTypes from 'prop-types';
 import VerbTenses from './VerbTenses';
-import NumberPerson from './VerbNumberPerson';
+import VerbRegion from './VerbRegion';
 
 function Settings(props) {
   const [updateSettings, setUpdateSettings] = useState(false);
@@ -29,7 +29,7 @@ function Settings(props) {
           <VerbTenses updateVerbTenses={updateVerbTenses} />
         </div>
         <div className={updateSettings ? display : hide}>
-          <NumberPerson updateNumPerson={updateNumPerson} />
+          <VerbRegion updateNumPerson={updateNumPerson} />
         </div>
       </div>
     </div>

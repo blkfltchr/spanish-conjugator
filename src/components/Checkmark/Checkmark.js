@@ -34,4 +34,8 @@ Checkmark.propTypes = {
   correct: PropTypes.bool
 };
 
+Checkmark.defaultProps = {
+  correct: false,
+};
+
 export default Checkmark;
