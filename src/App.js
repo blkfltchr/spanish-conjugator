@@ -61,10 +61,12 @@ function App(props) {
           <div className="made-with-love" onClick={openModalHandler}>
             Made with
             <span role="img" aria-label="heart">
+              {'  '}
               ❤️
-            </span>{' '}
+            </span>
             in
             <span role="img" aria-label="colombia">
+              {'  '}
               🇨🇴
             </span>
           </div>
