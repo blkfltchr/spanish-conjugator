@@ -4,26 +4,6 @@ import PropTypes from 'prop-types';
 import Info from './Info';
 import Input from './Input';
 
-import { useQuery } from 'react-apollo-hooks';
-
-// const initialState = {
-//   value: '',
-//   helperText: null,
-//   correct: false
-// };
-
-// class Container extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       value: '',
-//       bestStreak: 0,
-//       totalAnswers: 0,
-//       correctAnswers: 0,
-//       answered: false
-//     };
-//   }
-
 function Container(props) {
   const [value, setValue] = useState('');
   const [bestStreak, setBestStreak] = useState(0);
@@ -32,6 +12,14 @@ function Container(props) {
   const [answered, setAnswered] = useState(false);
   const [helperText, setHelperText] = useState(null);
   const [correct, setCorrect] = useState(false);
+  const { randomPerson, count } = props;
+  const { infinitive, tenseEnglish, moodEnglish, infinitiveEnglish } = props;
+  const buttonText =
+    randomPerson[1] !== value.toLowerCase() && answered
+      ? 'Next verb'
+      : 'Submit';
+  const percentage =
+    totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
 
   const handleChange = event => {
     setCorrect(false);
@@ -62,44 +50,14 @@ function Container(props) {
     }
   };
 
-  // const handleExample = event => {
-  //   const { data, randomVerb } = this.props;
-  //   const hablar = data.filter(verb => verb.infinitive === 'hablar');
-  //   const hablarTense = hablar.filter(
-  //     verb => verb.tense_english === randomVerb.tense_english
-  //   );
-  //   const hablarMood = hablarTense.filter(
-  //     verb => verb.mood_english === randomVerb.mood_english
-  //   );
-  //   const hablarExample = hablarMood[0];
-  //   event.preventDefault();
-  //   this.setState({
-  //     helperText: `Yo + Hablar + ${
-  //       randomVerb.tense_english
-  //     } = YO ${hablarExample.form_1s.toUpperCase()}`
-  //   });
-  // };
-
   const addAccent = event => {
     event.preventDefault();
-    // const { value } = this.state;
     const accent = event.target.value;
-    // this.setState({
-    //   value: value + accent
-    // });
     setValue(value + accent);
   };
 
   const handleRefresh = () => {
     const { getRandomVerb } = props;
-    // this.setState({
-    //   ...initialState,
-    //   correct: false
-    // });
-
-    //   value: '',
-    //   helperText: null,
-    //   correct: false
 
     setValue('');
     setHelperText(null);
@@ -109,40 +67,12 @@ function Container(props) {
   };
 
   const addStreak = () => {
-    //   // const { bestStreak } = this.state;
     const { count } = props;
     if (count >= bestStreak) {
-      // this.setState(prevState => ({
-      //   bestStreak: prevState.bestStreak + 1
-      // }));
       setBestStreak(bestStreak + 1);
-      // if (bestStreak % 5 === 0) {
-      //   this.reward.rewardMe();
-      // }
     }
   };
 
-  // render() {
-  const { randomPerson, randomVerb, count } = props;
-  // const {
-  //   helperText,
-  //   value,
-  //   answered,
-  //   bestStreak,
-  //   correct,
-  //   totalAnswers,
-  //   correctAnswers
-  // } = this.state;
-
-  const { infinitive, tenseEnglish, moodEnglish, infinitiveEnglish } = props;
-  const buttonText =
-    randomPerson[1] !== value.toLowerCase() && answered
-      ? 'Next verb'
-      : 'Submit';
-  const percentage =
-    totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
-
-  console.log('Props random person..', props.randomVerb);
   return (
     <div>
       <div className="verb-info-wrapper">

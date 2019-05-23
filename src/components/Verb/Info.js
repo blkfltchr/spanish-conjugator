@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 function Info(props) {
   const { infinitive, infinitiveEnglish, tenseEnglish, moodEnglish } = props;
-  // console.log('infinitive_english FROM INFO', infinitiveEnglish);
   return (
     <div className="verb-info">
       <div className="twelve">Verb:</div>

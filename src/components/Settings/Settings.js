@@ -4,14 +4,6 @@ import PropTypes from 'prop-types';
 import VerbTenses from './VerbTenses';
 import NumberPerson from './VerbNumberPerson';
 
-// class Settings extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       updateSettings: false
-//     };
-//   }
-
 function Settings(props) {
   const [updateSettings, setUpdateSettings] = useState(false);
   const hide = 'settings-buttons-hide';
@@ -19,15 +11,12 @@ function Settings(props) {
   const { updateVerbTenses, updateNumPerson } = props;
 
   const changeSettings = event => {
-    const { filterData } = props;
+    const { handleRefresh } = props;
     event.preventDefault();
-    // this.setState({
-    //   updateSettings: !updateSettings
-    // });
     setUpdateSettings(!updateSettings);
     if (updateSettings) {
       alert('Your settings are updated.');
-      filterData(event);
+      handleRefresh(event);
     }
   };
   return (
@@ -50,7 +39,7 @@ function Settings(props) {
 Settings.propTypes = {
   updateVerbTenses: PropTypes.func,
   updateNumPerson: PropTypes.func,
-  filterData: PropTypes.func
+  handleRefresh: PropTypes.func
 };
 
 export default Settings;

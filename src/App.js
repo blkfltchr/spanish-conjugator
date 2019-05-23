@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Header from './components/Layout/Header';
 import Index from './components/Verb/index';
 import Modal from './components/Modal/Modal';
-
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { verbQueries } from './components/Filters/VerbTensesFilters';
@@ -11,16 +10,6 @@ import { useQuery } from 'react-apollo-hooks';
 const client = new ApolloClient({
   uri: 'https://mighty-peak-22601.herokuapp.com/' // production
 });
-// localhost:4000 in development
-
-// class App extends Component {
-//   constructor() {
-//     super();
-
-//     this.state = {
-//       isShowing: false
-//     };
-//   }
 
 function App(props) {
   const [isShowing, setIsShowing] = useState(false);
@@ -54,9 +43,7 @@ function App(props) {
     // handleRefresh();
   };
 
-  console.log('updateLatam ---->>>>>', latam);
-  console.log('data ---->>>>>', data);
-
+  console.log('data -->', data);
   return (
     <ApolloProvider client={client}>
       <div className="app">
@@ -71,7 +58,6 @@ function App(props) {
             data={data.verbs}
             updateLatam={updateLatam}
           />
-          ;
           <div className="made-with-love" onClick={openModalHandler}>
             Made with
             <span role="img" aria-label="heart">
