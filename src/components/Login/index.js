@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { Button } from '../../styled/Button';
 import { SmallForm } from '../../styled/Form';
 import { LargeContainer } from '../../styled/Container';
 import { Input } from '../../styled/Input';
+import { Button } from '../../styled/Button';
 
-class Signup extends Component {
+class Login extends Component {
   state = {
-    // name: "",
     email: '',
     password: '',
   };
@@ -24,7 +23,7 @@ class Signup extends Component {
     const { email, password } = this.state;
     return (
       <SmallForm>
-        <h2>Sign up</h2>
+        <h2>Log in</h2>
         <LargeContainer>
           <Input>
             <input
@@ -43,15 +42,15 @@ class Signup extends Component {
             />
           </Input>
           <Button>
-            <button type="button">Sign up</button>
+            <button type="button">Log in</button>
           </Button>
-          <p>
-            Don't have an account yet? <Link to="/login">Log in here</Link>
-          </p>
         </LargeContainer>
+        <p>
+          Already have an account? <Link to="/signup">Sign up here</Link>
+        </p>
       </SmallForm>
     );
   }
 }
 
-export default Signup;
+export default Login;

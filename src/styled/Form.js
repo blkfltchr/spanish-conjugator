@@ -10,6 +10,7 @@ export const SmallForm = styled.div`
   background-color: #ebebeb;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border: solid 1px #cbc9c9;
+  text-align: center;
 
   @media (max-width: 500px) {
     width: 80%;
@@ -26,6 +27,7 @@ export const MediumForm = styled.div`
   background-color: #ebebeb;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border: solid 1px #cbc9c9;
+  text-align: center;
 
   @media (max-width: 750px) {
     width: 90%;
