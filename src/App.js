@@ -10,7 +10,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 
 const client = new ApolloClient({
-  uri: 'https://mighty-peak-22601.herokuapp.com/' // production
+  uri: 'https://mighty-peak-22601.herokuapp.com/', // production
 });
 
 function App() {
@@ -22,7 +22,6 @@ function App() {
   // slicing by the level which is a number between 0-6
   const { loading, data } = useQuery(verbQueries[level], {
     variables: { latam }
-  });
 
   console.log('data -->', data);
   return (

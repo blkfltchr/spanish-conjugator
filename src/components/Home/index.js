@@ -18,7 +18,6 @@ function App() {
   // slicing by the level which is a number between 0-6
   const { loading, data } = useQuery(verbQueries[level], {
     variables: { latam }
-  });
 
   const updateLatam = () => {
     setLatam(!latam);
