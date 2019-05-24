@@ -5,7 +5,7 @@ import { LargeContainer } from '../../styled/Container';
 import { Input } from '../../styled/Input';
 import { Button } from '../../styled/Button';
 
-function Login(props) {
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

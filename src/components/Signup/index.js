@@ -5,7 +5,7 @@ import { SmallForm } from '../../styled/Form';
 import { LargeContainer } from '../../styled/Container';
 import { Input } from '../../styled/Input';
 
-function Signup(props) {
+function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

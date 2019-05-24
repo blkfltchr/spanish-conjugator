@@ -3,7 +3,6 @@ import Reward from 'react-rewards';
 import PropTypes from 'prop-types';
 import Person from './Person';
 import AccentButtons from './AccentButtons';
-import Info from './Info';
 import Checkmark from '../Checkmark/Checkmark';
 
 function Input(props) {
