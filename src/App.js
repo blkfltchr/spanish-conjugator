@@ -25,7 +25,6 @@ function App() {
   });
 
   console.log('data -->', data);
-  console.log('Is it loading --->', loading);
   return (
     <ApolloProvider client={client}>
       <div className="app">
