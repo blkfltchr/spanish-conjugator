@@ -4,7 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 import { useQuery } from 'react-apollo-hooks';
 import { Route } from 'react-router-dom';
 import Header from './components/Layout/Header';
-import { verbQueries } from './components/Filters/VerbTensesFilters';
+import { verbQueries } from './components/GqlQueries/Queries';
 import Home from './components/Home';
 import Signup from './components/Signup';
 import Login from './components/Login';
