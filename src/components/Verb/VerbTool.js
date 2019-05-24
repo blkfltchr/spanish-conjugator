@@ -68,6 +68,7 @@ function VerbTool(props) {
         tenseEnglish={tenseEnglish}
         moodEnglish={moodEnglish}
         infinitiveEnglish={infinitiveEnglish}
+        loading={props.loading}
       />
       <Settings
         handleRefresh={handleRefresh}
