@@ -1,15 +1,4 @@
-// import beginnerData from '../../data/beginnerData';
 import gql from 'graphql-tag';
-
-// We could still use beginnerData for the first two levels
-// const LEVEL_ONE = beginnerData.filter(
-//   verb => verb.tense_english === 'Present' && verb.mood_english === 'Indicative'
-// );
-
-// const Two = beginnerData.filter(
-//   verb =>
-//     verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative'
-// );
 
 const LEVEL_ONE = gql`
   query($latam: Boolean!) {
