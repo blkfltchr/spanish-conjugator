@@ -1,21 +1,22 @@
-// import beginnerData from '../../data/beginnerData';
 import gql from 'graphql-tag';
-
-// We could still use beginnerData for the first two levels
-// const LEVEL_ONE = beginnerData.filter(
-//   verb => verb.tense_english === 'Present' && verb.mood_english === 'Indicative'
-// );
-
-// const Two = beginnerData.filter(
-//   verb =>
-//     verb.tense_english === 'Preterite' && verb.mood_english === 'Indicative'
-// );
 
 const LEVEL_ONE = gql`
   query($latam: Boolean!) {
     verbs(
       where: {
         AND: [{ moodEnglish: "Indicative" }, { tenseEnglish: "Present" }]
+        OR: [
+          { infinitive: "caminar" }
+          { infinitive: "hablar" }
+          { infinitive: "ayudar" }
+          { infinitive: "necesitar" }
+          { infinitive: "escribir" }
+          { infinitive: "esperar" }
+          { infinitive: "cocinar" }
+          { infinitive: "comer" }
+          { infinitive: "beber" }
+          { infinitive: "vivir" }
+        ]
       }
     ) {
       form1p
@@ -40,6 +41,37 @@ const LEVEL_TWO = gql`
         AND: [
           { moodEnglish: "Indicative" }
           { OR: [{ tenseEnglish: "Preterite" }, { tenseEnglish: "Present" }] }
+        ]
+        OR: [
+          { infinitive: "caminar" }
+          { infinitive: "hablar" }
+          { infinitive: "ayudar" }
+          { infinitive: "necesitar" }
+          { infinitive: "escribir" }
+          { infinitive: "esperar" }
+          { infinitive: "cocinar" }
+          { infinitive: "comer" }
+          { infinitive: "beber" }
+          { infinitive: "vivir" }
+          { infinitive: "saber" }
+          { infinitive: "dormir" }
+          { infinitive: "morir" }
+          { infinitive: "mover" }
+          { infinitive: "jugar" }
+          { infinitive: "encontrar" }
+          { infinitive: "empezar" }
+          { infinitive: "entender" }
+          { infinitive: "querer" }
+          { infinitive: "conocer" }
+          { infinitive: "conducir" }
+          { infinitive: "traducir" }
+          { infinitive: "salir" }
+          { infinitive: "traer" }
+          { infinitive: "hacer" }
+          { infinitive: "tener" }
+          { infinitive: "ser" }
+          { infinitive: "estar" }
+          { infinitive: "dar" }
         ]
       }
     ) {
