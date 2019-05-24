@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`returns all forms excluding vosotros 1`] = `
+Array [
+  Object {
+    "form_1p": "corremos",
+    "form_1s": "corro",
+    "form_2s": "corres",
+    "form_3p": "corren",
+    "form_3s": "corre",
+    "gerund": "corriendo",
+    "gerund_english": "running",
+    "infinitive": "correr",
+    "infinitive_english": "to run",
+    "mood": "Indicativo",
+    "mood_english": "Indicative",
+    "pastparticiple": "corrido",
+    "pastparticiple_english": "run",
+    "tense": "Presente",
+    "tense_english": "Present",
+    "verb_english": "I run, am running",
+  },
+]
+`;
+
+exports[`returns all forms including vosotros 1`] = `
+Array [
+  Object {
+    "form_1p": "corremos",
+    "form_1s": "corro",
+    "form_2p": "corréis",
+    "form_2s": "corres",
+    "form_3p": "corren",
+    "form_3s": "corre",
+    "gerund": "corriendo",
+    "gerund_english": "running",
+    "infinitive": "correr",
+    "infinitive_english": "to run",
+    "mood": "Indicativo",
+    "mood_english": "Indicative",
+    "pastparticiple": "corrido",
+    "pastparticiple_english": "run",
+    "tense": "Presente",
+    "tense_english": "Present",
+    "verb_english": "I run, am running",
+  },
+]
+`;

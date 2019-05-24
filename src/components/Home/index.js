@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { useQuery } from 'react-apollo-hooks';
-import Index from '../Verb/index';
-// import Modal from './components/Modal/Modal';
-import { verbQueries } from '../Filters/VerbTensesFilters';
+import VerbTool from '../Verb/VerbTool';
+import { verbQueries } from '../GqlQueries/Queries';
 
 const client = new ApolloClient({
   uri: 'https://mighty-peak-22601.herokuapp.com/', // production
@@ -50,7 +49,7 @@ function App() {
           {/* {isShowing ? (
             <div onClick={closeModalHandler} className="back-drop" />
           ) : null} */}
-          <Index
+          <VerbTool
             level={level}
             updateVerbTenses={updateVerbTenses}
             data={data.verbs}
