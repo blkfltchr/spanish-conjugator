@@ -13,7 +13,13 @@ function Container(props) {
   const [helperText, setHelperText] = useState(null);
   const [correct, setCorrect] = useState(false);
   const { randomPerson, count } = props;
-  const { infinitive, tenseEnglish, moodEnglish, infinitiveEnglish } = props;
+  const {
+    loading,
+    infinitive,
+    tenseEnglish,
+    moodEnglish,
+    infinitiveEnglish
+  } = props;
   const buttonText =
     randomPerson[1] !== value.toLowerCase() && answered
       ? 'Next verb'
@@ -107,6 +113,7 @@ function Container(props) {
           infinitiveEnglish={infinitiveEnglish}
           tenseEnglish={tenseEnglish}
           moodEnglish={moodEnglish}
+          loading={loading}
         />
       </div>
       <Input

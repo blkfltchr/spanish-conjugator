@@ -6,7 +6,7 @@ import VerbTool from '../Verb/VerbTool';
 import { verbQueries } from '../GqlQueries/Queries';
 
 const client = new ApolloClient({
-  uri: 'https://mighty-peak-22601.herokuapp.com/', // production
+  uri: 'https://mighty-peak-22601.herokuapp.com/' // production
 });
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
 
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
-  const { data } = useQuery(verbQueries[level], {
-    variables: { latam },
+  const { loading, data } = useQuery(verbQueries[level], {
+    variables: { latam }
   });
 
   const updateLatam = () => {
@@ -53,6 +53,7 @@ function App() {
             level={level}
             updateVerbTenses={updateVerbTenses}
             data={data.verbs}
+            loading={loading}
             updateLatam={updateLatam}
           />
           {/* <div className="made-with-love" onClick={openModalHandler}>

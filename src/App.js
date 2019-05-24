@@ -10,7 +10,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 
 const client = new ApolloClient({
-  uri: 'https://mighty-peak-22601.herokuapp.com/', // production
+  uri: 'https://mighty-peak-22601.herokuapp.com/' // production
 });
 
 function App() {
@@ -20,11 +20,12 @@ function App() {
 
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
-  const { data } = useQuery(verbQueries[level], {
-    variables: { latam },
+  const { loading, data } = useQuery(verbQueries[level], {
+    variables: { latam }
   });
 
   console.log('data -->', data);
+  console.log('Is it loading --->', loading);
   return (
     <ApolloProvider client={client}>
       <div className="app">
