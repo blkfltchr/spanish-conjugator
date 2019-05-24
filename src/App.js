@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Header from './components/Layout/Header';
-import Index from './components/Verb/index';
+import VerbTool from './components/Verb/VerbTool';
 import Modal from './components/Modal/Modal';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import { verbQueries } from './components/Filters/VerbTensesFilters';
+import { verbQueries } from './components/GqlQueries/Queries';
 import { useQuery } from 'react-apollo-hooks';
 
 const client = new ApolloClient({
@@ -52,7 +52,7 @@ function App(props) {
           {isShowing ? (
             <div onClick={closeModalHandler} className="back-drop" />
           ) : null}
-          <Index
+          <VerbTool
             level={level}
             updateVerbTenses={updateVerbTenses}
             data={data.verbs}
