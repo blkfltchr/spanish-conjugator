@@ -21,7 +21,8 @@ function App() {
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
   const { loading, data } = useQuery(verbQueries[level], {
-    variables: { latam }
+    variables: { latam },
+  })
 
   console.log('data -->', data);
   return (
