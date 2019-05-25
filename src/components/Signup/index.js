@@ -12,9 +12,19 @@ function Signup(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const mutate = useMutation(CREATE_USER);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async event => {
     event.preventDefault();
+    // if user password.length < 8, gql throws error
+    // the error prevents code after the query from running
+    // if there's no error, the user is redirected
+    // else error is set to true, and the password sentence is conditionally rendered
+    // we need to wait 0.75 secs before rendering so that successful sign-ups don't see it before redirect
+    setTimeout(() => {
+      setError(true);
+    }, 750);
+
     const { data, error } = await mutate({
       variables: {
         name: name,
@@ -54,6 +64,7 @@ function Signup(props) {
             name="password"
           />
         </Input>
+        {error ? <p>Password needs to be at least 8 characters</p> : null}
         <Button>
           <button type="submit">Sign up</button>
         </Button>
