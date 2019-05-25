@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SmallForm = styled.div`
+export const SmallForm = styled.form`
   width: 400px;
   padding-bottom: 30px;
   margin: 0 auto;
@@ -17,7 +17,7 @@ export const SmallForm = styled.div`
   }
 `;
 
-export const MediumForm = styled.div`
+export const MediumForm = styled.form`
   width: 60%;
   padding-bottom: 30px;
   margin: 0 auto;

@@ -13,7 +13,8 @@ function Signup() {
   const [password, setPassword] = useState('');
   const mutate = useMutation(CREATE_USER);
 
-  const onSubmit = () => {
+  const handleSubmit = event => {
+    event.preventDefault();
     mutate({
       variables: {
         name: name,
@@ -24,7 +25,7 @@ function Signup() {
   };
 
   return (
-    <SmallForm>
+    <SmallForm onSubmit={handleSubmit}>
       <h2>Sign up</h2>
       <LargeContainer>
         <Input>
@@ -51,9 +52,7 @@ function Signup() {
           />
         </Input>
         <Button>
-          <button onClick={onSubmit} type="button">
-            Sign up
-          </button>
+          <button type="submit">Sign up</button>
         </Button>
         <p>
           Don't have an account yet? <Link to="/login">Log in here</Link>

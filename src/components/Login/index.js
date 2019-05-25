@@ -12,7 +12,9 @@ function Login() {
   const [password, setPassword] = useState('');
   const mutate = useMutation(LOGIN);
 
-  const onSubmit = () => {
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log('IN handle submit');
     mutate({
       variables: {
         email: email,
@@ -22,10 +24,10 @@ function Login() {
   };
 
   console.log('Email password...', email, password);
-  console.log('Mutate from login..', mutate);
+  console.log('Mutate from login..', { mutate });
 
   return (
-    <SmallForm>
+    <SmallForm onSubmit={handleSubmit}>
       <h2>Sign up</h2>
       <LargeContainer>
         <Input>
@@ -43,12 +45,10 @@ function Login() {
             onChange={e => setPassword(e.target.value)}
             name="password"
           />
+          <Button>
+            <button type="submit">Login</button>
+          </Button>
         </Input>
-        <Button>
-          <button onClick={onSubmit} type="button">
-            Login
-          </button>
-        </Button>
         <p>
           Already have an account? <Link to="/signup">Sign up here</Link>
         </p>
