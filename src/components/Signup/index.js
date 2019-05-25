@@ -11,11 +11,12 @@ function Signup(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const mutate = useMutation(CREATE_USER);
   const [error, setError] = useState(false);
+  const mutate = useMutation(CREATE_USER);
 
   const handleSubmit = async event => {
     event.preventDefault();
+
     // if user password.length < 8, gql throws error
     // the error prevents code after the query from running
     // if there's no error, the user is redirected

@@ -10,17 +10,28 @@ import { useMutation } from 'react-apollo-hooks';
 function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
   const mutate = useMutation(LOGIN);
 
   const handleSubmit = async event => {
     event.preventDefault();
+
+    // if user enters the wrong email/password, gql throws an error
+    // the error prevents code after the query from running
+    // if there's no error, the user is redirected
+    // else error is set to true, and the password sentence is conditionally rendered
+    // we need to wait 0.75 secs before rendering so that successful sign-ups don't see it before redirect
+    setTimeout(() => {
+      setError(true);
+    }, 750);
+
     const { data, error } = await mutate({
       variables: {
         email: email,
         password: password
       }
     });
-    console.log('Login ---->', data.login);
+
     if (!error) {
       props.history.push('/');
     }
@@ -45,6 +56,7 @@ function Login(props) {
             onChange={e => setPassword(e.target.value)}
             name="password"
           />
+          {error ? <div>Unable to login</div> : null}
           <Button>
             <button type="submit">Login</button>
           </Button>
