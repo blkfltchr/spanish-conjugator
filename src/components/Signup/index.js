@@ -7,26 +7,29 @@ import { Input } from '../../styled/Input';
 import { useMutation } from 'react-apollo-hooks';
 import { CREATE_USER } from '../GqlQueries/Queries';
 
-function Signup() {
+function Signup(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const mutate = useMutation(CREATE_USER);
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    mutate({
+    const { data, error } = await mutate({
       variables: {
         name: name,
         email: email,
         password: password
       }
     });
+    if (!error) {
+      props.history.push('/');
+    }
   };
 
   return (
     <SmallForm onSubmit={handleSubmit}>
-      <h2>Login</h2>
+      <h2>Sign up</h2>
       <LargeContainer>
         <Input>
           <input

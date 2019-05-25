@@ -7,20 +7,23 @@ import { Button } from '../../styled/Button';
 import { LOGIN } from '../GqlQueries/Queries';
 import { useMutation } from 'react-apollo-hooks';
 
-function Login() {
+function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const mutate = useMutation(LOGIN);
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const { data, loading, error } = await mutate({
+    const { data, error } = await mutate({
       variables: {
         email: email,
         password: password
       }
     });
     console.log('Login ---->', data.login);
+    if (!error) {
+      props.history.push('/');
+    }
   };
 
   return (
