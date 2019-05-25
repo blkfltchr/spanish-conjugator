@@ -14,5 +14,8 @@ module.exports = {
   },
   setupTestFrameworkScriptFile: require.resolve('./test/test-setup.js'),
   collectCoverageFrom: ['**/src/**/*/*.js'],
-  coveragePathIgnorePatterns: ['<rootDir>/src/data'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/data',
+    '<rootDir>/graphql-prisma',
+  ],
 };

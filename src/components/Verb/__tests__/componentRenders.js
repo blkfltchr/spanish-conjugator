@@ -11,9 +11,9 @@ test('AccentButtons component renders', () => {
   render(<AccentButtons />);
 });
 
-test('Info component renders', () => {
-  render(<Info />);
-});
+// test('Info component renders', () => {
+//   render(<Info />);
+// });
 
 test('Person component renders', () => {
   render(<Person />);
