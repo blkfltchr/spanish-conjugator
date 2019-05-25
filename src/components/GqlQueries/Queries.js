@@ -249,6 +249,18 @@ const LEVEL_SEVEN = gql`
   }
 `;
 
+const CREATE_USER = gql`
+  mutation($name: String!, $email: String!, $password: String!) {
+    createUser(data: { name: $name, email: $email, password: $password }) {
+      user {
+        name
+        email
+        password
+      }
+    }
+  }
+`;
+
 const verbQueries = [
   LEVEL_ONE,
   LEVEL_TWO,
@@ -259,4 +271,4 @@ const verbQueries = [
   LEVEL_SEVEN
 ];
 
-export { verbQueries };
+export { verbQueries, CREATE_USER };
