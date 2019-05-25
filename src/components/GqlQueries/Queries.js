@@ -261,6 +261,19 @@ const CREATE_USER = gql`
   }
 `;
 
+const LOGIN = gql`
+  mutation($email: String!, $password: String!) {
+    login(data: { email: $email, password: $password }) {
+      user {
+        name
+        email
+        password
+      }
+      token
+    }
+  }
+`;
+
 const verbQueries = [
   LEVEL_ONE,
   LEVEL_TWO,
@@ -271,4 +284,4 @@ const verbQueries = [
   LEVEL_SEVEN
 ];
 
-export { verbQueries, CREATE_USER };
+export { verbQueries, CREATE_USER, LOGIN };
