@@ -3,11 +3,11 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { useQuery } from 'react-apollo-hooks';
 import { Route } from 'react-router-dom';
-import Header from './components/Layout/Header';
 import { verbQueries } from './components/GqlQueries/Queries';
-import Home from './components/Home';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import VerbTool from '../src/components/Verb/VerbTool';
+import Header from '../src/components/Layout/Header';
 
 const client = new ApolloClient({
   uri: 'https://mighty-peak-22601.herokuapp.com/' // production
@@ -15,23 +15,62 @@ const client = new ApolloClient({
 
 function App() {
   // const [isShowing, setIsShowing] = useState(false);
-  const [level] = useState(0);
-  const [latam] = useState(true);
+  const [level, setLevel] = useState(0);
+  const [latam, setLatam] = useState(true);
 
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
-  const { data } = useQuery(verbQueries[level], {
+  const { loading, data } = useQuery(verbQueries[level], {
     variables: { latam }
   });
 
+  const updateLatam = () => {
+    setLatam(!latam);
+  };
+
+  const updateVerbTenses = event => {
+    setLevel(event.target.value);
+    // handleRefresh();
+  };
+
   console.log('data -->', data);
   return (
+    // <div className="app">
+    //   <Header />
+    //   <Route exact path="/" component={Home} />
+    //   <Route path="/signup" component={Signup} />
+    //   <Route path="/login" component={Login} />
+    // </div>
     <ApolloProvider client={client}>
       <div className="app">
         <Header />
-        <Route exact path="/" component={Home} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login} />
+        <div className="app-wrapper">
+          {/* {isShowing ? (
+                <div onClick={closeModalHandler} className="back-drop" />
+              ) : null} */}
+          <VerbTool
+            level={level}
+            updateVerbTenses={updateVerbTenses}
+            data={data.verbs}
+            loading={loading}
+            updateLatam={updateLatam}
+          />
+          {/* <div className="made-with-love" onClick={openModalHandler}>
+                Made with
+                <span role="img" aria-label="heart">
+                  {'  '}
+                  ❤️
+                </span>
+                in
+                <span role="img" aria-label="colombia">
+                  {'  '}
+                  🇨🇴
+                </span>
+              </div>
+              <Modal show={isShowing} close={closeModalHandler} /> */}
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
+        </div>
       </div>
     </ApolloProvider>
   );
