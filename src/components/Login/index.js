@@ -12,23 +12,20 @@ function Login() {
   const [password, setPassword] = useState('');
   const mutate = useMutation(LOGIN);
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    console.log('IN handle submit');
-    mutate({
+    const { data, loading, error } = await mutate({
       variables: {
         email: email,
         password: password
       }
     });
+    console.log('Login ---->', data.login);
   };
-
-  console.log('Email password...', email, password);
-  console.log('Mutate from login..', { mutate });
 
   return (
     <SmallForm onSubmit={handleSubmit}>
-      <h2>Sign up</h2>
+      <h2>Login</h2>
       <LargeContainer>
         <Input>
           <input

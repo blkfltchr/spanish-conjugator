@@ -26,7 +26,7 @@ function Signup() {
 
   return (
     <SmallForm onSubmit={handleSubmit}>
-      <h2>Sign up</h2>
+      <h2>Login</h2>
       <LargeContainer>
         <Input>
           <input

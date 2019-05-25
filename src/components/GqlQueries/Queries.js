@@ -255,7 +255,6 @@ const CREATE_USER = gql`
       user {
         name
         email
-        password
       }
     }
   }
@@ -267,7 +266,6 @@ const LOGIN = gql`
       user {
         name
         email
-        password
       }
       token
     }
