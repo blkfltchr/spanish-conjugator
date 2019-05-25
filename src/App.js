@@ -24,6 +24,7 @@ function App() {
     variables: { latam },
   })
 
+
   console.log('data -->', data);
   return (
     <ApolloProvider client={client}>

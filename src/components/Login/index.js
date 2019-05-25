@@ -1,56 +1,72 @@
-import React, { Component } from 'react';
-
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { SmallForm } from '../../styled/Form';
 import { LargeContainer } from '../../styled/Container';
 import { Input } from '../../styled/Input';
 import { Button } from '../../styled/Button';
+import { LOGIN } from '../GqlQueries/Queries';
+import { useMutation } from 'react-apollo-hooks';
 
-class Login extends Component {
-  state = {
-    email: '',
-    password: '',
-  };
+function Login(props) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
+  const mutate = useMutation(LOGIN);
 
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value,
+  const handleSubmit = async event => {
+    event.preventDefault();
+
+    // if user enters the wrong email/password, gql throws an error
+    // the error prevents code after the query from running
+    // if there's no error, the user is redirected
+    // else error is set to true, and the password sentence is conditionally rendered
+    // we need to wait 0.75 secs before rendering so that successful sign-ups don't see it before redirect
+    setTimeout(() => {
+      setError(true);
+    }, 750);
+
+    const { data, error } = await mutate({
+      variables: {
+        email: email,
+        password: password
+      }
     });
+
+    if (!error) {
+      props.history.push('/');
+    }
   };
 
-  render() {
-    const { email, password } = this.state;
-    return (
-      <SmallForm>
-        <h2>Log in</h2>
-        <LargeContainer>
-          <Input>
-            <input
-              type="email"
-              value={email}
-              placeholder="Email"
-              onChange={this.handleChange}
-              name="email"
-            />
-            <input
-              type="password"
-              value={password}
-              placeholder="Password"
-              onChange={this.handleChange}
-              name="password"
-            />
-          </Input>
+  return (
+    <SmallForm onSubmit={handleSubmit}>
+      <h2>Login</h2>
+      <LargeContainer>
+        <Input>
+          <input
+            type="email"
+            value={email}
+            placeholder="Email"
+            onChange={e => setEmail(e.target.value)}
+            name="email"
+          />
+          <input
+            type="password"
+            value={password}
+            placeholder="Password"
+            onChange={e => setPassword(e.target.value)}
+            name="password"
+          />
+          {error ? <div>Unable to login</div> : null}
           <Button>
-            <button type="button">Log in</button>
+            <button type="submit">Login</button>
           </Button>
-        </LargeContainer>
+        </Input>
         <p>
           Already have an account? <Link to="/signup">Sign up here</Link>
         </p>
-      </SmallForm>
-    );
-  }
+      </LargeContainer>
+    </SmallForm>
+  );
 }
 
 export default Login;
