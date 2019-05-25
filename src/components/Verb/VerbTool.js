@@ -24,7 +24,7 @@ function VerbTool(props) {
   const getRandomVerb = () => {
     if (verbData !== undefined) {
       const dataLength = Object.keys(props.data).length;
-      const randomNum = Math.floor(Math.random() * dataLength) + 1;
+      const randomNum = Math.floor(Math.random() * dataLength);
       const randomVerbNum = Math.floor(Math.random() * 5); // this grabs the 6 yo, tu, ellos etc that we want to use
       const randomVerb = props.data[randomNum];
 

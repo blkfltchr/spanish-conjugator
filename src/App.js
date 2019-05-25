@@ -35,12 +35,6 @@ function App() {
 
   console.log('data -->', data);
   return (
-    // <div className="app">
-    //   <Header />
-    //   <Route exact path="/" component={Home} />
-    //   <Route path="/signup" component={Signup} />
-    //   <Route path="/login" component={Login} />
-    // </div>
     <ApolloProvider client={client}>
       <div className="app">
         <Header />
