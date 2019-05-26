@@ -9,6 +9,9 @@ import Login from './components/Login';
 import VerbTool from '../src/components/Verb/VerbTool';
 import Header from '../src/components/Layout/Header';
 
+import Container from './components/Verb/Container';
+import Settings from './components/Settings/Settings';
+
 const client = new ApolloClient({
   uri: 'https://mighty-peak-22601.herokuapp.com/' // production
 });
@@ -20,9 +23,9 @@ function App() {
 
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
-  const { loading, data } = useQuery(verbQueries[level], {
-    variables: { latam }
-  });
+  // const { loading, data } = useQuery(verbQueries[level], {
+  //   variables: { latam }
+  // });
 
   const updateLatam = () => {
     setLatam(!latam);
@@ -33,7 +36,7 @@ function App() {
     // handleRefresh();
   };
 
-  console.log('data -->', data);
+  // console.log('data -->', data);
   return (
     <ApolloProvider client={client}>
       <div className="app">
@@ -42,13 +45,38 @@ function App() {
           {/* {isShowing ? (
                 <div onClick={closeModalHandler} className="back-drop" />
               ) : null} */}
-          <VerbTool
+          {/* <VerbTool
             level={level}
             updateVerbTenses={updateVerbTenses}
             data={data.verbs}
             loading={loading}
             updateLatam={updateLatam}
+          /> */}
+          <Container
+            // verbData={verbData}
+            // data={data}
+            // randomPerson={randomPerson}
+            // randomVerb={randomVerb}
+            // getRandomVerb={getRandomVerb}
+            // addCounter={addCounter}
+            // resetCounter={resetCounter}
+            // addStreak={addStreak} looks like this isn't in this file?
+            // count={count}
+            // infinitive={infinitive}
+            // tenseEnglish={tenseEnglish}
+            // moodEnglish={moodEnglish}
+            // infinitiveEnglish={infinitiveEnglish}
+            latam={latam}
+            level={level}
+            updateVerbTenses={updateVerbTenses}
+            updateLatam={updateLatam}
+            // loading={loading}
           />
+          {/* <Settings
+            // handleRefresh={handleRefresh}
+            updateVerbTenses={updateVerbTenses}
+            updateLatam={updateLatam}
+          /> */}
           {/* <div className="made-with-love" onClick={openModalHandler}>
                 Made with
                 <span role="img" aria-label="heart">

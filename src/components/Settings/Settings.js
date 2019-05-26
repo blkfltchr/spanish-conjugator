@@ -29,7 +29,7 @@ function Settings(props) {
           <VerbTenses updateVerbTenses={updateVerbTenses} />
         </div>
         <div className={updateSettings ? display : hide}>
-          <VerbRegion updateNumPerson={updateNumPerson} />
+          <VerbRegion updateLatam={props.updateLatam} />
         </div>
       </div>
     </div>

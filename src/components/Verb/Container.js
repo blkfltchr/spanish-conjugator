@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Reward from 'react-rewards';
 import PropTypes from 'prop-types';
 import Info from './Info';
 import Input from './Input';
+// import ApolloClient from 'apollo-boost';
+import { useQuery } from 'react-apollo-hooks';
+import { verbQueries } from '../GqlQueries/Queries';
+import Settings from '../Settings/Settings';
 
 function Container(props) {
   const [value, setValue] = useState('');
@@ -12,14 +16,14 @@ function Container(props) {
   const [answered, setAnswered] = useState(false);
   const [helperText, setHelperText] = useState(null);
   const [correct, setCorrect] = useState(false);
-  const { randomPerson, count } = props;
-  const {
-    loading,
-    infinitive,
-    tenseEnglish,
-    moodEnglish,
-    infinitiveEnglish
-  } = props;
+  const [count, setCount] = useState(0);
+  const [randomPerson, setRandomPerson] = useState([]);
+  const [randomVerb, setRandomVerb] = useState({});
+  const [infinitive, setInfinitive] = useState('');
+  const [tenseEnglish, setTenseEnglish] = useState('');
+  const [moodEnglish, setMoodEnglish] = useState('');
+  const [infinitiveEnglish, setInfinitiveEnglish] = useState('');
+  const { level, latam } = props;
   const buttonText =
     randomPerson[1] !== value.toLowerCase() && answered
       ? 'Next verb'
@@ -27,13 +31,43 @@ function Container(props) {
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
 
+  // we're importing an array of GraphQL queries and
+  // slicing by the level which is a number between 0-6
+
+  const { loading, data } = useQuery(verbQueries[level], {
+    variables: { latam }
+  });
+
+  console.log('Data -->', data);
+
+  useEffect(() => {
+    getRandomVerb();
+  }, [data]);
+
+  const getRandomVerb = () => {
+    if (Object.values(data).length !== 0) {
+      // this checks to see if the gql query has loaded
+
+      const dataLength = Object.keys(data.verbs).length;
+      const randomNum = Math.floor(Math.random() * dataLength);
+      const randomVerbNum = Math.floor(Math.random() * 5); // this grabs the 6 yo, tu, ellos etc that we want to use
+      const randomVerb = data.verbs[randomNum];
+
+      setRandomVerb(Object.values(randomVerb)[randomVerbNum]);
+      setRandomPerson(Object.keys(randomVerb)[randomVerbNum]);
+      setInfinitive(randomVerb.infinitive);
+      setInfinitiveEnglish(randomVerb.infinitiveEnglish);
+      setTenseEnglish(randomVerb.tenseEnglish);
+      setMoodEnglish(randomVerb.moodEnglish);
+    }
+  };
+
   const handleChange = event => {
     setCorrect(false);
     setValue(event.target.value);
   };
 
   const handleSubmit = event => {
-    const { addCounter, resetCounter, randomVerb } = props;
     event.preventDefault();
     let userInput = value.toLowerCase();
     if (answered === true) {
@@ -48,9 +82,9 @@ function Container(props) {
       setCorrect(true);
       addStreak();
     } else if (randomVerb !== userInput) {
-      setHelperText(
-        `False, the correct answer is ${randomVerb.toUpperCase()}.`
-      );
+      // setHelperText(
+      //   `False, the correct answer is ${randomVerb.toUpperCase()}.`
+      // );
       setAnswered(true);
       resetCounter();
     }
@@ -63,20 +97,24 @@ function Container(props) {
   };
 
   const handleRefresh = () => {
-    const { getRandomVerb } = props;
-
     setValue('');
-    setHelperText(null);
+    // setHelperText(null);
     setCorrect(false);
-
     getRandomVerb();
   };
 
   const addStreak = () => {
-    const { count } = props;
     if (count >= bestStreak) {
       setBestStreak(bestStreak + 1);
     }
+  };
+
+  const addCounter = () => {
+    setCount(count + 1);
+  };
+
+  const resetCounter = () => {
+    setCount(0);
   };
 
   return (
@@ -117,7 +155,7 @@ function Container(props) {
         />
       </div>
       <Input
-        helperText={helperText}
+        // helperText={helperText}
         correct={correct}
         value={value}
         buttonText={buttonText}
@@ -125,6 +163,11 @@ function Container(props) {
         handleSubmit={handleSubmit}
         randomPerson={randomPerson}
         handleChange={handleChange}
+      />
+      <Settings
+        handleRefresh={handleRefresh}
+        updateVerbTenses={props.updateVerbTenses}
+        updateLatam={props.updateLatam}
       />
     </div>
   );
