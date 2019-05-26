@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function VerbTenses(props) {
-  const { updateVerbTenses } = props;
+  const { updateLevel } = props;
   return (
     <div className="settings-dropdown">
       <p className="settings-text">Difficulty</p>
-      <select onChange={updateVerbTenses}>
+      <select onChange={updateLevel}>
         <option value="0" defaultValue="Beginner">
           Present tense
         </option>

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function VerbRegion(props) {
-  const { updateNumPerson } = props;
+  const { updateLatam } = props;
   return (
     <div className="settings-dropdown">
       <p className="settings-text">Spanish Type</p>
-      <select onChange={updateNumPerson}>
+      <select onChange={updateLatam}>
         <option value="Latam">Latin America</option>
         <option value="Spain">Spain</option>
       </select>
@@ -15,7 +15,7 @@ function VerbRegion(props) {
 }
 
 VerbRegion.propTypes = {
-  updateNumPerson: PropTypes.func
+  updateLatam: PropTypes.func
 };
 
 export default VerbRegion;
