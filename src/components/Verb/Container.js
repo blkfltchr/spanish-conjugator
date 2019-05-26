@@ -163,7 +163,7 @@ function Container(props) {
       />
       <Settings
         handleRefresh={handleRefresh}
-        updateVerbTenses={props.updateVerbTenses}
+        updateLevel={props.updateLevel}
         updateLatam={props.updateLatam}
       />
     </div>

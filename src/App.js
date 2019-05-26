@@ -20,7 +20,7 @@ function App() {
     setLatam(!latam);
   };
 
-  const updateVerbTenses = event => {
+  const updateLevel = event => {
     setLevel(event.target.value);
   };
 
@@ -35,7 +35,7 @@ function App() {
           <Container
             latam={latam}
             level={level}
-            updateVerbTenses={updateVerbTenses}
+            updateLevel={updateLevel}
             updateLatam={updateLatam}
           />
           {/* <div className="made-with-love" onClick={openModalHandler}>
