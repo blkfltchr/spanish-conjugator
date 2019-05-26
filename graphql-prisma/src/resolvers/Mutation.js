@@ -68,6 +68,29 @@ const Mutation = {
       },
       info
     );
+  },
+
+  async createLog(parent, args, { prisma, request }, info) {
+    const userId = getUserId(request);
+
+    if (userId) {
+      return await prisma.mutation.createLog({
+        data: {
+          ...args.data,
+          user: {
+            connect: {
+              id: userId
+            }
+          }
+        }
+      });
+    } else {
+      return await prisma.mutation.createLog({
+        data: {
+          ...args.data
+        }
+      });
+    }
   }
 };
 

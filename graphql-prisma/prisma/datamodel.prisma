@@ -27,3 +27,11 @@ type Verb {
   tenseEnglish: String @db(name: "tense_english")
   verbEnglish: String @db(name: "verb_english")
 }
+
+type Log {
+  id: ID! @unique @id
+    name: String!
+  email: String! @unique
+    updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
+}

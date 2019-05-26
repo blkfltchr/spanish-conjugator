@@ -24,6 +24,7 @@ type Mutation {
   login(data: LoginUserInput!): AuthPayload!
   deleteUser: User!
   updateUser(data: UpdateUserInput!): User!
+  createLog(data: CreateLogInput!): Log!
 }
 
 # type Subscription {
@@ -50,6 +51,13 @@ input UpdateUserInput {
   name: String
   email: String
   password: String
+}
+
+input CreateLogInput {
+  user: User
+  infinitive: String!
+  answer: String!
+  correct: Boolean!
 }
 
 input VerbWhereInput {
@@ -309,6 +317,16 @@ type User {
   name: String!
   email: String
   password: String!
+  updatedAt: String!
+  createdAt: String!
+}
+
+type Log {
+  id: ID!
+  user: User
+  infinitive: String!
+  answer: String!
+  correct: Boolean!
   updatedAt: String!
   createdAt: String!
 }
