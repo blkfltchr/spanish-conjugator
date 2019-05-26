@@ -22,7 +22,6 @@ function App() {
 
   const updateVerbTenses = event => {
     setLevel(event.target.value);
-    // handleRefresh();
   };
 
   return (

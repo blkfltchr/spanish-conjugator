@@ -8,7 +8,7 @@ function Settings(props) {
   const [updateSettings, setUpdateSettings] = useState(false);
   const hide = 'settings-buttons-hide';
   const display = 'settings-buttons-display';
-  const { updateVerbTenses, updateNumPerson } = props;
+  const { updateLevel } = props;
 
   const changeSettings = event => {
     const { handleRefresh } = props;
@@ -26,7 +26,7 @@ function Settings(props) {
       </button>
       <div className="two-dropdowns">
         <div className={updateSettings ? display : hide}>
-          <VerbTenses updateVerbTenses={updateVerbTenses} />
+          <VerbTenses updateLevel={updateLevel} />
         </div>
         <div className={updateSettings ? display : hide}>
           <VerbRegion updateLatam={props.updateLatam} />
