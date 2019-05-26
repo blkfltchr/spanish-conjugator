@@ -32,7 +32,6 @@ function Container(props) {
 
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
-
   const { loading, data } = useQuery(verbQueries[level], {
     variables: { latam }
   });
@@ -44,9 +43,8 @@ function Container(props) {
   }, [data]);
 
   const getRandomVerb = () => {
+    // this checks to see if the gql query has loaded
     if (Object.values(data).length !== 0) {
-      // this checks to see if the gql query has loaded
-
       const dataLength = Object.keys(data.verbs).length;
       const randomNum = Math.floor(Math.random() * dataLength);
       const randomVerbNum = Math.floor(Math.random() * 5); // this grabs the 6 yo, tu, ellos etc that we want to use
@@ -81,9 +79,9 @@ function Container(props) {
       setCorrect(true);
       addStreak();
     } else if (randomVerb !== userInput) {
-      // setHelperText(
-      //   `False, the correct answer is ${randomVerb.toUpperCase()}.`
-      // );
+      setHelperText(
+        `False, the correct answer is ${randomVerb.toUpperCase()}.`
+      );
       setAnswered(true);
       resetCounter();
     }
@@ -97,7 +95,7 @@ function Container(props) {
 
   const handleRefresh = () => {
     setValue('');
-    // setHelperText(null);
+    setHelperText(null);
     setCorrect(false);
     getRandomVerb();
   };
@@ -154,7 +152,7 @@ function Container(props) {
         />
       </div>
       <Input
-        // helperText={helperText}
+        helperText={helperText}
         correct={correct}
         value={value}
         buttonText={buttonText}
