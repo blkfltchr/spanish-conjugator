@@ -8,7 +8,7 @@ import Header from '../src/components/Layout/Header';
 import Container from './components/Verb/Container';
 
 const client = new ApolloClient({
-  uri: 'https://mighty-peak-22601.herokuapp.com/' // production
+  uri: 'https://mighty-peak-22601.herokuapp.com/', // production
 });
 
 function App() {
