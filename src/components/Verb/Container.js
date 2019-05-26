@@ -3,7 +3,6 @@ import Reward from 'react-rewards';
 import PropTypes from 'prop-types';
 import Info from './Info';
 import Input from './Input';
-// import ApolloClient from 'apollo-boost';
 import { useQuery } from 'react-apollo-hooks';
 import { verbQueries } from '../GqlQueries/Queries';
 import Settings from '../Settings/Settings';
