@@ -7,7 +7,7 @@ import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import App from './App';
 
 const client = new ApolloClient({
-  uri: 'https://mighty-peak-22601.herokuapp.com/', // production
+  uri: 'https://mighty-peak-22601.herokuapp.com/' // production
 });
 // localhost:4000 in development
 
