@@ -34,12 +34,6 @@ function App() {
             {/* {isShowing ? (
                 <div onClick={closeModalHandler} className="back-drop" />
               ) : null} */}
-            <Container
-              latam={latam}
-              level={level}
-              updateLevel={updateLevel}
-              updateLatam={updateLatam}
-            />
             {/* <div className="made-with-love" onClick={openModalHandler}>
                 Made with
                 <span role="img" aria-label="heart">
@@ -53,6 +47,18 @@ function App() {
                 </span>
               </div>
               <Modal show={isShowing} close={closeModalHandler} /> */}
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <Container
+                  latam={latam}
+                  level={level}
+                  updateLevel={updateLevel}
+                  updateLatam={updateLatam}
+                />
+              )}
+            />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
           </div>

@@ -4,7 +4,7 @@ import { SmallForm } from '../../styled/Form';
 import { LargeContainer } from '../../styled/Container';
 import { Input } from '../../styled/Input';
 import { Button } from '../../styled/Button';
-import { LOGIN } from '../GqlQueries/Queries';
+import { LOGIN } from '../GqlQueries/userQueries';
 import { useMutation } from 'react-apollo-hooks';
 
 function Login(props) {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Info from './Info';
 import Input from './Input';
 import { useQuery } from 'react-apollo-hooks';
-import { verbQueries } from '../GqlQueries/Queries';
+import { verbQueries } from '../GqlQueries/verbQueries';
 import Settings from '../Settings/Settings';
 
 function Container(props) {
