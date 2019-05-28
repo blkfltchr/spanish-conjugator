@@ -1,4 +1,3 @@
 endpoint: ${env:PRISMA_ENDPOINT}
-# endpoint: https://conj-postls-prod-1372a8eb07.herokuapp.com/graphql-prisma/prod
 datamodel: datamodel.graphql
 secret: ${env:PRISMA_SECRET}

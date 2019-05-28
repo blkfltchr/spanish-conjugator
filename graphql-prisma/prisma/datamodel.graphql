@@ -1,10 +1,21 @@
+type Log {
+  id: ID! @id
+  user: User
+  verbInfinitive: String!
+  tense: String!
+  answer: String!
+  correct: Boolean!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
 type User {
-  id: ID! @unique @id
-  name: String!
+  id: ID! @id
+  createdAt: DateTime! @createdAt
   email: String! @unique
+  name: String!
   password: String!
   updatedAt: DateTime! @updatedAt
-  createdAt: DateTime! @createdAt
 }
 
 type Verb {
@@ -16,7 +27,7 @@ type Verb {
   form3s: String @db(name: "form_3s")
   gerund: String
   gerundEnglish: String @db(name: "gerund_english")
-  index: Int! @id
+  index: ID! @id
   infinitive: String
   infinitiveEnglish: String @db(name: "infinitive_english")
   mood: String
@@ -26,12 +37,4 @@ type Verb {
   tense: String
   tenseEnglish: String @db(name: "tense_english")
   verbEnglish: String @db(name: "verb_english")
-}
-
-type Log {
-  id: ID! @unique @id
-    name: String!
-  email: String! @unique
-    updatedAt: DateTime! @updatedAt
-  createdAt: DateTime! @createdAt
 }

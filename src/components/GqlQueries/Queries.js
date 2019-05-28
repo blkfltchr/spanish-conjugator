@@ -272,6 +272,34 @@ const LOGIN = gql`
   }
 `;
 
+const LOGS = gql`
+  query {
+    logs {
+      id
+      verbInfinitive
+      tense
+      answer
+      correct
+      createdAt
+      user {
+        id
+        name
+        email
+      }
+    }
+  }
+`;
+
+const GET_USERS = gql`
+  query {
+    users {
+      id
+      name
+      email
+    }
+  }
+`;
+
 const verbQueries = [
   LEVEL_ONE,
   LEVEL_TWO,
@@ -282,4 +310,4 @@ const verbQueries = [
   LEVEL_SEVEN
 ];
 
-export { verbQueries, CREATE_USER, LOGIN };
+export { verbQueries, CREATE_USER, LOGIN, LOGS, GET_USERS };
