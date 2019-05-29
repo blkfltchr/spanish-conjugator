@@ -39,10 +39,6 @@ function Container(props) {
 
   const mutate = useMutation(CREATE_LOG);
 
-  // const multiQuery = () => {
-  //   const {loading, data} =
-  // }
-
   console.log('Data -->', data);
 
   useEffect(() => {

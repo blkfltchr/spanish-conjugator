@@ -71,20 +71,23 @@ const Mutation = {
   },
 
   async createLog(parent, args, { prisma }, info) {
-    // const user = await prisma.query.user({
-    //   where: {
-    //     email: args.data.email
-    //   }
-    // });
-    // console.log('USER IS =======>>>>', user);
-
     if (args.data.email) {
+      console.log('EMAIL IS...', args.data.email);
+      // const user = await prisma.query.user({
+      //   where: {
+      //     email: args.data.email
+      //   }
+      // });
       return await prisma.mutation.createLog({
         data: {
-          ...args.data,
-          name: args.data.name,
-          email: args.data.email
-        }
+          ...args.data
+          // user: {
+          //   connect: {
+          //     id: args.data.id
+          //   }
+          // }
+        },
+        id: args.id
       });
     } else {
       return await prisma.mutation.createLog({

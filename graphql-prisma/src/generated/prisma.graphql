@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Mon May 27 2019 17:54:29 GMT-0500 (Colombia Standard Time)
+# timestamp: Tue May 28 2019 19:43:26 GMT-0500 (Colombia Standard Time)
 
 type AggregateLog {
   count: Int!

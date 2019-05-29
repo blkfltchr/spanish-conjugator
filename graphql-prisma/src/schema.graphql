@@ -33,7 +33,7 @@ type Mutation {
   login(data: LoginUserInput!): AuthPayload!
   deleteUser: User!
   updateUser(data: UpdateUserInput!): User!
-  createLog(data: CreateLogInput!): Log!
+  createLog(id: ID, data: CreateLogInput!): Log!
 }
 
 # type Subscription {
@@ -63,8 +63,7 @@ input UpdateUserInput {
 }
 
 input CreateLogInput {
-  name: String
-  email: String
+  id: ID
   verbInfinitive: String!
   tense: String!
   answer: String!
