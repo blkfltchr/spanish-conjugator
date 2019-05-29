@@ -15,6 +15,7 @@ const LOGIN = gql`
   mutation($email: String!, $password: String!) {
     login(data: { email: $email, password: $password }) {
       user {
+        id
         name
         email
       }
@@ -23,14 +24,4 @@ const LOGIN = gql`
   }
 `;
 
-const GET_USERS = gql`
-  query {
-    users {
-      id
-      name
-      email
-    }
-  }
-`;
-
-export { CREATE_USER, LOGIN, GET_USERS };
+export { CREATE_USER, LOGIN };

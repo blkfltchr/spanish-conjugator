@@ -18,36 +18,34 @@ const LOGS = gql`
   }
 `;
 
-// const CREATE_LOG = gql`
-//   mutation(
-//     $verbInfinitive: String!
-//     $tense: String!
-//     $answer: String!
-//     $correct: Boolean!
-//   ) {
-//     createLog(
-//       data: {
-//         verbInfinitive: "crecer"
-//         tense: "Present"
-//         answer: "crecoo"
-//         correct: false
-//       }
-//     ) {
-//       id
-//       verbInfinitive
-//       tense
-//       answer
-//       correct
-//       createdAt
-//       user {
-//         id
-//         name
-//         email
-//         password
-//         createdAt
-//       }
-//     }
-//   }
-// `;
+const CREATE_LOG = gql`
+  mutation(
+    $verbInfinitive: String!
+    $tense: String!
+    $answer: String!
+    $correct: Boolean!
+  ) {
+    createLog(
+      data: {
+        verbInfinitive: $verbInfinitive
+        tense: $tense
+        answer: $answer
+        correct: $correct
+      }
+    ) {
+      id
+      verbInfinitive
+      tense
+      answer
+      correct
+      createdAt
+      user {
+        id
+        name
+        email
+      }
+    }
+  }
+`;
 
-export { LOGS };
+export { LOGS, CREATE_LOG };
