@@ -1,9 +1,9 @@
 import React from 'react';
-import Reward from 'react-rewards';
 import PropTypes from 'prop-types';
 import Person from './Person';
 import AccentButtons from './AccentButtons';
 import Checkmark from '../Checkmark/Checkmark';
+import { Button } from '../../styled/Button';
 
 function Input(props) {
   const {
@@ -15,26 +15,26 @@ function Input(props) {
     handleExample,
     helperText,
     handleSubmit,
-    buttonText
+    buttonText,
   } = props;
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="input-section">
+        <div className="flex-align-center">
           <Person randomPerson={randomPerson} />
           <input
             type="text"
             value={value}
             placeholder="Enter conjugated verb..."
             onChange={handleChange}
-            className="input"
+            className="verb-input"
           />
           <Checkmark correct={correct} />
         </div>
-        <div className="text-under-input">
+        <div className="flex-between">
           <AccentButtons addAccent={addAccent} />
           <div
-            className="hover-text"
+            className="text-button"
             type="button"
             role="button"
             tabIndex={0}
@@ -45,13 +45,15 @@ function Input(props) {
         </div>
         <div className="helper-text">
           {helperText && <div>{helperText}</div>}
-          <button
-            className="submit-button"
-            type="submit"
-            onClick={handleSubmit}
-          >
-            {buttonText}
-          </button>
+          <Button>
+            <button
+              className="submit-button"
+              type="submit"
+              onClick={handleSubmit}
+            >
+              {buttonText}
+            </button>
+          </Button>
         </div>
       </form>
     </div>
@@ -67,7 +69,7 @@ Input.propTypes = {
   handleExample: PropTypes.func,
   helperText: PropTypes.string,
   handleSubmit: PropTypes.func,
-  buttonText: PropTypes.string
+  buttonText: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -75,7 +77,7 @@ Input.defaultProps = {
   value: '',
   correct: false,
   helperText: '',
-  buttonText: ''
+  buttonText: '',
 };
 
 export default Input;
