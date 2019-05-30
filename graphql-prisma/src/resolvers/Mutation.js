@@ -74,16 +74,19 @@ const Mutation = {
     const userId = getUserId(request, false);
     if (userId) {
       console.log('ID from CREATE_LOG MUTATION', userId);
-      return await prisma.mutation.createLog({
-        data: {
-          ...args.data,
-          student: {
-            connect: {
-              id: userId
+      return await prisma.mutation.createLog(
+        {
+          data: {
+            ...args.data,
+            student: {
+              connect: {
+                id: userId
+              }
             }
           }
-        }
-      });
+        },
+        info
+      );
     } else {
       return await prisma.mutation.createLog({
         data: {
