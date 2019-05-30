@@ -71,8 +71,8 @@ const Mutation = {
   },
 
   async createLog(parent, args, { prisma }, info) {
-    if (args.data.email) {
-      console.log('EMAIL IS...', args.data.email);
+    if (args.data.id) {
+      console.log('ID IS...', args.data.id);
       // const user = await prisma.query.user({
       //   where: {
       //     email: args.data.email
@@ -80,14 +80,14 @@ const Mutation = {
       // });
       return await prisma.mutation.createLog({
         data: {
-          ...args.data
-          // user: {
-          //   connect: {
-          //     id: args.data.id
-          //   }
-          // }
-        },
-        id: args.id
+          ...args.data,
+          user: {
+            connect: {
+              id: args.data.id
+            }
+          }
+        }
+        // id: args.id
       });
     } else {
       return await prisma.mutation.createLog({
