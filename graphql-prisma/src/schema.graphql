@@ -1,6 +1,4 @@
-# import UserOrderByInput from './generated/prisma.graphql'
-# import VerbOrderByInput from './generated/prisma.graphql'
-# import LogOrderByInput from './generated/prisma.graphql'
+# import UserOrderByInput, VerbOrderByInput, LogOrderByInput from './generated/prisma.graphql'
 
 type Query {
   users(
@@ -63,7 +61,6 @@ input UpdateUserInput {
 }
 
 input CreateLogInput {
-  id: ID
   verbInfinitive: String!
   tense: String!
   answer: String!
@@ -75,17 +72,18 @@ type User {
   name: String!
   email: String
   password: String!
+  logs: [Log]
   updatedAt: String!
   createdAt: String!
 }
 
 type Log {
   id: ID!
-  user: User
   verbInfinitive: String!
   tense: String!
   answer: String!
   correct: Boolean!
+  student: User
   updatedAt: String!
   createdAt: String!
 }

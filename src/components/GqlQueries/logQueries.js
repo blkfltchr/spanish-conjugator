@@ -20,6 +20,7 @@ const LOGS = gql`
 
 const CREATE_LOG = gql`
   mutation(
+    $userId: ID
     $verbInfinitive: String!
     $tense: String!
     $answer: String!
@@ -27,6 +28,7 @@ const CREATE_LOG = gql`
   ) {
     createLog(
       data: {
+        id: $userId
         verbInfinitive: $verbInfinitive
         tense: $tense
         answer: $answer

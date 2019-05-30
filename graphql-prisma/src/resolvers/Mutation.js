@@ -70,24 +70,19 @@ const Mutation = {
     );
   },
 
-  async createLog(parent, args, { prisma }, info) {
-    if (args.data.id) {
-      console.log('ID IS...', args.data.id);
-      // const user = await prisma.query.user({
-      //   where: {
-      //     email: args.data.email
-      //   }
-      // });
+  async createLog(parent, args, { prisma, request }, info) {
+    const userId = getUserId(request, false);
+    if (userId) {
+      console.log('ID from CREATE_LOG MUTATION', userId);
       return await prisma.mutation.createLog({
         data: {
           ...args.data,
-          user: {
+          student: {
             connect: {
-              id: args.data.id
+              id: userId
             }
           }
         }
-        // id: args.id
       });
     } else {
       return await prisma.mutation.createLog({

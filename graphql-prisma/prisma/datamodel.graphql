@@ -1,20 +1,21 @@
-type Log {
+type User {
   id: ID! @id
-  user: User
-  verbInfinitive: String!
-  tense: String!
-  answer: String!
-  correct: Boolean!
+  email: String! @unique
+  name: String!
+  password: String!
+  logs: [Log] @relation(name: "LogToUser", onDelete: CASCADE)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
 
-type User {
+type Log {
   id: ID! @id
+  verbInfinitive: String!
+  tense: String!
+  answer: String!
+  correct: Boolean!
+  student: User @relation(name: "PostToUser", onDelete: SET_NULL)
   createdAt: DateTime! @createdAt
-  email: String! @unique
-  name: String!
-  password: String!
   updatedAt: DateTime! @updatedAt
 }
 

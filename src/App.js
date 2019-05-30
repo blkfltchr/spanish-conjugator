@@ -16,6 +16,7 @@ function App() {
   // const [isShowing, setIsShowing] = useState(false);
   const [level, setLevel] = useState(0);
   const [latam, setLatam] = useState(true);
+  const [userId, setUserId] = useState('');
 
   const updateLatam = () => {
     setLatam(!latam);
@@ -23,6 +24,10 @@ function App() {
 
   const updateLevel = event => {
     setLevel(event.target.value);
+  };
+
+  const updateUserId = id => {
+    setUserId(id);
   };
 
   return (
@@ -56,11 +61,19 @@ function App() {
                   level={level}
                   updateLevel={updateLevel}
                   updateLatam={updateLatam}
+                  userId={userId}
                 />
               )}
             />
-            <Route path="/signup" component={Signup} />
-            <Route path="/login" component={Login} />
+            {/* <Route path="/signup" component={Signup} /> */}
+            <Route
+              path="/signup"
+              render={props => <Signup updateUserId={updateUserId} />}
+            />
+            <Route
+              path="/login"
+              render={props => <Login {...props} updateUserId={updateUserId} />}
+            />
           </div>
         </div>
       </ApolloHooksProvider>

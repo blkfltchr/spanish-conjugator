@@ -32,6 +32,8 @@ function Login(props) {
       }
     });
 
+    props.updateUserId(data.login.user.id);
+
     if (!error) {
       props.history.push('/');
     }
