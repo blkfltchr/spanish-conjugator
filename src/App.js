@@ -14,11 +14,10 @@ function App() {
   const [latam, setLatam] = useState(true);
   const [token, setToken] = useState('');
 
-  console.log('Token from app', token);
   // if there's a token, we pass the auth headers to the server
   const client = token
     ? new ApolloClient({
-        uri: 'https://pacific-eyrie-99205.herokuapp.com/', // production
+        uri: process.env.REACT_APP_HEROKU_URL,
         request: async operation => {
           operation.setContext({
             headers: {
@@ -28,7 +27,7 @@ function App() {
         }
       })
     : new ApolloClient({
-        uri: process.env.REACT_APP_HEROKU_URL // production
+        uri: process.env.REACT_APP_HEROKU_URL
       });
 
   const updateLatam = () => {

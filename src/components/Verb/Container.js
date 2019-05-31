@@ -99,7 +99,6 @@ function Container(props) {
   };
 
   const sendLogData = async () => {
-    console.log('correct from log', correct);
     if (updated) {
       let userInput = value.toLowerCase();
       const logData = await mutate({
