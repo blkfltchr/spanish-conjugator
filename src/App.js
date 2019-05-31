@@ -6,6 +6,7 @@ import Header from './components/Layout/Header';
 import Container from './components/Verb/Container';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 
 const client = new ApolloClient({
   uri: 'https://pacific-eyrie-99205.herokuapp.com/', // production
@@ -54,6 +55,7 @@ function App() {
             path="/login"
             render={props => <Login {...props} updateToken={updateToken} />}
           />
+          <Route path="/dashboard" component={Dashboard} />
         </div>
       </div>
     </ApolloProvider>
