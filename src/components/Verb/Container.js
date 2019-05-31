@@ -72,15 +72,15 @@ function Container(props) {
     // if has already answered the question and has a green tick
     // or helper text stating that it was incorrect
     if (answered === true) {
-      // setTotalAnswers(totalAnswers + 1);
       setAnswered(false);
       setUpdated(true);
+      // setCorrect(false);
 
       // if the user's answer is correct
     } else if (randomVerb === userInput) {
       setCount(count + 1);
       setCorrectAnswers(correctAnswers + 1);
-      // setTotalAnswers(totalAnswers + 1);
+      setTotalAnswers(totalAnswers + 1);
       setCorrect(true);
       if (count >= bestStreak) {
         setBestStreak(bestStreak + 1);
@@ -94,14 +94,15 @@ function Container(props) {
       );
       setAnswered(true);
       setCount(0);
+      setTotalAnswers(totalAnswers + 1);
     }
-    // setTotalAnswers(totalAnswers + 1);
   };
 
   const sendLogData = async () => {
+    console.log('correct from log', correct);
     if (updated) {
       let userInput = value.toLowerCase();
-      await mutate({
+      const logData = await mutate({
         variables: {
           verbInfinitive: infinitive,
           tense: tenseEnglish,
@@ -109,12 +110,12 @@ function Container(props) {
           correct: correct
         }
       });
+      console.log('logData -->', logData);
       setUpdated(false);
       setValue('');
       setHelperText(null);
-      setCorrect(false);
       getRandomVerb();
-      setTotalAnswers(totalAnswers + 1);
+      setCorrect(false);
     }
   };
 

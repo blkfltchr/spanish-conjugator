@@ -32,7 +32,9 @@ function Login(props) {
       }
     });
 
-    props.updateToken(data.login.tokene);
+    console.log('Data from login -->', data);
+
+    props.updateToken(data.login.token);
 
     if (!error) {
       props.history.push('/');
