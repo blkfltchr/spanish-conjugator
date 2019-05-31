@@ -72,7 +72,7 @@ function Container(props) {
     // if has already answered the question and has a green tick
     // or helper text stating that it was incorrect
     if (answered === true) {
-      setTotalAnswers(totalAnswers + 1);
+      // setTotalAnswers(totalAnswers + 1);
       setAnswered(false);
       setUpdated(true);
 
@@ -80,7 +80,7 @@ function Container(props) {
     } else if (randomVerb === userInput) {
       setCount(count + 1);
       setCorrectAnswers(correctAnswers + 1);
-      setTotalAnswers(totalAnswers + 1);
+      // setTotalAnswers(totalAnswers + 1);
       setCorrect(true);
       if (count >= bestStreak) {
         setBestStreak(bestStreak + 1);
@@ -93,7 +93,9 @@ function Container(props) {
         `False, the correct answer is ${randomVerb.toUpperCase()}.`
       );
       setAnswered(true);
+      setCount(0);
     }
+    // setTotalAnswers(totalAnswers + 1);
   };
 
   const sendLogData = async () => {
@@ -108,11 +110,11 @@ function Container(props) {
         }
       });
       setUpdated(false);
-      setCount(0);
       setValue('');
       setHelperText(null);
       setCorrect(false);
       getRandomVerb();
+      setTotalAnswers(totalAnswers + 1);
     }
   };
 
