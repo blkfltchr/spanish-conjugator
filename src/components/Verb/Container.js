@@ -24,13 +24,8 @@ function Container(props) {
     answer: '',
     person: '',
   });
-  // const [randomPerson, setRandomPerson] = useState([]);
-  // const [randomVerb, setRandomVerb] = useState({});
-  // const [infinitive, setInfinitive] = useState('');
-  // const [tenseEnglish, setTenseEnglish] = useState('');
-  // const [infinitiveEnglish, setInfinitiveEnglish] = useState('');
-  // const [moodEnglish, setMoodEnglish] = useState('');
-  const { level, latam, token } = props;
+  const { level, latam, token, updateLevel, updateLatam } = props;
+
   const buttonText =
     verb.answer !== value.toLowerCase() && answered ? 'Next verb' : 'Submit';
   const percentage =
@@ -54,8 +49,6 @@ function Container(props) {
       const randomVerbNum = Math.floor(Math.random() * 5); // this grabs the 6 yo, tu, ellos etc that we want to use
       const randomVerb = data.verbs[randomNum];
 
-      // setRandomVerb(Object.values(randomVerb)[randomVerbNum]);
-      // setRandomPerson(Object.keys(randomVerb)[randomVerbNum]);
       setVerb({
         infinitive: randomVerb.infinitive,
         infinitiveEnglish: randomVerb.infinitiveEnglish,
@@ -74,6 +67,27 @@ function Container(props) {
   const handleChange = event => {
     setCorrect(false);
     setValue(event.target.value);
+  };
+
+  const handleRefresh = () => {
+    setValue('');
+    setHelperText(null);
+    setCorrect(false);
+    getRandomVerb();
+  };
+
+  const addStreak = () => {
+    if (count >= bestStreak) {
+      setBestStreak(bestStreak + 1);
+    }
+  };
+
+  const addCounter = () => {
+    setCount(count + 1);
+  };
+
+  const resetCounter = () => {
+    setCount(0);
   };
 
   const handleSubmit = async event => {
@@ -113,30 +127,6 @@ function Container(props) {
     const accent = event.target.value;
     setValue(value + accent);
   };
-
-  const handleRefresh = () => {
-    setValue('');
-    setHelperText(null);
-    setCorrect(false);
-    getRandomVerb();
-  };
-
-  const addStreak = () => {
-    if (count >= bestStreak) {
-      setBestStreak(bestStreak + 1);
-    }
-  };
-
-  const addCounter = () => {
-    setCount(count + 1);
-  };
-
-  const resetCounter = () => {
-    setCount(0);
-  };
-
-  console.log('randomVerb', verb.answer);
-  console.log('randomPerson', verb.person);
 
   return (
     <div>
@@ -187,8 +177,8 @@ function Container(props) {
       />
       <Settings
         handleRefresh={handleRefresh}
-        updateLevel={props.updateLevel}
-        updateLatam={props.updateLatam}
+        updateLevel={updateLevel}
+        updateLatam={updateLatam}
       />
     </div>
   );
