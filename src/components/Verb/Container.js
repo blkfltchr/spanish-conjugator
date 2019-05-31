@@ -16,6 +16,7 @@ function Container(props) {
   const [answered, setAnswered] = useState(false);
   const [helperText, setHelperText] = useState(null);
   const [correct, setCorrect] = useState(false);
+  const [updated, setUpdated] = useState(false);
   const [count, setCount] = useState(0);
   const [randomPerson, setRandomPerson] = useState([]);
   const [randomVerb, setRandomVerb] = useState({});
@@ -23,7 +24,7 @@ function Container(props) {
   const [tenseEnglish, setTenseEnglish] = useState('');
   const [moodEnglish, setMoodEnglish] = useState('');
   const [infinitiveEnglish, setInfinitiveEnglish] = useState('');
-  const { level, latam, token } = props;
+  const { level, latam } = props;
   const buttonText =
     randomPerson[1] !== value.toLowerCase() && answered
       ? 'Next verb'
@@ -45,6 +46,10 @@ function Container(props) {
     getRandomVerb();
   }, [data]);
 
+  useEffect(() => {
+    sendLogData();
+  }, [updated]);
+
   const getRandomVerb = () => {
     // this checks to see if the gql query has loaded
     if (Object.values(data).length !== 0) {
@@ -63,7 +68,7 @@ function Container(props) {
   };
 
   const handleChange = event => {
-    setCorrect(false);
+    // setCorrect(false);
     setValue(event.target.value);
   };
 
@@ -72,31 +77,46 @@ function Container(props) {
     let userInput = value.toLowerCase();
     if (answered === true) {
       setTotalAnswers(totalAnswers + 1);
-      handleRefresh();
+      // handleRefresh();
       setAnswered(false);
+      setUpdated(true);
     } else if (randomVerb === userInput) {
-      addCounter();
+      setCount(count + 1);
       setCorrectAnswers(correctAnswers + 1);
       setTotalAnswers(totalAnswers + 1);
-      handleRefresh();
+      // handleRefresh();
       setCorrect(true);
       addStreak();
+      setAnswered(true);
     } else if (randomVerb !== userInput) {
       setHelperText(
         `False, the correct answer is ${randomVerb.toUpperCase()}.`
       );
       setAnswered(true);
-      resetCounter();
     }
-    const logData = await mutate({
-      variables: {
-        verbInfinitive: infinitive,
-        tense: tenseEnglish,
-        answer: randomVerb,
-        correct
-      }
-    });
-    console.log('Log data --->', token, logData.data);
+    // setUpdated(true);
+  };
+
+  const sendLogData = async () => {
+    if (updated) {
+      let userInput = value.toLowerCase();
+      const logData = await mutate({
+        variables: {
+          verbInfinitive: infinitive,
+          tense: tenseEnglish,
+          answer: userInput,
+          correct: correct
+        }
+      });
+      console.log('Log data --->', logData.data);
+      setUpdated(false);
+      setCount(0);
+      setValue('');
+      // handleRefresh();
+      setHelperText(null);
+      setCorrect(false);
+      getRandomVerb();
+    }
   };
 
   const addAccent = event => {
@@ -106,7 +126,6 @@ function Container(props) {
   };
 
   const handleRefresh = () => {
-    setValue('');
     setHelperText(null);
     setCorrect(false);
     getRandomVerb();
@@ -116,14 +135,6 @@ function Container(props) {
     if (count >= bestStreak) {
       setBestStreak(bestStreak + 1);
     }
-  };
-
-  const addCounter = () => {
-    setCount(count + 1);
-  };
-
-  const resetCounter = () => {
-    setCount(0);
   };
 
   return (
@@ -184,14 +195,6 @@ function Container(props) {
 
 Container.propTypes = {
   randomPerson: PropTypes.array,
-  _addCounter: PropTypes.func,
-  get addCounter() {
-    return this._addCounter;
-  },
-  set addCounter(value) {
-    this._addCounter = value;
-  },
-  resetCounter: PropTypes.func,
   data: PropTypes.array,
   randomVerb: PropTypes.object,
   getRandomVerb: PropTypes.func,
