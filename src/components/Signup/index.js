@@ -33,6 +33,8 @@ function Signup(props) {
         password: password
       }
     });
+    props.updateToken(data.createUser.token);
+
     if (!error) {
       props.history.push('/');
     }
