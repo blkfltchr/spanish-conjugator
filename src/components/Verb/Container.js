@@ -15,6 +15,7 @@ function Container(props) {
   const [answered, setAnswered] = useState(false);
   const [helperText, setHelperText] = useState(null);
   const [correct, setCorrect] = useState(false);
+  const [updated, setUpdated] = useState(false);
   const [count, setCount] = useState(0);
   const [verb, setVerb] = useState({
     infinitive: '',
@@ -64,68 +65,73 @@ function Container(props) {
     getRandomVerb();
   }, [data]);
 
-  const handleChange = event => {
-    setCorrect(false);
-    setValue(event.target.value);
-  };
-
-  const handleRefresh = () => {
-    setValue('');
-    setHelperText(null);
-    setCorrect(false);
-    getRandomVerb();
-  };
-
-  const addStreak = () => {
-    if (count >= bestStreak) {
-      setBestStreak(bestStreak + 1);
+  const sendLogData = async () => {
+    if (updated) {
+      const userInput = value.toLowerCase();
+      const logData = await mutate({
+        variables: {
+          verbInfinitive: verb.infinitive,
+          tense: verb.tenseEnglish,
+          answer: userInput,
+          correct,
+        },
+      });
+      console.log('logData -->', logData);
+      setUpdated(false);
+      setValue('');
+      setHelperText(null);
+      getRandomVerb();
+      setCorrect(false);
     }
   };
 
-  const addCounter = () => {
-    setCount(count + 1);
-  };
-
-  const resetCounter = () => {
-    setCount(0);
-  };
+  useEffect(() => {
+    sendLogData();
+  }, [updated]);
 
   const handleSubmit = async event => {
     event.preventDefault();
     const userInput = value.toLowerCase();
+
+    // if has already answered the question and has a green tick
+    // or helper text stating that it was incorrect
     if (answered === true) {
-      setTotalAnswers(totalAnswers + 1);
-      handleRefresh();
       setAnswered(false);
+      setUpdated(true);
+      // setCorrect(false);
+
+      // if the user's answer is correct
     } else if (verb.answer === userInput) {
-      addCounter();
+      setCount(count + 1);
       setCorrectAnswers(correctAnswers + 1);
       setTotalAnswers(totalAnswers + 1);
-      handleRefresh();
       setCorrect(true);
-      addStreak();
+      if (count >= bestStreak) {
+        setBestStreak(bestStreak + 1);
+      }
+      setAnswered(true);
+
+      // if the user's answer is incorrect
     } else if (verb.answer !== userInput) {
       setHelperText(
         `False, the correct answer is ${verb.answer.toUpperCase()}.`
       );
       setAnswered(true);
-      resetCounter();
+      setCount(0);
+      setTotalAnswers(totalAnswers + 1);
     }
-    const logData = await mutate({
-      variables: {
-        verbInfinitive: verb.infinitive,
-        tense: verb.tenseEnglish,
-        answer: verb.answer,
-        correct,
-      },
-    });
-    console.log('Log data --->', logData);
   };
 
   const addAccent = event => {
     event.preventDefault();
     const accent = event.target.value;
     setValue(value + accent);
+  };
+
+  const handleRefresh = () => {
+    setHelperText(null);
+    setCorrect(false);
+    getRandomVerb();
   };
 
   return (
@@ -173,7 +179,7 @@ function Container(props) {
         addAccent={addAccent}
         handleSubmit={handleSubmit}
         randomPerson={verb.person}
-        handleChange={handleChange}
+        setValue={setValue}
       />
       <Settings
         handleRefresh={handleRefresh}
@@ -186,14 +192,6 @@ function Container(props) {
 
 Container.propTypes = {
   randomPerson: PropTypes.array,
-  _addCounter: PropTypes.func,
-  get addCounter() {
-    return this._addCounter;
-  },
-  set addCounter(value) {
-    this._addCounter = value;
-  },
-  resetCounter: PropTypes.func,
   data: PropTypes.array,
   randomVerb: PropTypes.object,
   getRandomVerb: PropTypes.func,

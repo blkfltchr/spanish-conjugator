@@ -8,14 +8,26 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
-const client = new ApolloClient({
-  uri: 'https://pacific-eyrie-99205.herokuapp.com/', // production
-});
-
 function App() {
   const [level, setLevel] = useState(0);
   const [latam, setLatam] = useState(true);
   const [token, setToken] = useState('');
+
+  // if there's a token, we pass the auth headers to the server
+  const client = token
+    ? new ApolloClient({
+        uri: 'https://pacific-eyrie-99205.herokuapp.com/',
+        request: async operation => {
+          operation.setContext({
+            headers: {
+              authorization: token,
+            },
+          });
+        },
+      })
+    : new ApolloClient({
+        uri: 'https://pacific-eyrie-99205.herokuapp.com/',
+      });
 
   const updateLatam = () => {
     setLatam(latam => !latam);

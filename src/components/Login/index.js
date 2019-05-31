@@ -32,6 +32,8 @@ function Login(props) {
       }
     });
 
+    console.log('Data from login -->', data);
+
     props.updateToken(data.login.token);
 
     if (!error) {
