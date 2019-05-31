@@ -23,7 +23,7 @@ function Container(props) {
   const [tenseEnglish, setTenseEnglish] = useState('');
   const [moodEnglish, setMoodEnglish] = useState('');
   const [infinitiveEnglish, setInfinitiveEnglish] = useState('');
-  const { level, latam, userId } = props;
+  const { level, latam, token } = props;
   const buttonText =
     randomPerson[1] !== value.toLowerCase() && answered
       ? 'Next verb'
@@ -88,32 +88,15 @@ function Container(props) {
       setAnswered(true);
       resetCounter();
     }
-    console.log('userId If above ..', userId);
-    if (userId) {
-      console.log('FROM THE CORRECT IF!', userId);
-      const logData = await mutate({
-        variables: {
-          id: userId,
-          verbInfinitive: infinitive,
-          tense: tenseEnglish,
-          answer: randomVerb,
-          correct: correct
-        }
-      });
-      console.log('LOG DATA ___', logData);
-    } else {
-      console.log('Incorrect if --->', userId);
-      const wrongLogData = await mutate({
-        variables: {
-          verbInfinitive: infinitive,
-          tense: tenseEnglish,
-          answer: randomVerb,
-          correct: correct
-        }
-      });
-      console.log('WRONG LOG DATA ___', wrongLogData);
-    }
-    // console.log('Log data mutate...', logData);
+    const logData = await mutate({
+      variables: {
+        verbInfinitive: infinitive,
+        tense: tenseEnglish,
+        answer: randomVerb,
+        correct
+      }
+    });
+    console.log('Log data --->', logData);
   };
 
   const addAccent = event => {

@@ -16,7 +16,7 @@ function App() {
   // const [isShowing, setIsShowing] = useState(false);
   const [level, setLevel] = useState(0);
   const [latam, setLatam] = useState(true);
-  const [userId, setUserId] = useState('');
+  const [token, setToken] = useState('');
 
   const updateLatam = () => {
     setLatam(!latam);
@@ -26,8 +26,8 @@ function App() {
     setLevel(event.target.value);
   };
 
-  const updateUserId = id => {
-    setUserId(id);
+  const updateToken = tok => {
+    setToken(tok);
   };
 
   return (
@@ -61,18 +61,18 @@ function App() {
                   level={level}
                   updateLevel={updateLevel}
                   updateLatam={updateLatam}
-                  userId={userId}
+                  token={token}
                 />
               )}
             />
             {/* <Route path="/signup" component={Signup} /> */}
             <Route
               path="/signup"
-              render={props => <Signup updateUserId={updateUserId} />}
+              render={props => <Signup updateToken={updateToken} />}
             />
             <Route
               path="/login"
-              render={props => <Login {...props} updateUserId={updateUserId} />}
+              render={props => <Login {...props} updateToken={updateToken} />}
             />
           </div>
         </div>

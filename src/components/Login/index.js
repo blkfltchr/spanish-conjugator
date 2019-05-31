@@ -32,7 +32,7 @@ function Login(props) {
       }
     });
 
-    props.updateUserId(data.login.user.id);
+    props.updateToken(data.login.token);
 
     if (!error) {
       props.history.push('/');

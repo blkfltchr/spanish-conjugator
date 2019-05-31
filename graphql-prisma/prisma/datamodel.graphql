@@ -14,7 +14,7 @@ type Log {
   tense: String!
   answer: String!
   correct: Boolean!
-  student: User @relation(name: "PostToUser", onDelete: SET_NULL)
+  student: User @relation(name: "LogToUser", onDelete: SET_NULL)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
