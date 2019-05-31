@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Reward from 'react-rewards';
 import PropTypes from 'prop-types';
+import { useQuery, useMutation } from 'react-apollo-hooks';
 import Info from './Info';
 import Input from './Input';
-import { useQuery, useMutation } from 'react-apollo-hooks';
+import Settings from '../Settings/Settings';
 import { verbQueries } from '../GqlQueries/verbQueries';
 import { CREATE_LOG } from '../GqlQueries/logQueries';
-import Settings from '../Settings/Settings';
 
 function Container(props) {
   const [value, setValue] = useState('');
@@ -17,33 +16,35 @@ function Container(props) {
   const [helperText, setHelperText] = useState(null);
   const [correct, setCorrect] = useState(false);
   const [count, setCount] = useState(0);
-  const [randomPerson, setRandomPerson] = useState([]);
-  const [randomVerb, setRandomVerb] = useState({});
-  const [infinitive, setInfinitive] = useState('');
-  const [tenseEnglish, setTenseEnglish] = useState('');
-  const [moodEnglish, setMoodEnglish] = useState('');
-  const [infinitiveEnglish, setInfinitiveEnglish] = useState('');
+  const [verb, setVerb] = useState({
+    infinitive: '',
+    tenseEnglish: '',
+    infinitiveEnglish: '',
+    moodEnglish: '',
+    answer: '',
+    person: '',
+  });
+  // const [randomPerson, setRandomPerson] = useState([]);
+  // const [randomVerb, setRandomVerb] = useState({});
+  // const [infinitive, setInfinitive] = useState('');
+  // const [tenseEnglish, setTenseEnglish] = useState('');
+  // const [infinitiveEnglish, setInfinitiveEnglish] = useState('');
+  // const [moodEnglish, setMoodEnglish] = useState('');
   const { level, latam, token } = props;
   const buttonText =
-    randomPerson[1] !== value.toLowerCase() && answered
-      ? 'Next verb'
-      : 'Submit';
+    verb.answer !== value.toLowerCase() && answered ? 'Next verb' : 'Submit';
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
 
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
   const { loading, data } = useQuery(verbQueries[level], {
-    variables: { latam }
+    variables: { latam },
   });
 
   const mutate = useMutation(CREATE_LOG);
 
   console.log('Data -->', data);
-
-  useEffect(() => {
-    getRandomVerb();
-  }, [data]);
 
   const getRandomVerb = () => {
     // this checks to see if the gql query has loaded
@@ -53,14 +54,22 @@ function Container(props) {
       const randomVerbNum = Math.floor(Math.random() * 5); // this grabs the 6 yo, tu, ellos etc that we want to use
       const randomVerb = data.verbs[randomNum];
 
-      setRandomVerb(Object.values(randomVerb)[randomVerbNum]);
-      setRandomPerson(Object.keys(randomVerb)[randomVerbNum]);
-      setInfinitive(randomVerb.infinitive);
-      setInfinitiveEnglish(randomVerb.infinitiveEnglish);
-      setTenseEnglish(randomVerb.tenseEnglish);
-      setMoodEnglish(randomVerb.moodEnglish);
+      // setRandomVerb(Object.values(randomVerb)[randomVerbNum]);
+      // setRandomPerson(Object.keys(randomVerb)[randomVerbNum]);
+      setVerb({
+        infinitive: randomVerb.infinitive,
+        infinitiveEnglish: randomVerb.infinitiveEnglish,
+        tenseEnglish: randomVerb.tenseEnglish,
+        moodEnglish: randomVerb.moodEnglish,
+        person: Object.keys(randomVerb)[randomVerbNum],
+        answer: Object.values(randomVerb)[randomVerbNum],
+      });
     }
   };
+
+  useEffect(() => {
+    getRandomVerb();
+  }, [data]);
 
   const handleChange = event => {
     setCorrect(false);
@@ -69,32 +78,32 @@ function Container(props) {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    let userInput = value.toLowerCase();
+    const userInput = value.toLowerCase();
     if (answered === true) {
       setTotalAnswers(totalAnswers + 1);
       handleRefresh();
       setAnswered(false);
-    } else if (randomVerb === userInput) {
+    } else if (verb.answer === userInput) {
       addCounter();
       setCorrectAnswers(correctAnswers + 1);
       setTotalAnswers(totalAnswers + 1);
       handleRefresh();
       setCorrect(true);
       addStreak();
-    } else if (randomVerb !== userInput) {
+    } else if (verb.answer !== userInput) {
       setHelperText(
-        `False, the correct answer is ${randomVerb.toUpperCase()}.`
+        `False, the correct answer is ${verb.answer.toUpperCase()}.`
       );
       setAnswered(true);
       resetCounter();
     }
     const logData = await mutate({
       variables: {
-        verbInfinitive: infinitive,
-        tense: tenseEnglish,
-        answer: randomVerb,
-        correct
-      }
+        verbInfinitive: verb.infinitive,
+        tense: verb.tenseEnglish,
+        answer: verb.answer,
+        correct,
+      },
     });
     console.log('Log data --->', logData);
   };
@@ -126,6 +135,9 @@ function Container(props) {
     setCount(0);
   };
 
+  console.log('randomVerb', verb.answer);
+  console.log('randomPerson', verb.person);
+
   return (
     <div>
       <div className="verb-info-wrapper">
@@ -156,10 +168,10 @@ function Container(props) {
           </div>
         </div>
         <Info
-          infinitive={infinitive}
-          infinitiveEnglish={infinitiveEnglish}
-          tenseEnglish={tenseEnglish}
-          moodEnglish={moodEnglish}
+          infinitive={verb.infinitive}
+          infinitiveEnglish={verb.infinitiveEnglish}
+          tenseEnglish={verb.tenseEnglish}
+          moodEnglish={verb.moodEnglish}
           loading={loading}
         />
       </div>
@@ -170,7 +182,7 @@ function Container(props) {
         buttonText={buttonText}
         addAccent={addAccent}
         handleSubmit={handleSubmit}
-        randomPerson={randomPerson}
+        randomPerson={verb.person}
         handleChange={handleChange}
       />
       <Settings
@@ -195,11 +207,11 @@ Container.propTypes = {
   data: PropTypes.array,
   randomVerb: PropTypes.object,
   getRandomVerb: PropTypes.func,
-  count: PropTypes.number
+  count: PropTypes.number,
 };
 
 Container.defaultProps = {
-  randomPerson: ['answer', 'answer']
+  randomPerson: ['answer', 'answer'],
 };
 
 export default Container;
