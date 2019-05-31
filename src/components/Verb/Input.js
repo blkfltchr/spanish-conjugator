@@ -20,7 +20,7 @@ function Input(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="flex-align-center">
+        <div className="input-section">
           <Person randomPerson={randomPerson} />
           <input
             type="text"
