@@ -5,7 +5,7 @@ import { SmallForm } from '../../styled/Form';
 import { LargeContainer } from '../../styled/Container';
 import { Input } from '../../styled/Input';
 import { useMutation } from 'react-apollo-hooks';
-import { CREATE_USER } from '../GqlQueries/Queries';
+import { CREATE_USER } from '../GqlQueries/userQueries';
 
 function Signup(props) {
   const [name, setName] = useState('');

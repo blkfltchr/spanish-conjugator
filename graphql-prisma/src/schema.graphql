@@ -1,4 +1,4 @@
-# import UserOrderByInput from './generated/prisma.graphql'
+# import UserOrderByInput, VerbOrderByInput, LogOrderByInput from './generated/prisma.graphql'
 
 type Query {
   users(
@@ -14,9 +14,16 @@ type Query {
     first: Int
     skip: Int
     after: String
-    orderBy: UserOrderByInput
+    orderBy: VerbOrderByInput
     where: VerbWhereInput
   ): [Verb]
+  logs(
+    query: String
+    first: Int
+    skip: Int
+    after: String
+    orderBy: LogOrderByInput
+  ): [Log]
 }
 
 type Mutation {
@@ -24,6 +31,7 @@ type Mutation {
   login(data: LoginUserInput!): AuthPayload!
   deleteUser: User!
   updateUser(data: UpdateUserInput!): User!
+  createLog(data: CreateLogInput!): Log!
 }
 
 # type Subscription {
@@ -50,6 +58,55 @@ input UpdateUserInput {
   name: String
   email: String
   password: String
+}
+
+input CreateLogInput {
+  verbInfinitive: String!
+  tense: String!
+  answer: String!
+  correct: Boolean!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String
+  password: String!
+  logs: [Log]
+  updatedAt: String!
+  createdAt: String!
+}
+
+type Log {
+  id: ID!
+  verbInfinitive: String!
+  tense: String!
+  answer: String!
+  correct: Boolean!
+  student: User
+  updatedAt: String!
+  createdAt: String!
+}
+
+type Verb {
+  form1p: String
+  form1s: String
+  form2p: String
+  form2s: String
+  form3p: String
+  form3s: String
+  gerund: String
+  gerundEnglish: String
+  index: ID
+  infinitive: String
+  infinitiveEnglish: String
+  mood: String
+  moodEnglish: String
+  pastparticiple: String
+  pastparticipleEnglish: String
+  tense: String
+  tenseEnglish: String
+  verbEnglish: String
 }
 
 input VerbWhereInput {
@@ -302,36 +359,6 @@ input VerbWhereInput {
   verbEnglish_not_starts_with: String
   verbEnglish_ends_with: String
   verbEnglish_not_ends_with: String
-}
-
-type User {
-  id: ID!
-  name: String!
-  email: String
-  password: String!
-  updatedAt: String!
-  createdAt: String!
-}
-
-type Verb {
-  form1p: String
-  form1s: String
-  form2p: String
-  form2s: String
-  form3p: String
-  form3s: String
-  gerund: String
-  gerundEnglish: String
-  index: ID
-  infinitive: String
-  infinitiveEnglish: String
-  mood: String
-  moodEnglish: String
-  pastparticiple: String
-  pastparticipleEnglish: String
-  tense: String
-  tenseEnglish: String
-  verbEnglish: String
 }
 
 enum MutationType {
