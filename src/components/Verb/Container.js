@@ -96,7 +96,7 @@ function Container(props) {
         correct
       }
     });
-    console.log('Log data --->', logData);
+    console.log('Log data --->', token, logData.data);
   };
 
   const addAccent = event => {
