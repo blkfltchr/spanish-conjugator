@@ -1,10 +1,22 @@
 type User {
-  id: ID! @unique @id
-  name: String!
+  id: ID! @id
   email: String! @unique
+  name: String!
   password: String!
-  updatedAt: DateTime! @updatedAt
+  logs: [Log] @relation(name: "LogToUser", onDelete: CASCADE)
   createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Log {
+  id: ID! @id
+  verbInfinitive: String!
+  tense: String!
+  answer: String!
+  correct: Boolean!
+  student: User @relation(name: "LogToUser", onDelete: SET_NULL)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Verb {
@@ -16,7 +28,7 @@ type Verb {
   form3s: String @db(name: "form_3s")
   gerund: String
   gerundEnglish: String @db(name: "gerund_english")
-  index: Int! @id
+  index: ID! @id
   infinitive: String
   infinitiveEnglish: String @db(name: "infinitive_english")
   mood: String

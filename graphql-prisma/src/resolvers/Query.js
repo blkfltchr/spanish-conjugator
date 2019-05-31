@@ -40,6 +40,15 @@ const Query = {
     };
 
     return prisma.query.verbs(opArgs, info);
+  },
+  logs(parent, args, { prisma }, info) {
+    const opArgs = {
+      first: args.first,
+      skip: args.skip,
+      after: args.after,
+      orderBy: args.orderBy
+    };
+    return prisma.query.logs(opArgs, info);
   }
 };
 

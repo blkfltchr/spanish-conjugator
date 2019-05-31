@@ -21,4 +21,4 @@ services:
             ssl: true
             rawAccess: true
             port: '5432'
-            migrations: true
+            migrations: false

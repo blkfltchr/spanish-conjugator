@@ -3,8 +3,9 @@ import Reward from 'react-rewards';
 import PropTypes from 'prop-types';
 import Info from './Info';
 import Input from './Input';
-import { useQuery } from 'react-apollo-hooks';
-import { verbQueries } from '../GqlQueries/Queries';
+import { useQuery, useMutation } from 'react-apollo-hooks';
+import { verbQueries } from '../GqlQueries/verbQueries';
+import { CREATE_LOG } from '../GqlQueries/logQueries';
 import Settings from '../Settings/Settings';
 
 function Container(props) {
@@ -22,7 +23,7 @@ function Container(props) {
   const [tenseEnglish, setTenseEnglish] = useState('');
   const [moodEnglish, setMoodEnglish] = useState('');
   const [infinitiveEnglish, setInfinitiveEnglish] = useState('');
-  const { level, latam } = props;
+  const { level, latam, token } = props;
   const buttonText =
     randomPerson[1] !== value.toLowerCase() && answered
       ? 'Next verb'
@@ -35,6 +36,8 @@ function Container(props) {
   const { loading, data } = useQuery(verbQueries[level], {
     variables: { latam }
   });
+
+  const mutate = useMutation(CREATE_LOG);
 
   console.log('Data -->', data);
 
@@ -64,7 +67,7 @@ function Container(props) {
     setValue(event.target.value);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     let userInput = value.toLowerCase();
     if (answered === true) {
@@ -85,6 +88,15 @@ function Container(props) {
       setAnswered(true);
       resetCounter();
     }
+    const logData = await mutate({
+      variables: {
+        verbInfinitive: infinitive,
+        tense: tenseEnglish,
+        answer: randomVerb,
+        correct
+      }
+    });
+    console.log('Log data --->', logData);
   };
 
   const addAccent = event => {
