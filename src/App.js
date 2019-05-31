@@ -17,11 +17,11 @@ function App() {
   // if there's a token, we pass the auth headers to the server
   const client = token
     ? new ApolloClient({
-        uri: 'https://pacific-eyrie-99205.herokuapp.com/',
+        uri: 'https://pacific-eyrie-99205.herokuapp.com/', // production
         request: async operation => {
           operation.setContext({
             headers: {
-              authorization: token ? token : null
+              authorization: token
             }
           });
         }

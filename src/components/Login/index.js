@@ -32,7 +32,7 @@ function Login(props) {
       }
     });
 
-    props.updateToken(data.login.token);
+    props.updateToken(data.login.tokene);
 
     if (!error) {
       props.history.push('/');

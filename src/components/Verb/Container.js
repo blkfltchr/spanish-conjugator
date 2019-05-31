@@ -40,8 +40,6 @@ function Container(props) {
 
   const mutate = useMutation(CREATE_LOG);
 
-  console.log('Data -->', data);
-
   useEffect(() => {
     getRandomVerb();
   }, [data]);
@@ -67,40 +65,41 @@ function Container(props) {
     }
   };
 
-  const handleChange = event => {
-    // setCorrect(false);
-    setValue(event.target.value);
-  };
-
   const handleSubmit = async event => {
     event.preventDefault();
     let userInput = value.toLowerCase();
+
+    // if has already answered the question and has a green tick
+    // or helper text stating that it was incorrect
     if (answered === true) {
       setTotalAnswers(totalAnswers + 1);
-      // handleRefresh();
       setAnswered(false);
       setUpdated(true);
+
+      // if the user's answer is correct
     } else if (randomVerb === userInput) {
       setCount(count + 1);
       setCorrectAnswers(correctAnswers + 1);
       setTotalAnswers(totalAnswers + 1);
-      // handleRefresh();
       setCorrect(true);
-      addStreak();
+      if (count >= bestStreak) {
+        setBestStreak(bestStreak + 1);
+      }
       setAnswered(true);
+
+      // if the user's answer is incorrect
     } else if (randomVerb !== userInput) {
       setHelperText(
         `False, the correct answer is ${randomVerb.toUpperCase()}.`
       );
       setAnswered(true);
     }
-    // setUpdated(true);
   };
 
   const sendLogData = async () => {
     if (updated) {
       let userInput = value.toLowerCase();
-      const logData = await mutate({
+      await mutate({
         variables: {
           verbInfinitive: infinitive,
           tense: tenseEnglish,
@@ -108,11 +107,9 @@ function Container(props) {
           correct: correct
         }
       });
-      console.log('Log data --->', logData.data);
       setUpdated(false);
       setCount(0);
       setValue('');
-      // handleRefresh();
       setHelperText(null);
       setCorrect(false);
       getRandomVerb();
@@ -129,12 +126,6 @@ function Container(props) {
     setHelperText(null);
     setCorrect(false);
     getRandomVerb();
-  };
-
-  const addStreak = () => {
-    if (count >= bestStreak) {
-      setBestStreak(bestStreak + 1);
-    }
   };
 
   return (
@@ -182,7 +173,7 @@ function Container(props) {
         addAccent={addAccent}
         handleSubmit={handleSubmit}
         randomPerson={randomPerson}
-        handleChange={handleChange}
+        setValue={setValue}
       />
       <Settings
         handleRefresh={handleRefresh}
