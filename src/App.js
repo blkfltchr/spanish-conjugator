@@ -8,15 +8,27 @@ import Login from './components/Login';
 import Header from '../src/components/Layout/Header';
 import Container from './components/Verb/Container';
 
-const client = new ApolloClient({
-  uri: 'https://pacific-eyrie-99205.herokuapp.com/' // production
-});
-
 function App() {
   // const [isShowing, setIsShowing] = useState(false);
   const [level, setLevel] = useState(0);
   const [latam, setLatam] = useState(true);
   const [token, setToken] = useState('');
+
+  // if there's a token, we pass the auth headers to the server
+  const client = token
+    ? new ApolloClient({
+        uri: process.env.REACT_APP_HEROKU_URL,
+        request: async operation => {
+          operation.setContext({
+            headers: {
+              authorization: token
+            }
+          });
+        }
+      })
+    : new ApolloClient({
+        uri: process.env.REACT_APP_HEROKU_URL
+      });
 
   const updateLatam = () => {
     setLatam(!latam);
@@ -65,10 +77,9 @@ function App() {
                 />
               )}
             />
-            {/* <Route path="/signup" component={Signup} /> */}
             <Route
               path="/signup"
-              render={props => <Signup updateToken={updateToken} />}
+              render={props => <Signup {...props} updateToken={updateToken} />}
             />
             <Route
               path="/login"

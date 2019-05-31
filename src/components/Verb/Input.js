@@ -9,13 +9,13 @@ function Input(props) {
   const {
     randomPerson,
     value,
-    handleChange,
     correct,
     addAccent,
     handleExample,
     helperText,
     handleSubmit,
-    buttonText
+    buttonText,
+    setValue
   } = props;
   return (
     <div>
@@ -26,7 +26,7 @@ function Input(props) {
             type="text"
             value={value}
             placeholder="Enter conjugated verb..."
-            onChange={handleChange}
+            onChange={e => setValue(e.target.value)}
             className="input"
           />
           <Checkmark correct={correct} />
@@ -61,7 +61,6 @@ function Input(props) {
 Input.propTypes = {
   randomPerson: PropTypes.array,
   value: PropTypes.string,
-  handleChange: PropTypes.func,
   correct: PropTypes.bool,
   addAccent: PropTypes.func,
   handleExample: PropTypes.func,
