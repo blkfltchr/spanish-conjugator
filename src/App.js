@@ -44,7 +44,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="app-wrapper">
-        <Header pageWrapId="app" outeContainerId="app-wrapper" />
+        <Header token={token} />
         <div className="app">
           <Route
             exact
