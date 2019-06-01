@@ -1,17 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => (
   <div className="header">
-    <h2>
-      Bienvenidos, al{' '}
+    <Link to="/">
       <span className="logo">
         Spanish Conjugator{' '}
         <span role="img" aria-label="colombia">
           🇪🇸
         </span>
       </span>
-    </h2>
-    <div>Verb practice for Spanish language learners.</div>
+    </Link>
+    <div>
+      <Link to="/">Home</Link>
+      <Link to="/dashboard">Dashboard</Link>
+    </div>
   </div>
 );
 
