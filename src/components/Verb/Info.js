@@ -7,7 +7,7 @@ function Info(props) {
     infinitive,
     infinitiveEnglish,
     tenseEnglish,
-    moodEnglish
+    moodEnglish,
   } = props;
   let verb;
   if (loading) {
@@ -36,7 +36,8 @@ Info.propTypes = {
   infinitive: PropTypes.string,
   infinitiveEnglish: PropTypes.string,
   tenseEnglish: PropTypes.string,
-  moodEnglish: PropTypes.string
+  moodEnglish: PropTypes.string,
+  loading: PropTypes.bool,
 };
 
 export default Info;

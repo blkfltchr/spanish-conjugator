@@ -12,6 +12,8 @@ export const Button = styled.div`
     padding: 10px 15px;
     color: white;
     background-image: linear-gradient(blue, #003893);
-    width: 100%;
+    width: 70%;
+    font-family: 'Open Sans';
+    outline: none;
   }
 `;

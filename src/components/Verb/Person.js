@@ -9,18 +9,18 @@ function VerbPerson(props) {
     form3s: 'El/Ella',
     form1p: 'Nosotros',
     form2p: 'Vosotros',
-    form3p: 'Ellos/Ellas'
+    form3p: 'Ellos/Ellas',
   };
 
   return (
-    <div className="person-flex">
+    <div className="extra-bold-text">
       <div>{personObj[randomPerson]}</div>
     </div>
   );
 }
 
 VerbPerson.propTypes = {
-  randomPerson: PropTypes.string
+  randomPerson: PropTypes.string,
 };
 
 export default VerbPerson;
