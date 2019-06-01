@@ -23,7 +23,7 @@ function Container(props) {
     infinitiveEnglish: '',
     moodEnglish: '',
     answer: '',
-    person: '',
+    person: ''
   });
   const { level, latam, token, updateLevel, updateLatam } = props;
 
@@ -35,7 +35,7 @@ function Container(props) {
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
   const { loading, data } = useQuery(verbQueries[level], {
-    variables: { latam },
+    variables: { latam }
   });
 
   const mutate = useMutation(CREATE_LOG);
@@ -56,7 +56,7 @@ function Container(props) {
         tenseEnglish: randomVerb.tenseEnglish,
         moodEnglish: randomVerb.moodEnglish,
         person: Object.keys(randomVerb)[randomVerbNum],
-        answer: Object.values(randomVerb)[randomVerbNum],
+        answer: Object.values(randomVerb)[randomVerbNum]
       });
     }
   };
@@ -72,9 +72,11 @@ function Container(props) {
         variables: {
           verbInfinitive: verb.infinitive,
           tense: verb.tenseEnglish,
-          answer: userInput,
-          correct,
-        },
+          correctAnswer: verb.answer,
+          userAnswer: userInput,
+          verbPerson: verb.person,
+          correct
+        }
       });
       console.log('logData -->', logData);
       setUpdated(false);
@@ -195,11 +197,11 @@ Container.propTypes = {
   data: PropTypes.array,
   randomVerb: PropTypes.object,
   getRandomVerb: PropTypes.func,
-  count: PropTypes.number,
+  count: PropTypes.number
 };
 
 Container.defaultProps = {
-  randomPerson: ['answer', 'answer'],
+  randomPerson: ['answer', 'answer']
 };
 
 export default Container;
