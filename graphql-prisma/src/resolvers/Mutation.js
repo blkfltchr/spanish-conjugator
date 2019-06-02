@@ -72,7 +72,6 @@ const Mutation = {
 
   async createLog(parent, args, { prisma, request }, info) {
     const userId = getUserId(request, false);
-    console.log('REQUEST..', request);
     if (userId) {
       return await prisma.mutation.createLog(
         {

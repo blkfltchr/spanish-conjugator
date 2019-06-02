@@ -63,7 +63,9 @@ input UpdateUserInput {
 input CreateLogInput {
   verbInfinitive: String!
   tense: String!
-  answer: String!
+  correctAnswer: String!
+  userAnswer: String!
+  verbPerson: String!
   correct: Boolean!
 }
 
@@ -81,7 +83,9 @@ type Log {
   id: ID!
   verbInfinitive: String!
   tense: String!
-  answer: String!
+  correctAnswer: String!
+  userAnswer: String!
+  verbPerson: String!
   correct: Boolean!
   student: User
   updatedAt: String!
