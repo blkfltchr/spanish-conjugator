@@ -7,13 +7,13 @@ import { useQuery } from 'react-apollo-hooks';
 import { GET_NAME } from '../GqlQueries/userQueries';
 
 function Dashboard() {
-  const { loading, data } = useQuery(GET_NAME);
+  const { data } = useQuery(GET_NAME);
   return (
     <div>
       <div style={{ textAlign: 'center' }}>
         <h1>
           Welcome to your student dashboard
-          {loading ? null : `, ${data.me.name}!`}
+          {data.length > 0 ? `, ${data.me.name}!` : null}
         </h1>
         <h3>Track your progress.</h3>
       </div>

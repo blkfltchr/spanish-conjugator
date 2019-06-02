@@ -2,8 +2,8 @@ import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 const data = [
-  { name: 'Correct', value: 400 },
-  { name: 'Incorrect', value: 300 },
+  { name: 'Correct', value: 4000 },
+  { name: 'Incorrect', value: 300 }
 ];
 
 const COLORS = ['#0088FE', '#00C49F'];
@@ -17,7 +17,7 @@ function PresentTense() {
           width: '100%',
           height: 200,
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'center'
         }}
       >
         <ResponsiveContainer>
