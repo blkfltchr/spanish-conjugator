@@ -69,6 +69,15 @@ function Container(props) {
   const sendLogData = async () => {
     if (updated) {
       const userInput = value.toLowerCase();
+      console.log(
+        'Loging the d:',
+        verb.infinitive,
+        verb.tenseEnglish,
+        verb.answer,
+        userInput,
+        verb.person,
+        correct
+      );
       const logData = await mutate({
         variables: {
           verbInfinitive: verb.infinitive,
@@ -163,22 +172,10 @@ function Container(props) {
 }
 
 Container.propTypes = {
-<<<<<<< HEAD
-  randomPerson: PropTypes.array,
-  data: PropTypes.array,
-  randomVerb: PropTypes.object,
-  getRandomVerb: PropTypes.func,
-  count: PropTypes.number
-};
-
-Container.defaultProps = {
-  randomPerson: ['answer', 'answer']
-=======
   level: PropTypes.number,
   latam: PropTypes.bool,
   updateLevel: PropTypes.func,
-  updateLatam: PropTypes.func,
->>>>>>> 64247c3338a9fe565cead2f8f517399453f3865b
+  updateLatam: PropTypes.func
 };
 
 export default Container;
