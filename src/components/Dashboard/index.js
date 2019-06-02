@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../styled/Button';
 import Charts from './Charts';
 import Tenses from './Tenses';
+import { useQuery } from 'react-apollo-hooks';
+import { GET_NAME } from '../GqlQueries/userQueries';
 
 function Dashboard() {
+  const { loading, data } = useQuery(GET_NAME);
   return (
     <div>
       <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to your student dashboard, firstName!</h1>
+        <h1>
+          Welcome to your student dashboard
+          {loading ? null : `, ${data.me.name}!`}
+        </h1>
         <h3>Track your progress.</h3>
       </div>
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>

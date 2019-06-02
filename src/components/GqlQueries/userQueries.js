@@ -25,4 +25,13 @@ const LOGIN = gql`
   }
 `;
 
-export { CREATE_USER, LOGIN };
+const GET_NAME = gql`
+  query {
+    me {
+      name
+      email
+    }
+  }
+`;
+
+export { CREATE_USER, LOGIN, GET_NAME };
