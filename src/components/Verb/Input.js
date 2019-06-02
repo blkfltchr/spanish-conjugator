@@ -7,7 +7,7 @@ import { Button } from '../../styled/Button';
 
 function Input(props) {
   const {
-    randomPerson,
+    person,
     value,
     correct,
     addAccent,
@@ -21,7 +21,7 @@ function Input(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <div className="input-section">
-          <Person randomPerson={randomPerson} />
+          <Person person={person} />
           <input
             type="text"
             value={value}
@@ -61,7 +61,7 @@ function Input(props) {
 }
 
 Input.propTypes = {
-  randomPerson: PropTypes.array,
+  person: PropTypes.string,
   value: PropTypes.string,
   correct: PropTypes.bool,
   addAccent: PropTypes.func,
@@ -69,10 +69,11 @@ Input.propTypes = {
   helperText: PropTypes.string,
   handleSubmit: PropTypes.func,
   buttonText: PropTypes.string,
+  setValue: PropTypes.func,
 };
 
 Input.defaultProps = {
-  randomPerson: ['answer', 'answer'],
+  person: 'form1s',
   value: '',
   correct: false,
   helperText: '',

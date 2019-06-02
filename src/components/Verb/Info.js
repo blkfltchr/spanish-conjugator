@@ -2,18 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Info(props) {
-  const {
-    loading,
-    infinitive,
-    infinitiveEnglish,
-    tenseEnglish,
-    moodEnglish,
-  } = props;
-  let verb;
+  const { loading, verb } = props;
+  const { infinitive, infinitiveEnglish, tenseEnglish, moodEnglish } = verb;
+  let verbInfo;
   if (loading) {
-    verb = <span>Loading..</span>;
+    verbInfo = <span>Loading..</span>;
   } else {
-    verb = (
+    verbInfo = (
       <span>
         <b>{infinitive.toUpperCase()}</b> ({infinitiveEnglish})
       </span>
@@ -22,7 +17,7 @@ function Info(props) {
   return (
     <div className="verb-info">
       <div className="twelve">Verb:</div>
-      <div className="twenty-four">{verb}</div>
+      <div className="twenty-four">{verbInfo}</div>
       <div className="twelve">Tense:</div>
       <div className="twenty-four">
         {tenseEnglish}{' '}
@@ -33,10 +28,7 @@ function Info(props) {
 }
 
 Info.propTypes = {
-  infinitive: PropTypes.string,
-  infinitiveEnglish: PropTypes.string,
-  tenseEnglish: PropTypes.string,
-  moodEnglish: PropTypes.string,
+  verb: PropTypes.object,
   loading: PropTypes.bool,
 };
 

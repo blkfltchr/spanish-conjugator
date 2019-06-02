@@ -6,9 +6,9 @@
 .modal-wrapper {
   background: white;
   border: 1px solid #d0cccc;
-  -webkit-box-shadow: 0 3px 7px rgba(208,204,204,0.29);
-  -moz-box-shadow: 0 3px 7px rgba(208,204,204,0.29);
-  box-shadow: 0 3px 7px rgba(208,204,204,0.29);
+  -webkit-box-shadow: 0 3px 7px rgba(208, 204, 204, 0.29);
+  -moz-box-shadow: 0 3px 7px rgba(208, 204, 204, 0.29);
+  box-shadow: 0 3px 7px rgba(208, 204, 204, 0.29);
   transition: all 1.3s;
   max-width: 380px;
   position: absolute;
@@ -34,11 +34,6 @@
   float: left;
   margin: 0;
   padding: 0;
-}
-
-.logo {
-  font-family: 'Saira', cursive;
-  color: blue;
 }
 
 .modal-body {

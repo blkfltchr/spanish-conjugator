@@ -6,6 +6,7 @@ import Input from './Input';
 import Settings from '../Settings/Settings';
 import { verbQueries } from '../GqlQueries/verbQueries';
 import { CREATE_LOG } from '../GqlQueries/logQueries';
+import Stats from './Stats';
 
 function Container(props) {
   const [value, setValue] = useState('');
@@ -25,7 +26,7 @@ function Container(props) {
     answer: '',
     person: ''
   });
-  const { level, latam, token, updateLevel, updateLatam } = props;
+  const { level, latam, updateLevel, updateLatam } = props;
 
   const buttonText =
     verb.answer !== value.toLowerCase() && answered ? 'Next verb' : 'Submit';
@@ -139,39 +140,8 @@ function Container(props) {
   return (
     <div>
       <div className="verb-info-wrapper">
-        <div className="verb-streak">
-          <div className="current-best-streak">
-            <div className="streak">current streak:</div>
-            <div className="twenty-four">{count}</div>
-          </div>
-          {/* <Reward
-            ref={ref => {
-              reward = ref;
-            }}
-            type="emoji"
-          >
-            <div className="current-best-streak">
-              <div className="streak">best streak:</div>
-              <div className="twenty-four">
-                {bestStreak}{' '}
-                <span role="img" aria-label="salsa dancer">
-                  💃
-                </span>
-              </div>
-            </div>
-          </Reward> */}
-          <div className="current-best-streak">
-            <div className="streak">percentage:</div>
-            <div className="twenty-four">{percentage}%</div>
-          </div>
-        </div>
-        <Info
-          infinitive={verb.infinitive}
-          infinitiveEnglish={verb.infinitiveEnglish}
-          tenseEnglish={verb.tenseEnglish}
-          moodEnglish={verb.moodEnglish}
-          loading={loading}
-        />
+        <Stats count={count} percentage={percentage} />
+        <Info verb={verb} loading={loading} />
       </div>
       <Input
         helperText={helperText}
@@ -180,7 +150,7 @@ function Container(props) {
         buttonText={buttonText}
         addAccent={addAccent}
         handleSubmit={handleSubmit}
-        randomPerson={verb.person}
+        person={verb.person}
         setValue={setValue}
       />
       <Settings
@@ -193,6 +163,7 @@ function Container(props) {
 }
 
 Container.propTypes = {
+<<<<<<< HEAD
   randomPerson: PropTypes.array,
   data: PropTypes.array,
   randomVerb: PropTypes.object,
@@ -202,6 +173,12 @@ Container.propTypes = {
 
 Container.defaultProps = {
   randomPerson: ['answer', 'answer']
+=======
+  level: PropTypes.number,
+  latam: PropTypes.bool,
+  updateLevel: PropTypes.func,
+  updateLatam: PropTypes.func,
+>>>>>>> 64247c3338a9fe565cead2f8f517399453f3865b
 };
 
 export default Container;

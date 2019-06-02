@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function VerbPerson(props) {
-  const { randomPerson } = props;
+  const { person } = props;
   const personObj = {
     form1s: 'Yo',
     form2s: 'Tú',
@@ -14,13 +14,13 @@ function VerbPerson(props) {
 
   return (
     <div className="extra-bold-text">
-      <div>{personObj[randomPerson]}</div>
+      <div>{personObj[person]}</div>
     </div>
   );
 }
 
 VerbPerson.propTypes = {
-  randomPerson: PropTypes.string,
+  person: PropTypes.string,
 };
 
 export default VerbPerson;
