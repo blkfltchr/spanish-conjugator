@@ -69,15 +69,6 @@ function Container(props) {
   const sendLogData = async () => {
     if (updated) {
       const userInput = value.toLowerCase();
-      console.log(
-        'Loging the d:',
-        verb.infinitive,
-        verb.tenseEnglish,
-        verb.answer,
-        userInput,
-        verb.person,
-        correct
-      );
       const logData = await mutate({
         variables: {
           verbInfinitive: verb.infinitive,
