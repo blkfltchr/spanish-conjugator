@@ -104,10 +104,27 @@ body {
 /* Header styles */
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
   background: white;
-  height: 90px;
-  padding-top: 5px;
+  padding: 5px 10%;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
+@media only screen and (max-width: 630px) {
+  .header {
+    justify-content: flex-start;
+  }
+}
+
+.header a {
+  margin: 0 5px;
+  color: blue;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 390px) {
@@ -122,14 +139,20 @@ body {
   font-weight: 400;
 }
 
-.header span {
-  font-family: 'Saira', cursive;
-  color: #003893;
-  font-weight: 700;
-}
-
 .header div {
   font-size: 16px;
+}
+
+.logo {
+  font-family: 'Saira';
+  color: #003893;
+  font-weight: 900;
+}
+
+@media only screen and (max-width: 630px) {
+  .logo {
+    display: none;
+  }
 }
 
 /* Verb streak styles */

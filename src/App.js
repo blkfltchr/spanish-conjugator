@@ -43,8 +43,8 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <div>
-        <Header />
+      <div className="app-wrapper">
+        <Header token={token} />
         <div className="app">
           <Route
             exact
