@@ -1,15 +1,13 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
-const data = [
-  { name: 'Correct', value: 369 },
-  { name: 'Incorrect', value: 433 }
-];
-
 const COLORS = ['#0088FE', '#00C49F'];
 
 function PreteriteTense(props) {
-  console.log('Props from pret tense --->', props);
+  const data = [
+    { name: 'Correct', value: props.pretCorrect },
+    { name: 'Incorrect', value: props.pretTotal - props.pretCorrect }
+  ];
   return (
     <div>
       <h2>Preterite Tense</h2>
@@ -43,15 +41,17 @@ function PreteriteTense(props) {
           </PieChart>
         </ResponsiveContainer>
         <div style={{ minWidth: '120px' }}>
-          <h2>{`${((369 / 802) * 100).toFixed(1)} %`}</h2>
+          <h2>{`${((props.pretCorrect / props.pretTotal) * 100).toFixed(
+            1
+          )} %`}</h2>
           <p>Percent</p>
         </div>
         <div style={{ minWidth: '120px' }}>
-          <h2>{369}</h2>
+          <h2>{props.pretCorrect}</h2>
           <p>Correct answers</p>
         </div>
         <div style={{ minWidth: '120px' }}>
-          <h2>{802}</h2>
+          <h2>{props.pretTotal}</h2>
           <p>Total answers</p>
         </div>
       </div>

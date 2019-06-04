@@ -1,24 +1,13 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-import { useQuery } from 'react-apollo-hooks';
-import { GET_MY_INFO } from '../../../GqlQueries/userQueries';
-
-// const data = [
-//   { name: 'Correct', value: 4000 },
-//   { name: 'Incorrect', value: 300 }
-// ];
 
 const COLORS = ['#0088FE', '#00C49F'];
 
 function PresentTense(props) {
-  // const { loading, data } = useQuery(GET_MY_INFO);
-
   const data = [
-    { name: 'Correct', value: props.correctNum },
-    { name: 'Incorrect', value: props.totalNum - props.correctNum }
+    { name: 'Correct', value: props.presentCorrect },
+    { name: 'Incorrect', value: props.presentTotal - props.presentCorrect }
   ];
-
-  console.log('DATA FROM PRESENT', data);
 
   return (
     <div>
@@ -53,15 +42,17 @@ function PresentTense(props) {
           </PieChart>
         </ResponsiveContainer>
         <div style={{ minWidth: '120px' }}>
-          <h2>{`${((400 / 700) * 100).toFixed(1)} %`}</h2>
+          <h2>{`${((props.presentCorrect / props.presentTotal) * 100).toFixed(
+            1
+          )} %`}</h2>
           <p>Percent</p>
         </div>
         <div style={{ minWidth: '120px' }}>
-          <h2>{props.correctNum}</h2>
+          <h2>{props.presentCorrect}</h2>
           <p>Correct answers</p>
         </div>
         <div style={{ minWidth: '120px' }}>
-          <h2>{props.totalNum}</h2>
+          <h2>{props.presentTotal}</h2>
           <p>Total answers</p>
         </div>
       </div>
