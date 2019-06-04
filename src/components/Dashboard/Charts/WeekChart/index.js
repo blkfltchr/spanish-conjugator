@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   AreaChart,
   Area,
@@ -12,21 +12,18 @@ import moment from 'moment';
 import { useQuery } from 'react-apollo-hooks';
 import { MY_LOGS_BY_DATE } from '../../../GqlQueries/logQueries';
 
-// const data = [
-//   { name: 'Mon', correct: 40, answers: 90 },
-//   { name: 'Tue', correct: 30, answers: 72 },
-//   { name: 'Wed', correct: 20, answers: 62 },
-//   { name: 'Thu', correct: 12, answers: 54 },
-//   { name: 'Fri', correct: 18, answers: 32 },
-//   { name: 'Sat', correct: 23, answers: 25 },
-//   { name: 'Sun', correct: 24, answers: 56 }
-// ];
-
 function WeekChart() {
+  const [sun, setSun] = useState('');
+  const [mon, setMon] = useState('');
+  const [tues, setTues] = useState('');
+  const [wed, setWed] = useState('');
+  const [thurs, setThurs] = useState('');
+  const [fri, setFri] = useState('');
+  const [sat, setSat] = useState('');
+
   const oneWeekAgo = moment()
     .subtract(7, 'd')
     .format('YYYY-MM-DD');
-  console.log('oneWeekAgo --', oneWeekAgo);
 
   const { loading, data } = useQuery(MY_LOGS_BY_DATE, {
     variables: {
@@ -34,17 +31,42 @@ function WeekChart() {
     }
   });
 
-  console.log('Data from week ago charts', data);
+  // console.log('Data Pre use effect --', data);
+  // const aDay = new Date('2019-06-04T21:38:42.331Z');
+  // console.log('THE DATE', aDay, aDay.getDay());
+
+  // getDay() return 0-6; Sun-Sat
+  useEffect(() => {
+    if (Object.values(data).length > 0) {
+      const mon = data.myLogs.filter(val => {
+        const aDate = new Date(val.createdAt);
+        const theDay = aDate.getDay();
+        return theDay === 0;
+      });
+      console.log('Mondayy -->', mon);
+      setMon(mon);
+    }
+  }, [data]);
+
+  const weekData = [
+    { name: 'Mon', correct: 40, answers: 90 },
+    { name: 'Tue', correct: 30, answers: 72 },
+    { name: 'Wed', correct: 20, answers: 62 },
+    { name: 'Thu', correct: 12, answers: 54 },
+    { name: 'Fri', correct: 18, answers: 32 },
+    { name: 'Sat', correct: 23, answers: 25 },
+    { name: 'Sun', correct: 24, answers: 56 }
+  ];
 
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
   const correct = () => {
-    const correct = data.map(data => data.correct);
+    const correct = weekData.map(weekData => weekData.correct);
     return correct.reduce(reducer);
   };
 
   const answers = () => {
-    const answers = data.map(data => data.answers);
+    const answers = weekData.map(weekData => weekData.answers);
     return answers.reduce(reducer);
   };
 
@@ -57,7 +79,7 @@ function WeekChart() {
         alignItems: 'center'
       }}
     >
-      {/* <div style={{ width: '100px' }}>
+      <div style={{ width: '100px' }}>
         <div>
           <h2>{`${((correct() / answers()) * 100).toFixed(1)} %`}</h2>
           <p>Percent</p>
@@ -73,7 +95,7 @@ function WeekChart() {
       </div>
       <div style={{ width: '100%', height: '300px' }}>
         <ResponsiveContainer>
-          <AreaChart width={600} height={200} data={data} syncId="anyId">
+          <AreaChart width={600} height={200} data={weekData} syncId="anyId">
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" padding={{ left: 15, right: 15 }} />
             <YAxis />
@@ -82,7 +104,7 @@ function WeekChart() {
             <Area type="monotone" dataKey="correct" />
           </AreaChart>
         </ResponsiveContainer>
-      </div> */}
+      </div>
     </div>
   );
 }
