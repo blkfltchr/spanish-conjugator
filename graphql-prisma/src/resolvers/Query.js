@@ -34,6 +34,22 @@ const Query = {
       info
     );
   },
+  myLogs(parent, args, { prisma, request }, info) {
+    const userId = getUserId(request);
+    const opArgs = {
+      first: args.first,
+      skip: args.skip,
+      after: args.after,
+      orderBy: args.orderBy,
+      where: {
+        student: {
+          id: userId
+        }
+      }
+    };
+
+    return prisma.query.logs(opArgs, info);
+  },
   verbs(parent, args, { prisma }, info) {
     const opArgs = {
       first: args.first,
@@ -50,7 +66,8 @@ const Query = {
       first: args.first,
       skip: args.skip,
       after: args.after,
-      orderBy: args.orderBy
+      orderBy: args.orderBy,
+      where: args.where
     };
     return prisma.query.logs(opArgs, info);
   }
