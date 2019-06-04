@@ -6,8 +6,9 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
+  ResponsiveContainer
 } from 'recharts';
+import moment from 'moment';
 
 const data = [
   { name: 'Mon', correct: 40, answers: 90 },
@@ -16,10 +17,12 @@ const data = [
   { name: 'Thu', correct: 12, answers: 54 },
   { name: 'Fri', correct: 18, answers: 32 },
   { name: 'Sat', correct: 23, answers: 25 },
-  { name: 'Sun', correct: 24, answers: 56 },
+  { name: 'Sun', correct: 24, answers: 56 }
 ];
 
 function MonthlyChart() {
+  console.log('TIME', moment());
+
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
   const correct = () => {
@@ -38,7 +41,7 @@ function MonthlyChart() {
         textAlign: 'left',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'center'
       }}
     >
       <div style={{ width: '100px' }}>

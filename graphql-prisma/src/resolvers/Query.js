@@ -42,6 +42,7 @@ const Query = {
       after: args.after,
       orderBy: args.orderBy,
       where: {
+        ...args.where,
         student: {
           id: userId
         }

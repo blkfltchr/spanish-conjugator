@@ -54,4 +54,24 @@ const CREATE_LOG = gql`
   }
 `;
 
-export { LOGS, CREATE_LOG };
+const MY_LOGS_BY_DATE = gql`
+  query($date: DateTime!) {
+    myLogs(where: { createdAt_gte: $date }) {
+      id
+      verbInfinitive
+      tense
+      correctAnswer
+      userAnswer
+      verbPerson
+      correct
+      createdAt
+      student {
+        id
+        name
+        email
+      }
+    }
+  }
+`;
+
+export { LOGS, CREATE_LOG, MY_LOGS_BY_DATE };

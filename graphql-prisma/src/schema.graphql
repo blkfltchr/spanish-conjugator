@@ -1,4 +1,4 @@
-# import UserOrderByInput, VerbOrderByInput, LogOrderByInput, VerbWhereInput, LogsWhereInput from './generated/prisma.graphql'
+# import UserOrderByInput, VerbOrderByInput, LogOrderByInput, VerbWhereInput, LogWhereInput from './generated/prisma.graphql'
 
 type Query {
   users(
@@ -33,7 +33,7 @@ type Query {
     after: String
     orderBy: LogOrderByInput
     where: LogWhereInput
-  ): [Log]
+  ): [Log!]!
 }
 
 type Mutation {
