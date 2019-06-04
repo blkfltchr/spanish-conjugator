@@ -9,8 +9,6 @@ import PreteriteTense from './Tenses/PreteriteTense';
 import ImperfectTense from './Tenses/ImperfectTense';
 
 function Dashboard() {
-  const [totalNum, setTotalNum] = useState('');
-  const [totalCorrect, setTotalCorrect] = useState('');
   const [presentCorrect, setPresentCorrect] = useState('');
   const [presentTotal, setPresentTotal] = useState('');
   const [pretCorrect, setPretCorrect] = useState(0);
@@ -22,12 +20,6 @@ function Dashboard() {
 
   useEffect(() => {
     if (Object.values(data).length > 0) {
-      setTotalNum(Object.values(data.me.logs).length);
-      const cor = data.me.logs.filter(val => {
-        return val.correct === true;
-      });
-      setTotalCorrect(Object.values(cor).length);
-
       const present = data.me.logs.filter(val => {
         return val.tense === 'Present';
       });
@@ -43,7 +35,7 @@ function Dashboard() {
       const pretCor = pret.filter(val => {
         return val.correct === true;
       });
-      setPresentCorrect(Object.values(pretCor).length);
+      setPretCorrect(Object.values(pretCor).length);
       setPretTotal(Object.values(pret).length);
 
       const imperfect = data.me.logs.filter(val => {

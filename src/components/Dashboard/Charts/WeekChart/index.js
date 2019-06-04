@@ -9,19 +9,32 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import moment from 'moment';
+import { useQuery } from 'react-apollo-hooks';
+import { MY_LOGS_BY_DATE } from '../../../GqlQueries/logQueries';
 
-const data = [
-  { name: 'Mon', correct: 40, answers: 90 },
-  { name: 'Tue', correct: 30, answers: 72 },
-  { name: 'Wed', correct: 20, answers: 62 },
-  { name: 'Thu', correct: 12, answers: 54 },
-  { name: 'Fri', correct: 18, answers: 32 },
-  { name: 'Sat', correct: 23, answers: 25 },
-  { name: 'Sun', correct: 24, answers: 56 }
-];
+// const data = [
+//   { name: 'Mon', correct: 40, answers: 90 },
+//   { name: 'Tue', correct: 30, answers: 72 },
+//   { name: 'Wed', correct: 20, answers: 62 },
+//   { name: 'Thu', correct: 12, answers: 54 },
+//   { name: 'Fri', correct: 18, answers: 32 },
+//   { name: 'Sat', correct: 23, answers: 25 },
+//   { name: 'Sun', correct: 24, answers: 56 }
+// ];
 
-function MonthlyChart() {
-  console.log('TIME', moment());
+function WeekChart() {
+  const oneWeekAgo = moment()
+    .subtract(7, 'd')
+    .format('YYYY-MM-DD');
+  console.log('oneWeekAgo --', oneWeekAgo);
+
+  const { loading, data } = useQuery(MY_LOGS_BY_DATE, {
+    variables: {
+      date: oneWeekAgo
+    }
+  });
+
+  console.log('Data from week ago charts', data);
 
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
@@ -44,7 +57,7 @@ function MonthlyChart() {
         alignItems: 'center'
       }}
     >
-      <div style={{ width: '100px' }}>
+      {/* <div style={{ width: '100px' }}>
         <div>
           <h2>{`${((correct() / answers()) * 100).toFixed(1)} %`}</h2>
           <p>Percent</p>
@@ -69,9 +82,9 @@ function MonthlyChart() {
             <Area type="monotone" dataKey="correct" />
           </AreaChart>
         </ResponsiveContainer>
-      </div>
+      </div> */}
     </div>
   );
 }
 
-export default MonthlyChart;
+export default WeekChart;
