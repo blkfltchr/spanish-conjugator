@@ -1,7 +1,7 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { useQuery } from 'react-apollo-hooks';
-import { GET_LOGS } from '../../../GqlQueries/userQueries';
+import { GET_MY_INFO } from '../../../GqlQueries/userQueries';
 
 // const data = [
 //   { name: 'Correct', value: 4000 },
@@ -11,27 +11,15 @@ import { GET_LOGS } from '../../../GqlQueries/userQueries';
 const COLORS = ['#0088FE', '#00C49F'];
 
 function PresentTense(props) {
-  // if (!props.loading) {
-  //   const { loading, data } = useQuery(GET_LOGS, {
-  //     variables: {
-  //       id: props.id
-  //     }
-  //   });
-  // }
-  // const muliQuery = () => {
-  //   const { userData } = useQuery(GET_MY_INFO);
-  // }
-  // const { loading, data } = useQuery(GET_LOGS);
-  // // console.log('Data from presenttense..', data);
-  // if (Object.values(data).length > 0) {
-  //   // const id = data.me.id;
-  //   console.log('Data from present tense --->', data);
-  //   // const logs = data.users[0].logs;
-  //   // const correct = logs.filter(val => {
-  //   //   return val.correct === true;
-  //   // });
-  //   // console.log('Correct -->', correct);
-  // }
+  // const { loading, data } = useQuery(GET_MY_INFO);
+
+  const data = [
+    { name: 'Correct', value: props.correctNum },
+    { name: 'Incorrect', value: props.totalNum - props.correctNum }
+  ];
+
+  console.log('DATA FROM PRESENT', data);
+
   return (
     <div>
       <h2>Present Tense</h2>
@@ -43,7 +31,7 @@ function PresentTense(props) {
           alignItems: 'center'
         }}
       >
-        {/* <ResponsiveContainer>
+        <ResponsiveContainer>
           <PieChart width={200} height={200}>
             <Pie
               data={data}
@@ -63,17 +51,17 @@ function PresentTense(props) {
               ))}
             </Pie>
           </PieChart>
-        </ResponsiveContainer> */}
+        </ResponsiveContainer>
         <div style={{ minWidth: '120px' }}>
           <h2>{`${((400 / 700) * 100).toFixed(1)} %`}</h2>
           <p>Percent</p>
         </div>
         <div style={{ minWidth: '120px' }}>
-          <h2>{400}</h2>
+          <h2>{props.correctNum}</h2>
           <p>Correct answers</p>
         </div>
         <div style={{ minWidth: '120px' }}>
-          <h2>{700}</h2>
+          <h2>{props.totalNum}</h2>
           <p>Total answers</p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../styled/Button';
 import Charts from './Charts';
@@ -10,15 +10,24 @@ import PreteriteTense from './Tenses/PreteriteTense';
 import ImperfectTense from './Tenses/ImperfectTense';
 
 function Dashboard() {
-  const [id, setId] = useState('');
+  const [correctAnswers, setCorrectAnswers] = useState('');
+  const [totalAnswers, setTotalAnswers] = useState('');
+  const [totalNum, setTotalNum] = useState(0);
+  const [correctNum, setCorrectNum] = useState(0);
+  const { data } = useQuery(GET_MY_INFO);
 
-  const { loading, data } = useQuery(GET_MY_INFO);
+  useEffect(() => {
+    if (Object.values(data).length > 0) {
+      setTotalAnswers(data.me.logs);
+      setTotalNum(Object.values(data.me.logs).length);
+      const cor = data.me.logs.filter(val => {
+        return val.correct === true;
+      });
+      setCorrectAnswers(cor);
+      setCorrectNum(Object.values(cor).length);
+    }
+  }, [data]);
 
-  console.log('Data from dash ->', data, Object.values(data).length);
-  if (Object.values(data).length > 0) {
-    console.log('Dashboard data id---', data.me.id);
-    setId(data.me.id);
-  }
   return (
     <div>
       <div style={{ textAlign: 'center' }}>
@@ -30,10 +39,10 @@ function Dashboard() {
       </div>
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
         <Charts />
-        <Tenses loading={loading} id={id} />
-        {/* <PresentTense loading={loading} id={id} /> */}
-        {/* <PreteriteTense loading={loading} id={id} /> */}
-        {/* <ImperfectTense loading={loading} id={id} /> */}
+        {/* <Tenses loading={loading} id={id} /> */}
+        <PresentTense totalNum={totalNum} correctNum={correctNum} />
+        <PreteriteTense totalNum={totalNum} correctNum={correctNum} />
+        <ImperfectTense totalNum={totalNum} correctNum={correctNum} />
         <Button>
           <Link to="/">
             <button type="button">Start conjugating</button>

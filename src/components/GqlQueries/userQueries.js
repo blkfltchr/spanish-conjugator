@@ -31,16 +31,6 @@ const GET_MY_INFO = gql`
       id
       name
       email
-    }
-  }
-`;
-
-const GET_LOGS = gql`
-  query($id: String!) {
-    users(where: { id: $id }) {
-      id
-      name
-      email
       logs {
         id
         verbInfinitive
@@ -49,9 +39,10 @@ const GET_LOGS = gql`
         userAnswer
         verbPerson
         correct
+        createdAt
       }
     }
   }
 `;
 
-export { CREATE_USER, LOGIN, GET_MY_INFO, GET_LOGS };
+export { CREATE_USER, LOGIN, GET_MY_INFO };
