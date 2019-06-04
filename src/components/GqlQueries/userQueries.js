@@ -25,13 +25,33 @@ const LOGIN = gql`
   }
 `;
 
-const GET_NAME = gql`
+const GET_MY_INFO = gql`
   query {
     me {
+      id
       name
       email
     }
   }
 `;
 
-export { CREATE_USER, LOGIN, GET_NAME };
+const GET_LOGS = gql`
+  query($id: String!) {
+    users(where: { id: $id }) {
+      id
+      name
+      email
+      logs {
+        id
+        verbInfinitive
+        tense
+        correctAnswer
+        userAnswer
+        verbPerson
+        correct
+      }
+    }
+  }
+`;
+
+export { CREATE_USER, LOGIN, GET_MY_INFO, GET_LOGS };

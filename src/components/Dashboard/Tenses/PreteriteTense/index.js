@@ -3,12 +3,13 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 const data = [
   { name: 'Correct', value: 369 },
-  { name: 'Incorrect', value: 433 },
+  { name: 'Incorrect', value: 433 }
 ];
 
 const COLORS = ['#0088FE', '#00C49F'];
 
-function PreteriteTense() {
+function PreteriteTense(props) {
+  console.log('Props from pret tense --->', props);
   return (
     <div>
       <h2>Preterite Tense</h2>
@@ -17,7 +18,7 @@ function PreteriteTense() {
           width: '100%',
           height: 200,
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'center'
         }}
       >
         <ResponsiveContainer>

@@ -6,7 +6,8 @@ const Query = {
       first: args.first,
       skip: args.skip,
       after: args.after,
-      orderBy: args.orderBy
+      orderBy: args.orderBy,
+      where: args.where
     };
 
     if (args.query) {
@@ -24,11 +25,14 @@ const Query = {
   me(parent, args, { prisma, request }, info) {
     const userId = getUserId(request);
 
-    return prisma.query.user({
-      where: {
-        id: userId
-      }
-    });
+    return prisma.query.user(
+      {
+        where: {
+          id: userId
+        }
+      },
+      info
+    );
   },
   verbs(parent, args, { prisma }, info) {
     const opArgs = {

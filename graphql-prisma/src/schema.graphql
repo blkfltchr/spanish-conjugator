@@ -7,6 +7,7 @@ type Query {
     skip: Int
     after: String
     orderBy: UserOrderByInput
+    where: UserWhereInput
   ): [User!]!
   me: User!
   verbs(
@@ -111,6 +112,13 @@ type Verb {
   tense: String
   tenseEnglish: String
   verbEnglish: String
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  id: String
 }
 
 input VerbWhereInput {
