@@ -50,13 +50,13 @@ function WeekChart() {
   console.log('Actual state -->', weekCorrect, weekTotal);
 
   const weekData = [
-    { name: 'Mon', correct: 40, answers: 90 },
-    { name: 'Tue', correct: 30, answers: 72 },
-    { name: 'Wed', correct: 20, answers: 62 },
-    { name: 'Thu', correct: 12, answers: 54 },
-    { name: 'Fri', correct: 18, answers: 32 },
-    { name: 'Sat', correct: 23, answers: 25 },
-    { name: 'Sun', correct: 24, answers: 56 }
+    { name: 'Sun', correct: weekCorrect[0], answers: weekTotal[0] },
+    { name: 'Mon', correct: weekCorrect[1], answers: weekTotal[1] },
+    { name: 'Tue', correct: weekCorrect[2], answers: weekTotal[2] },
+    { name: 'Wed', correct: weekCorrect[3], answers: weekTotal[3] },
+    { name: 'Thu', correct: weekCorrect[4], answers: weekTotal[4] },
+    { name: 'Fri', correct: weekCorrect[5], answers: weekTotal[5] },
+    { name: 'Sat', correct: weekCorrect[6], answers: weekTotal[6] }
   ];
 
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
