@@ -11,15 +11,32 @@ import {
 import moment from 'moment';
 import { useQuery } from 'react-apollo-hooks';
 import { MY_LOGS_BY_DATE } from '../../../GqlQueries/logQueries';
+// import { useGlobal } from 'reactn';
+
+// setGlobal({ sun: 0, mon: 0, tues: 0, wed: 0, thurs: 0, fri: 0, sat: 0 });
+
+// function reducer(state, action) {
+//   switch (action.type) {
+//     case 'sun':
+//       return { sun: state.mon + 1 };
+//     // case 'increment':
+//     //   return { count: state.count + 1 };
+//     // case 'decrement':
+//     //   return { count: state.count - 1 };
+//   }
+// }
 
 function WeekChart() {
-  const [sun, setSun] = useState('');
-  const [mon, setMon] = useState('');
-  const [tues, setTues] = useState('');
-  const [wed, setWed] = useState('');
-  const [thurs, setThurs] = useState('');
-  const [fri, setFri] = useState('');
-  const [sat, setSat] = useState('');
+  // const [sunCorrect, setSunCorrect] = useState(0);
+  // const [sunTotal, setsunTotal] = useState(0);
+  // const [mon, setMon] = useState('');
+  // const [tues, setTues] = useState('');
+  // const [wed, setWed] = useState('');
+  // const [thurs, setThurs] = useState('');
+  // const [fri, setFri] = useState('');
+  // const [sat, setSat] = useState('');
+  const [weekCorrect, setWeekCorrect] = useState([]);
+  const [weekTotal, setWeekTotal] = useState([]);
 
   const oneWeekAgo = moment()
     .subtract(7, 'd')
@@ -38,15 +55,32 @@ function WeekChart() {
   // getDay() return 0-6; Sun-Sat
   useEffect(() => {
     if (Object.values(data).length > 0) {
-      const mon = data.myLogs.filter(val => {
+      let tempWeekTotal = [0, 0, 0, 0, 0, 0, 0];
+      let tempWeekCor = [0, 0, 0, 0, 0, 0, 0];
+
+      data.myLogs.map(val => {
         const aDate = new Date(val.createdAt);
         const theDay = aDate.getDay();
-        return theDay === 0;
+        tempWeekTotal[theDay] += 1;
+        if (val.correct === true) {
+          tempWeekCor[theDay] += 1;
+          // if (theDay === 0 && val.correct === true) {
+          // setWeekCorrect([
+          //   ,
+          //   ...weekCorrect,
+          //   {
+          //     weekCorrect: (weekCorrect.sun += 1)
+          //   }
+          // ]);
+        }
+        console.log('Temp date --->', tempWeekCor, tempWeekTotal);
+        setWeekCorrect(tempWeekCor);
+        setWeekTotal(tempWeekTotal);
       });
-      console.log('Mondayy -->', mon);
-      setMon(mon);
     }
   }, [data]);
+
+  console.log('Actual state -->', weekCorrect, weekTotal);
 
   const weekData = [
     { name: 'Mon', correct: 40, answers: 90 },
