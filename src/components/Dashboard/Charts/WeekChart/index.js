@@ -11,30 +11,8 @@ import {
 import moment from 'moment';
 import { useQuery } from 'react-apollo-hooks';
 import { MY_LOGS_BY_DATE } from '../../../GqlQueries/logQueries';
-// import { useGlobal } from 'reactn';
-
-// setGlobal({ sun: 0, mon: 0, tues: 0, wed: 0, thurs: 0, fri: 0, sat: 0 });
-
-// function reducer(state, action) {
-//   switch (action.type) {
-//     case 'sun':
-//       return { sun: state.mon + 1 };
-//     // case 'increment':
-//     //   return { count: state.count + 1 };
-//     // case 'decrement':
-//     //   return { count: state.count - 1 };
-//   }
-// }
 
 function WeekChart() {
-  // const [sunCorrect, setSunCorrect] = useState(0);
-  // const [sunTotal, setsunTotal] = useState(0);
-  // const [mon, setMon] = useState('');
-  // const [tues, setTues] = useState('');
-  // const [wed, setWed] = useState('');
-  // const [thurs, setThurs] = useState('');
-  // const [fri, setFri] = useState('');
-  // const [sat, setSat] = useState('');
   const [weekCorrect, setWeekCorrect] = useState([]);
   const [weekTotal, setWeekTotal] = useState([]);
 
@@ -48,11 +26,9 @@ function WeekChart() {
     }
   });
 
-  // console.log('Data Pre use effect --', data);
-  // const aDay = new Date('2019-06-04T21:38:42.331Z');
-  // console.log('THE DATE', aDay, aDay.getDay());
-
-  // getDay() return 0-6; Sun-Sat
+  // getDay() returns 0-6; Sun-Sat
+  // we update the temp arrays based on the count of answers
+  // Sun-Sat and then setState with the updated array
   useEffect(() => {
     if (Object.values(data).length > 0) {
       let tempWeekTotal = [0, 0, 0, 0, 0, 0, 0];
@@ -64,16 +40,7 @@ function WeekChart() {
         tempWeekTotal[theDay] += 1;
         if (val.correct === true) {
           tempWeekCor[theDay] += 1;
-          // if (theDay === 0 && val.correct === true) {
-          // setWeekCorrect([
-          //   ,
-          //   ...weekCorrect,
-          //   {
-          //     weekCorrect: (weekCorrect.sun += 1)
-          //   }
-          // ]);
         }
-        console.log('Temp date --->', tempWeekCor, tempWeekTotal);
         setWeekCorrect(tempWeekCor);
         setWeekTotal(tempWeekTotal);
       });
