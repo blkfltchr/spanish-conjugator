@@ -68,6 +68,7 @@ function MonthlyChart() {
     }
   });
   let arr = [];
+  // let days = 31;
   let days = 31;
   while (days > 0) {
     arr.push({
@@ -97,9 +98,9 @@ function MonthlyChart() {
         const theDay = aDate.getDate();
         console.log('A date + the Day', aDate, theDay);
         console.log('Arr', arr);
-        arr[theDay - 1].answers += 1;
+        arr[arr.length - 1 - theDay].answers += 1;
         if (val.correct === true) {
-          arr[theDay - 1].correct += 1;
+          arr[arr.length - 1 - theDay].correct += 1;
         }
         // setWeekCorrect(tempWeekCor);
         // setWeekTotal(tempWeekTotal);
