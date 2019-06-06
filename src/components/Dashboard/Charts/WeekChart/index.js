@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment';
+import { useQuery } from 'react-apollo-hooks';
+import { MY_LOGS_BY_DATE } from '../../../GqlQueries/logQueries';
 import {
   AreaChart,
   Area,
@@ -8,9 +11,6 @@ import {
   Tooltip,
   ResponsiveContainer
 } from 'recharts';
-import moment from 'moment';
-import { useQuery } from 'react-apollo-hooks';
-import { MY_LOGS_BY_DATE } from '../../../GqlQueries/logQueries';
 
 function WeekChart() {
   const [weekCorrect, setWeekCorrect] = useState([]);
