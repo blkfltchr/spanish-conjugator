@@ -20,7 +20,7 @@ function WeekChart() {
     .subtract(7, 'd')
     .format('YYYY-MM-DD');
 
-  const { loading, data } = useQuery(MY_LOGS_BY_DATE, {
+  const { data } = useQuery(MY_LOGS_BY_DATE, {
     variables: {
       date: oneWeekAgo
     }

@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { MY_LOGS_BY_DATE } from '../../../GqlQueries/logQueries';
+import moment from 'moment';
+import { useQuery } from 'react-apollo-hooks';
 import {
   AreaChart,
   Area,
@@ -6,7 +9,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
+  ResponsiveContainer
 } from 'recharts';
 
 const data = [
@@ -21,19 +24,74 @@ const data = [
   { name: 'Sep', correct: 312, answers: 454 },
   { name: 'Oct', correct: 189, answers: 321 },
   { name: 'Nov', correct: 167, answers: 391 },
-  { name: 'Dec', correct: 123, answers: 215 },
+  { name: 'Dec', correct: 123, answers: 215 }
 ];
 
-function MonthlyChart() {
+function YearlyChart() {
+  const [yearData, setYearData] = useState([0]);
+
+  const oneYearAgo = moment()
+    .subtract(12, 'M')
+    .format('YYYY-MM-DD');
+
+  console.log('oneYearAgo', oneYearAgo);
+
+  const { data } = useQuery(MY_LOGS_BY_DATE, {
+    variables: {
+      date: oneYearAgo
+    }
+  });
+
+  let arr = [];
+  let months = 11;
+  while (months >= 0) {
+    arr.push({
+      name: moment()
+        .subtract(months, 'M')
+        .format('MMM YY'),
+      correct: 0,
+      answers: 0,
+      dateForUseEffect: parseInt(
+        moment()
+          .subtract(months, 'M')
+          .format('M')
+      ),
+      correct: 0,
+      answers: 0
+    });
+    months--;
+  }
+
+  console.log('Yearly Arr -->', arr);
+
+  useEffect(() => {
+    if (Object.values(data).length > 0) {
+      data.myLogs.map(val => {
+        const aDate = new Date(val.createdAt);
+        const theMonth = aDate.getMonth();
+
+        arr.map(row => {
+          if (row.dateForUseEffect === theMonth + 1) {
+            row.answers += 1;
+            if (val.correct === true) {
+              row.correct += 1;
+            }
+          }
+        });
+        setYearData(arr);
+      });
+    }
+  }, [data]);
+
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
   const correct = () => {
-    const correct = data.map(data => data.correct);
+    const correct = yearData.map(yearData => yearData.correct);
     return correct.reduce(reducer);
   };
 
   const answers = () => {
-    const answers = data.map(data => data.answers);
+    const answers = yearData.map(yearData => yearData.answers);
     return answers.reduce(reducer);
   };
 
@@ -43,7 +101,7 @@ function MonthlyChart() {
         textAlign: 'left',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'center'
       }}
     >
       <div style={{ width: '100px' }}>
@@ -62,7 +120,7 @@ function MonthlyChart() {
       </div>
       <div style={{ width: '100%', height: '300px' }}>
         <ResponsiveContainer>
-          <AreaChart width={600} height={200} data={data} syncId="anyId">
+          <AreaChart width={600} height={200} data={yearData} syncId="anyId">
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
               dataKey="name"
@@ -80,4 +138,4 @@ function MonthlyChart() {
   );
 }
 
-export default MonthlyChart;
+export default YearlyChart;

@@ -55,7 +55,7 @@ function MonthlyChart() {
   // correct (if correct)
   // this is a nested for loop and there may be a more
   // efficient way of doing this
-  // it currently only re-renders when data is updated
+  // it currently only re-renders when data query is updated
   // if a user answers a question, they won't see the update
   useEffect(() => {
     if (Object.values(data).length > 0) {
