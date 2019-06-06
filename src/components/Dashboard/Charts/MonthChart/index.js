@@ -27,8 +27,8 @@ function MonthlyChart() {
 
   // we create an array of objects with the date and
   // the count of correct and total answers on that date
-  // name is used for the graph
-  // dateForUseEffect is used for mapping in useEffect
+  // "name" is used for the graph
+  // "dateForUseEffect" is used for mapping in useEffect
   let arr = [];
   let days = 30;
   while (days >= 0) {
@@ -57,6 +57,7 @@ function MonthlyChart() {
   // efficient way of doing this
   // it currently only re-renders when data query is updated
   // if a user answers a question, they won't see the update
+  // using fetch in GQL might solve this
   useEffect(() => {
     if (Object.values(data).length > 0) {
       data.myLogs.map(val => {

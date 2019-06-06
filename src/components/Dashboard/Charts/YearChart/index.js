@@ -42,6 +42,10 @@ function YearlyChart() {
     }
   });
 
+  // We create an array of objects with the month and
+  // the count of correct and total answers in that month.
+  // "name" is used for the graph
+  // "dateForUseEffect" is used for mapping in useEffect
   let arr = [];
   let months = 11;
   while (months >= 0) {
@@ -64,6 +68,16 @@ function YearlyChart() {
 
   console.log('Yearly Arr -->', arr);
 
+  // we map through the users logs for the month
+  // getMonth() returns 0-11
+  // we then map through the arr created above
+  // if the row in the above arr has the same month
+  // as the user log, we increase the total answers and
+  // correct (if correct)
+  // this is a nested for loop and there may be a more
+  // efficient way of doing this
+  // it currently only re-renders when data query is updated
+  // if a user answers a question, they won't see the update
   useEffect(() => {
     if (Object.values(data).length > 0) {
       data.myLogs.map(val => {
