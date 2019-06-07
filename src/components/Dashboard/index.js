@@ -7,12 +7,9 @@ import { GET_MY_INFO } from '../GqlQueries/userQueries';
 import PresentTense from './Tenses/PresentTense';
 import PreteriteTense from './Tenses/PreteriteTense';
 import ImperfectTense from './Tenses/ImperfectTense';
-import MonthDummy from './Charts/MonthChart/monthDummy';
-import WeekDummy from './Charts/WeekChart/weekDummy';
-import YearDummy from './Charts/YearChart/yearDummy';
 import ImpDummy from './Tenses/ImperfectTense/impDummy';
 import PresentDummy from './Tenses/PresentTense/presentDummy';
-import PretDummy from './Tenses/PreteriteTense/';
+import PretDummy from './Tenses/PreteriteTense/pretDummy';
 
 function Dashboard(props) {
   const [presentCorrect, setPresentCorrect] = useState('');
@@ -22,7 +19,7 @@ function Dashboard(props) {
   const [impCorrect, setImpCorrect] = useState('');
   const [impTotal, setImpTotal] = useState('');
 
-  const { data } = useQuery(GET_MY_INFO);
+  const { loading, data } = useQuery(GET_MY_INFO);
 
   useEffect(() => {
     if (Object.values(data).length > 0) {
@@ -55,56 +52,43 @@ function Dashboard(props) {
     }
   }, [data]);
 
-  if (props.token.length > 0) {
-    const loggedIn = (
-      <div style={{ margin: '0 auto', maxWidth: '600px' }}>
-        <Charts token={props.token} />
-        <PresentTense
-          presentTotal={presentTotal}
-          presentCorrect={presentCorrect}
-        />
-        <PreteriteTense pretTotal={pretTotal} pretCorrect={pretCorrect} />
-        <ImperfectTense impTotal={impTotal} impCorrect={impCorrect} />
-        <Button>
-          <Link to="/">
-            <button type="button">Start conjugating</button>
-          </Link>
-        </Button>
-      </div>
-    );
-  } else {
-    const loggedIn = (
-      <div style={{ margin: '0 auto', maxWidth: '600px' }}>
-        <Charts token={props.token} />
-        <PresentDummy />
-        <PretDummy />
-        <ImpDummy />
-        <Button>
-          <Link to="/">
-            <button type="button">Start conjugating</button>
-          </Link>
-        </Button>
-      </div>
-    );
-  }
+  console.log('Dash Token is..', props.token, loading, data, data.length);
+
+  // let userName;
+  // useEffect(() => {
+  //   if (data.length !== undefined) {
+  //     userName = <h1>Welcome to your student dashboard {data.me.name}</h1>;
+  //   } else {
+  //     userName = <h1>Welcome to your student dashboard</h1>;
+  //   }
+  // });
 
   return (
     <div>
       <div style={{ textAlign: 'center' }}>
-        <h1>
+        {/* <h1>
           Welcome to your student dashboard
-          {data.length > 0 ? `, ${data.me.name}!` : null}
-        </h1>
+          {!loading ? `, ${userName}!` : null}
+        </h1> */}
+        {/* {userName} */}
         <h3>Track your progress.</h3>
       </div>
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
         <Charts />
-        <PresentTense
-          presentTotal={presentTotal}
-          presentCorrect={presentCorrect}
-        />
-        <PreteriteTense pretTotal={pretTotal} pretCorrect={pretCorrect} />
-        <ImperfectTense impTotal={impTotal} impCorrect={impCorrect} />
+        {Object.values(data).length > 0 ? (
+          <div>
+            <PresentTense
+              presentTotal={presentTotal}
+              presentCorrect={presentCorrect}
+            />
+            <PreteriteTense pretTotal={pretTotal} pretCorrect={pretCorrect} />
+            <ImperfectTense impTotal={impTotal} impCorrect={impCorrect} />{' '}
+          </div>
+        ) : (
+          <div>
+            <PresentDummy /> <PretDummy /> <ImpDummy />{' '}
+          </div>
+        )}
         <Button>
           <Link to="/">
             <button type="button">Start conjugating</button>
