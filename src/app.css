@@ -121,14 +121,16 @@ body {
   }
 }
 
-.active-link {
-  color: darkblue;
-}
-
-.nav a {
+.inactive {
   margin: 0 5px;
   color: blue;
   text-decoration: none;
+}
+
+.active-link {
+  margin: 0 5px;
+  color: darkblue;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 390px) {
