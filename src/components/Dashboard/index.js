@@ -7,8 +7,14 @@ import { GET_MY_INFO } from '../GqlQueries/userQueries';
 import PresentTense from './Tenses/PresentTense';
 import PreteriteTense from './Tenses/PreteriteTense';
 import ImperfectTense from './Tenses/ImperfectTense';
+import MonthDummy from './Charts/MonthChart/monthDummy';
+import WeekDummy from './Charts/WeekChart/weekDummy';
+import YearDummy from './Charts/YearChart/yearDummy';
+import ImpDummy from './Tenses/ImperfectTense/impDummy';
+import PresentDummy from './Tenses/PresentTense/presentDummy';
+import PretDummy from './Tenses/PreteriteTense/';
 
-function Dashboard() {
+function Dashboard(props) {
   const [presentCorrect, setPresentCorrect] = useState('');
   const [presentTotal, setPresentTotal] = useState('');
   const [pretCorrect, setPretCorrect] = useState(0);
@@ -48,6 +54,39 @@ function Dashboard() {
       setImpTotal(Object.values(imperfect).length);
     }
   }, [data]);
+
+  if (props.token.length > 0) {
+    const loggedIn = (
+      <div style={{ margin: '0 auto', maxWidth: '600px' }}>
+        <Charts token={props.token} />
+        <PresentTense
+          presentTotal={presentTotal}
+          presentCorrect={presentCorrect}
+        />
+        <PreteriteTense pretTotal={pretTotal} pretCorrect={pretCorrect} />
+        <ImperfectTense impTotal={impTotal} impCorrect={impCorrect} />
+        <Button>
+          <Link to="/">
+            <button type="button">Start conjugating</button>
+          </Link>
+        </Button>
+      </div>
+    );
+  } else {
+    const loggedIn = (
+      <div style={{ margin: '0 auto', maxWidth: '600px' }}>
+        <Charts token={props.token} />
+        <PresentDummy />
+        <PretDummy />
+        <ImpDummy />
+        <Button>
+          <Link to="/">
+            <button type="button">Start conjugating</button>
+          </Link>
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div>

@@ -12,29 +12,12 @@ import {
   ResponsiveContainer
 } from 'recharts';
 
-const data = [
-  { name: 'Jan', correct: 140, answers: 290 },
-  { name: 'Feb', correct: 308, answers: 472 },
-  { name: 'Mar', correct: 420, answers: 612 },
-  { name: 'Apr', correct: 312, answers: 543 },
-  { name: 'May', correct: 186, answers: 328 },
-  { name: 'Jun', correct: 167, answers: 391 },
-  { name: 'Jul', correct: 231, answers: 259 },
-  { name: 'Aug', correct: 520, answers: 627 },
-  { name: 'Sep', correct: 312, answers: 454 },
-  { name: 'Oct', correct: 189, answers: 321 },
-  { name: 'Nov', correct: 167, answers: 391 },
-  { name: 'Dec', correct: 123, answers: 215 }
-];
-
 function YearlyChart() {
   const [yearData, setYearData] = useState([0]);
 
   const oneYearAgo = moment()
     .subtract(12, 'M')
     .format('YYYY-MM-DD');
-
-  console.log('oneYearAgo', oneYearAgo);
 
   const { data } = useQuery(MY_LOGS_BY_DATE, {
     variables: {
@@ -66,8 +49,6 @@ function YearlyChart() {
     months--;
   }
 
-  console.log('Yearly Arr -->', arr);
-
   // we map through the users logs for the month
   // getMonth() returns 0-11
   // we then map through the arr created above
@@ -78,6 +59,7 @@ function YearlyChart() {
   // efficient way of doing this
   // it currently only re-renders when data query is updated
   // if a user answers a question, they won't see the update
+  // using fetch in GQL might solve this
   useEffect(() => {
     if (Object.values(data).length > 0) {
       data.myLogs.map(val => {

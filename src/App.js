@@ -67,7 +67,10 @@ function App() {
             path="/login"
             render={props => <Login {...props} updateToken={updateToken} />}
           />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route
+            path="/dashboard"
+            render={props => <Dashboard {...props} token={token} />}
+          />
         </div>
       </div>
     </ApolloProvider>
