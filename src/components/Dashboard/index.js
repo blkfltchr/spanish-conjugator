@@ -11,7 +11,7 @@ import ImpDummy from './Tenses/ImperfectTense/impDummy';
 import PresentDummy from './Tenses/PresentTense/presentDummy';
 import PretDummy from './Tenses/PreteriteTense/pretDummy';
 
-function Dashboard(props) {
+function Dashboard() {
   const [presentCorrect, setPresentCorrect] = useState('');
   const [presentTotal, setPresentTotal] = useState('');
   const [pretCorrect, setPretCorrect] = useState(0);
@@ -19,7 +19,7 @@ function Dashboard(props) {
   const [impCorrect, setImpCorrect] = useState('');
   const [impTotal, setImpTotal] = useState('');
 
-  const { loading, data } = useQuery(GET_MY_INFO);
+  const { data } = useQuery(GET_MY_INFO);
 
   useEffect(() => {
     if (Object.values(data).length > 0) {
@@ -52,27 +52,37 @@ function Dashboard(props) {
     }
   }, [data]);
 
-  console.log('Dash Token is..', props.token, loading, data, data.length);
-
-  // let userName;
-  // useEffect(() => {
-  //   if (data.length !== undefined) {
-  //     userName = <h1>Welcome to your student dashboard {data.me.name}</h1>;
-  //   } else {
-  //     userName = <h1>Welcome to your student dashboard</h1>;
-  //   }
-  // });
+  let header;
+  if (Object.values(data).length > 0) {
+    header = (
+      <div style={{ textAlign: 'center' }}>
+        <h1>`Welcome to your student dashboard ${data.me.name}!`</h1>
+        <h3>Track your progress.</h3>
+      </div>
+    );
+  } else {
+    header = (
+      <div style={{ textAlign: 'center' }}>
+        <h1>Welcome to your student dashboard</h1>
+        <h3>
+          This is dummy data.{' '}
+          <a href="https://www.conjugator.io/login/">Sign-up here</a> to gain
+          insights into your progress.
+        </h3>
+      </div>
+    );
+  }
 
   return (
     <div>
-      <div style={{ textAlign: 'center' }}>
+      {/* <div style={{ textAlign: 'center' }}>
         <h1>
           Welcome to your student dashboard
           {Object.values(data).length > 0 ? `, ${data.me.name}!` : null}
         </h1>
-        {/* {userName} */}
         <h3>Track your progress.</h3>
-      </div>
+      </div> */}
+      {header}
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
         <Charts data={data} />
         {Object.values(data).length > 0 ? (

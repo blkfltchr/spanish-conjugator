@@ -13,13 +13,6 @@ function Charts(props) {
     setValue(e.target.value);
   };
 
-  console.log(
-    'Charts ----',
-    props,
-    Object.values(props).length,
-    Object.values(props.data).length === 0
-  );
-
   return (
     <div style={{ margin: '20px 0' }}>
       <select value={value} onChange={handleDropdown}>
