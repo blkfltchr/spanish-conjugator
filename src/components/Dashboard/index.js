@@ -66,15 +66,15 @@ function Dashboard(props) {
   return (
     <div>
       <div style={{ textAlign: 'center' }}>
-        {/* <h1>
+        <h1>
           Welcome to your student dashboard
-          {!loading ? `, ${userName}!` : null}
-        </h1> */}
+          {Object.values(data).length > 0 ? `, ${data.me.name}!` : null}
+        </h1>
         {/* {userName} */}
         <h3>Track your progress.</h3>
       </div>
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
-        <Charts />
+        <Charts data={data} />
         {Object.values(data).length > 0 ? (
           <div>
             <PresentTense

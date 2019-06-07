@@ -17,7 +17,7 @@ function Charts(props) {
     'Charts ----',
     props,
     Object.values(props).length,
-    Object.values(props).length === 0
+    Object.values(props.data).length === 0
   );
 
   return (
@@ -27,7 +27,7 @@ function Charts(props) {
         <option value="1">Month</option>
         <option value="2">Year</option>
       </select>
-      {Object.values(props).length > 0 ? (
+      {Object.values(props.data).length > 0 ? (
         <div>
           {value === '0' && <WeekChart />}
           {value === '1' && <MonthChart />}
