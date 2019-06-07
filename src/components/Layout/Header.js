@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Header(props) {
   return (
     <div className="header">
       <Link to="/">
@@ -15,7 +15,7 @@ function Header() {
       <div>
         <Link to="/">Home</Link>
         <Link to="/dashboard">Dashboard</Link>
-        <Link to="/login">Login</Link>
+        {props.token.length > 0 ? null : <Link to="/login">Login</Link>}
       </div>
     </div>
   );

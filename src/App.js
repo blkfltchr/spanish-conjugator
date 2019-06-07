@@ -65,7 +65,9 @@ function App() {
           />
           <Route
             path="/login"
-            render={props => <Login {...props} updateToken={updateToken} />}
+            render={props => (
+              <Login {...props} token={token} updateToken={updateToken} />
+            )}
           />
           <Route
             path="/dashboard"

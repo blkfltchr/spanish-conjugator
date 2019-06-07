@@ -56,7 +56,7 @@ function Dashboard() {
   if (Object.values(data).length > 0) {
     header = (
       <div style={{ textAlign: 'center' }}>
-        <h1>`Welcome to your student dashboard ${data.me.name}!`</h1>
+        <h1>Welcome to your student dashboard {data.me.name}!</h1>
         <h3>Track your progress.</h3>
       </div>
     );
