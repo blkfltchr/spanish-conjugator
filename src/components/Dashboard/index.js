@@ -92,11 +92,6 @@ function Dashboard() {
             <PresentDummy /> <PretDummy /> <ImpDummy />{' '}
           </div>
         )}
-        <Button>
-          <Link to="/">
-            <button type="button">Start conjugating</button>
-          </Link>
-        </Button>
       </div>
     </div>
   );
