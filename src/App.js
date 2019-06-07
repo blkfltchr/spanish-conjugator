@@ -72,7 +72,7 @@ function App() {
             />
             <Route
               path="/dashboard"
-              component={props => <Dashboard {...props} token={token} />}
+              render={props => <Dashboard {...props} token={token} />}
             />
             <Route render={() => <h1>URL not found!</h1>} />
           </Switch>
