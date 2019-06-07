@@ -75,13 +75,6 @@ function Dashboard() {
 
   return (
     <div>
-      {/* <div style={{ textAlign: 'center' }}>
-        <h1>
-          Welcome to your student dashboard
-          {Object.values(data).length > 0 ? `, ${data.me.name}!` : null}
-        </h1>
-        <h3>Track your progress.</h3>
-      </div> */}
       {header}
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
         <Charts data={data} />
