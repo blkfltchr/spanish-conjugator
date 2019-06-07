@@ -98,12 +98,12 @@ body {
   color: white;
   border-radius: 4px;
   margin: 0 2px 6px 2px;
-  font-size: 16px
+  font-size: 16px;
 }
 
-/* Header styles */
+/* Nav styles */
 
-.header {
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -116,12 +116,16 @@ body {
 }
 
 @media only screen and (max-width: 630px) {
-  .header {
+  .nav {
     justify-content: flex-start;
   }
 }
 
-.header a {
+.active-link {
+  color: darkblue;
+}
+
+.nav a {
   margin: 0 5px;
   color: blue;
   text-decoration: none;
@@ -133,13 +137,13 @@ body {
   }
 }
 
-.header h2 {
+.nav h2 {
   font-size: 20px;
   margin: 10px 0;
   font-weight: 400;
 }
 
-.header div {
+.nav div {
   font-size: 16px;
 }
 
@@ -153,6 +157,14 @@ body {
   .logo {
     display: none;
   }
+}
+
+/* Header styles */
+
+.header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 /* Verb streak styles */

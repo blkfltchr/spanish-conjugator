@@ -7,6 +7,7 @@ import Container from './components/Verb/Container';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import Nav from './components/Layout/Nav';
 
 function App() {
   const [level, setLevel] = useState(0);
@@ -44,7 +45,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="app-wrapper">
-        <Header token={token} />
+        <Nav token={token} />
+        <Header />
         <div className="app">
           <Switch>
             <Route
