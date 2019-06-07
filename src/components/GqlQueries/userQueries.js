@@ -25,4 +25,24 @@ const LOGIN = gql`
   }
 `;
 
-export { CREATE_USER, LOGIN };
+const GET_MY_INFO = gql`
+  query {
+    me {
+      id
+      name
+      email
+      logs {
+        id
+        verbInfinitive
+        tense
+        correctAnswer
+        userAnswer
+        verbPerson
+        correct
+        createdAt
+      }
+    }
+  }
+`;
+
+export { CREATE_USER, LOGIN, GET_MY_INFO };

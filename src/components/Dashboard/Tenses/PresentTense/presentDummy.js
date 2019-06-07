@@ -1,16 +1,17 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
+const data = [
+  { name: 'Correct', value: 400 },
+  { name: 'Incorrect', value: 300 }
+];
+
 const COLORS = ['#0088FE', '#00C49F'];
 
-function ImperfectTense(props) {
-  const data = [
-    { name: 'Correct', value: props.impCorrect },
-    { name: 'Incorrect', value: props.impTotal - props.impCorrect }
-  ];
+function PresentDummy() {
   return (
     <div>
-      <h2>Imperfect Tense</h2>
+      <h2>Present Tense</h2>
       <div
         style={{
           width: '100%',
@@ -41,17 +42,15 @@ function ImperfectTense(props) {
           </PieChart>
         </ResponsiveContainer>
         <div style={{ minWidth: '120px' }}>
-          <h2>{`${((props.impCorrect / props.impTotal) * 100).toFixed(
-            1
-          )} %`}</h2>
+          <h2>{`${((400 / 700) * 100).toFixed(1)} %`}</h2>
           <p>Percent</p>
         </div>
         <div style={{ minWidth: '120px' }}>
-          <h2>{props.impCorrect}</h2>
+          <h2>{400}</h2>
           <p>Correct answers</p>
         </div>
         <div style={{ minWidth: '120px' }}>
-          <h2>{props.impTotal}</h2>
+          <h2>{700}</h2>
           <p>Total answers</p>
         </div>
       </div>
@@ -59,4 +58,4 @@ function ImperfectTense(props) {
   );
 }
 
-export default ImperfectTense;
+export default PresentDummy;
