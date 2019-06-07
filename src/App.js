@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo-hooks';
-import Header from './components/Layout/Header';
 import Container from './components/Verb/Container';
 import Signup from './components/Signup';
 import Login from './components/Login';
@@ -46,7 +45,6 @@ function App() {
     <ApolloProvider client={client}>
       <div className="app-wrapper">
         <Nav token={token} />
-        <Header />
         <div className="app">
           <Switch>
             <Route
