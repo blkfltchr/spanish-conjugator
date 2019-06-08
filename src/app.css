@@ -169,6 +169,12 @@ body {
   text-align: center;
 }
 
+@media only screen and (max-width: 630px) {
+  .header {
+    display: none;
+  }
+}
+
 /* Verb streak styles */
 
 .verb-streak {
