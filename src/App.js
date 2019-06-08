@@ -16,7 +16,7 @@ function App() {
   // if there's a token, we pass the auth headers to the server
   const client = token
     ? new ApolloClient({
-        uri: 'https://thawing-lake-36877.herokuapp.com/',
+        uri: 'https://frozen-inlet-85252.herokuapp.com/',
         request: async operation => {
           operation.setContext({
             headers: {
@@ -26,7 +26,7 @@ function App() {
         }
       })
     : new ApolloClient({
-        uri: 'https://thawing-lake-36877.herokuapp.com/'
+        uri: 'https://frozen-inlet-85252.herokuapp.com/'
       });
 
   const updateLatam = () => {
