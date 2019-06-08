@@ -3,20 +3,39 @@ import { NavLink } from 'react-router-dom';
 
 function Nav(props) {
   return (
-    <div className="nav">
-      <NavLink activeClassName="active-link" to="/">
+    <nav className="nav">
+      <NavLink className="inactive" to="/">
         <span className="logo">Spanish Conjugator</span>
       </NavLink>
       <div>
-        <NavLink activeClassName="active-link" to="/">
+        <NavLink
+          exact
+          activeClassName="active-link"
+          className="inactive"
+          to="/"
+        >
           Home
         </NavLink>
-        <NavLink activeClassName="active-link" to="/dashboard">
+        <NavLink
+          exact
+          activeClassName="active-link"
+          className="inactive"
+          to="/dashboard"
+        >
           Dashboard
         </NavLink>
-        {props.token.length > 0 ? null : <NavLink to="/login">Login</NavLink>}
+        {props.token.length > 0 ? null : (
+          <NavLink
+            exact
+            activeClassName="active-link"
+            className="inactive"
+            to="/login"
+          >
+            Login
+          </NavLink>
+        )}
       </div>
-    </div>
+    </nav>
   );
 }
 
