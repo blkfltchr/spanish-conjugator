@@ -7,6 +7,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Nav from './components/Layout/Nav';
+import Settings from './components/Settings/AdvSettings';
 
 function App() {
   const [level, setLevel] = useState(0);
@@ -73,6 +74,11 @@ function App() {
             <Route
               path="/dashboard"
               render={props => <Dashboard {...props} token={token} />}
+            />
+            <Route
+              exact
+              path="/settings"
+              render={props => <Settings {...props} />}
             />
             <Route render={() => <h1>URL not found!</h1>} />
           </Switch>
