@@ -6,7 +6,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import Latam from './Latam';
 import Difficulty from './Difficulty';
-import { withStyles } from '@material-ui/styles';
+import Tenses from './Tenses';
+import Button from '@material-ui/core/Button';
+import { positions } from '@material-ui/system';
+import { withStyles, makeStyles } from '@material-ui/styles';
 
 const styles = {
   main: {
@@ -16,6 +19,13 @@ const styles = {
     marginTop: 10,
     height: '90vh',
     backgroundColor: '#fafafa'
+    // backgroundColor: '#EEEEEE'
+  },
+  button: {
+    marginRight: 100,
+    marginTop: 20,
+    width: 120,
+    height: 40
   }
 };
 
@@ -23,6 +33,7 @@ function Settings(props) {
   const [difficulty, setDifficulty] = useState('Beginner');
   const [latam, setLatam] = useState(true);
   const [tenseArr, setTenseArr] = useState(['Present, Preterite']);
+  const [clicked, setClicked] = useState(false);
   const { classes } = props;
   console.log('classes from advSettings', props);
   return (
@@ -38,7 +49,18 @@ function Settings(props) {
           <Grid item xs={11} md={8} lg={11}>
             <Latam />
             <Difficulty />
+            <Tenses />
           </Grid>
+        </Grid>
+        <Grid justify="flex-end" container>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+          >
+            Update
+            {/* <i class="fas fa-check" /> */}
+          </Button>
         </Grid>
       </Paper>
     </div>

@@ -155,11 +155,11 @@ function Container(props) {
         person={verb.person}
         setValue={setValue}
       />
-      <Settings
+      {/* <Settings
         handleRefresh={handleRefresh}
         updateLevel={updateLevel}
         updateLatam={updateLatam}
-      />
+      /> */}
     </div>
   );
 }
