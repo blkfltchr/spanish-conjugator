@@ -19,13 +19,19 @@ const styles = {
     marginTop: 10,
     height: '90vh',
     backgroundColor: '#fafafa'
-    // backgroundColor: '#EEEEEE'
   },
   button: {
     marginRight: 100,
     marginTop: 20,
     width: 120,
     height: 40
+  },
+  buttonUpdated: {
+    marginRight: 100,
+    marginTop: 20,
+    width: 120,
+    height: 40,
+    backgroundColor: 'green'
   }
 };
 
@@ -56,9 +62,11 @@ function Settings(props) {
           <Button
             variant="contained"
             color="primary"
-            className={classes.button}
+            className={clicked ? classes.buttonUpdated : classes.button}
+            onClick={() => setClicked(!clicked)}
           >
-            Update
+            {clicked ? 'Updated' : 'Update'}
+            {/* Update */}
             {/* <i class="fas fa-check" /> */}
           </Button>
         </Grid>
