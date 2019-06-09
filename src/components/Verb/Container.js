@@ -139,7 +139,7 @@ function Container(props) {
   };
 
   return (
-    <div>
+    <div className="app">
       <Header />
       <div className="verb-info-wrapper">
         <Stats count={count} percentage={percentage} />

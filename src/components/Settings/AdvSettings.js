@@ -4,25 +4,31 @@ import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
-import SettingsList from './SettingsList';
+import Latam from './Latam';
+import Difficulty from './Difficulty';
+import { withStyles } from '@material-ui/styles';
 
-function Settings() {
+const styles = {
+  main: {
+    padding: 0,
+    marginLeft: 170,
+    marginRight: 170,
+    marginTop: 10,
+    height: '90vh',
+    backgroundColor: '#fafafa'
+  }
+};
+
+function Settings(props) {
   const [difficulty, setDifficulty] = useState('Beginner');
   const [latam, setLatam] = useState(true);
   const [tenseArr, setTenseArr] = useState(['Present, Preterite']);
-
+  const { classes } = props;
+  console.log('classes from advSettings', props);
   return (
     <div>
       {/* <h1>Settings!</h1> */}
-      <Paper
-        style={{
-          padding: 0,
-          margin: 0,
-          height: '100vh',
-          backgroundColor: '#fafafa'
-        }}
-        elevation={0}
-      >
+      <Paper className={classes.main} elevation={10}>
         <AppBar color="primary" position="static" style={{ height: '64px' }}>
           <Toolbar>
             <Typography color="inherit">Select your settings</Typography>
@@ -30,9 +36,8 @@ function Settings() {
         </AppBar>
         <Grid container justify="center" style={{ marginTop: '1rem' }}>
           <Grid item xs={11} md={8} lg={11}>
-            {/* <Difficulty /> */}
-            {/* <Latam /> */}
-            <SettingsList tenseArr={tenseArr} />
+            <Latam />
+            <Difficulty />
           </Grid>
         </Grid>
       </Paper>
@@ -40,4 +45,4 @@ function Settings() {
   );
 }
 
-export default Settings;
+export default withStyles(styles)(Settings);

@@ -46,44 +46,44 @@ function App() {
     <ApolloProvider client={client}>
       <div className="app-wrapper">
         <Nav token={token} />
-        <div className="app">
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={() => (
-                <Container
-                  latam={latam}
-                  level={level}
-                  updateLevel={updateLevel}
-                  updateLatam={updateLatam}
-                  token={token}
-                />
-              )}
-            />
-            <Route
-              path="/signup"
-              render={props => <Signup {...props} updateToken={updateToken} />}
-            />
-            <Route
-              path="/login"
-              render={props => (
-                <Login {...props} token={token} updateToken={updateToken} />
-              )}
-            />
-            <Route
-              path="/dashboard"
-              render={props => <Dashboard {...props} token={token} />}
-            />
-            <Route
-              exact
-              path="/settings"
-              render={props => <Settings {...props} />}
-            />
-            <Route render={() => <h1>URL not found!</h1>} />
-          </Switch>
-        </div>
+        {/* <div className="app"> */}
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Container
+                latam={latam}
+                level={level}
+                updateLevel={updateLevel}
+                updateLatam={updateLatam}
+                token={token}
+              />
+            )}
+          />
+          <Route
+            path="/signup"
+            render={props => <Signup {...props} updateToken={updateToken} />}
+          />
+          <Route
+            path="/login"
+            render={props => (
+              <Login {...props} token={token} updateToken={updateToken} />
+            )}
+          />
+          <Route
+            path="/dashboard"
+            render={props => <Dashboard {...props} token={token} />}
+          />
+          <Route
+            exact
+            path="/settings"
+            render={props => <Settings {...props} />}
+          />
+          <Route render={() => <h1>URL not found!</h1>} />
+        </Switch>
       </div>
+      {/* </div> */}
     </ApolloProvider>
   );
 }

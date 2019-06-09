@@ -18,11 +18,10 @@ function Dashboard() {
   const [pretTotal, setPretTotal] = useState(0);
   const [impCorrect, setImpCorrect] = useState('');
   const [impTotal, setImpTotal] = useState('');
-  const [verbData, setVerbData] = useState('');
+
+  const { data } = useQuery(GET_MY_INFO);
 
   useEffect(() => {
-    const { data } = useQuery(GET_MY_INFO);
-    setVerbData(data);
     if (Object.values(data).length > 0) {
       const present = data.me.logs.filter(val => {
         return val.tense === 'Present';
@@ -51,13 +50,13 @@ function Dashboard() {
       setImpCorrect(Object.values(impCor).length);
       setImpTotal(Object.values(imperfect).length);
     }
-  }, []);
+  }, [data]);
 
   let header;
-  if (Object.values(verbData).length > 0) {
+  if (Object.values(data).length > 0) {
     header = (
       <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to your student dashboard {verbData.me.name}!</h1>
+        <h1>Welcome to your student dashboard {data.me.name}!</h1>
         <h3>Track your progress.</h3>
       </div>
     );
@@ -78,8 +77,8 @@ function Dashboard() {
     <div>
       {header}
       <div style={{ margin: '0 auto', maxWidth: '600px' }}>
-        <Charts data={verbData} />
-        {Object.values(verbData).length > 0 ? (
+        <Charts data={data} />
+        {Object.values(data).length > 0 ? (
           <div>
             <PresentTense
               presentTotal={presentTotal}
