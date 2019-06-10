@@ -31,7 +31,10 @@ const styles = {
     marginTop: 20,
     width: 120,
     height: 40,
-    backgroundColor: 'green'
+    backgroundColor: 'green',
+    '&:hover': {
+      backgroundColor: '#1B5E20'
+    }
   }
 };
 
@@ -41,10 +44,17 @@ function Settings(props) {
   const [tenseArr, setTenseArr] = useState(['Present, Preterite']);
   const [clicked, setClicked] = useState(false);
   const { classes } = props;
+
+  const sendHome = () => {
+    console.log('In sendHome');
+    setTimeout(() => {
+      props.history.push('/');
+    }, 1000);
+  };
+
   console.log('classes from advSettings', props);
   return (
     <div>
-      {/* <h1>Settings!</h1> */}
       <Paper className={classes.main} elevation={10}>
         <AppBar color="primary" position="static" style={{ height: '64px' }}>
           <Toolbar>
@@ -63,11 +73,13 @@ function Settings(props) {
             variant="contained"
             color="primary"
             className={clicked ? classes.buttonUpdated : classes.button}
-            onClick={() => setClicked(!clicked)}
+            onClick={() => {
+              setClicked(!clicked);
+              sendHome();
+            }}
+            // onClick={() => sendHome()}
           >
             {clicked ? 'Updated' : 'Update'}
-            {/* Update */}
-            {/* <i class="fas fa-check" /> */}
           </Button>
         </Grid>
       </Paper>

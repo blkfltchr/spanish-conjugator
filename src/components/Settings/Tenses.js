@@ -11,28 +11,43 @@ const styles = {
   section: {
     padding: 0,
     marginTop: 10,
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#fafafa'
   }
 };
 
 function Tenses(props) {
   const [tenseArr, setTenseArr] = useState(['Present', 'Preterite']);
+  const [present, setPresent] = useState(true);
+  const [pret, setPret] = useState(true);
   const { classes } = props;
 
+  console.log('Tense array', tenseArr);
   return (
     <Paper className={classes.section} elevation={1}>
       <List>
         <ListSubheader>Tenses</ListSubheader>
         <ListItem style={{ height: '64px' }}>
-          <Checkbox />
+          <Checkbox checked={present} onClick={() => setPresent(!present)} />
           <ListItemText>
             <span>Present: hablo</span>
           </ListItemText>
-          <Checkbox />
+          <Checkbox checked={pret} onClick={() => setPret(!pret)} />
           <ListItemText>
             <span>Preterite: hablé</span>
           </ListItemText>
-          <Checkbox />
+          <Checkbox
+            onClick={() => {
+              if (tenseArr.includes('Imperfect')) {
+                setTenseArr(
+                  tenseArr.filter(word => {
+                    return word !== 'Imperfect';
+                  })
+                );
+              } else {
+                setTenseArr([...tenseArr, 'Imperfect']);
+              }
+            }}
+          />
           <ListItemText>
             <span>Imperfect: hablaba</span>
           </ListItemText>
@@ -66,7 +81,15 @@ function Tenses(props) {
           </ListItemText>
           <Checkbox />
           <ListItemText>
-            <span>Subjunctive</span>
+            <span>Subjunctive Present: hable</span>
+          </ListItemText>
+          <Checkbox />
+          <ListItemText>
+            <span>Subjunctive Imperfect: hablara</span>
+          </ListItemText>
+          <Checkbox />
+          <ListItemText>
+            <span>Subjunctive Present Perfect: haya hablado</span>
           </ListItemText>
         </ListItem>
       </List>

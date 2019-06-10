@@ -12,7 +12,7 @@ const styles = {
     padding: 0,
     marginTop: 10,
     // backgroundColor: '#fafafa'
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#fafafa'
   }
 };
 
