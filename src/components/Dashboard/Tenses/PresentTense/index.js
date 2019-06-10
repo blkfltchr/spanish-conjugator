@@ -1,14 +1,14 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
-const data = [
-  { name: 'Correct', value: 400 },
-  { name: 'Incorrect', value: 300 },
-];
-
 const COLORS = ['#0088FE', '#00C49F'];
 
-function PresentTense() {
+function PresentTense(props) {
+  const data = [
+    { name: 'Correct', value: props.presentCorrect },
+    { name: 'Incorrect', value: props.presentTotal - props.presentCorrect }
+  ];
+
   return (
     <div>
       <h2>Present Tense</h2>
@@ -17,7 +17,7 @@ function PresentTense() {
           width: '100%',
           height: 200,
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'center'
         }}
       >
         <ResponsiveContainer>
@@ -42,15 +42,17 @@ function PresentTense() {
           </PieChart>
         </ResponsiveContainer>
         <div style={{ minWidth: '120px' }}>
-          <h2>{`${((400 / 700) * 100).toFixed(1)} %`}</h2>
+          <h2>{`${((props.presentCorrect / props.presentTotal) * 100).toFixed(
+            1
+          )} %`}</h2>
           <p>Percent</p>
         </div>
         <div style={{ minWidth: '120px' }}>
-          <h2>{400}</h2>
+          <h2>{props.presentCorrect}</h2>
           <p>Correct answers</p>
         </div>
         <div style={{ minWidth: '120px' }}>
-          <h2>{700}</h2>
+          <h2>{props.presentTotal}</h2>
           <p>Total answers</p>
         </div>
       </div>

@@ -7,6 +7,7 @@ import Settings from '../Settings/Settings';
 import { verbQueries } from '../GqlQueries/verbQueries';
 import { CREATE_LOG } from '../GqlQueries/logQueries';
 import Stats from './Stats';
+import Header from '../Layout/Header';
 
 function Container(props) {
   const [value, setValue] = useState('');
@@ -139,6 +140,7 @@ function Container(props) {
 
   return (
     <div>
+      <Header />
       <div className="verb-info-wrapper">
         <Stats count={count} percentage={percentage} />
         <Info verb={verb} loading={loading} />

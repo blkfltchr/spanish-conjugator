@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import moment from 'moment';
+import { useQuery } from 'react-apollo-hooks';
+import { MY_LOGS_BY_DATE } from '../../../GqlQueries/logQueries';
 import {
   AreaChart,
   Area,
@@ -6,29 +9,65 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
+  ResponsiveContainer
 } from 'recharts';
 
-const data = [
-  { name: 'Mon', correct: 40, answers: 90 },
-  { name: 'Tue', correct: 30, answers: 72 },
-  { name: 'Wed', correct: 20, answers: 62 },
-  { name: 'Thu', correct: 12, answers: 54 },
-  { name: 'Fri', correct: 18, answers: 32 },
-  { name: 'Sat', correct: 23, answers: 25 },
-  { name: 'Sun', correct: 24, answers: 56 },
-];
+function WeekChart() {
+  const [weekCorrect, setWeekCorrect] = useState([]);
+  const [weekTotal, setWeekTotal] = useState([]);
 
-function MonthlyChart() {
+  const oneWeekAgo = moment()
+    .subtract(7, 'd')
+    .format('YYYY-MM-DD');
+
+  const { data } = useQuery(MY_LOGS_BY_DATE, {
+    variables: {
+      date: oneWeekAgo
+    }
+  });
+
+  // getDay() returns 0-6; Sun-Sat
+  // we update the temp arrays based on the count of answers
+  // Sun-Sat and then setState with the updated array
+  useEffect(() => {
+    if (Object.values(data).length > 0) {
+      let tempWeekTotal = [0, 0, 0, 0, 0, 0, 0];
+      let tempWeekCor = [0, 0, 0, 0, 0, 0, 0];
+
+      data.myLogs.map(val => {
+        const aDate = new Date(val.createdAt);
+        const theDay = aDate.getDay();
+        tempWeekTotal[theDay] += 1;
+        if (val.correct === true) {
+          tempWeekCor[theDay] += 1;
+        }
+        setWeekCorrect(tempWeekCor);
+        setWeekTotal(tempWeekTotal);
+      });
+    }
+  }, [data]);
+
+  console.log('Actual state -->', weekCorrect, weekTotal);
+
+  const weekData = [
+    { name: 'Sun', correct: weekCorrect[0], answers: weekTotal[0] },
+    { name: 'Mon', correct: weekCorrect[1], answers: weekTotal[1] },
+    { name: 'Tue', correct: weekCorrect[2], answers: weekTotal[2] },
+    { name: 'Wed', correct: weekCorrect[3], answers: weekTotal[3] },
+    { name: 'Thu', correct: weekCorrect[4], answers: weekTotal[4] },
+    { name: 'Fri', correct: weekCorrect[5], answers: weekTotal[5] },
+    { name: 'Sat', correct: weekCorrect[6], answers: weekTotal[6] }
+  ];
+
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
   const correct = () => {
-    const correct = data.map(data => data.correct);
+    const correct = weekData.map(weekData => weekData.correct);
     return correct.reduce(reducer);
   };
 
   const answers = () => {
-    const answers = data.map(data => data.answers);
+    const answers = weekData.map(weekData => weekData.answers);
     return answers.reduce(reducer);
   };
 
@@ -38,7 +77,7 @@ function MonthlyChart() {
         textAlign: 'left',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'center'
       }}
     >
       <div style={{ width: '100px' }}>
@@ -57,7 +96,7 @@ function MonthlyChart() {
       </div>
       <div style={{ width: '100%', height: '300px' }}>
         <ResponsiveContainer>
-          <AreaChart width={600} height={200} data={data} syncId="anyId">
+          <AreaChart width={600} height={200} data={weekData} syncId="anyId">
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" padding={{ left: 15, right: 15 }} />
             <YAxis />
@@ -71,4 +110,4 @@ function MonthlyChart() {
   );
 }
 
-export default MonthlyChart;
+export default WeekChart;
