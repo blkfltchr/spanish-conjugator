@@ -7,6 +7,7 @@ import Container from './components/Verb/Container';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import Landing from './components/Landing';
 
 function App() {
   const [level, setLevel] = useState(0);
@@ -20,13 +21,13 @@ function App() {
         request: async operation => {
           operation.setContext({
             headers: {
-              authorization: token
-            }
+              authorization: token,
+            },
           });
-        }
+        },
       })
     : new ApolloClient({
-        uri: 'https://thawing-lake-36877.herokuapp.com/'
+        uri: 'https://thawing-lake-36877.herokuapp.com/',
       });
 
   const updateLatam = () => {
@@ -68,6 +69,7 @@ function App() {
             render={props => <Login {...props} updateToken={updateToken} />}
           />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/landing" component={Landing} />
         </div>
       </div>
     </ApolloProvider>
