@@ -22,6 +22,7 @@ function Difficulty(props) {
   const [advanced, setAdvanced] = useState(false);
   const { classes } = props;
 
+  console.log('State Difficulty:', beginner, intermediate, advanced);
   return (
     <Paper className={classes.section}>
       <List>
@@ -29,31 +30,33 @@ function Difficulty(props) {
         <ListItem style={{ height: '64px' }}>
           <Checkbox
             checked={beginner}
-            onClick={() =>
-              setBeginner(!beginner) &&
-              setIntermediate(false) &&
-              setAdvanced(false)
-            }
+            onClick={() => {
+              setBeginner(true);
+              setIntermediate(false);
+              setAdvanced(false);
+            }}
           />
           <ListItemText>
             <span>Commonly used regular verbs</span>
           </ListItemText>
           <Checkbox
             checked={intermediate}
-            onClick={() =>
-              setBeginner(!beginner) &&
-              setIntermediate(!intermediate) &&
-              setAdvanced(!advanced)
-            }
+            onClick={() => {
+              setBeginner(false);
+              setIntermediate(true);
+              setAdvanced(false);
+            }}
           />
           <ListItemText>
             <span>Commonly used regular and irregular verbs</span>
           </ListItemText>
           <Checkbox
             checked={advanced}
-            onClick={() =>
-              setBeginner(false) && setIntermediate(true) && setAdvanced(false)
-            }
+            onClick={() => {
+              setBeginner(false);
+              setIntermediate(false);
+              setAdvanced(true);
+            }}
           />
           <ListItemText>
             <span>All Verbs</span>

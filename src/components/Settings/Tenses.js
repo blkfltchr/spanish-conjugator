@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { withStyles } from '@material-ui/styles';
+import useArrUpdate from '../Hooks/useArrUpdate';
 
 const styles = {
   section: {
@@ -16,10 +17,11 @@ const styles = {
 };
 
 function Tenses(props) {
-  const [tenseArr, setTenseArr] = useState(['Present', 'Preterite']);
+  // const [tenseArr, setTenseArr] = useState(['Present', 'Preterite']);
   const [present, setPresent] = useState(true);
   const [pret, setPret] = useState(true);
   const { classes } = props;
+  const [tenseArr, useArrUpdateTenseArr] = useArrUpdate();
 
   console.log('Tense array', tenseArr);
   return (
@@ -31,22 +33,36 @@ function Tenses(props) {
           <ListItemText>
             <span>Present: hablo</span>
           </ListItemText>
-          <Checkbox checked={pret} onClick={() => setPret(!pret)} />
+          <Checkbox
+            checked={pret}
+            onClick={() => useArrUpdate('Preterite')}
+            //   if (pret) {
+            //     setTenseArr(
+            //       tenseArr.filter(word => {
+            //         return word !== 'Preterite';
+            //       })
+            //     );
+            //   } else {
+            //     setTenseArr([...tenseArr, 'Preterite']);
+            //   }
+            //   setPret(!pret);
+            // }}
+          />
           <ListItemText>
             <span>Preterite: hablé</span>
           </ListItemText>
           <Checkbox
-            onClick={() => {
-              if (tenseArr.includes('Imperfect')) {
-                setTenseArr(
-                  tenseArr.filter(word => {
-                    return word !== 'Imperfect';
-                  })
-                );
-              } else {
-                setTenseArr([...tenseArr, 'Imperfect']);
-              }
-            }}
+          // onClick={() => {
+          //   if (tenseArr.includes('Imperfect')) {
+          //     setTenseArr(
+          //       tenseArr.filter(word => {
+          //         return word !== 'Imperfect';
+          //       })
+          //     );
+          //   } else {
+          //     setTenseArr([...tenseArr, 'Imperfect']);
+          //   }
+          // }}
           />
           <ListItemText>
             <span>Imperfect: hablaba</span>
