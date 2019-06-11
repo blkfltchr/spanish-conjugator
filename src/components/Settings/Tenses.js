@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { withStyles } from '@material-ui/styles';
 import useArrUpdate from '../Hooks/useArrUpdate';
+import useSubjUpdate from '../Hooks/useSubjUpdate';
 
 const styles = {
   section: {
@@ -20,90 +21,91 @@ function Tenses(props) {
   // const [tenseArr, setTenseArr] = useState(['Present', 'Preterite']);
   const [present, setPresent] = useState(true);
   const [pret, setPret] = useState(true);
+  const [subjunctive, setSub] = useState(false);
   const { classes } = props;
-  const [tenseArr, useArrUpdateTenseArr] = useArrUpdate();
+  const [tenseArr, useUpdate] = useArrUpdate();
 
-  console.log('Tense array', tenseArr);
+  // if subjArr.length === 0, we don't need to do subj query
+  const [subjArr, useSubjChange] = useSubjUpdate();
+
+  console.log('Tense array', tenseArr, subjArr);
   return (
     <Paper className={classes.section} elevation={1}>
       <List>
         <ListSubheader>Tenses</ListSubheader>
         <ListItem style={{ height: '64px' }}>
-          <Checkbox checked={present} onClick={() => setPresent(!present)} />
+          <Checkbox
+            checked={present}
+            onClick={() => {
+              useUpdate('Present');
+              setPresent(!present);
+            }}
+          />
           <ListItemText>
             <span>Present: hablo</span>
           </ListItemText>
+
           <Checkbox
             checked={pret}
-            onClick={() => useArrUpdate('Preterite')}
-            //   if (pret) {
-            //     setTenseArr(
-            //       tenseArr.filter(word => {
-            //         return word !== 'Preterite';
-            //       })
-            //     );
-            //   } else {
-            //     setTenseArr([...tenseArr, 'Preterite']);
-            //   }
-            //   setPret(!pret);
-            // }}
+            onClick={() => {
+              useUpdate('Preterite');
+              setPret(!pret);
+            }}
           />
           <ListItemText>
             <span>Preterite: hablé</span>
           </ListItemText>
-          <Checkbox
-          // onClick={() => {
-          //   if (tenseArr.includes('Imperfect')) {
-          //     setTenseArr(
-          //       tenseArr.filter(word => {
-          //         return word !== 'Imperfect';
-          //       })
-          //     );
-          //   } else {
-          //     setTenseArr([...tenseArr, 'Imperfect']);
-          //   }
-          // }}
-          />
+
+          <Checkbox onClick={() => useUpdate('Imperfect')} />
           <ListItemText>
             <span>Imperfect: hablaba</span>
           </ListItemText>
-          <Checkbox />
+
+          <Checkbox onClick={() => useUpdate('Future')} />
           <ListItemText>
             <span>Future: hablaré</span>
           </ListItemText>
         </ListItem>
+
         <ListItem style={{ height: '64px' }}>
-          <Checkbox />
+          <Checkbox onClick={() => useUpdate('Conditional')} />
           <ListItemText>
             <span>Conditional: hablaría</span>
           </ListItemText>
-          <Checkbox />
+
+          <Checkbox onClick={() => useUpdate('Present Perfect')} />
           <ListItemText>
             <span>Present Perfect: he hablado</span>
           </ListItemText>
-          <Checkbox />
+
+          <Checkbox onClick={() => useUpdate('Future Perfect')} />
           <ListItemText>
             <span>Future Perfect: habré hablado</span>
           </ListItemText>
-          <Checkbox />
+
+          <Checkbox onClick={() => useUpdate('Past Perfect')} />
           <ListItemText>
             <span>Past Perfect: había hablado</span>
           </ListItemText>
         </ListItem>
+
         <ListItem style={{ height: '64px' }}>
-          <Checkbox />
+          <Checkbox onClick={() => useUpdate('Conditional Perfect')} />
           <ListItemText>
             <span>Conditional Perfect: habría hablado</span>
           </ListItemText>
-          <Checkbox />
+
+          <Checkbox onClick={() => useSubjChange('Present')} />
           <ListItemText>
             <span>Subjunctive Present: hable</span>
           </ListItemText>
-          <Checkbox />
+
+          <Checkbox onClick={() => useSubjChange('Imperfect')} />
           <ListItemText>
             <span>Subjunctive Imperfect: hablara</span>
           </ListItemText>
-          <Checkbox />
+
+          <Checkbox onClick={() => useSubjChange('Present Perfect')} />
           <ListItemText>
             <span>Subjunctive Present Perfect: haya hablado</span>
           </ListItemText>

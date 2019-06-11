@@ -1,24 +1,10 @@
 import { useState } from 'react';
 
-// export default function updateArr(initialArr, newVal) {
-//   const [state, setState] = useState([initialArr]);
-//   const changeArr = newVal => {
-//     if (initialArr.includes(newVal)) {
-//       setState(
-//         initialArr.filter(word => {
-//           return word !== newVal;
-//         })
-//       );
-//     } else {
-//       setState([...initialArr, newVal]);
-//     }
-//   };
-// return [state, changeArr];
-// }
-
 export default function useArrUpdate(val) {
-  const [arr, setArr] = useState(['present', 'preterite']);
-  const updateArr = val => {
+  const [arr, setArr] = useState(['Present', 'Preterite']);
+  // check if tense is in the arr
+  // add or remove if it's in the arr
+  const useUpdate = val => {
     if (arr.includes(val)) {
       setArr(
         arr.filter(word => {
@@ -29,5 +15,5 @@ export default function useArrUpdate(val) {
       setArr([...arr, val]);
     }
   };
-  return [arr, updateArr];
+  return [arr, useUpdate];
 }
