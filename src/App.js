@@ -13,23 +13,6 @@ function App() {
   const [level, setLevel] = useState(0);
   const [latam, setLatam] = useState(true);
   const [token, setToken] = useState('');
-  const [subjArr, setSubjArr] = useState([]);
-  const [tenseArr, setTenseArr] = useState(['Present, Preterite']);
-  const [difficulty, setDifficulty] = useState('Beginner');
-  const [beginner, setBeginner] = useState(true);
-  const [intermediate, setIntermediate] = useState(false);
-  const [advanced, setAdvanced] = useState(false);
-
-  console.log(
-    'MAIN APP:',
-    beginner,
-    intermediate,
-    advanced,
-    difficulty,
-    latam,
-    tenseArr,
-    subjArr
-  );
 
   // if there's a token, we pass the auth headers to the server
   const client = token
@@ -94,22 +77,7 @@ function App() {
           <Route
             exact
             path="/settings"
-            render={props => (
-              <Settings
-                {...props}
-                beginner={beginner}
-                intermediate={intermediate}
-                advanced={advanced}
-                setBeginner={setBeginner}
-                setIntermediate={setIntermediate}
-                setAdvanced={setAdvanced}
-                latam={latam}
-                setLatam={setLatam}
-                setDifficulty={setDifficulty}
-                setTenseArr={setTenseArr}
-                setSubjArr={setSubjArr}
-              />
-            )}
+            render={props => <Settings {...props} />}
           />
           <Route render={() => <h1>URL not found!</h1>} />
         </Switch>

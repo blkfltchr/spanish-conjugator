@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { SettingsContext } from '../Contexts/SettingsContext';
 import PropTypes from 'prop-types';
 import { useQuery, useMutation } from 'react-apollo-hooks';
 import Info from './Info';
@@ -27,12 +28,21 @@ function Container(props) {
     answer: '',
     person: ''
   });
-  const { level, latam, updateLevel, updateLatam } = props;
+  const { level, updateLevel, updateLatam } = props;
 
   const buttonText =
     verb.answer !== value.toLowerCase() && answered ? 'Next verb' : 'Submit';
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
+
+  const {
+    latam,
+    beginner,
+    intermediate,
+    advanced,
+    tenseArr,
+    subjArr
+  } = useContext(SettingsContext);
 
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
