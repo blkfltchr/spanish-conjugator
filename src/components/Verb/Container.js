@@ -132,6 +132,21 @@ function Container(props) {
     setValue(value + accent);
   };
 
+  const handleExample = () => {
+    const hablar = data.verbs.filter(verb => verb.infinitive === 'hablar');
+    const hablarTense = hablar.filter(
+      hablar => hablar.tenseEnglish === verb.tenseEnglish
+    );
+    const hablarMood = hablarTense.filter(
+      hablar => hablar.moodEnglish === verb.moodEnglish
+    );
+    setHelperText(
+      `Yo + Hablar + ${
+        verb.tenseEnglish
+      } = YO ${hablarMood[0].form1s.toUpperCase()}`
+    );
+  };
+
   const handleRefresh = () => {
     setHelperText(null);
     setCorrect(false);
@@ -154,6 +169,7 @@ function Container(props) {
         handleSubmit={handleSubmit}
         person={verb.person}
         setValue={setValue}
+        handleExample={handleExample}
       />
       <Settings
         handleRefresh={handleRefresh}
