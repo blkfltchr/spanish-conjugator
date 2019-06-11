@@ -38,12 +38,6 @@ const styles = theme => ({
 });
 
 function Settings(props) {
-  const [difficulty, setDifficulty] = useState('Beginner');
-  const [latam, setLatam] = useState(true);
-  const [tenseArr, setTenseArr] = useState(['Present, Preterite']);
-  const [beginner, setBeginner] = useState(true);
-  const [intermediate, setIntermediate] = useState(false);
-  const [advanced, setAdvanced] = useState(false);
   const [clicked, setClicked] = useState(false);
   const { classes } = props;
 
@@ -53,7 +47,7 @@ function Settings(props) {
     }, 1000);
   };
 
-  console.log('classes from advSettings', props);
+  // console.log('classes from advSettings', props);
   return (
     <div>
       <Paper className={classes.main} elevation={10}>
@@ -65,14 +59,7 @@ function Settings(props) {
         <Grid container justify="center" style={{ marginTop: '1rem' }}>
           <Grid item xs={11} md={8} lg={11}>
             <Latam />
-            <Difficulty
-              beginner={beginner}
-              intermediate={intermediate}
-              advanced={advanced}
-              setBeginner={setBeginner}
-              setIntermediate={setIntermediate}
-              setAdvanced={setAdvanced}
-            />
+            <Difficulty />
             <Tenses />
           </Grid>
         </Grid>

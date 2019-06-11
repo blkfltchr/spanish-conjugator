@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { SettingsContext } from './../Contexts/SettingsContext';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItem';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -6,7 +7,6 @@ import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { withStyles } from '@material-ui/styles';
-import { SettingsContext } from './../Contexts/SettingsContext';
 
 const styles = {
   section: {

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { SettingsContext } from './../Contexts/SettingsContext';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItem';

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { SettingsContext } from './../Contexts/SettingsContext';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItem';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -18,10 +19,16 @@ const styles = {
 };
 
 function Tenses({ classes }) {
-  const [present, setPresent] = useState(true);
-  const [pret, setPret] = useState(true);
-  const [tenseArr, useUpdate] = useArrUpdate();
-  const [subjArr, useSubjChange] = useSubjUpdate();
+  const {
+    present,
+    setPresent,
+    pret,
+    setPret,
+    tenseArr,
+    useUpdate,
+    subjArr,
+    useSubjChange
+  } = useContext(SettingsContext);
 
   console.log('Tenses -->', tenseArr, subjArr);
 
