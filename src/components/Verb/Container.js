@@ -25,7 +25,7 @@ function Container(props) {
     infinitiveEnglish: '',
     moodEnglish: '',
     answer: '',
-    person: ''
+    person: '',
   });
   const { level, latam, updateLevel, updateLatam } = props;
 
@@ -37,7 +37,7 @@ function Container(props) {
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
   const { loading, data } = useQuery(verbQueries[level], {
-    variables: { latam }
+    variables: { latam },
   });
 
   const mutate = useMutation(CREATE_LOG);
@@ -58,7 +58,7 @@ function Container(props) {
         tenseEnglish: randomVerb.tenseEnglish,
         moodEnglish: randomVerb.moodEnglish,
         person: Object.keys(randomVerb)[randomVerbNum],
-        answer: Object.values(randomVerb)[randomVerbNum]
+        answer: Object.values(randomVerb)[randomVerbNum],
       });
     }
   };
@@ -77,8 +77,8 @@ function Container(props) {
           correctAnswer: verb.answer,
           userAnswer: userInput,
           verbPerson: verb.person,
-          correct
-        }
+          correct,
+        },
       });
       console.log('logData -->', logData);
       setUpdated(false);
@@ -142,7 +142,7 @@ function Container(props) {
     <div>
       <Header />
       <div className="verb-info-wrapper">
-        <Stats count={count} percentage={percentage} />
+        <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
         <Info verb={verb} loading={loading} />
       </div>
       <Input
@@ -168,7 +168,7 @@ Container.propTypes = {
   level: PropTypes.number,
   latam: PropTypes.bool,
   updateLevel: PropTypes.func,
-  updateLatam: PropTypes.func
+  updateLatam: PropTypes.func,
 };
 
 export default Container;
