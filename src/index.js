@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { LanguageProvider } from './components/Contexts/LanguageContext';
+import { SettingsProvider } from './components/Contexts/SettingsContext';
 import App from './App';
 
 ReactDOM.render(
   <BrowserRouter>
-    <LanguageProvider>
+    <SettingsProvider>
       <App />
-    </LanguageProvider>
+    </SettingsProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );

@@ -9,8 +9,6 @@ import Difficulty from './Difficulty';
 import Tenses from './Tenses';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/styles';
-import useArrUpdate from '../Hooks/useArrUpdate';
-import useSubjUpdate from '../Hooks/useSubjUpdate';
 
 const styles = theme => ({
   main: {
@@ -39,44 +37,20 @@ const styles = theme => ({
   }
 });
 
-function Settings({
-  classes,
-  beginner,
-  intermediate,
-  advanced,
-  setBeginner,
-  setIntermediate,
-  setAdvanced,
-  latam,
-  setLatam,
-  setDifficulty,
-  setTenseArr,
-  setSubjArr,
-  props
-}) {
-  const [tenseArr, useUpdate] = useArrUpdate();
-  const [subjArr, useSubjChange] = useSubjUpdate();
+function Settings(props) {
+  const [difficulty, setDifficulty] = useState('Beginner');
+  const [latam, setLatam] = useState(true);
+  const [tenseArr, setTenseArr] = useState(['Present, Preterite']);
+  const [beginner, setBeginner] = useState(true);
+  const [intermediate, setIntermediate] = useState(false);
+  const [advanced, setAdvanced] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const { classes } = props;
 
   const sendHome = () => {
     setTimeout(() => {
       props.history.push('/');
     }, 1000);
-  };
-
-  const updateDif = (beg, inter, adv) => {
-    if (beg) {
-      setDifficulty('Beginner');
-    } else if (inter) {
-      setDifficulty('Intermediate');
-    } else if (adv) {
-      setDifficulty('Advanced');
-    }
-  };
-
-  const updateArrays = (tenseArr, subjArr) => {
-    setTenseArr(tenseArr);
-    setSubjArr(subjArr);
   };
 
   console.log('classes from advSettings', props);
@@ -90,7 +64,7 @@ function Settings({
         </AppBar>
         <Grid container justify="center" style={{ marginTop: '1rem' }}>
           <Grid item xs={11} md={8} lg={11}>
-            <Latam latam={latam} setLatam={setLatam} />
+            <Latam />
             <Difficulty
               beginner={beginner}
               intermediate={intermediate}
@@ -99,12 +73,7 @@ function Settings({
               setIntermediate={setIntermediate}
               setAdvanced={setAdvanced}
             />
-            <Tenses
-              useUpdate={useUpdate}
-              useSubjChange={useSubjChange}
-              setTenseArr={setTenseArr}
-              setSubjArr={setSubjArr}
-            />
+            <Tenses />
           </Grid>
         </Grid>
         <Grid justify="flex-end" container>
@@ -115,8 +84,6 @@ function Settings({
             onClick={() => {
               setClicked(!clicked);
               sendHome();
-              updateDif(beginner, intermediate, advanced);
-              updateArrays(tenseArr, subjArr);
             }}
           >
             {clicked ? 'Updated' : 'Update'}
