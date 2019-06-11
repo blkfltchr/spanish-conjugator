@@ -17,18 +17,14 @@ const styles = {
   }
 };
 
-function Tenses(props) {
-  // const [tenseArr, setTenseArr] = useState(['Present', 'Preterite']);
+function Tenses({ classes }) {
   const [present, setPresent] = useState(true);
   const [pret, setPret] = useState(true);
-  const [subjunctive, setSub] = useState(false);
-  const { classes } = props;
   const [tenseArr, useUpdate] = useArrUpdate();
-
-  // if subjArr.length === 0, we don't need to do subj query
   const [subjArr, useSubjChange] = useSubjUpdate();
 
-  console.log('Tense array', tenseArr, subjArr);
+  console.log('Tenses -->', tenseArr, subjArr);
+
   return (
     <Paper className={classes.section} elevation={1}>
       <List>

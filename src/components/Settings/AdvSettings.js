@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,10 +8,11 @@ import Latam from './Latam';
 import Difficulty from './Difficulty';
 import Tenses from './Tenses';
 import Button from '@material-ui/core/Button';
-import { positions } from '@material-ui/system';
-import { withStyles, makeStyles } from '@material-ui/styles';
+import { withStyles } from '@material-ui/styles';
+import useArrUpdate from '../Hooks/useArrUpdate';
+import useSubjUpdate from '../Hooks/useSubjUpdate';
 
-const styles = {
+const styles = theme => ({
   main: {
     padding: 0,
     marginLeft: 170,
@@ -36,20 +37,46 @@ const styles = {
       backgroundColor: '#1B5E20'
     }
   }
-};
+});
 
-function Settings(props) {
-  const [difficulty, setDifficulty] = useState('Beginner');
-  const [latam, setLatam] = useState(true);
-  const [tenseArr, setTenseArr] = useState(['Present, Preterite']);
+function Settings({
+  classes,
+  beginner,
+  intermediate,
+  advanced,
+  setBeginner,
+  setIntermediate,
+  setAdvanced,
+  latam,
+  setLatam,
+  setDifficulty,
+  setTenseArr,
+  setSubjArr,
+  props
+}) {
+  const [tenseArr, useUpdate] = useArrUpdate();
+  const [subjArr, useSubjChange] = useSubjUpdate();
   const [clicked, setClicked] = useState(false);
-  const { classes } = props;
 
   const sendHome = () => {
-    console.log('In sendHome');
     setTimeout(() => {
       props.history.push('/');
     }, 1000);
+  };
+
+  const updateDif = (beg, inter, adv) => {
+    if (beg) {
+      setDifficulty('Beginner');
+    } else if (inter) {
+      setDifficulty('Intermediate');
+    } else if (adv) {
+      setDifficulty('Advanced');
+    }
+  };
+
+  const updateArrays = (tenseArr, subjArr) => {
+    setTenseArr(tenseArr);
+    setSubjArr(subjArr);
   };
 
   console.log('classes from advSettings', props);
@@ -63,9 +90,21 @@ function Settings(props) {
         </AppBar>
         <Grid container justify="center" style={{ marginTop: '1rem' }}>
           <Grid item xs={11} md={8} lg={11}>
-            <Latam />
-            <Difficulty />
-            <Tenses />
+            <Latam latam={latam} setLatam={setLatam} />
+            <Difficulty
+              beginner={beginner}
+              intermediate={intermediate}
+              advanced={advanced}
+              setBeginner={setBeginner}
+              setIntermediate={setIntermediate}
+              setAdvanced={setAdvanced}
+            />
+            <Tenses
+              useUpdate={useUpdate}
+              useSubjChange={useSubjChange}
+              setTenseArr={setTenseArr}
+              setSubjArr={setSubjArr}
+            />
           </Grid>
         </Grid>
         <Grid justify="flex-end" container>
@@ -76,8 +115,9 @@ function Settings(props) {
             onClick={() => {
               setClicked(!clicked);
               sendHome();
+              updateDif(beginner, intermediate, advanced);
+              updateArrays(tenseArr, subjArr);
             }}
-            // onClick={() => sendHome()}
           >
             {clicked ? 'Updated' : 'Update'}
           </Button>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItem';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { withStyles } from '@material-ui/styles';
 import useToggle from '../Hooks/useToggle';
+import { LanguageContext } from './../Contexts/LanguageContext';
 
 const styles = {
   section: {
@@ -16,11 +17,13 @@ const styles = {
   }
 };
 
-function Latam(props) {
-  const [latam, toggleLatam] = useToggle(true);
-  const { classes } = props;
+function Latam({ classes }) {
+  // const [latam, toggleLatam] = useToggle(true);
 
-  console.log('Latam:', latam);
+  const { latam, toggleLatam } = useContext(LanguageContext);
+
+  console.log('Context -->', latam);
+
   return (
     <Paper className={classes.section}>
       <List>
