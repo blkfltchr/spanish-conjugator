@@ -24,6 +24,14 @@ function Nav(props) {
         >
           Dashboard
         </NavLink>
+        <NavLink
+          exact
+          activeClassName="active-link"
+          className="inactive"
+          to="/settings"
+        >
+          Settings
+        </NavLink>
         {props.token.length > 0 ? null : (
           <NavLink
             exact

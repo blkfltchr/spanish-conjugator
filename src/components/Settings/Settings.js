@@ -1,45 +1,84 @@
 import React, { useState } from 'react';
-import '../../app.css';
-import PropTypes from 'prop-types';
-import VerbTenses from './VerbTenses';
-import VerbRegion from './VerbRegion';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Grid from '@material-ui/core/Grid';
+import Latam from './Latam';
+import Difficulty from './Difficulty';
+import Tenses from './Tenses';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/styles';
+
+const styles = theme => ({
+  main: {
+    padding: 0,
+    marginLeft: 170,
+    marginRight: 170,
+    marginTop: 10,
+    height: '90vh',
+    backgroundColor: '#fafafa'
+  },
+  button: {
+    marginRight: 100,
+    marginTop: 20,
+    width: 120,
+    height: 40
+  },
+  buttonUpdated: {
+    marginRight: 100,
+    marginTop: 20,
+    width: 120,
+    height: 40,
+    backgroundColor: 'green',
+    '&:hover': {
+      backgroundColor: '#1B5E20'
+    }
+  }
+});
 
 function Settings(props) {
-  const [updateSettings, setUpdateSettings] = useState(false);
-  const hide = 'settings-buttons-hide';
-  const display = 'settings-buttons-display';
-  const { updateLevel } = props;
+  const [clicked, setClicked] = useState(false);
+  const { classes } = props;
 
-  const changeSettings = event => {
-    const { handleRefresh } = props;
-    event.preventDefault();
-    setUpdateSettings(!updateSettings);
-    if (updateSettings) {
-      alert('Your settings are updated.');
-      handleRefresh(event);
-    }
+  const sendHome = () => {
+    setTimeout(() => {
+      props.history.push('/');
+    }, 1000);
   };
+
+  // console.log('classes from advSettings', props);
   return (
-    <div className="settings">
-      <button type="button" onClick={changeSettings} className="button-options">
-        {updateSettings ? 'Update level' : 'Change level'}
-      </button>
-      <div className="two-dropdowns">
-        <div className={updateSettings ? display : hide}>
-          <VerbTenses updateLevel={updateLevel} />
-        </div>
-        <div className={updateSettings ? display : hide}>
-          <VerbRegion updateLatam={props.updateLatam} />
-        </div>
-      </div>
+    <div>
+      <Paper className={classes.main} elevation={10}>
+        <AppBar color="primary" position="static" style={{ height: '64px' }}>
+          <Toolbar>
+            <Typography color="inherit">Select your settings</Typography>
+          </Toolbar>
+        </AppBar>
+        <Grid container justify="center" style={{ marginTop: '1rem' }}>
+          <Grid item xs={11} md={8} lg={11}>
+            <Latam />
+            <Difficulty />
+            <Tenses />
+          </Grid>
+        </Grid>
+        <Grid justify="flex-end" container>
+          <Button
+            variant="contained"
+            color="primary"
+            className={clicked ? classes.buttonUpdated : classes.button}
+            onClick={() => {
+              setClicked(!clicked);
+              sendHome();
+            }}
+          >
+            {clicked ? 'Updated' : 'Update'}
+          </Button>
+        </Grid>
+      </Paper>
     </div>
   );
 }
 
-Settings.propTypes = {
-  updateVerbTenses: PropTypes.func,
-  updateNumPerson: PropTypes.func,
-  handleRefresh: PropTypes.func
-};
-
-export default Settings;
+export default withStyles(styles)(Settings);

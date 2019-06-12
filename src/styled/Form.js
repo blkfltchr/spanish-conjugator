@@ -4,6 +4,7 @@ export const SmallForm = styled.form`
   width: 400px;
   padding-bottom: 30px;
   margin: 0 auto;
+  margin-top: 100px;
   -webkit-border-radius: 8px/7px;
   -moz-border-radius: 8px/7px;
   border-radius: 8px/7px;

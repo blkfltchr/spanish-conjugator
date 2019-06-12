@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { SettingsContext } from '../Contexts/SettingsContext';
 import PropTypes from 'prop-types';
 import { useQuery, useMutation } from 'react-apollo-hooks';
 import Info from './Info';
 import Input from './Input';
-import Settings from '../Settings/Settings';
 import { verbQueries } from '../GqlQueries/verbQueries';
 import { CREATE_LOG } from '../GqlQueries/logQueries';
 import Stats from './Stats';
 import Header from '../Layout/Header';
 
-function Container(props) {
+function Container() {
   const [value, setValue] = useState('');
   const [bestStreak, setBestStreak] = useState(0);
   const [totalAnswers, setTotalAnswers] = useState(0);
@@ -25,24 +25,27 @@ function Container(props) {
     infinitiveEnglish: '',
     moodEnglish: '',
     answer: '',
-    person: '',
+    person: ''
   });
-  const { level, latam, updateLevel, updateLatam } = props;
 
   const buttonText =
     verb.answer !== value.toLowerCase() && answered ? 'Next verb' : 'Submit';
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
 
+  const { latam, difficulty, tenseArr, subjArr } = useContext(SettingsContext);
+
+  console.log('FROM CONTAINER -->', latam, difficulty, tenseArr, subjArr);
+
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
-  const { loading, data } = useQuery(verbQueries[level], {
-    variables: { latam },
+  const { loading, data } = useQuery(verbQueries[difficulty], {
+    variables: { latam, tenseArr, subjArr }
   });
 
   const mutate = useMutation(CREATE_LOG);
 
-  console.log('Data -->', data);
+  // console.log('Data -->', data);
 
   const getRandomVerb = () => {
     // this checks to see if the gql query has loaded
@@ -58,7 +61,7 @@ function Container(props) {
         tenseEnglish: randomVerb.tenseEnglish,
         moodEnglish: randomVerb.moodEnglish,
         person: Object.keys(randomVerb)[randomVerbNum],
-        answer: Object.values(randomVerb)[randomVerbNum],
+        answer: Object.values(randomVerb)[randomVerbNum]
       });
     }
   };
@@ -77,8 +80,8 @@ function Container(props) {
           correctAnswer: verb.answer,
           userAnswer: userInput,
           verbPerson: verb.person,
-          correct,
-        },
+          correct
+        }
       });
       console.log('logData -->', logData);
       setUpdated(false);
@@ -147,14 +150,8 @@ function Container(props) {
     );
   };
 
-  const handleRefresh = () => {
-    setHelperText(null);
-    setCorrect(false);
-    getRandomVerb();
-  };
-
   return (
-    <div>
+    <div className="app">
       <Header />
       <div className="verb-info-wrapper">
         <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
@@ -171,11 +168,6 @@ function Container(props) {
         setValue={setValue}
         handleExample={handleExample}
       />
-      <Settings
-        handleRefresh={handleRefresh}
-        updateLevel={updateLevel}
-        updateLatam={updateLatam}
-      />
     </div>
   );
 }
@@ -184,7 +176,7 @@ Container.propTypes = {
   level: PropTypes.number,
   latam: PropTypes.bool,
   updateLevel: PropTypes.func,
-  updateLatam: PropTypes.func,
+  updateLatam: PropTypes.func
 };
 
 export default Container;

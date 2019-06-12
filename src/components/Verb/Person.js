@@ -9,7 +9,7 @@ function VerbPerson(props) {
     form3s: 'El/Ella',
     form1p: 'Nosotros',
     form2p: 'Vosotros',
-    form3p: 'Ellos/Ellas',
+    form3p: 'Ellos/Ellas'
   };
 
   return (
@@ -20,7 +20,7 @@ function VerbPerson(props) {
 }
 
 VerbPerson.propTypes = {
-  person: PropTypes.string,
+  person: PropTypes.string
 };
 
 export default VerbPerson;
