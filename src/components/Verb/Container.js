@@ -150,12 +150,6 @@ function Container() {
     );
   };
 
-  const handleRefresh = () => {
-    setHelperText(null);
-    setCorrect(false);
-    getRandomVerb();
-  };
-
   return (
     <div className="app">
       <Header />
