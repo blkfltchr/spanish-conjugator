@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useQuery, useMutation } from 'react-apollo-hooks';
 import Info from './Info';
 import Input from './Input';
-import Settings from '../Settings/Settings';
+import Settings from '../Settings/TestSettings';
 import { verbQueries } from '../GqlQueries/verbQueries';
 import { CREATE_LOG } from '../GqlQueries/logQueries';
 import Stats from './Stats';
@@ -28,7 +28,6 @@ function Container(props) {
     answer: '',
     person: ''
   });
-  const { level, updateLevel, updateLatam } = props;
 
   const buttonText =
     verb.answer !== value.toLowerCase() && answered ? 'Next verb' : 'Submit';

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import '../../app.css';
+// import '../../app.css';
 import PropTypes from 'prop-types';
-import VerbTenses from './VerbTenses';
-import VerbRegion from './VerbRegion';
+// import VerbTenses from './VerbTenses';
+// import VerbRegion from './VerbRegion';
 
 function Settings(props) {
   const [updateSettings, setUpdateSettings] = useState(false);
@@ -26,10 +26,10 @@ function Settings(props) {
       </button>
       <div className="two-dropdowns">
         <div className={updateSettings ? display : hide}>
-          <VerbTenses updateLevel={updateLevel} />
+          {/* <VerbTenses updateLevel={updateLevel} /> */}
         </div>
         <div className={updateSettings ? display : hide}>
-          <VerbRegion updateLatam={props.updateLatam} />
+          {/* <VerbRegion updateLatam={props.updateLatam} /> */}
         </div>
       </div>
     </div>

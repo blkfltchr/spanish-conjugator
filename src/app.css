@@ -243,7 +243,7 @@ body {
 
 /* Settings styles */
 
-.settings {
+/* .settings {
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
@@ -280,7 +280,7 @@ body {
   float: left;
   text-align: center;
   z-index: 1000;
-}
+} */
 
 /* Modal styles */
 

@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Nav from './components/Layout/Nav';
 import Settings from './components/Settings/AdvSettings';
+import './app.css';
 
 function App() {
   const [level, setLevel] = useState(0);
