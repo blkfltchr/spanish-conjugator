@@ -23,7 +23,8 @@ function Difficulty({ classes }) {
     intermediate,
     setIntermediate,
     advanced,
-    setAdvanced
+    setAdvanced,
+    setDifficulty
   } = useContext(SettingsContext);
 
   console.log('State Difficulty:', beginner, intermediate, advanced);
@@ -38,6 +39,7 @@ function Difficulty({ classes }) {
               setBeginner(true);
               setIntermediate(false);
               setAdvanced(false);
+              setDifficulty(0);
             }}
           />
           <ListItemText>
@@ -49,6 +51,7 @@ function Difficulty({ classes }) {
               setBeginner(false);
               setIntermediate(true);
               setAdvanced(false);
+              setDifficulty(1);
             }}
           />
           <ListItemText>
@@ -60,6 +63,7 @@ function Difficulty({ classes }) {
               setBeginner(false);
               setIntermediate(false);
               setAdvanced(true);
+              setDifficulty(2);
             }}
           />
           <ListItemText>

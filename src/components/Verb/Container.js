@@ -35,20 +35,18 @@ function Container(props) {
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
 
-  const {
-    latam,
-    beginner,
-    intermediate,
-    advanced,
-    tenseArr,
-    subjArr
-  } = useContext(SettingsContext);
+  const { latam, difficulty, tenseArr, subjArr } = useContext(SettingsContext);
 
+  console.log('FROM CONTAINER -->', latam, difficulty, tenseArr, subjArr);
+
+  console.log("What's the query??", verbQueries[difficulty]);
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
-  const { loading, data } = useQuery(verbQueries[level], {
-    variables: { latam }
+  const { loading, data } = useQuery(verbQueries[difficulty], {
+    variables: { latam, tenseArr, subjArr }
   });
+
+  console.log('Data from CONTAINER', data);
 
   const mutate = useMutation(CREATE_LOG);
 

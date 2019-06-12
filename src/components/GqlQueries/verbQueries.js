@@ -250,22 +250,42 @@ import gql from 'graphql-tag';
 // `;
 
 const BEGINNER = gql`
-  query($latam: Boolean!, $tenseArr: Array!, $subjArr: Array!) {
+  query($latam: Boolean!, $tenseArr: [String!], $subjArr: [String!]) {
     verbs(
       where: {
         OR: [
-          { infinitive: "caminar" }
-          { infinitive: "hablar" }
-          { infinitive: "ayudar" }
-          { infinitive: "necesitar" }
-          { infinitive: "escribir" }
-          { infinitive: "esperar" }
-          { infinitive: "cocinar" }
-          { infinitive: "comer" }
-          { infinitive: "beber" }
-          { infinitive: "vivir" }
-          { AND: [{ tenseEnglish: $tenseArr }, { moodEnglish: "Indicative" }] }
-          { AND: [{ tenseEnglish: $subjArr }, { moodEnglish: "Subjunctive" }] }
+          {
+            tenseEnglish_in: $tenseArr
+            infinitive_in: [
+              "caminar"
+              "hablar"
+              "ayudar"
+              "necesitar"
+              "escribir"
+              "esperar"
+              "cocinar"
+              "comer"
+              "beber"
+              "vivir"
+            ]
+            moodEnglish: "Indicative"
+          }
+          {
+            tenseEnglish_in: $subjArr
+            infinitive_in: [
+              "caminar"
+              "hablar"
+              "ayudar"
+              "necesitar"
+              "escribir"
+              "esperar"
+              "cocinar"
+              "comer"
+              "beber"
+              "vivir"
+            ]
+            moodEnglish: "Subjunctive"
+          }
         ]
       }
     ) {
@@ -284,42 +304,118 @@ const BEGINNER = gql`
   }
 `;
 
+// where: {
+//   OR: [
+//     {
+//       tenseEnglish_in: [Present],
+//       infinitive_in: [
+//         "caminar",
+//         "hablar",
+//         "ayudar",
+//         "necesitar",
+//         "escribir",
+//         "esperar",
+//         "cocinar",
+//         "comer",
+//         "beber",
+//         "vivir"
+//       ],
+//       moodEnglish: 'Indicative'
+//     },
+//     {
+//       tenseEnglish_in: ['Present'],
+//       infinitive_in: [
+//         'caminar',
+//         'hablar',
+//         'ayudar',
+//         'necesitar',
+//         'escribir',
+//         'esperar',
+//         'cocinar',
+//         'comer',
+//         'beber',
+//         'vivir'
+//       ],
+//       moodEnglish: 'Indicative'
+//     }
+//   ];
+// }
+
 const INTERMEDIATE = gql`
-  query($latam: Boolean!, $tenseArr: Array!, $subjArr: Array!) {
+  query($latam: Boolean!, $tenseArr: [String!], $subjArr: [String!]) {
     verbs(
       where: {
         OR: [
-          { infinitive: "caminar" }
-          { infinitive: "hablar" }
-          { infinitive: "ayudar" }
-          { infinitive: "necesitar" }
-          { infinitive: "escribir" }
-          { infinitive: "esperar" }
-          { infinitive: "cocinar" }
-          { infinitive: "comer" }
-          { infinitive: "beber" }
-          { infinitive: "vivir" }
-          { infinitive: "saber" }
-          { infinitive: "dormir" }
-          { infinitive: "morir" }
-          { infinitive: "mover" }
-          { infinitive: "jugar" }
-          { infinitive: "encontrar" }
-          { infinitive: "empezar" }
-          { infinitive: "entender" }
-          { infinitive: "querer" }
-          { infinitive: "conocer" }
-          { infinitive: "conducir" }
-          { infinitive: "traducir" }
-          { infinitive: "salir" }
-          { infinitive: "traer" }
-          { infinitive: "hacer" }
-          { infinitive: "tener" }
-          { infinitive: "ser" }
-          { infinitive: "estar" }
-          { infinitive: "dar" }
-          { AND: [{ tenseEnglish: $tenseArr }, { moodEnglish: "Indicative" }] }
-          { AND: [{ tenseEnglish: $subjArr }, { moodEnglish: "Subjunctive" }] }
+          {
+            tenseEnglish_in: $tenseArr
+            infinitive_in: [
+              "caminar"
+              "hablar"
+              "ayudar"
+              "necesitar"
+              "escribir"
+              "esperar"
+              "cocinar"
+              "comer"
+              "beber"
+              "vivir"
+              "saber"
+              "dormir"
+              "morir"
+              "mover"
+              "jugar"
+              "encontrar"
+              "empezar"
+              "entender"
+              "querer"
+              "conocer"
+              "conducir"
+              "traducir"
+              "salir"
+              "traer"
+              "hacer"
+              "tener"
+              "ser"
+              "estar"
+              "dar"
+            ]
+            moodEnglish: "Indicative"
+          }
+          {
+            tenseEnglish_in: $subjArr
+            infinitive_in: [
+              "caminar"
+              "hablar"
+              "ayudar"
+              "necesitar"
+              "escribir"
+              "esperar"
+              "cocinar"
+              "comer"
+              "beber"
+              "vivir"
+              "saber"
+              "dormir"
+              "morir"
+              "mover"
+              "jugar"
+              "encontrar"
+              "empezar"
+              "entender"
+              "querer"
+              "conocer"
+              "conducir"
+              "traducir"
+              "salir"
+              "traer"
+              "hacer"
+              "tener"
+              "ser"
+              "estar"
+              "dar"
+            ]
+            moodEnglish: "Subjunctive"
+          }
         ]
       }
     ) {
@@ -339,12 +435,16 @@ const INTERMEDIATE = gql`
 `;
 
 const All_VERBS = gql`
-  query($latam: Boolean!, $tenseArr: Array!, $subjArr: Array!) {
+  query($latam: Boolean!, $tenseArr: [String!], $subjArr: [String!]) {
     verbs(
       where: {
         OR: [
-          { AND: [{ tenseEnglish: $tenseArr }, { moodEnglish: "Indicative" }] }
-          { AND: [{ tenseEnglish: $subjArr }, { moodEnglish: "Subjunctive" }] }
+          {
+            AND: [{ tenseEnglish_in: $tenseArr }, { moodEnglish: "Indicative" }]
+          }
+          {
+            AND: [{ tenseEnglish_in: $subjArr }, { moodEnglish: "Subjunctive" }]
+          }
         ]
       }
     ) {

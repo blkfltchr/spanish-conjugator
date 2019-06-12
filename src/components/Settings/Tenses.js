@@ -7,8 +7,6 @@ import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { withStyles } from '@material-ui/styles';
-import useArrUpdate from '../Hooks/useArrUpdate';
-import useSubjUpdate from '../Hooks/useSubjUpdate';
 
 const styles = {
   section: {
