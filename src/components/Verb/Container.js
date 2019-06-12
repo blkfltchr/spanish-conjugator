@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { useQuery, useMutation } from 'react-apollo-hooks';
 import Info from './Info';
 import Input from './Input';
-import Settings from '../Settings/TestSettings';
 import { verbQueries } from '../GqlQueries/verbQueries';
 import { CREATE_LOG } from '../GqlQueries/logQueries';
 import Stats from './Stats';

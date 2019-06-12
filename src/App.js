@@ -7,7 +7,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Nav from './components/Layout/Nav';
-import Settings from './components/Settings/AdvSettings';
+import Settings from './components/Settings/Settings';
 import './app.css';
 
 function App() {
