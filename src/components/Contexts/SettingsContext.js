@@ -6,7 +6,7 @@ import useSubjUpdate from '../Hooks/useSubjUpdate';
 export const SettingsContext = createContext();
 
 export function SettingsProvider(props) {
-  const [latam, toggleLatam] = useToggleState(false);
+  const [latam, toggleLatam] = useToggleState(true);
   const [beginner, setBeginner] = useState(true);
   const [intermediate, setIntermediate] = useState(false);
   const [advanced, setAdvanced] = useState(false);
