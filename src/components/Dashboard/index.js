@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '../../styled/Button';
 import Charts from './Charts';
 import { useQuery } from 'react-apollo-hooks';
 import { GET_MY_INFO } from '../GqlQueries/userQueries';

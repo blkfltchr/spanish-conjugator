@@ -9,7 +9,7 @@ import { CREATE_LOG } from '../GqlQueries/logQueries';
 import Stats from './Stats';
 import Header from '../Layout/Header';
 
-function Container(props) {
+function Container() {
   const [value, setValue] = useState('');
   const [bestStreak, setBestStreak] = useState(0);
   const [totalAnswers, setTotalAnswers] = useState(0);
@@ -135,12 +135,6 @@ function Container(props) {
     setValue(value + accent);
   };
 
-  const handleRefresh = () => {
-    setHelperText(null);
-    setCorrect(false);
-    getRandomVerb();
-  };
-
   return (
     <div className="app">
       <Header />
@@ -158,11 +152,6 @@ function Container(props) {
         person={verb.person}
         setValue={setValue}
       />
-      {/* <Settings
-        handleRefresh={handleRefresh}
-        updateLevel={updateLevel}
-        updateLatam={updateLatam}
-      /> */}
     </div>
   );
 }
