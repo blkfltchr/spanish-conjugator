@@ -135,11 +135,32 @@ function Container() {
     setValue(value + accent);
   };
 
+  const handleExample = () => {
+    const hablar = data.verbs.filter(verb => verb.infinitive === 'hablar');
+    const hablarTense = hablar.filter(
+      hablar => hablar.tenseEnglish === verb.tenseEnglish
+    );
+    const hablarMood = hablarTense.filter(
+      hablar => hablar.moodEnglish === verb.moodEnglish
+    );
+    setHelperText(
+      `Yo + Hablar + ${
+        verb.tenseEnglish
+      } = YO ${hablarMood[0].form1s.toUpperCase()}`
+    );
+  };
+
+  const handleRefresh = () => {
+    setHelperText(null);
+    setCorrect(false);
+    getRandomVerb();
+  };
+
   return (
     <div className="app">
       <Header />
       <div className="verb-info-wrapper">
-        <Stats count={count} percentage={percentage} />
+        <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
         <Info verb={verb} loading={loading} />
       </div>
       <Input
@@ -151,6 +172,7 @@ function Container() {
         handleSubmit={handleSubmit}
         person={verb.person}
         setValue={setValue}
+        handleExample={handleExample}
       />
     </div>
   );

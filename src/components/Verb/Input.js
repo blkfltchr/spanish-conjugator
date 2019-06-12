@@ -15,7 +15,7 @@ function Input(props) {
     helperText,
     handleSubmit,
     buttonText,
-    setValue
+    setValue,
   } = props;
 
   return (
@@ -70,7 +70,7 @@ Input.propTypes = {
   helperText: PropTypes.string,
   handleSubmit: PropTypes.func,
   buttonText: PropTypes.string,
-  setValue: PropTypes.func
+  setValue: PropTypes.func,
 };
 
 Input.defaultProps = {
@@ -78,7 +78,7 @@ Input.defaultProps = {
   value: '',
   correct: false,
   helperText: '',
-  buttonText: ''
+  buttonText: '',
 };
 
 export default Input;

@@ -6,6 +6,7 @@ import Container from './components/Verb/Container';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import Landing from './components/Landing';
 import Nav from './components/Layout/Nav';
 import Settings from './components/Settings/Settings';
 import './app.css';
@@ -80,6 +81,7 @@ function App() {
             path="/settings"
             render={props => <Settings {...props} />}
           />
+          <Route path="/landing" component={Landing} />
           <Route render={() => <h1>URL not found!</h1>} />
         </Switch>
       </div>
