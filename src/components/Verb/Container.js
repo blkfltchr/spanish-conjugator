@@ -25,7 +25,7 @@ function Container(props) {
     infinitiveEnglish: '',
     moodEnglish: '',
     answer: '',
-    person: ''
+    person: '',
   });
   const { level, latam, updateLevel, updateLatam } = props;
 
@@ -37,7 +37,7 @@ function Container(props) {
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
   const { loading, data } = useQuery(verbQueries[level], {
-    variables: { latam }
+    variables: { latam },
   });
 
   const mutate = useMutation(CREATE_LOG);
@@ -58,7 +58,7 @@ function Container(props) {
         tenseEnglish: randomVerb.tenseEnglish,
         moodEnglish: randomVerb.moodEnglish,
         person: Object.keys(randomVerb)[randomVerbNum],
-        answer: Object.values(randomVerb)[randomVerbNum]
+        answer: Object.values(randomVerb)[randomVerbNum],
       });
     }
   };
@@ -77,8 +77,8 @@ function Container(props) {
           correctAnswer: verb.answer,
           userAnswer: userInput,
           verbPerson: verb.person,
-          correct
-        }
+          correct,
+        },
       });
       console.log('logData -->', logData);
       setUpdated(false);
@@ -132,6 +132,21 @@ function Container(props) {
     setValue(value + accent);
   };
 
+  const handleExample = () => {
+    const hablar = data.verbs.filter(verb => verb.infinitive === 'hablar');
+    const hablarTense = hablar.filter(
+      hablar => hablar.tenseEnglish === verb.tenseEnglish
+    );
+    const hablarMood = hablarTense.filter(
+      hablar => hablar.moodEnglish === verb.moodEnglish
+    );
+    setHelperText(
+      `Yo + Hablar + ${
+        verb.tenseEnglish
+      } = YO ${hablarMood[0].form1s.toUpperCase()}`
+    );
+  };
+
   const handleRefresh = () => {
     setHelperText(null);
     setCorrect(false);
@@ -142,7 +157,7 @@ function Container(props) {
     <div>
       <Header />
       <div className="verb-info-wrapper">
-        <Stats count={count} percentage={percentage} />
+        <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
         <Info verb={verb} loading={loading} />
       </div>
       <Input
@@ -154,6 +169,7 @@ function Container(props) {
         handleSubmit={handleSubmit}
         person={verb.person}
         setValue={setValue}
+        handleExample={handleExample}
       />
       <Settings
         handleRefresh={handleRefresh}
@@ -168,7 +184,7 @@ Container.propTypes = {
   level: PropTypes.number,
   latam: PropTypes.bool,
   updateLevel: PropTypes.func,
-  updateLatam: PropTypes.func
+  updateLatam: PropTypes.func,
 };
 
 export default Container;

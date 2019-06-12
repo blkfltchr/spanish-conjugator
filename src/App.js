@@ -6,6 +6,7 @@ import Container from './components/Verb/Container';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import Landing from './components/Landing';
 import Nav from './components/Layout/Nav';
 
 function App() {
@@ -20,13 +21,13 @@ function App() {
         request: async operation => {
           operation.setContext({
             headers: {
-              authorization: token
-            }
+              authorization: token,
+            },
           });
-        }
+        },
       })
     : new ApolloClient({
-        uri: 'https://frozen-inlet-85252.herokuapp.com/'
+        uri: 'https://frozen-inlet-85252.herokuapp.com/',
       });
 
   const updateLatam = () => {
@@ -74,6 +75,7 @@ function App() {
               path="/dashboard"
               render={props => <Dashboard {...props} token={token} />}
             />
+            <Route path="/landing" component={Landing} />
             <Route render={() => <h1>URL not found!</h1>} />
           </Switch>
         </div>
