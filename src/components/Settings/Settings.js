@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 import Latam from './Latam';
 import Difficulty from './Difficulty';
 import Tenses from './Tenses';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/styles';
 
 const styles = theme => ({
   main: {
-    padding: 0,
-    marginLeft: 170,
-    marginRight: 170,
-    marginTop: 10,
-    height: '90vh',
-    backgroundColor: '#fafafa'
+    width: '380px',
+    margin: '10px auto',
+    backgroundColor: '#fafafa',
+    [theme.breakpoints.up('sm')]: {
+      width: '580px',
+    },
   },
   button: {
     marginRight: 100,
     marginTop: 20,
     width: 120,
-    height: 40
+    height: 40,
   },
   buttonUpdated: {
     marginRight: 100,
@@ -32,18 +32,18 @@ const styles = theme => ({
     height: 40,
     backgroundColor: 'green',
     '&:hover': {
-      backgroundColor: '#1B5E20'
-    }
-  }
+      backgroundColor: '#1B5E20',
+    },
+  },
 });
 
 function Settings(props) {
   const [clicked, setClicked] = useState(false);
-  const { classes } = props;
+  const { classes, history } = props;
 
   const sendHome = () => {
     setTimeout(() => {
-      props.history.push('/');
+      history.push('/');
     }, 1000);
   };
 
@@ -56,29 +56,29 @@ function Settings(props) {
             <Typography color="inherit">Select your settings</Typography>
           </Toolbar>
         </AppBar>
-        <Grid container justify="center" style={{ marginTop: '1rem' }}>
-          <Grid item xs={11} md={8} lg={11}>
-            <Latam />
-            <Difficulty />
-            <Tenses />
-          </Grid>
-        </Grid>
-        <Grid justify="flex-end" container>
-          <Button
-            variant="contained"
-            color="primary"
-            className={clicked ? classes.buttonUpdated : classes.button}
-            onClick={() => {
-              setClicked(!clicked);
-              sendHome();
-            }}
-          >
-            {clicked ? 'Updated' : 'Update'}
-          </Button>
-        </Grid>
+        <Latam />
+        <Difficulty />
+        <Tenses />
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ margin: '20px' }}
+          className={clicked ? classes.buttonUpdated : classes.button}
+          onClick={() => {
+            setClicked(!clicked);
+            sendHome();
+          }}
+        >
+          {clicked ? 'Updated' : 'Update'}
+        </Button>
       </Paper>
     </div>
   );
 }
+
+Settings.propTypes = {
+  classes: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Settings);

@@ -1,37 +1,39 @@
 import React, { useContext } from 'react';
-import { SettingsContext } from './../Contexts/SettingsContext';
+import PropTypes from 'prop-types';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
-import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import { withStyles } from '@material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
+import { SettingsContext } from '../Contexts/SettingsContext';
 
 const styles = {
   section: {
     padding: 0,
     marginTop: 10,
-    backgroundColor: '#fafafa'
-  }
+    backgroundColor: '#fafafa',
+  },
 };
 
 function Latam(props) {
   const { latam, toggleLatam } = useContext(SettingsContext);
   const { classes } = props;
   return (
-    <Paper className={classes.section}>
-      <List>
-        <ListSubheader>Latam Spanish or Spain Spanish</ListSubheader>
-        <ListItem style={{ height: '64px' }}>
-          <Checkbox checked={!latam} onClick={toggleLatam} />
-          <ListItemText>
-            <span>Include "Vosotros"</span>
-          </ListItemText>
-        </ListItem>
-      </List>
-    </Paper>
+    <List className={classes.section}>
+      <ListSubheader>Latam Spanish or Spain Spanish</ListSubheader>
+      <ListItem style={{ height: '64px' }}>
+        <Checkbox checked={!latam} onClick={toggleLatam} />
+        <ListItemText>
+          <span>Include "Vosotros"</span>
+        </ListItemText>
+      </ListItem>
+    </List>
   );
 }
+
+Latam.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Latam);

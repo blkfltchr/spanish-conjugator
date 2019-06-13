@@ -1,22 +1,35 @@
 import React, { useContext } from 'react';
-import { SettingsContext } from './../Contexts/SettingsContext';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
-import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import { withStyles } from '@material-ui/styles';
+import { SettingsContext } from '../Contexts/SettingsContext';
 
-const styles = {
+const styles = theme => ({
   section: {
     padding: 0,
     marginTop: 10,
-    backgroundColor: '#fafafa'
-  }
-};
+    backgroundColor: '#fafafa',
+  },
+  listItem: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  listItemText: {
+    width: '170px',
+    display: 'flex',
+    alignItems: 'center',
+    [theme.breakpoints.up('sm')]: {
+      width: '180px',
+    },
+  },
+});
 
-function Difficulty({ classes }) {
+function Difficulty(props) {
+  const { classes } = props;
   const {
     beginner,
     setBeginner,
@@ -24,15 +37,15 @@ function Difficulty({ classes }) {
     setIntermediate,
     advanced,
     setAdvanced,
-    setDifficulty
+    setDifficulty,
   } = useContext(SettingsContext);
 
   console.log('State Difficulty:', beginner, intermediate, advanced);
   return (
-    <Paper className={classes.section}>
-      <List>
-        <ListSubheader>Difficulty</ListSubheader>
-        <ListItem style={{ height: '64px' }}>
+    <List className={classes.section}>
+      <ListSubheader>Difficulty</ListSubheader>
+      <ListItem className={classes.listItem}>
+        <div className={classes.listItemText}>
           <Checkbox
             checked={beginner}
             onClick={() => {
@@ -43,8 +56,10 @@ function Difficulty({ classes }) {
             }}
           />
           <ListItemText>
-            <span>Commonly used regular verbs</span>
+            <span>Common regular verbs</span>
           </ListItemText>
+        </div>
+        <div className={classes.listItemText}>
           <Checkbox
             checked={intermediate}
             onClick={() => {
@@ -55,8 +70,10 @@ function Difficulty({ classes }) {
             }}
           />
           <ListItemText>
-            <span>Commonly used regular and irregular verbs</span>
+            <span>Common regular and irregular verbs</span>
           </ListItemText>
+        </div>
+        <div className={classes.listItemText}>
           <Checkbox
             checked={advanced}
             onClick={() => {
@@ -69,10 +86,14 @@ function Difficulty({ classes }) {
           <ListItemText>
             <span>All Verbs</span>
           </ListItemText>
-        </ListItem>
-      </List>
-    </Paper>
+        </div>
+      </ListItem>
+    </List>
   );
 }
+
+Difficulty.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Difficulty);
