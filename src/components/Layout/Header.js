@@ -4,7 +4,6 @@ function Header() {
   return (
     <div className="header">
       <h2>
-        Bienvenidos, al{' '}
         <span className="logo">
           Spanish Conjugator{' '}
           <span role="img" aria-label="colombia">
