@@ -47,8 +47,6 @@ function WeekChart() {
     }
   }, [data]);
 
-  console.log('Actual state -->', weekCorrect, weekTotal);
-
   const weekData = [
     { name: 'Sun', correct: weekCorrect[0], answers: weekTotal[0] },
     { name: 'Mon', correct: weekCorrect[1], answers: weekTotal[1] },

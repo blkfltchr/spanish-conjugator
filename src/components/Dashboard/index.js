@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Charts from './Charts';
 import { useQuery } from 'react-apollo-hooks';
 import { GET_MY_INFO } from '../GqlQueries/userQueries';
-// import { LOGS } from '../GqlQueries/logQueries';
 import PresentTense from './Tenses/PresentTense';
 import PreteriteTense from './Tenses/PreteriteTense';
 import ImperfectTense from './Tenses/ImperfectTense';
@@ -20,7 +19,6 @@ function Dashboard() {
 
   const { data } = useQuery(GET_MY_INFO);
 
-  console.log('DATA from dashboard -->', data);
   useEffect(() => {
     if (Object.values(data).length > 0) {
       const present = data.me.logs.filter(val => {
