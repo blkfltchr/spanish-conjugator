@@ -54,15 +54,14 @@ function Dashboard() {
   if (Object.values(data).length > 0) {
     header = (
       <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to your student dashboard {data.me.name}!</h1>
-        <h3>Track your progress.</h3>
+        <h1 className="logo">{data.me.name}'s Dashboard </h1>
       </div>
     );
   } else {
     header = (
       <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to your student dashboard</h1>
-        <h3>
+        <h1 className="logo">Dashboard </h1>
+        <h3 className="logo">
           This is dummy data.{' '}
           <a href="https://www.conjugator.io/login/">Sign-up here</a> to gain
           insights into your progress.

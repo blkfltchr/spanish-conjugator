@@ -9,7 +9,7 @@ const LOGS = gql`
       answer
       correct
       createdAt
-      user {
+      student {
         id
         name
         email
@@ -37,6 +37,26 @@ const CREATE_LOG = gql`
         correct: $correct
       }
     ) {
+      id
+      verbInfinitive
+      tense
+      correctAnswer
+      userAnswer
+      verbPerson
+      correct
+      createdAt
+      student {
+        id
+        name
+        email
+      }
+    }
+  }
+`;
+
+const MY_LOGS = gql`
+  query {
+    myLogs {
       id
       verbInfinitive
       tense
