@@ -153,21 +153,29 @@ function Container() {
   return (
     <div className="app">
       <Header />
-      <div className="verb-info-wrapper">
-        <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
+      <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
+      <div
+        style={{
+          borderRadius: '4px',
+          boxShadow:
+            '0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12)',
+          backgroundColor: 'white',
+          padding: '10px',
+        }}
+      >
         <Info verb={verb} loading={loading} />
+        <Input
+          helperText={helperText}
+          correct={correct}
+          value={value}
+          buttonText={buttonText}
+          addAccent={addAccent}
+          handleSubmit={handleSubmit}
+          person={verb.person}
+          setValue={setValue}
+          handleExample={handleExample}
+        />
       </div>
-      <Input
-        helperText={helperText}
-        correct={correct}
-        value={value}
-        buttonText={buttonText}
-        addAccent={addAccent}
-        handleSubmit={handleSubmit}
-        person={verb.person}
-        setValue={setValue}
-        handleExample={handleExample}
-      />
     </div>
   );
 }
