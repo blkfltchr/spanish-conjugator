@@ -4,7 +4,6 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Latam from './Latam';
 import Difficulty from './Difficulty';
@@ -12,7 +11,7 @@ import Tenses from './Tenses';
 
 const styles = theme => ({
   main: {
-    width: '380px',
+    width: '100%',
     margin: '10px auto',
     backgroundColor: '#fafafa',
     [theme.breakpoints.up('sm')]: {
@@ -51,26 +50,29 @@ function Settings(props) {
   return (
     <div>
       <Paper className={classes.main} elevation={10}>
-        <AppBar color="primary" position="static" style={{ height: '64px' }}>
+        {/* <AppBar color="primary" position="static" style={{ height: '64px' }}>
           <Toolbar>
             <Typography color="inherit">Select your settings</Typography>
           </Toolbar>
-        </AppBar>
+        </AppBar> */}
         <Latam />
         <Difficulty />
         <Tenses />
-        <Button
-          variant="contained"
-          color="primary"
-          style={{ margin: '20px' }}
-          className={clicked ? classes.buttonUpdated : classes.button}
-          onClick={() => {
-            setClicked(!clicked);
-            sendHome();
-          }}
-        >
-          {clicked ? 'Updated' : 'Update'}
-        </Button>
+        <div className="accent-buttons">
+          <button
+            type="button"
+            variant="contained"
+            color="primary"
+            style={{ margin: '20px' }}
+            className={clicked ? classes.buttonUpdated : classes.button}
+            onClick={() => {
+              setClicked(!clicked);
+              sendHome();
+            }}
+          >
+            {clicked ? 'Updated' : 'Update'}
+          </button>
+        </div>
       </Paper>
     </div>
   );
