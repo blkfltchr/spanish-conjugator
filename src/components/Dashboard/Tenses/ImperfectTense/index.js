@@ -6,7 +6,7 @@ const COLORS = ['#0088FE', '#00C49F'];
 function ImperfectTense(props) {
   const data = [
     { name: 'Correct', value: props.impCorrect },
-    { name: 'Incorrect', value: props.impTotal - props.impCorrect }
+    { name: 'Incorrect', value: props.impTotal - props.impCorrect },
   ];
   return (
     <div>
@@ -16,7 +16,12 @@ function ImperfectTense(props) {
           width: '100%',
           height: 200,
           display: 'flex',
-          alignItems: 'center'
+          alignItems: 'center',
+          marginTop: '15px',
+          borderRadius: '4px',
+          backgroundColor: '#fff',
+          boxShadow:
+            '0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12)',
         }}
       >
         <ResponsiveContainer>

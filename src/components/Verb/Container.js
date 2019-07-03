@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { SettingsContext } from '../Contexts/SettingsContext';
 import PropTypes from 'prop-types';
 import { useQuery, useMutation } from 'react-apollo-hooks';
+import { SettingsContext } from '../Contexts/SettingsContext';
 import Info from './Info';
 import Input from './Input';
 import { verbQueries } from '../GqlQueries/verbQueries';
@@ -25,7 +25,7 @@ function Container() {
     infinitiveEnglish: '',
     moodEnglish: '',
     answer: '',
-    person: ''
+    person: '',
   });
 
   const buttonText =
@@ -40,7 +40,7 @@ function Container() {
   // we're importing an array of GraphQL queries and
   // slicing by the level which is a number between 0-6
   const { loading, data } = useQuery(verbQueries[difficulty], {
-    variables: { latam, tenseArr, subjArr }
+    variables: { latam, tenseArr, subjArr },
   });
 
   const mutate = useMutation(CREATE_LOG);
@@ -61,7 +61,7 @@ function Container() {
         tenseEnglish: randomVerb.tenseEnglish,
         moodEnglish: randomVerb.moodEnglish,
         person: Object.keys(randomVerb)[randomVerbNum],
-        answer: Object.values(randomVerb)[randomVerbNum]
+        answer: Object.values(randomVerb)[randomVerbNum],
       });
     }
   };
@@ -80,8 +80,8 @@ function Container() {
           correctAnswer: verb.answer,
           userAnswer: userInput,
           verbPerson: verb.person,
-          correct
-        }
+          correct,
+        },
       });
       console.log('logData -->', logData);
       setUpdated(false);
@@ -153,21 +153,29 @@ function Container() {
   return (
     <div className="app">
       <Header />
-      <div className="verb-info-wrapper">
-        <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
+      <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
+      <div
+        style={{
+          borderRadius: '4px',
+          boxShadow:
+            '0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12)',
+          backgroundColor: 'white',
+          padding: '10px',
+        }}
+      >
         <Info verb={verb} loading={loading} />
+        <Input
+          helperText={helperText}
+          correct={correct}
+          value={value}
+          buttonText={buttonText}
+          addAccent={addAccent}
+          handleSubmit={handleSubmit}
+          person={verb.person}
+          setValue={setValue}
+          handleExample={handleExample}
+        />
       </div>
-      <Input
-        helperText={helperText}
-        correct={correct}
-        value={value}
-        buttonText={buttonText}
-        addAccent={addAccent}
-        handleSubmit={handleSubmit}
-        person={verb.person}
-        setValue={setValue}
-        handleExample={handleExample}
-      />
     </div>
   );
 }
@@ -176,7 +184,7 @@ Container.propTypes = {
   level: PropTypes.number,
   latam: PropTypes.bool,
   updateLevel: PropTypes.func,
-  updateLatam: PropTypes.func
+  updateLatam: PropTypes.func,
 };
 
 export default Container;

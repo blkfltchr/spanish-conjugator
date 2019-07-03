@@ -6,7 +6,7 @@ const COLORS = ['#0088FE', '#00C49F'];
 function PreteriteTense(props) {
   const data = [
     { name: 'Correct', value: props.pretCorrect },
-    { name: 'Incorrect', value: props.pretTotal - props.pretCorrect }
+    { name: 'Incorrect', value: props.pretTotal - props.pretCorrect },
   ];
   return (
     <div>
@@ -16,7 +16,12 @@ function PreteriteTense(props) {
           width: '100%',
           height: 200,
           display: 'flex',
-          alignItems: 'center'
+          alignItems: 'center',
+          marginTop: '15px',
+          borderRadius: '4px',
+          backgroundColor: '#fff',
+          boxShadow:
+            '0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12)',
         }}
       >
         <ResponsiveContainer>

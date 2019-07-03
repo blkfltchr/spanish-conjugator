@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { MY_LOGS_BY_DATE } from '../../../GqlQueries/logQueries';
 import moment from 'moment';
 import { useQuery } from 'react-apollo-hooks';
 import {
@@ -9,8 +8,9 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts';
+import { MY_LOGS_BY_DATE } from '../../../GqlQueries/logQueries';
 
 function MonthlyChart() {
   const [monthData, setMonthData] = useState([0]);
@@ -21,15 +21,15 @@ function MonthlyChart() {
 
   const { data } = useQuery(MY_LOGS_BY_DATE, {
     variables: {
-      date: oneMonthAgo
-    }
+      date: oneMonthAgo,
+    },
   });
 
   // we create an array of objects with the date and
   // the count of correct and total answers on that date
   // "name" is used for the graph
   // "dateForUseEffect" is used for mapping in useEffect
-  let arr = [];
+  const arr = [];
   let days = 30;
   while (days >= 0) {
     arr.push({
@@ -42,7 +42,7 @@ function MonthlyChart() {
         .subtract(days, 'd')
         .format('D'),
       correct: 0,
-      answers: 0
+      answers: 0,
     });
     days--;
   }
@@ -95,7 +95,7 @@ function MonthlyChart() {
         textAlign: 'left',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
       }}
     >
       <div style={{ width: '100px' }}>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Charts from './Charts';
 import { useQuery } from 'react-apollo-hooks';
+import Charts from './Charts';
 import { GET_MY_INFO } from '../GqlQueries/userQueries';
 import PresentTense from './Tenses/PresentTense';
 import PreteriteTense from './Tenses/PreteriteTense';
@@ -21,30 +21,18 @@ function Dashboard() {
 
   useEffect(() => {
     if (Object.values(data).length > 0) {
-      const present = data.me.logs.filter(val => {
-        return val.tense === 'Present';
-      });
-      const presentCor = present.filter(val => {
-        return val.correct === true;
-      });
+      const present = data.me.logs.filter(val => val.tense === 'Present');
+      const presentCor = present.filter(val => val.correct === true);
       setPresentCorrect(Object.values(presentCor).length);
       setPresentTotal(Object.values(present).length);
 
-      const pret = data.me.logs.filter(val => {
-        return val.tense === 'Preterite';
-      });
-      const pretCor = pret.filter(val => {
-        return val.correct === true;
-      });
+      const pret = data.me.logs.filter(val => val.tense === 'Preterite');
+      const pretCor = pret.filter(val => val.correct === true);
       setPretCorrect(Object.values(pretCor).length);
       setPretTotal(Object.values(pret).length);
 
-      const imperfect = data.me.logs.filter(val => {
-        return val.tense === 'Imperfect';
-      });
-      const impCor = imperfect.filter(val => {
-        return val.correct === true;
-      });
+      const imperfect = data.me.logs.filter(val => val.tense === 'Imperfect');
+      const impCor = imperfect.filter(val => val.correct === true);
       setImpCorrect(Object.values(impCor).length);
       setImpTotal(Object.values(imperfect).length);
     }
