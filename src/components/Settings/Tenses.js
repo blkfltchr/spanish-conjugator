@@ -12,20 +12,20 @@ const styles = theme => ({
   section: {
     padding: 0,
     marginTop: 10,
-    backgroundColor: '#fafafa',
+    backgroundColor: '#fafafa'
   },
   listItem: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   },
   listItemText: {
     width: '170px',
     display: 'flex',
     alignItems: 'center',
     [theme.breakpoints.up('sm')]: {
-      width: '180px',
-    },
-  },
+      width: '180px'
+    }
+  }
 });
 
 function Tenses(props) {
@@ -38,10 +38,8 @@ function Tenses(props) {
     tenseArr,
     useUpdate,
     subjArr,
-    useSubjChange,
+    useSubjChange
   } = useContext(SettingsContext);
-
-  console.log('Tenses -->', tenseArr, subjArr);
 
   return (
     <List className={classes.section} elevation={1}>
@@ -144,7 +142,7 @@ function Tenses(props) {
 }
 
 Tenses.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Tenses);

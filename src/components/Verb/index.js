@@ -10,7 +10,7 @@ import Container from './Container';
 const initialState = {
   correct: false,
   randomVerb: {},
-  randomPerson: [],
+  randomPerson: []
 };
 
 class Verb extends Component {
@@ -21,7 +21,7 @@ class Verb extends Component {
       data: latamSpanish(VerbTenseFilters[0]),
       NumberPerson: 'Latam',
       level: 0,
-      count: 0,
+      count: 0
     };
   }
 
@@ -47,38 +47,38 @@ class Verb extends Component {
     );
     this.setState({
       randomVerb,
-      randomPerson,
+      randomPerson
     });
   };
 
   handleRefresh = () => {
     this.setState({
-      ...initialState,
+      ...initialState
     });
     this.randomize();
   };
 
   addCounter = () => {
     this.setState(prevState => ({
-      count: prevState.count + 1,
+      count: prevState.count + 1
     }));
   };
 
   resetCounter = () => {
     this.setState({
-      count: 0,
+      count: 0
     });
   };
 
   updateNumPerson = event => {
     this.setState({
-      NumberPerson: event.target.value,
+      NumberPerson: event.target.value
     });
   };
 
   updateVerbTenses = event => {
     this.setState({
-      level: event.target.value,
+      level: event.target.value
     });
     this.handleRefresh();
   };
@@ -90,14 +90,14 @@ class Verb extends Component {
     if (NumberPerson === 'Spain') {
       const spainSpan = spainSpanish(VerbTenseFilters[Level]);
       this.setState({
-        data: spainSpan,
+        data: spainSpan
       });
     }
 
     if (NumberPerson === 'Latam') {
       const latamSpan = latamSpanish(VerbTenseFilters[Level]);
       this.setState({
-        data: latamSpan,
+        data: latamSpan
       });
     }
     this.handleRefresh();
@@ -105,7 +105,6 @@ class Verb extends Component {
 
   render() {
     const { randomVerb, randomPerson, data, count } = this.state;
-    // console.log('Answer:', randomPerson[1]);
     return (
       <div>
         <Container

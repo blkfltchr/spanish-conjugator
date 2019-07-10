@@ -12,20 +12,20 @@ const styles = theme => ({
   section: {
     padding: 0,
     marginTop: 10,
-    backgroundColor: '#fafafa',
+    backgroundColor: '#fafafa'
   },
   listItem: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   },
   listItemText: {
     width: '170px',
     display: 'flex',
     alignItems: 'center',
     [theme.breakpoints.up('sm')]: {
-      width: '180px',
-    },
-  },
+      width: '180px'
+    }
+  }
 });
 
 function Difficulty(props) {
@@ -37,10 +37,9 @@ function Difficulty(props) {
     setIntermediate,
     advanced,
     setAdvanced,
-    setDifficulty,
+    setDifficulty
   } = useContext(SettingsContext);
 
-  console.log('State Difficulty:', beginner, intermediate, advanced);
   return (
     <List className={classes.section}>
       <ListSubheader>Difficulty</ListSubheader>
@@ -93,7 +92,7 @@ function Difficulty(props) {
 }
 
 Difficulty.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Difficulty);

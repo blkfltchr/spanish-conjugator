@@ -8,7 +8,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
+  ResponsiveContainer
 } from 'recharts';
 import { MY_LOGS_BY_DATE } from '../../../GqlQueries/logQueries';
 
@@ -21,8 +21,8 @@ function MonthlyChart() {
 
   const { data } = useQuery(MY_LOGS_BY_DATE, {
     variables: {
-      date: oneMonthAgo,
-    },
+      date: oneMonthAgo
+    }
   });
 
   // we create an array of objects with the date and
@@ -42,7 +42,7 @@ function MonthlyChart() {
         .subtract(days, 'd')
         .format('D'),
       correct: 0,
-      answers: 0,
+      answers: 0
     });
     days--;
   }
@@ -95,7 +95,7 @@ function MonthlyChart() {
         textAlign: 'left',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'center'
       }}
     >
       <div style={{ width: '100px' }}>
