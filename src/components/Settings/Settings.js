@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 import Latam from './Latam';
 import Difficulty from './Difficulty';
@@ -46,15 +43,12 @@ function Settings(props) {
     }, 1000);
   };
 
-  // console.log('classes from advSettings', props);
   return (
     <div>
+      <div style={{ textAlign: 'center' }}>
+        <h1 className="logo">Settings</h1>
+      </div>
       <Paper className={classes.main} elevation={10}>
-        {/* <AppBar color="primary" position="static" style={{ height: '64px' }}>
-          <Toolbar>
-            <Typography color="inherit">Select your settings</Typography>
-          </Toolbar>
-        </AppBar> */}
         <Latam />
         <Difficulty />
         <Tenses />

@@ -7,7 +7,6 @@ import Input from './Input';
 import { verbQueries } from '../GqlQueries/verbQueries';
 import { CREATE_LOG } from '../GqlQueries/logQueries';
 import Stats from './Stats';
-import Header from '../Layout/Header';
 
 function Container() {
   const [value, setValue] = useState('');
@@ -152,8 +151,14 @@ function Container() {
 
   return (
     <div className="app">
-      <Header />
-      <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
+      <div style={{ textAlign: 'center' }}>
+        <h1 className="logo"><span>
+          Conjugator{' '}
+          <span role="img" aria-label="colombia">
+            🇪🇸
+          </span>
+        </span> </h1>
+      </div>
       <div
         style={{
           borderRadius: '4px',
@@ -163,6 +168,7 @@ function Container() {
           padding: '10px',
         }}
       >
+        <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
         <Info verb={verb} loading={loading} />
         <Input
           helperText={helperText}

@@ -3,14 +3,14 @@ import React from 'react';
 function Header() {
   return (
     <div className="header">
-      <h2>
+      <h1>
         <span className="logo">
-          Bienvenido al Spanish Conjugator{' '}
+          Conjugator{' '}
           <span role="img" aria-label="colombia">
             🇪🇸
           </span>
         </span>
-      </h2>
+      </h1>
     </div>
   );
 }

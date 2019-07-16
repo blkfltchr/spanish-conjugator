@@ -94,4 +94,4 @@ const MY_LOGS_BY_DATE = gql`
   }
 `;
 
-export { LOGS, CREATE_LOG, MY_LOGS_BY_DATE };
+export { LOGS, CREATE_LOG, MY_LOGS_BY_DATE, MY_LOGS };

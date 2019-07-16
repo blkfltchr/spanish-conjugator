@@ -1,11 +1,30 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import FormGroup from '@material-ui/core/FormGroup';
+import TextField from '@material-ui/core/TextField';
 import { Button } from '../../styled/Button';
-import { SmallForm } from '../../styled/Form';
-import { LargeContainer } from '../../styled/Container';
-import { Input } from '../../styled/Input';
 import { useMutation } from 'react-apollo-hooks';
 import { CREATE_USER } from '../GqlQueries/userQueries';
+
+const styles = theme => ({
+  main: {
+    width: '100%',
+    margin: '10px auto',
+    backgroundColor: '#fafafa',
+    [theme.breakpoints.up('sm')]: {
+      width: '580px',
+    },
+  },
+  input: {
+    padding: '15px 30px',
+  },
+  text: {
+    textAlign: 'center',
+    padding: '15px 0',
+  }
+})
 
 function Signup(props) {
   const [name, setName] = useState('');
@@ -40,43 +59,56 @@ function Signup(props) {
     }
   };
 
+  const { classes } = props
+
   return (
-    <SmallForm onSubmit={handleSubmit}>
-      <h2>Sign up</h2>
-      <LargeContainer>
-        <Input>
-          <input
-            type="name"
-            value={name}
-            placeholder="Name"
-            onChange={e => setName(e.target.value)}
-            name="name"
-          />
-          <input
-            type="email"
-            value={email}
-            placeholder="Email"
-            onChange={e => setEmail(e.target.value)}
-            name="email"
-          />
-          <input
-            type="password"
-            value={password}
-            placeholder="Password"
-            onChange={e => setPassword(e.target.value)}
-            name="password"
-          />
-        </Input>
-        {error ? <p>Password needs to be at least 8 characters</p> : null}
-        <Button>
-          <button type="submit">Sign up</button>
-        </Button>
-        <p>
-          Don't have an account yet? <Link to="/login">Log in here</Link>
-        </p>
-      </LargeContainer>
-    </SmallForm>
+    <div>
+      <div style={{ textAlign: 'center' }}>
+        <h1 className="logo">Sign up</h1>
+      </div>
+      <Paper className={classes.main} elevation={10}>
+        <form onSubmit={handleSubmit}>
+          <FormGroup>
+            <TextField
+              className={classes.input}
+              type="name"
+              value={name}
+              placeholder="Name"
+              onChange={e => setName(e.target.value)}
+              name="name"
+            />
+          </FormGroup>
+          <FormGroup>
+            <TextField
+              className={classes.input}
+              type="email"
+              value={email}
+              placeholder="Email"
+              onChange={e => setEmail(e.target.value)}
+              name="email"
+            />
+          </FormGroup>
+          <FormGroup>
+            <TextField
+              className={classes.input}
+              type="password"
+              value={password}
+              placeholder="Password"
+              onChange={e => setPassword(e.target.value)}
+              name="password"
+            />
+          </FormGroup>
+          {error ? <p className={classes.text}>Password needs to be at least 8 characters</p> : null}
+          <Button>
+            <button type="submit">Sign up</button>
+          </Button>
+          <p className={classes.text}>
+            Don't have an account yet? <Link to="/login">Log in here</Link>
+          </p>
+        </form>
+      </Paper>
+    </div>
   );
 }
 
-export default Signup;
+export default withStyles(styles)(Signup);

@@ -11,7 +11,6 @@ export const Input = styled.div`
     font-size: 1.2rem;
     border: none;
     border-bottom: solid 2px #003893;
-    background-color: white;
     height: 35px;
     margin: 10px 0;
     padding: 0 10px;
