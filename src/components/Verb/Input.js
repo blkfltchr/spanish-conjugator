@@ -19,7 +19,7 @@ function Input(props) {
   } = props;
 
   return (
-    <div>
+    <div style={{ padding: "15px 20px"}}>
       <form onSubmit={handleSubmit}>
         <div className="input-section">
           <Person person={person} />
