@@ -103,7 +103,7 @@ function Signup(props) {
             <button type="submit">Sign up</button>
           </Button>
           <p className={classes.text}>
-            Don't have an account yet? <Link to="/login">Log in here</Link>
+            Already have an account? <Link to="/login" style={{ color: 'blue' }}>Log in here</Link>
           </p>
         </form>
       </Paper>

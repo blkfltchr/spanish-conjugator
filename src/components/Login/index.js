@@ -92,7 +92,7 @@ function Login(props) {
             <button type="submit">Login</button>
           </Button>
         <p className={classes.text}>
-          Already have an account? <Link to="/signup">Sign up here</Link>
+          Don't have an account yet? <Link to="/signup" style={{ color: 'blue' }}>Sign up here</Link>
         </p>
         </form>
       </Paper>
