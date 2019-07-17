@@ -166,14 +166,17 @@ function Container(props) {
 
   return (
     <div>
-      <div style={{ textAlign: 'center' }}>
-        <h1 className="logo"><span>
-          Conjugator{' '}
-          <span role="img" aria-label="colombia">
-            🇪🇸
-          </span>
-        </span> </h1>
-      </div>
+      {
+        !window.location.href.match(/landing/) &&
+        <div style={{ textAlign: 'center' }}>
+          <h1 className="logo"><span>
+            Conjugator{' '}
+            <span role="img" aria-label="colombia">
+              🇪🇸
+            </span>
+          </span> </h1>
+        </div>
+      }
       <Paper className={classes.main} elevation={10}>
         <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
         <Info verb={verb} loading={loading} />
