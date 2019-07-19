@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import { useQuery, useMutation } from 'react-apollo-hooks';
 import { SettingsContext } from '../Contexts/SettingsContext';
 import Info from './Info';
@@ -7,9 +9,19 @@ import Input from './Input';
 import { verbQueries } from '../GqlQueries/verbQueries';
 import { CREATE_LOG } from '../GqlQueries/logQueries';
 import Stats from './Stats';
-import Header from '../Layout/Header';
 
-function Container() {
+const styles = theme => ({
+  main: {
+    width: '100%',
+    margin: '10px auto',
+    backgroundColor: '#fafafa',
+    [theme.breakpoints.up('sm')]: {
+      width: '580px',
+    },
+  },
+})
+
+function Container(props) {
   const [value, setValue] = useState('');
   const [bestStreak, setBestStreak] = useState(0);
   const [totalAnswers, setTotalAnswers] = useState(0);
@@ -150,19 +162,23 @@ function Container() {
     );
   };
 
+  const { classes } = props;
+
   return (
-    <div className="app">
-      <Header />
-      <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
-      <div
-        style={{
-          borderRadius: '4px',
-          boxShadow:
-            '0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12)',
-          backgroundColor: 'white',
-          padding: '10px',
-        }}
-      >
+    <div>
+      {
+        !window.location.href.match(/landing/) &&
+        <div style={{ textAlign: 'center' }}>
+          <h1 className="logo"><span>
+            Conjugator{' '}
+            <span role="img" aria-label="colombia">
+              🇪🇸
+            </span>
+          </span> </h1>
+        </div>
+      }
+      <Paper className={classes.main} elevation={10}>
+        <Stats count={count} percentage={percentage} bestStreak={bestStreak} />
         <Info verb={verb} loading={loading} />
         <Input
           helperText={helperText}
@@ -175,7 +191,7 @@ function Container() {
           setValue={setValue}
           handleExample={handleExample}
         />
-      </div>
+      </Paper>
     </div>
   );
 }
@@ -187,4 +203,4 @@ Container.propTypes = {
   updateLatam: PropTypes.func,
 };
 
-export default Container;
+export default withStyles(styles)(Container);

@@ -23,7 +23,7 @@ function Stats(props) {
 
 Stats.propTypes = {
   count: PropTypes.number,
-  percentage: PropTypes.number,
+  percentage: PropTypes.string,
   bestStreak: PropTypes.number,
 };
 

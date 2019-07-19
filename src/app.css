@@ -108,28 +108,22 @@ body {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  background: white;
-  padding: 5px 10%;
+  background-color: blue;
+  padding: 10px 25px;
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
 }
 
-@media only screen and (max-width: 630px) {
-  .nav {
-    justify-content: flex-start;
-  }
-}
-
 .inactive {
   margin: 0 5px;
-  color: blue;
+  color: white;
   text-decoration: none;
 }
 
 .active-link {
   margin: 0 5px;
-  color: darkblue;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 390px) {
@@ -152,12 +146,6 @@ body {
   font-family: 'Saira';
   color: #003893;
   font-weight: 900;
-}
-
-@media only screen and (max-width: 630px) {
-  .logo {
-    display: none;
-  }
 }
 
 /* Header styles */

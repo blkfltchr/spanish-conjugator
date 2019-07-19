@@ -4,18 +4,13 @@ import { NavLink } from 'react-router-dom';
 function Nav(props) {
   return (
     <nav className="nav">
-      <NavLink className="inactive" to="/">
-        <span className="logo">Spanish Conjugator</span>
+      <NavLink
+        className="inactive"
+        to="/"
+      >
+        Spanish Conjugator
       </NavLink>
       <div>
-        <NavLink
-          exact
-          activeClassName="active-link"
-          className="inactive"
-          to="/"
-        >
-          Home
-        </NavLink>
         <NavLink
           exact
           activeClassName="active-link"

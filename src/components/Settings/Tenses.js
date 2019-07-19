@@ -35,9 +35,7 @@ function Tenses(props) {
     setPresent,
     pret,
     setPret,
-    tenseArr,
     useUpdate,
-    subjArr,
     useSubjChange
   } = useContext(SettingsContext);
 
