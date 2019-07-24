@@ -50,11 +50,11 @@ function Login(props) {
         password: password
       }
     });
-
     props.updateToken(data.login.token);
-
+    localStorage.setItem('jwt', data.login.token)
     if (!error) {
       props.history.push('/');
+      window.location.reload();
     }
   };
 

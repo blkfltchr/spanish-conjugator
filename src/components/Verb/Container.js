@@ -163,11 +163,11 @@ function Container(props) {
   };
 
   const { classes } = props;
-
+  console.log("containerprops", props)
   return (
     <div>
       {
-        !window.location.href.match(/landing/) &&
+        localStorage.getItem('jwt') &&
         <div style={{ textAlign: 'center' }}>
           <h1 className="logo"><span>
             Conjugator{' '}
