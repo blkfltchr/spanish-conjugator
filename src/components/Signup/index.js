@@ -53,9 +53,10 @@ function Signup(props) {
       }
     });
     props.updateToken(data.createUser.token);
-
+    localStorage.setItem('jwt', data.login.token)
     if (!error) {
       props.history.push('/');
+      window.location.reload();
     }
   };
 
