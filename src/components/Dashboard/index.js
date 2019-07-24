@@ -47,12 +47,10 @@ function Dashboard() {
     );
   } else {
     header = (
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center', margin: '0 auto', maxWidth: '600px' }}>
         <h1 className="logo">Dashboard </h1>
         <h3 className="logo">
-          This is dummy data.{' '}
-          <a href="https://www.conjugator.io/login/">Sign-up here</a> to gain
-          insights into your progress.
+          This is dummy data. Start practicing your verb conjugation to fill up the dashboard with real results. Stay tuned to gain insights into your progress.
         </h3>
       </div>
     );

@@ -41,7 +41,7 @@ function Container(props) {
   });
 
   const buttonText =
-    verb.answer !== value.toLowerCase() && answered ? 'Next verb' : 'Submit';
+    answered ? 'Next verb' : 'Submit';
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
 
