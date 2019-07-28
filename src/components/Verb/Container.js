@@ -41,7 +41,7 @@ function Container(props) {
   });
 
   const buttonText =
-    verb.answer !== value.toLowerCase() && answered ? 'Next verb' : 'Submit';
+    answered ? 'Next verb' : 'Submit';
   const percentage =
     totalAnswers < 1 ? 0 : ((correctAnswers / totalAnswers) * 100).toFixed(0);
 
@@ -163,11 +163,11 @@ function Container(props) {
   };
 
   const { classes } = props;
-
+  console.log("containerprops", props)
   return (
     <div>
       {
-        !window.location.href.match(/landing/) &&
+        localStorage.getItem('jwt') &&
         <div style={{ textAlign: 'center' }}>
           <h1 className="logo"><span>
             Conjugator{' '}

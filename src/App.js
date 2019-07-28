@@ -43,7 +43,7 @@ function App() {
   const updateToken = tok => {
     setToken(tok);
   };
-
+  console.log("app token", token)
   return (
     <ApolloProvider client={client}>
       <div className="app-wrapper">
@@ -53,6 +53,9 @@ function App() {
             exact
             path="/"
             render={() => (
+              !localStorage.getItem('jwt') ? (
+                <Landing />
+              ) :
               <Container
                 latam={latam}
                 level={level}
@@ -81,7 +84,6 @@ function App() {
             path="/settings"
             render={props => <Settings {...props} />}
           />
-          <Route path="/landing" component={Landing} />
           <Route render={() => <h1>URL not found!</h1>} />
         </Switch>
       </div>

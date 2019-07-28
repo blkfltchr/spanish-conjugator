@@ -11,23 +11,26 @@ function Nav(props) {
         Spanish Conjugator
       </NavLink>
       <div>
-        <NavLink
-          exact
-          activeClassName="active-link"
-          className="inactive"
-          to="/dashboard"
-        >
-          Dashboard
-        </NavLink>
-        <NavLink
-          exact
-          activeClassName="active-link"
-          className="inactive"
-          to="/settings"
-        >
-          Settings
-        </NavLink>
-        {props.token.length > 0 ? null : (
+        {localStorage.getItem('jwt') ?
+          <>
+            <NavLink
+              exact
+              activeClassName="active-link"
+              className="inactive"
+              to="/dashboard"
+            >
+              Dashboard
+            </NavLink>
+            <NavLink
+              exact
+              activeClassName="active-link"
+              className="inactive"
+              to="/settings"
+            >
+              Settings
+            </NavLink>
+          </> 
+        : (
           <NavLink
             exact
             activeClassName="active-link"
