@@ -16,7 +16,7 @@
     "apollo-boost": "^0.3.1",
     "apollo-client": "^2.5.1",
     "apollo-link-context": "^1.0.17",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "graphql": "^14.3.0",
